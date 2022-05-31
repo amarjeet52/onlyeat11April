@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="currency"
+            type="String" />
+
+        <variable
+            name="prodlistener"
+            type="com.codebrew.clikat.dialog_flow.adapter.ProdListener" />
+
+        <variable
+            name="productItem"
+            type="com.codebrew.clikat.modal.other.ProductDataBean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isWeightVisible"
+            type="Boolean" />
+
+        <variable
+            name="isSocialLyt"
+            type="Boolean" />
+
+        <variable
+            name="sociallistener"
+            type="com.codebrew.clikat.module.social_post.bottom_sheet.adapter.BottomAdapter.SPListener" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/dp_04"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/dp_04"
+        android:onClick="@{(view) -> (sociallistener!=null) ? sociallistener.onProductClick(productItem) :prodlistener.prodClick(productItem)}"
+        android:paddingStart="@dimen/value_12"
+        android:paddingTop="@dimen/value_8"
+        android:paddingEnd="@dimen/value_12"
+        android:paddingBottom="@dimen/value_8"
+        app:background="@{color.appBackground}">
+
+
+        <TextView
+            android:id="@+id/tv_real_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:minHeight="0dp"
+            android:text="@{@string/currency_tag(currency,productItem.price), default=`QAR 0.0`}"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/rb_rating"
+            app:layout_constraintStart_toEndOf="@+id/tv_discount_price"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeight"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_goneMarginStart="@dimen/small_margin"
+            app:textcolor="@{color.textListSubhead}"
+            tools:text="USD 50"
+            tools:visibility="visible" />
+
+        <RatingBar
+            android:id="@+id/rb_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:isIndicator="true"
+            android:focusable="false"
+            android:rating="@{productItem.avg_rating}"
+            android:visibility="@{isSocialLyt ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_product"
+            app:layout_constraintStart_toEndOf="@+id/iv_product"
+            app:layout_constraintTop_toBottomOf="@+id/tv_real_price"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="2"
+            android:text="@{productItem.name, default=`Supplier`}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_supplier_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_product"
+            app:layout_constraintTop_toTopOf="@+id/iv_product"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:textcolor="@{color.textHead}"
+            tools:text="@string/awesome_product" />
+
+
+        <TextView
+            android:id="@+id/tv_supplier_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{@string/supplier_tag(productItem.supplier_name), default=`Supplier`}"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/tvWeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toEndOf="@+id/iv_product"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:textcolor="@{color.textBody}"
+            tools:text="Supplier Name" />
+
+
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:visibility="@{productItem.duration>0 &amp; isWeightVisible ? View.VISIBLE : View.GONE}"
+            android:text="@{@string/weight_tag(productItem.duration), default=`Weight`}"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/tv_real_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toEndOf="@+id/iv_product"
+            app:layout_constraintTop_toBottomOf="@+id/tv_supplier_name"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:textcolor="@{color.textBody}"
+            tools:text="Weight"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/tv_discount_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="1"
+            android:text="@{@string/currency_tag(currency,productItem.display_price), default=`QAR 0.0`}"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_real_price"
+            app:layout_constraintEnd_toStartOf="@+id/tv_real_price"
+            app:layout_constraintStart_toEndOf="@+id/iv_product"
+            app:layout_constraintTop_toTopOf="@+id/tv_real_price"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:textcolor="@{color.textHead}"
+            tools:text="QAR 50"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_type_custmize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{strings.customisable}"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/text_medium"
+            android:visibility="@{productItem.adds_on.size()>0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_real_price"
+            app:layout_constraintStart_toEndOf="@+id/tv_real_price"
+            app:layout_constraintTop_toTopOf="@+id/tv_real_price"
+            app:textcolor="@{color.primaryColor}" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:visibility="gone"
+            app:background="@{color.divider}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_product"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            app:customSrc="@{productItem.image_path.toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+
+        <TextView
+            android:id="@+id/stock_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha=".8"
+            android:background="@android:color/holo_red_light"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:minHeight="0dp"
+            android:padding="@dimen/value_4"
+            android:text="@string/out_of_stock"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_product"
+            app:layout_constraintEnd_toEndOf="@+id/iv_product"
+            app:layout_constraintStart_toStartOf="@+id/iv_product" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grp_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{isSocialLyt ? View.GONE : View.VISIBLE}"
+            app:constraint_referenced_ids="tv_real_price,tv_type_custmize,tv_discount_price,tvWeight"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

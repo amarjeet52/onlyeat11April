@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.module.payment_gateway.adapter.PayListener" />
+
+        <variable
+            name="payModel"
+            type="com.codebrew.clikat.data.model.others.CustomPayModel" />
+
+        <variable
+            name="isFromWallet"
+            type="Boolean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/ivSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/value_4"
+            android:onClick="@{() -> listener.imageClick(payModel,position)}"
+            android:src="@drawable/ic_radio_unactive"
+            android:tint="@color/colorPrimary"
+            android:visibility="@{isFromWallet ? View.VISIBLE :View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_choose_payment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rb_choose_payment" />
+
+        <ImageView
+            android:id="@+id/operatorImage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:visibility="@{payModel.mumybenePay==null   ? View.GONE : View.VISIBLE}"
+            app:drawable="@{payModel.image}"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_choose_payment"
+            app:layout_constraintStart_toEndOf="@+id/ivSelection"
+            app:layout_constraintTop_toTopOf="@+id/rb_choose_payment"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/rb_choose_payment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_04"
+            android:layout_toEndOf="@+id/operatorImage"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_next"
+            android:fontFamily="@font/proximanovaregular"
+            android:gravity="start|center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{() -> listener.imageClick(payModel,position)}"
+            android:padding="@dimen/value_8"
+            android:text="@string/supplier_name"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvAddMoney"
+            app:layout_constraintStart_toEndOf="@+id/operatorImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:text="@{payModel.mumybenePay==null ? payModel.payName : payModel.mumybenePay}" />
+
+        <TextView
+            android:id="@+id/tvWalletDiscountText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rb_choose_payment"
+            android:layout_marginStart="@dimen/value_06"
+            android:fontFamily="@font/proximanovaregular"
+            android:gravity="start|center"
+            android:paddingBottom="@dimen/value_8"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_12"
+            android:visibility="@{!isFromWallet  &amp; payModel.payName== @string/wallet ? View.VISIBLE :View.GONE}"
+            app:layout_constraintEnd_toEndOf="@+id/rb_choose_payment"
+            app:layout_constraintStart_toStartOf="@+id/rb_choose_payment"
+            app:layout_constraintTop_toBottomOf="@+id/rb_choose_payment" />
+
+        <TextView
+            android:id="@+id/tvAddMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_search_border"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_06"
+            android:paddingEnd="@dimen/value_8"
+            android:visibility="@{!isFromWallet  &amp; payModel.payName== @string/wallet ? View.VISIBLE :View.GONE}"
+            android:paddingBottom="@dimen/value_06"
+            android:text="@string/add_money"
+            android:onClick="@{() -> listener.addMoneyClicked(payModel)}"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

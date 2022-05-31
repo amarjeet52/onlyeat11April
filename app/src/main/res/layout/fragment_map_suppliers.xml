@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.supplier_all.SupplierListViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/greyED">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_image_4"
+                app:layout_constraintDimensionRatio="1:0.35"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/value_16"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivBack"
+                android:layout_marginStart="@dimen/value_24"
+                android:layout_marginTop="@dimen/value_16"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/near_you"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_xxxlarge"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toBottomOf="@+id/rlTop" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fb_current_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/map"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_location" />
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentLoadingProgressBar2"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

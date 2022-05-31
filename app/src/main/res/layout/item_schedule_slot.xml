@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.module.cart.schedule_order.adapter.ItemListener" />
+
+        <variable
+            name="itemData"
+            type="com.codebrew.clikat.data.model.others.ScheduleItemList" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:checked="@{itemData.isStatus?true:false}"
+        android:layoutDirection="rtl"
+        android:minHeight="0dp"
+        android:textSize="@dimen/text_medium"
+        android:fontFamily="@font/proximanovasemibold"
+        android:layout_margin="@dimen/dp_04"
+        android:padding="@dimen/small_margin"
+        android:onClick="@{() -> listener.slotItem(itemData,position)}"
+        android:textAlignment="textStart"
+        app:text="@{itemData.startDate +'-'+ itemData.endDate}"
+        tools:text="RadioButton" />
+
+
+</layout>

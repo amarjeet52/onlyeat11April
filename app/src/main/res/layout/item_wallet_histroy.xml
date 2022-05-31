@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.wallet.WalletViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/value_56"
+            android:layout_height="@dimen/value_56"
+            android:layout_marginStart="@dimen/value_24"
+            android:layout_marginTop="@dimen/value_20"
+            android:layout_marginEnd="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_20"
+            android:src="@drawable/ic_wallet"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            app:layout_constraintEnd_toStartOf="@+id/tvAmount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/value_4" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/value_24"
+            android:fontFamily="@font/proximanovasemibold"
+            tools:text="$20.00"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toTopOf="@+id/tvAmountAddedTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toTopOf="@+id/ivImage"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvAmountAddedTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_4"
+            android:layout_marginEnd="@dimen/value_24"
+            android:fontFamily="@font/proximanovaregular"
+            tools:text="Amount added - 2 days ago"
+            android:textColor="@color/textColorLight"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvAmount"
+            app:layout_constraintTop_toBottomOf="@+id/tvAmount" />
+
+        <View
+            android:id="@+id/divider"
+            background="@{color.divider}"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

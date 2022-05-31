@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.user_tracking.UserTracking">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.order_detail.OrderDetailViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/toolbar">
+
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    tools:context="com.codebrew.clikat.module.user_tracking.UserTracking" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:singleLine="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_18" />
+
+                        <TextView
+                            android:id="@+id/tvHelp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/help"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/text_size_18"
+                            tools:ignore="RelativeOverlap" />
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            layout="@layout/content_scrolling"
+            app:color="@{color}" />
+        <ImageView
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_gravity="center"
+            android:id="@+id/imageLoader"/>
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentLoadingProgressBar3"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

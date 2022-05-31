@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.social_post.SocialPostViewModel" />
+
+        <variable
+            name="socialPost"
+            type="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput" />
+
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/toolbar_subscription"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_gudline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_gudline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_edit_post"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:gravity="center"
+                    android:text="Edit Post"
+                    android:textSize="@dimen/text_small"
+                    app:icon="@drawable/ic_edit_prof"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/dp_04"
+                    app:iconSize="@dimen/medium_margin"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rippleColor="@color/colorPrimary"
+                    app:textcolor="@{color.primaryColor}" />
+
+
+                <TextView
+                    android:id="@+id/txt_supl_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Supplier"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_16"
+                    android:layout_marginStart="@dimen/dp_04"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_edit_post"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <TextView
+                    android:id="@+id/etSupplier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:text="@{socialPost.supplier_data.name ,default=`Enter Supplier`}"
+                    android:textSize="@dimen/text_large"
+                    app:hintcolor="@{color.textSubhead}"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_supl_title"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/txt_post_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Post Heading"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_16"
+                    android:layout_marginStart="@dimen/dp_04"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/etSupplier"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <TextView
+                    android:id="@+id/etPostHead"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="start"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    android:text="@{socialPost.post_head ,default=`Enter Post Heading`}"
+                    android:textSize="@dimen/text_large"
+                    app:hintcolor="@{color.textSubhead}"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_post_head"
+                    app:textcolor="@{color.textHead}" />
+
+                <TextView
+                    android:id="@+id/txt_post_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Post Description"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_16"
+                    android:layout_marginStart="@dimen/dp_04"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/etPostHead"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <TextView
+                    android:id="@+id/etDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="start"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:scrollbars="vertical"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    android:text="@{socialPost.post_desc ,default=`Enter Description`}"
+                    android:textSize="@dimen/text_large"
+                    app:hintcolor="@{color.textSubhead}"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_post_desc"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/txt_post_images"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Post Images"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_16"
+                    android:layout_marginStart="@dimen/dp_04"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/etDesc"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvImages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_post_images"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/header_prescription_image" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cancel"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/value_4"
+                    android:paddingBottom="@dimen/value_4"
+                    android:text="@string/cancel"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    android:textAllCaps="true"
+                    android:textColor="@color/brown"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/rvImages"
+                    app:rippleColor="@color/brown" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPost"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    android:enabled="@{viewModel.isLoading ?false:true}"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.createUserPost(socialPost)}"
+                    android:paddingTop="@dimen/value_4"
+                    android:paddingBottom="@dimen/value_4"
+                    android:text="Publish Post"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium"
+                    app:background="@{viewModel.isLoading ?color.textSubhead:color.primaryColor}"
+                    app:cornerRadius="@dimen/small_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_cancel"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:rippleColor="@color/white"
+                    app:textcolor="@{color.appBackground}" />
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:progessBackground="@{color.primaryColor}" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_images"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible"
+                    android:visibility="@{socialPost.imageList.size()>0 ? View.VISIBLE : View.GONE}"
+                    app:constraint_referenced_ids="rvImages,txt_post_images" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

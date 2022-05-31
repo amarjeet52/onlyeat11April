@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.selectAgent.SelectAgentViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isAgentRating"
+            type="Boolean" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:background="@{color.appBackground}"
+        tools:context="com.codebrew.clikat.module.selectAgent.SelectAgent">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+
+        <include
+            android:id="@+id/agentDetail"
+            layout="@layout/item_agent_list"
+            app:isAgentRating="@{isAgentRating}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gudline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gudline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/book_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:padding="@dimen/dp_05"
+            android:text="@string/select_time_slot"
+            android:textSize="@dimen/text_large"
+            app:categoryType="text_head"
+            app:layout_constraintStart_toStartOf="@id/gudline_start"
+            app:layout_constraintTop_toBottomOf="@+id/agentDetail" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_text"
+            app:tabGravity="fill"
+            android:background="@color/colorPrimary_10"
+            app:tabIndicateColr="@{color.primaryColor}"
+            app:tabSelectedText="@{color.primaryColor}"
+            app:tabTextColr="@{color.textHead}"
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="scrollable" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gudline_end"
+            app:layout_constraintStart_toStartOf="@id/gudline_start"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_timeslot"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible"
+                        app:background="@{color.appBackground}" />
+
+
+                    <include
+                        android:id="@+id/noData"
+                        layout="@layout/nothing_found"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:color="@{color}"
+                        app:drawables="@{drawables}"
+                        app:strings="@{strings}" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/book_slot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_05"
+                    android:gravity="center"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/book_slot"
+                    android:textSize="@dimen/text_large"
+                    app:background="@{color.primaryColor}"
+                    app:textcolor="@{color.appBackground}" />
+
+
+            </LinearLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

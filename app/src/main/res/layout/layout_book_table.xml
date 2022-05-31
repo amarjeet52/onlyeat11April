@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.agent_time_slot.AgentViewModel" />
+
+        <variable
+            name="supplierModel"
+            type="com.codebrew.clikat.modal.other.SupplierDetailBean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isSupplierRating"
+            type="Boolean" />
+
+        <variable
+            name="settingData"
+            type="com.codebrew.clikat.modal.other.SettingModel.DataBean.SettingData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFDF4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:visibility="visible"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <ImageView
+                android:id="@+id/ivSupplierBanner1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_1"
+                app:layout_constraintDimensionRatio="H,4:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg_whitet"
+                app:layout_constraintBottom_toBottomOf="@+id/ivSupplierBanner1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivSupplierBanner1">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivSupplierIcon"
+                    android:layout_width="74dp"
+                    android:layout_height="74dp"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:src="@drawable/food_point"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/ivSupplierIcon"
+                    app:layout_constraintStart_toStartOf="@+id/ivSupplierIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/ivSupplierIcon"
+                    tools:text="@string/action_send" />
+
+                <TextView
+                    android:id="@+id/tvDescCrave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_4"
+                    android:layout_marginBottom="@dimen/value_4"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textColor="@color/greyD7"
+                    android:textSize="@dimen/text_large"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivSupplierIcon"
+                    app:layout_constraintStart_toStartOf="@+id/ivSupplierIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    tools:text="Desc" />
+
+
+                <TextView
+                    android:id="@+id/txt_supplier_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/delivery_in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivSupplierIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_supplier_inf_crave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:padding="@dimen/dp_04"
+                    android:text="@{@string/min_max_time_(supplierModel.delivery_min_time,supplierModel.delivery_max_time)}"
+                    android:textColor="@color/greyD7"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/txt_supplier_in"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_supplier_in"
+                    tools:text="@string/action_send" />
+
+                <TextView
+                    android:id="@+id/tvRatingCrave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:maxLines="1"
+                    android:text="@string/rating"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/ivSupplierIcon"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="tags" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/groupTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:constraint_referenced_ids="tvRatingCrave,txt_supplier_in" />
+
+
+                <TextView
+                    android:id="@+id/tv_rating_crave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:drawableEnd="@drawable/ic_star_white"
+                    android:drawablePadding="@dimen/value_4"
+                    android:paddingStart="@dimen/small_margin"
+                    android:paddingTop="@dimen/dp_04"
+                    android:paddingEnd="@dimen/small_margin"
+                    android:paddingBottom="@dimen/dp_04"
+                    android:text="@{(supplierModel.rating>0)? String.valueOf(supplierModel.rating) : `0.0`}"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_small"
+                    app:drawableEndCompat="@drawable/ic_star_white"
+                    app:layout_constraintStart_toStartOf="@+id/tvRatingCrave"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRatingCrave"
+                    app:ratecolor="@{supplierModel.rating}"
+                    app:textcolor="@{color.appBackground}" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/cl_layout"
+            android:fitsSystemWindows="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/button_bg_whitetnew">
+
+                <RelativeLayout
+                    android:id="@+id/rl_tac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_40sdp"
+
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tv_open"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="@string/open_"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_open_timing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_open"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="10am - 8 pm"
+                        android:textColor="@color/blue_color"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_open_timing"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Address"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_address_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_address"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Quatar DOHA"
+                        android:textColor="@color/blue_color"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_address_t"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Average Cost"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_cost_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_cost"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="130 QAR for two"
+                        android:textColor="@color/blue_color"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <View
+                        android:id="@+id/iv_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_3sdp"
+                        android:layout_below="@+id/tv_cost_t"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:background="#FFFDF4" />
+
+                    <TextView
+                        android:id="@+id/tv_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_view"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="OTHER INFORMATION"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_others"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_below="@+id/tv_other"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/iv1"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_below="@+id/tv_other"
+                        android:layout_marginTop="@dimen/_10sdp"
+
+                        android:background="@drawable/chlid_seat" />
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_other"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_toRightOf="@+id/iv1"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Childern seat available"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv2"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_below="@+id/tv1"
+                        android:layout_marginTop="@dimen/_6sdp"
+
+                        android:background="@drawable/no_smoking" />
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv1"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_toRightOf="@+id/iv2"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="No Smoking"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv3"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_below="@+id/tv2"
+                        android:layout_marginTop="@dimen/_6sdp"
+
+                        android:background="@drawable/parking" />
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv2"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_toRightOf="@+id/iv3"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Parking available"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv4"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_below="@+id/tv3"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:background="@drawable/home_delivery" />
+
+                    <TextView
+                        android:id="@+id/tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv3"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_toRightOf="@+id/iv4"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Home Delivery"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12ssp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_below="@+id/rl_tac"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/button_bg_yellow"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:text="Book Table"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13ssp" />
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

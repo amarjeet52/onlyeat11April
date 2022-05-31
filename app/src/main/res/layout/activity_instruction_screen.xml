@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lytMain"
+        android:background="@drawable/yellow_bg_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintBottom_toTopOf="@+id/indicator"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.18" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:ci_animator="@animator/indicator_animator"
+            app:ci_animator_reverse="@animator/indicator_animator_reverse"
+            app:ci_drawable="@drawable/shape_app_color"
+            app:ci_drawable_unselected="@drawable/shape_grey_color"
+            app:ci_height="4dp"
+            app:ci_margin="6dp"
+            app:ci_width="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPager" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tvContinue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_continue"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/xlarge_margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            app:cornerRadius="@dimen/medium_margin"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indicator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

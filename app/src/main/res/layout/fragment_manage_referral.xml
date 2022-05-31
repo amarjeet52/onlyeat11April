@@ -1,0 +1,59 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.manage_referral.ManageReferralFrag">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout_referral"
+            style="@style/Widget.Design.TabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:background="@{color.toolbarColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:tabIndicateColr="@{color.toolbarText}"
+            app:tabSelectedText="@{color.toolbarText}"
+            app:tabTextColr="@{color.textSubhead}" />
+
+        <com.codebrew.clikat.app_utils.CustomViewPager
+            android:id="@+id/referral_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout_referral">
+
+        </com.codebrew.clikat.app_utils.CustomViewPager>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

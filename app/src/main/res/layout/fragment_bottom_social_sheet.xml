@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.social_post.SocialPostViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet"
+        style="@style/Widget.MaterialComponents.BottomSheet.Modal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:behavior_hideable="false"
+        app:background="@android:color/transparent"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:id="@+id/ic_cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:src="@drawable/ic_social_cross"
+            android:padding="@dimen/small_margin"
+            app:layout_constraintBottom_toTopOf="@+id/cnst_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cnst_toolbar"
+            app:layout_constraintTop_toTopOf="@+id/cnst_toolbar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnst_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/background_white_top_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tb_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/location"
+                android:textAlignment="center"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_large"
+                android:textStyle="bold"
+                android:padding="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textSubhead}"
+                tools:targetApi="m" />
+
+            <EditText
+                android:id="@+id/ed_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@drawable/shape_search_border"
+                android:fontFamily="@font/proximanovaregular"
+                android:hint="@string/search_here"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:padding="@dimen/small_margin"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tb_name" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/small_margin"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ed_search"
+                tools:listitem="@layout/dgflow_item_product" />
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:background="@{color.divider}"
+                app:layout_constraintBottom_toTopOf="@+id/commentContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_list" />
+
+
+            <LinearLayout
+                android:id="@+id/commentContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_radius_back_ground"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_04"
+                android:layout_margin="@dimen/small_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+
+                <EditText
+                    android:id="@+id/ed_add_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="Add a comment..."
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:maxLines="3"
+                    android:paddingStart="@dimen/small_margin"
+                    android:paddingEnd="@dimen/small_margin"
+                    android:scrollbars="vertical"
+                    android:textSize="@dimen/text_large"
+                    tools:text="sa" />
+
+                <ImageView
+                    android:id="@+id/post_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/value_10"
+                    android:enabled="@{viewModel.isLoading ?false:true}"
+                    android:src="@drawable/ic_send_black"
+                    tools:ignore="ContentDescription" />
+
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:constraint_referenced_ids="commentContainer" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

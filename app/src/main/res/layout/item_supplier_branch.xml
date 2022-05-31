@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:background="@drawable/background_round_skip"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/ivImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_pickup_banner_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/value_8" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_8"
+                android:fontFamily="@font/proximanovasemibold"
+                tools:text="Le Hamburg"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/tvDistance"
+                app:layout_constraintEnd_toStartOf="@+id/tvRating"
+                app:layout_constraintStart_toEndOf="@+id/ivImage"
+                app:layout_constraintTop_toTopOf="@+id/ivImage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRating"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/value_8"
+                android:drawableStart="@drawable/star_grey"
+                android:drawablePadding="@dimen/value_4"
+                android:textSize="@dimen/text_size_12"
+                android:fontFamily="@font/proximanovaregular"
+                tools:text="4.7"
+                android:gravity="center_vertical"
+                app:drawableTint="@color/colorPrimary"
+                app:layout_constraintEnd_toStartOf="@+id/tvViewMenu"
+                app:layout_constraintStart_toEndOf="@+id/tvName"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDistance"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_8"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_8"
+                android:drawableStart="@drawable/ic_address"
+                android:drawablePadding="@dimen/value_4"
+                android:textSize="@dimen/text_size_12"
+                android:gravity="center_vertical"
+                app:drawableTint="@color/colorPrimary"
+                android:fontFamily="@font/proximanovaregular"
+                tools:text="2 Km"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTime"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/value_8"
+                app:drawableTint="@color/colorPrimary"
+                android:drawableEnd="@drawable/ic_clock"
+                android:drawablePadding="@dimen/value_4"
+                android:textSize="@dimen/text_size_12"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/proximanovaregular"
+                tools:text="15 min"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDistance"
+                app:layout_constraintEnd_toStartOf="@+id/tvViewMenu"
+                app:layout_constraintTop_toTopOf="@+id/tvDistance" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="@dimen/value_8"
+                android:textSize="@dimen/text_size_12"
+                android:id="@+id/tvViewMenu"
+                android:visibility="visible"
+                android:fontFamily="@font/proximanovaregular"
+                android:paddingStart="@dimen/value_12"
+                android:background="@drawable/back_rec_theme_color_solid_round"
+                android:paddingEnd="@dimen/value_12"
+                android:textColor="@color/white"
+                android:paddingBottom="@dimen/value_8"
+                android:paddingTop="@dimen/value_8"
+                android:text="@string/view_menu"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

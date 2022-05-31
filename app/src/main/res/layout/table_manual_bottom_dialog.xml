@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/value_8">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:text="Enter table number"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_24" />
+
+    <EditText
+        android:id="@+id/etTableNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/value_8"
+        android:inputType="number|phone"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/value_16"
+        android:background="@drawable/et_radius_back_ground"/>
+
+    <TextView
+        android:id="@+id/verifyTable"
+        android:layout_width="wrap_content"
+        android:layout_gravity="end"
+        android:padding="@dimen/value_8"
+        android:textSize="@dimen/text_size_12"
+        android:text="Verify"
+        android:layout_marginTop="@dimen/value_16"
+        android:textColor="@color/colorPrimary"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

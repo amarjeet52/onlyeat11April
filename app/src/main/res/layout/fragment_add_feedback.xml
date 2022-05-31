@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.feedback.FeedbackViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_dark_white"
+        android:fitsSystemWindows="true">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_color_primary_bottom_corners"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_16"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                textcolor="@{color.appBackground}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginBottom="@dimen/value_30"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/feedback_suggestions"
+                android:textSize="@dimen/text_size_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_16">
+
+
+                <TextView
+                    android:id="@+id/tvFeatureTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/feature"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/etFeature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:background="@drawable/bg_gray_stroke_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/enter_here"
+                    android:imeOptions="actionNext"
+                    android:padding="@dimen/margin_16"
+                    android:textColorHint="@color/textColorLight"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFeatureTag" />
+
+                <TextView
+                    android:id="@+id/tvDescriptionTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/description_optional"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etFeature" />
+
+                <EditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:background="@drawable/bg_gray_stroke_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="top"
+                    android:hint="@string/enter_here"
+                    android:lines="4"
+                    android:textColorHint="@color/textColorLight"
+                    android:padding="@dimen/margin_16"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDescriptionTag" />
+
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:lineSpacingExtra="2dp"
+                    android:paddingStart="@dimen/small_margin"
+                    android:text="@string/feedback_suggestion_text"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etDescription" />
+
+                <View
+                    android:id="@+id/viewStart"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:alpha="0.12"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvEnterBelow"
+                    app:layout_constraintEnd_toStartOf="@+id/tvEnterBelow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvEnterBelow" />
+
+                <View
+                    android:id="@+id/viewEnd"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:alpha="0.12"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvEnterBelow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvEnterBelow"
+                    app:layout_constraintTop_toTopOf="@+id/tvEnterBelow" />
+
+                <TextView
+                    android:id="@+id/tvEnterBelow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/enter_below"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+                <TextView
+                    android:id="@+id/tvNameTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/name"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEnterBelow" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:background="@drawable/bg_gray_stroke_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/enter_here"
+                    android:imeOptions="actionNext"
+                    android:padding="@dimen/margin_16"
+                    android:singleLine="true"
+                    android:textColorHint="@color/textColorLight"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameTag" />
+
+
+                <TextView
+                    android:id="@+id/tvEmailTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/email"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:background="@drawable/bg_gray_stroke_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/enter_here"
+                    android:imeOptions="actionNext"
+                    android:padding="@dimen/margin_16"
+                    android:textColorHint="@color/textColorLight"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmailTag" />
+
+
+                <TextView
+                    android:id="@+id/tvPhoneTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/phone_number"
+                    android:textColor="@color/textColorLight"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:background="@drawable/bg_gray_stroke_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/enter_here"
+                    android:inputType="phone"
+                    android:imeOptions="actionDone"
+                    android:padding="@dimen/margin_16"
+                    android:singleLine="true"
+                    android:textColorHint="@color/textColorLight"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhoneTag" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:text="@string/submit"
+                    android:textAllCaps="true"
+                    android:paddingTop="@dimen/value_12"
+                    android:paddingBottom="@dimen/value_12"
+                    app:background="@{color.primaryColor}"
+                    app:cornerRadius="@dimen/value_8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etPhone"
+                    textcolor="@{color.appBackground}"
+                    tools:targetApi="lollipop" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/groupBottom"
+                    app:constraint_referenced_ids="etEmail,etPhone,
+                    etName,tvEmailTag,tvPhoneTag,tvNameTag,tvEnterBelow,viewStart,viewEnd" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/layoutFeedback"
+            layout="@layout/layout_feedback_submitted"
+            android:visibility="gone" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

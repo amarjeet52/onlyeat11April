@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.supplier_all.SupplierListViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/clMain"
+        android:background="@color/white">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/value_16"
+                android:src="@drawable/ic_back_black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivBack"
+                android:layout_marginStart="@dimen/value_24"
+                android:paddingTop="@dimen/value_16"
+                android:layout_marginEnd="@dimen/value_24"
+                android:paddingBottom="@dimen/xlarge_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/offers"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_xtralarge"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+            <TextView
+                android:id="@+id/tvTitleCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivBack"
+                android:layout_marginStart="@dimen/value_24"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_size_18"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_24"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_24"
+                android:layout_marginBottom="@dimen/value_8"
+                android:background="@drawable/drawable_color_primary_light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBack">
+
+                <EditText
+                    android:id="@+id/searchView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_search_grey"
+                    android:drawablePadding="@dimen/value_8"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/search_your_fav_res"
+                    android:padding="@dimen/value_10"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_14"
+                    app:drawableTint="@color/colorPrimary"
+                    app:layout_constraintEnd_toStartOf="@+id/ivFilter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_rect_right_corners"
+                    android:padding="@dimen/value_10"
+                    android:src="@drawable/ic_filter_new"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rlTop"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_supplier_branches" />
+
+        <include
+            android:id="@+id/noData"
+            layout="@layout/nothing_found"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+               app:color="@{color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rlTop"
+            app:layout_constraintVertical_bias="0.0"
+            app:strings="@{strings}" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rlTop"
+            app:progessBackground="@{color.primaryColor}" />
+
+        <include
+            android:id="@+id/bottom_cart"
+            layout="@layout/layout_bottom_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strings="@{strings}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

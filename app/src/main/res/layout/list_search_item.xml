@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_8"
+
+        android:onClick="@{() -> clickListener.onClick(addressBean)}"
+        android:padding="@dimen/value_4">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:id="@+id/tv_no_locale"
+    android:text="@string/does_not"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:fontFamily="@font/poppins_light"
+    android:textColor="@color/red"
+    android:textSize="@dimen/_8ssp"/>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:onClick="@{(view) -> clickListener.onEditDelete(view,addressBean)}"
+            android:padding="@dimen/dp_04"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_adrs_line_first"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_customer_adrs"
+            app:srcCompat="@drawable/menu_more" />
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/ic_location_on_24"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:id="@+id/iv_pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_no_locale"
+            app:tint="@{color.blue_color}" />
+        <TextView
+            android:id="@+id/tv_adrs_line_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="2"
+             android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/iv_pin"
+            app:layout_constraintTop_toBottomOf="@+id/tv_customer_adrs" />
+<!--        android:text="@{addressBean.building+','+addressBean.street+','+addressBean.area ,default=`Address Line First`}"-->
+
+        <TextView
+            android:id="@+id/tv_customer_adrs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/poppins_bold"
+              android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/iv_pin"
+            app:layout_constraintTop_toBottomOf="@+id/tv_no_locale"
+            />
+<!--        android:text="@{addressBean.address_type , default=`Customer Address`}"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="addressBean"
+            type="com.codebrew.clikat.data.model.api.AddressBean" />
+
+        <variable
+            name="clickListener"
+            type="com.codebrew.clikat.module.dialog_adress.adapter.AddressListener" />
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+</layout>

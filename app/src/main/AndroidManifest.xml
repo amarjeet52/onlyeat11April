@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.codebrew.clikat">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <application
+        android:name=".modal.AppGlobal"
+        android:allowBackup="false"
+        android:fullBackupContent="@xml/backupschema"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/fast_food"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="allowBackup"
+        tools:targetApi="q"
+        tools:ignore="DataExtractionRules">
+        
+        <activity 
+            android:exported="false" 
+
+            android:name=".module.cart.SelectSlots"
+            tools:ignore="Instantiatable"/>
+        <activity
+            android:exported="false"
+
+            android:name=".module.help.HelpActivity"
+            tools:ignore="Instantiatable"/>
+
+
+
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.VehicleListingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.schedule_order.CraveScheduleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.order_detail_new.OrderDetailNew"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".dialog_flow.DialogChat"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false" android:name=".module.new_signup.SigninActivity" />
+        <activity 
+            android:exported="false" android:name=".module.new_signup.create_account.CreateAccActivity" />
+        <activity 
+            android:exported="false"
+            android:name=".module.roadmap.RoadMapActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.AddVehicleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.pre_delivery.PreBookMenuFragment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+        <meta-data
+            android:name="android.webkit.WebView.MetricsOptOut"
+            android:value="true" /> <!-- //claveer tap -->
+        <meta-data
+            android:name="CLEVERTAP_ACCOUNT_ID"
+            android:value="R7R-W59-WZ6Z" />
+        <meta-data
+            android:name="CLEVERTAP_TOKEN"
+            android:value="c50-2a2" /> <!-- IMPORTANT: To force use Google AD ID to uniquely identify  users, use the following meta tag. GDPR mandates that if you are using this tag, there is prominent disclousure to your end customer in their application. Read more about GDPR here - https://clevertap.com/blog/in-preparation-of-gdpr-compliance/ -->
+        <!-- <meta-data -->
+        <!-- android:name="CLEVERTAP_USE_GOOGLE_AD_ID" -->
+        <!-- android:value="1"/> -->
+        <activity 
+            android:exported="false"
+            android:name=".module.service_selection.ServSelectionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.location.LocationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.bottom_navigation.MainScreenActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity 
+            android:exported="false"
+            android:name=".module.restaurant_detail.VideoPlayer"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity 
+            android:exported="false"
+            android:name=".module.instruction_page.InstructionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.home_screen.suppliers.SuppliersMapFragment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.promocode.PromoCodeListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.schedule_order.TableSelectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.schedule_order.BookTableSlotsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.restaurant_detail.reviewRating.ReviewsListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity 
+            android:exported="false"
+            android:name=".module.order_detail.rate_product.RateProductActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.tables.scanner.ScannerActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.payment_gateway.PaymentListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.schedule_order.BookTableSlots"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="Instantiatable" />
+<!--        <activity -->
+<!--            android:exported="false"-->
+<!--            android:name=".module.pre_delivery.BookTableDetailActivity"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:windowSoftInputMode="stateHidden" />-->
+        <activity 
+            android:exported="false"
+            android:name=".module.rating.RatingFragment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="true"
+            android:name=".module.splash.SplashActivity"
+
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="betrnoms.page.link"
+                    android:scheme="https" />
+                <data
+                    android:host="royofoodmulti.page.link"
+                    android:scheme="https" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:exported="false"
+            android:name=".module.login.LoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity 
+            android:exported="false"
+            android:name=".module.login.LoginActivityNew"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity 
+            android:exported="false"
+            android:name=".module.new_signup.signup.SignInActivityNew"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity 
+            android:exported="false"
+            android:name=".activities.ImageSHow"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.order_detail.OrderDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".activities.NoInternetActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.webview.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.payment_gateway.PaymentWebViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.user_tracking.UserTracking"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".module.dialog_adress.SelectlocActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity 
+            android:exported="false"
+            android:name=".module.dialog_adress.newlocActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <activity 
+            android:exported="false"
+            android:name=".module.dialog_adress.AddressDialogActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity 
+            android:exported="false"
+            android:name=".module.dialog_adress.v2.SelectlocActivityV2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name=".user_chat.UserChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity 
+            android:exported="false"
+            android:name=".module.cart.schedule_order.ScheduleOrder"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false"
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" /> <!-- Firebase Messaging Intialization -->
+        <activity 
+
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:exported="false"
+            android:name=".module.payment_gateway.addCard.AddNewCard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:exported="false"
+            android:name=".module.signup.SignupActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="false" android:name=".module.payment_gateway.savedcards.SaveCardsActivity" />
+        <activity 
+            android:exported="false"
+            android:name=".module.essentialHome.ServiceListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity 
+            android:exported="true"
+            android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme="${applicationId}.braintree" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher_new" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+<!--        <meta-data-->
+<!--            android:name="com.razorpay.ApiKey"-->
+<!--            android:value="rzp_live_mEVNmrYrvvAopF" />-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map" /> <!-- End of line -->
+        <!-- Razor Pay -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="729707629d02cffdd545a343dcf5d52aef5a4dec" /> <!-- End of RazorPay -->
+        <!--
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_oesb7XY7nx8NqFGH7HY2LbmhDEjAC4Ua" />
+        -->
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <receiver
+            android:exported="false"
+
+            android:name=".services.SchedulerReciever" />
+        <receiver
+            android:exported="false"
+            android:name=".services.IncomingSms"
+            tools:ignore="UnprotectedSMSBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:exported="false"
+            android:name=".services.MyFirebaseMessagingService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- For braintree google pay -->
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+    </application>
+
+</manifest>

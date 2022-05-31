@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.dialog_flow.DialogChat">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_40"
+        app:background="@{color.homelistBackground}">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_lyt"
+            android:background="@color/colorPrimary"
+            app:background="@{color.primaryColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivBadge"
+                android:layout_width="@dimen/icon_medium"
+                android:layout_height="@dimen/icon_medium"
+                android:layout_margin="@dimen/medium_margin"
+                android:src="@drawable/ic_chatbot"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+
+            <TextView
+                android:id="@+id/tb_head"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="Hey! My name is Royo"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/text_large"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tb_subhead"
+                app:layout_constraintEnd_toStartOf="@+id/iv_cross"
+                app:layout_constraintStart_toEndOf="@+id/ivBadge"
+                app:layout_constraintTop_toTopOf="@+id/ivBadge"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:textcolor="@{color.toolbarText}"
+                tools:targetApi="m" />
+
+            <TextView
+                android:id="@+id/tb_subhead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="is there something I can help you with ?"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/text_mediumLarge"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBadge"
+                app:layout_constraintEnd_toStartOf="@+id/iv_cross"
+                app:layout_constraintStart_toEndOf="@+id/ivBadge"
+                app:layout_constraintTop_toBottomOf="@+id/tb_head"
+                app:textcolor="@{color.toolbarText}"
+                tools:targetApi="m" />
+
+            <ImageView
+                android:id="@+id/iv_cross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_04"
+                app:tint="@{color.appBackground}"
+                android:layout_marginEnd="@dimen/medium_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBadge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivBadge"
+                app:srcCompat="@drawable/ic_cross"
+                tools:layout_editor_absoluteX="359dp"
+                tools:layout_editor_absoluteY="28dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/edittxt_lyt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_lyt"
+            tools:itemCount="5" />
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/edittxt_lyt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:padding="@dimen/dp_04"
+            android:background="@drawable/shape_white"
+            app:layout_constraintTop_toBottomOf="@+id/rv_chat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" >
+
+            <EditText
+                android:id="@+id/ed_chat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_margin"
+                android:maxLines="1"
+                android:inputType="textCapSentences"
+                android:fontFamily="@font/proximanovaregular"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_chat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_mic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/dp_04"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_dialog_mike" />
+
+            <ImageButton
+                android:id="@+id/btn_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/dp_04"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_mic"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_dialog_chat" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

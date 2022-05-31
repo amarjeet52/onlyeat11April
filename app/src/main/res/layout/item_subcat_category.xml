@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <LinearLayout
+        android:name="com.codebrew.clikat.module.filter.subcat_category_selection.SubCat_CategoryFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:background="@{color.listItemBackground}"
+        tools:context=".module.filter.SubCat_CategoryFragment">
+
+        <CheckBox
+            android:id="@+id/cb_subcategory_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:minHeight="0dp"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/small_margin"
+            android:text="Coffee"
+            app:checkColor="@{color.primaryColor}"
+            app:textcolor="@{color.textHead}"
+            app:uncheckColor="@{color.textSubhead}" />
+    </LinearLayout>
+</layout>

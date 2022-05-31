@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.agent_listing.AgentListViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.codebrew.clikat.module.agent_listing.AgentListFragment">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+        <EditText
+            android:id="@+id/searchView"
+            hintcolor="@{color.toolbarText}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_supplier_search"
+            android:fontFamily="@font/proximanovaregular"
+            android:drawableStart="@drawable/ic_search"
+            android:drawableTint="@color/greyD7"
+            android:hint="@{@string/search(`...`), default=`Search...`}"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:padding="@dimen/small_margin"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            app:layout_constraintBottom_toTopOf="@+id/tvResults"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="@id/gdline_start"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            tools:targetApi="m" />
+
+
+        <TextView
+            android:id="@+id/tvResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:padding="@dimen/dp_04"
+            android:text="@string/results"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:textcolor="@{color.textHead}" />
+
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            app:background="@{color.appBackground}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvResults">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAgentList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/value_10"
+                    android:layout_marginEnd="@dimen/value_10"
+                    android:visibility="@{viewModel.isAgentList()>0?View.VISIBLE:View.GONE}"
+                    app:background="@{color.listBackground}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_agent_list" />
+
+
+                <include
+                    android:id="@+id/noData"
+                    layout="@layout/nothing_found"
+                    android:visibility="@{viewModel.isAgentList()==0 &amp; !viewModel.isLoading?View.VISIBLE:View.GONE}"
+                    app:color="@{color}"
+                    app:drawables="@{drawables}"
+                    app:strings="@{strings}" />
+
+            </LinearLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

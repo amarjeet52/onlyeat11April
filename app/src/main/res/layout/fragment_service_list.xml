@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.codebrew.clikat.module.customHome.ServiceListFragment"
+    tools:context="com.codebrew.clikat.module.essentialHome.ServiceListActivity">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafafa">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/small_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/small_margin" />
+
+        <ImageView
+            android:id="@+id/ic_bg_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_1"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/ic_bg_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/bg_2" />
+
+
+        <TextView
+            android:id="@+id/tvArea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:drawableStart="@drawable/ic_location_updated"
+            android:drawableTintMode="src_atop"
+            android:fontFamily="@font/proximanovaregular"
+            android:gravity="center|start"
+            android:maxLines="1"
+            android:text="2201,Tabuk St , Riyadh"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/text_mediumLarge"
+            android:layout_marginStart="@dimen/value_10"
+            app:layout_constraintBottom_toTopOf="@+id/swiprRefresh"
+            app:layout_constraintEnd_toEndOf="@id/gudline_vertical1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.toolbarText}"
+            tools:targetApi="m" />
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiprRefresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/tvArea">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/large_margin"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <HorizontalScrollView
+                        android:id="@+id/bannerScroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lyt_banner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="4:1.5"
+                                app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/imageView7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="4:1.5"
+                                app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/imageView9"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="4:1.5"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </HorizontalScrollView>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ic_logo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_margin"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toTopOf="@+id/textView12"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                             />
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_margin"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:text="Enjoy all the features of Royo Service. Manage your business."
+                            android:textSize="@dimen/text_medium"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toTopOf="@+id/rv_categories_header"
+                            app:layout_constraintEnd_toEndOf="@id/gudline_vertical"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ic_logo" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_categories_header"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/value_10"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:layout_marginEnd="@dimen/value_10"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:background="@android:color/transparent"
+                            android:nestedScrollingEnabled="true"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintBottom_toTopOf="@+id/deals_tag"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView12"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/item_service_list"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/deals_tag"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/value_12"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:fontFamily="@font/proximanovasemibold"
+                            android:text="Daily Deals"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/text_large"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/rv_banner_list"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rv_categories_header"
+                            app:textcolor="@{color.textHead}" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_banner_list"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:visibility="visible"
+                            app:background="@{color.homelistBackground}"
+                            app:layout_constraintBottom_toTopOf="@+id/tv_more"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/deals_tag"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:listitem="@layout/item_full_banner"
+                            tools:targetApi="lollipop" />
+
+
+                        <TextView
+                            android:id="@+id/tv_more"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:text="More coming soon"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textSize="@dimen/text_mediumLarge"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rv_banner_list"
+                            app:textcolor="@{color.toolbarText}" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gudline_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.65" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/grp_banner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="deals_tag,rv_banner_list" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gudline_vertical1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <TextView
+            android:id="@+id/txt_loyality_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:text="LOYALTY POINTS"
+            android:textColor="@color/blueColor"
+            android:textSize="@dimen/_15ssp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_trophy"
+            android:layout_width="@dimen/icon_150"
+            android:layout_height="@dimen/icon_150"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_loyality_point"
+            app:srcCompat="@drawable/trophy" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="1234 Points"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingStart="@dimen/value_40"
+            android:paddingEnd="@dimen/value_40"
+            app:backgroundTint="@null"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/gradient_blue_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_trophy" />
+
+        <TextView
+            android:id="@+id/txt_how_works"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="How It works ?"
+            android:textColor="@color/blueColor"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_points" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_loyality_desc"
+            android:layout_margin="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:itemCount="3"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_loyality_desc"
+            app:layout_constraintTop_toBottomOf="@+id/txt_how_works" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:background="@color/white_pink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_loyality_desc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

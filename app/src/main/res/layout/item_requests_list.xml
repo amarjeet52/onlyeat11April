@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="requestModel"
+            type="com.codebrew.clikat.data.model.api.RequestData" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/dp_04"
+        android:background="@drawable/shape_search_border"
+        android:padding="@dimen/value_12">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivRequests"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:foreground="@drawable/gradiantbackground"
+            android:scaleType="centerCrop"
+            app:customSrc="@{requestModel.prescription_image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="0.8:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:text="@string/cancelled"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:text="@{requestModel.updated_status}"
+            app:layout_constraintBottom_toTopOf="@+id/text_rqst_id"
+            app:layout_constraintEnd_toStartOf="@+id/ivRequests"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivRequests"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/text_rqst_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/request_id"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/text_rqst_on"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <TextView
+            android:id="@+id/tv_rqst_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:maxLines="1"
+            android:textSize="@dimen/text_small"
+            app:text="@{String.valueOf(requestModel.id)}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_rqst_id"
+            app:layout_constraintEnd_toStartOf="@+id/ivRequests"
+            app:layout_constraintStart_toEndOf="@+id/text_rqst_id"
+            app:textcolor="@{color.textHead}" />
+
+
+        <TextView
+            android:id="@+id/text_rqst_on"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/requested_on"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/text_rest_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_rqst_id"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <TextView
+            android:id="@+id/tv_rqst_on"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:freezesText="true"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_rqst_on"
+            app:layout_constraintEnd_toStartOf="@+id/ivRequests"
+            app:layout_constraintStart_toEndOf="@+id/text_rqst_on"
+            app:text="@{requestModel.created_at}"
+            app:textcolor="@{color.textHead}" />
+
+
+        <TextView
+            android:id="@+id/text_rest_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{@string/supplier_name(strings.supplier+` Name`), default=`Name`}"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/tvCancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_rqst_on"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <TextView
+            android:id="@+id/tv_rest_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:textSize="@dimen/text_small"
+            app:text="@{requestModel.name}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_rest_name"
+            app:layout_constraintEnd_toStartOf="@+id/ivRequests"
+            app:layout_constraintStart_toEndOf="@+id/text_rest_name"
+            app:textcolor="@{color.textHead}" />
+
+
+        <Button
+            android:id="@+id/tvCancel"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/cancel"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold"
+            app:background="@{color.primaryColor}"
+            android:visibility="@{requestModel.cancelBtn?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivRequests"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_rest_name"
+            app:rippleColor="@color/white"
+            app:textcolor="@{color.appBackground}"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

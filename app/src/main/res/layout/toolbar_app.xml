@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="@dimen/dp_05"
+        android:contentInsetLeft="@dimen/dp_05"
+        android:elevation="@dimen/small_margin"
+        android:padding="0dp"
+        app:background="@{color.toolbarColor}"
+        android:theme="?attr/actionBarTheme"
+        app:contentInsetEnd="@dimen/dp_05"
+        app:contentInsetLeft="@dimen/dp_05"
+        app:contentInsetRight="@dimen/dp_05"
+        app:contentInsetStart="@dimen/dp_05"
+        tools:targetApi="lollipop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/tb_back"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:padding="@dimen/value_8"
+                android:src="@drawable/backnew"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ivNav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/value_8"
+                android:src="@drawable/ic_men"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@{color.toolbarText}"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tb_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                tools:text="Hello"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tb_add"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.toolbarText}" />
+            <TextView
+                android:id="@+id/tb_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue1"
+                android:textSize="@dimen/text_xlarge"
+             android:text="ADD"
+android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+             android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+           />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/tb_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/value_8"
+                android:src="@drawable/ic_back"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/round_corner"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</layout>

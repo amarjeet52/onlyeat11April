@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="dataItem"
+            type="com.codebrew.clikat.modal.BookedTableItem" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/value_8"
+        app:cardCornerRadius="@dimen/dp_04"
+        app:cardElevation="@dimen/dp_04">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/value_8">
+
+
+            <TextView
+                android:id="@+id/tvBranchName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/colorPrimary"
+                app:text="@{@string/branch_name(dataItem.branchName)}"
+                tools:text="Branch name" />
+
+            <TextView
+                android:id="@+id/tvTableName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBranchName"
+                app:rippleColor="@color/colorPrimary"
+                app:text="@{@string/table_name(dataItem.tableName)}"
+                tools:text="Table name" />
+
+
+            <TextView
+                android:id="@+id/tvTableNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTableName"
+                app:rippleColor="@color/colorPrimary"
+                app:text="@{@string/table_number(dataItem.tableNumber)}"
+                tools:text="Table number" />
+
+            <TextView
+                android:id="@+id/tvSeatingCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTableNumber"
+                app:rippleColor="@color/colorPrimary"
+                app:text="@{@string/seating_capacity(dataItem.seatingCapacity)}"
+                tools:text="Seating Capacity" />
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSeatingCapacity"
+                app:rippleColor="@color/colorPrimary"
+                tools:text="Amount" />
+            <TextView
+                android:id="@+id/tvPaymentSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAmount"
+                app:rippleColor="@color/colorPrimary"
+                tools:text="PaymentSource" />
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPaymentSource"
+                app:rippleColor="@color/colorPrimary"
+                app:text="@{@string/table_user(dataItem.userName)}"
+                tools:text="User name" />
+
+
+            <TextView
+                android:id="@+id/tvUserEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:rippleColor="@color/colorPrimary"
+                app:text="@{@string/table_email(dataItem.userEmail)}"
+                tools:text="Email" />
+
+            <TextView
+                android:id="@+id/tvBookingDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserEmail"
+                app:rippleColor="@color/colorPrimary"
+                tools:text="Date" />
+
+            <TextView
+                android:id="@+id/tvBookingStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:textSize="@dimen/text_small"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBookingDate"
+                app:rippleColor="@color/colorPrimary"
+                tools:text="Status" />
+
+            <TextView
+                android:id="@+id/tvTableLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:text="**Sharing location ..."
+                android:textSize="@dimen/text_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBookingStatus" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnInviteFriends"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="0dp"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingTop="@dimen/dp_04"
+                android:paddingEnd="@dimen/medium_margin"
+                android:paddingBottom="@dimen/dp_04"
+                android:text="@string/table_invite"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/medium_margin"
+                app:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/btnAddItems"
+                app:layout_constraintTop_toBottomOf="@+id/tvTableLocation" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="0dp"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingTop="@dimen/dp_04"
+                android:paddingEnd="@dimen/medium_margin"
+                android:paddingBottom="@dimen/dp_04"
+                android:text="@string/table_add_items"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/medium_margin"
+                app:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/btnOnMyWay"
+                app:layout_constraintTop_toBottomOf="@+id/tvTableLocation" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOnMyWay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:elevation="0dp"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingTop="@dimen/dp_04"
+                android:paddingEnd="@dimen/medium_margin"
+                android:paddingBottom="@dimen/dp_04"
+                android:text="@string/table_on_my_way"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/medium_margin"
+                app:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTableLocation" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

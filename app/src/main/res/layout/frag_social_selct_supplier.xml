@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.social_post.SocialPostViewModel" />
+
+        <variable
+            name="productItem"
+            type="com.codebrew.clikat.modal.other.ProductDataBean" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/toolbar_subscription"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+        <TextView
+            android:id="@+id/txt_supl_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{@string/select_supplier(strings.supplier), default=`Supplier`}"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar"
+            app:textcolor="@{color.textSubhead}" />
+
+        <TextView
+            android:id="@+id/txt_supplier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="@drawable/shape_search_border"
+            android:padding="@dimen/value_12"
+            android:text="@{@string/choose_supplier(strings.product), default=`Choose Supplier`}"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_supl_title" />
+
+
+        <TextView
+            android:id="@+id/txt_select_prod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{@string/select_supplier(strings.product), default=`Product`}"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_supplier"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <include
+            android:id="@+id/lyt_prod"
+            layout="@layout/dgflow_item_product"
+            app:productItem="@{productItem}"
+            app:isSocialLyt="@{true}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="@drawable/shape_search_border"
+            android:padding="@dimen/value_12"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_select_prod" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPost"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_24"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:paddingTop="@dimen/value_4"
+            android:paddingBottom="@dimen/value_4"
+            android:text="@string/continueText"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"
+            app:background="@{viewModel.isLoading ?color.textSubhead:color.primaryColor}"
+            app:cornerRadius="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_prod"
+            app:layout_constraintVertical_bias="0.0"
+            app:rippleColor="@color/white"
+            app:textcolor="@{color.appBackground}" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

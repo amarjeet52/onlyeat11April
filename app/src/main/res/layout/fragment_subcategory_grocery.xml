@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.product.product_listing.ProductTabViewModel" />
+
+        <variable
+            name="colors"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:background="@{colors.appBackground}"
+        tools:ignore="Overdraw">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:color="@{colors}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/tvEditOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:background="@{colors.appBackground}">
+
+                <RelativeLayout
+                    android:id="@+id/produtTabSearchContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/value_16"
+                    android:paddingTop="@dimen/value_16"
+                    android:paddingEnd="@dimen/value_16">
+
+                    <EditText
+                        android:id="@+id/searchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/value_16"
+                        android:background="#f8f8f8"
+                        android:drawableStart="@drawable/ic_search_grey"
+                        android:drawablePadding="@dimen/value_4"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:hint="@string/what_are_you_looking_for"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:padding="12dp"
+                        android:singleLine="true"
+                        app:hintcolr ="@{colors.search_textcolor}"
+                        app:textcolor="@{colors.search_textcolor}"
+                        android:textSize="@dimen/text_size_16"
+                        tools:ignore="Autofill" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlFilters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_margin"
+                    app:background="@{colors.appBackground}">
+
+                    <com.codebrew.clikat.utils.customviews.ClikatTextView
+                        android:id="@+id/tv_search_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        android:text="0 Results"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_14"
+                        android:visibility="gone"
+                        app:categoryType="app_title" />
+
+                    <com.codebrew.clikat.utils.customviews.ClikatTextView
+                        android:id="@+id/tv_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/tv_search_count"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:drawableEnd="@drawable/ic_next"
+                        android:gravity="center"
+                        android:text="@string/filter"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_14"
+                        android:visibility="visible"
+                        app:categoryType="text_button" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/viewFilters"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:background="@{colors.divider}" />
+
+                <RelativeLayout
+                    android:id="@+id/view_product_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_margin"
+                    android:visibility="gone"
+                    app:background="@{colors.appBackground}">
+
+                    <com.codebrew.clikat.utils.customviews.ClikatTextView
+                        android:id="@+id/tv_view_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:text="@{@string/view_products_as(strings.product)}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_14"
+                        app:categoryType="app_title" />
+
+
+                    <com.codebrew.clikat.utils.customviews.ClikatImageView
+                        android:id="@+id/iv_grid_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:layout_toStartOf="@+id/iv_list_view"
+                        android:gravity="center"
+                        app:imageType="normal_icon"
+                        app:srcCompat="@drawable/ic_grid_view" />
+
+
+                    <com.codebrew.clikat.utils.customviews.ClikatImageView
+                        android:id="@+id/iv_list_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:gravity="center"
+                        app:imageType="normal_icon"
+                        app:srcCompat="@drawable/ic_list_view" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dp_05"
+                    android:layout_marginEnd="@dimen/dp_05"
+                    android:layout_weight="1"
+                    app:background="@{colors.listBackground}" />
+
+
+                <include
+                    android:id="@+id/noData"
+                    layout="@layout/nothing_found"
+                    android:visibility="gone"
+                    app:color="@{colors}"
+                    app:drawables="@{drawables}"
+                    app:strings="@{strings}" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_layout"
+            app:progessBackground="@{colors.primaryColor}" />
+
+
+        <TextView
+            android:id="@+id/tvEditOrder"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/back_rec_theme_color_solid"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            tools:text="@string/edit_booking"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:textSize="@dimen/text_medium"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/value_8"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cart" />
+        <include
+            android:id="@+id/bottom_cart"
+            layout="@layout/layout_bottom_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:color="@{colors}"
+            app:strings="@{strings}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

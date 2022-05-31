@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="appData"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:background="@color/white"
+        app:cardCornerRadius="@dimen/small_margin"
+        app:cardElevation="@dimen/dp_04">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:padding="@dimen/small_margin"
+                android:text="@string/customer_code"
+                android:textAlignment="center"
+                android:textColor="#484848"
+                android:textSize="@dimen/text_xxxlarge"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputlyt_code"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:hint="@string/enter_customer_code"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="noExcludeDescendants"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_small"
+                    tools:targetApi="o" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_submit"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:background="@color/colorPrimary"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingEnd="@dimen/medium_margin"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputlyt_code" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

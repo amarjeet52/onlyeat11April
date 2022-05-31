@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/value_100"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_04"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/value_1"
+        android:id="@+id/cvMain"
+        app:rippleColor="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          >
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_userImage"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginTop="@dimen/value_10"
+                android:scaleType="fitCenter"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginEnd="@dimen/medium_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/round_corner"
+                app:srcCompat="@mipmap/ic_launcher_new" />
+
+            <TextView
+                android:id="@+id/category_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_margin="@dimen/value_4"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="Wax"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toTopOf="@+id/tv_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_userImage"
+                app:textcolor="@{color.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:ellipsize="end"
+                android:fontFamily="@font/proximanovaregular"
+                android:maxLines="1"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/text_very_small"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

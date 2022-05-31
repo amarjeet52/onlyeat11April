@@ -1,0 +1,108 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.filter.BottomSheetFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.filter.FilterViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:background="@{color.appBackground}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <include
+                android:id="@+id/include4"
+                layout="@layout/toolbar_filter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:color="@{color}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strings="@{strings}" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvfilter_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/light_white"
+                app:background="@{color.search_background}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/btn_apply"
+                app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintHorizontal_weight=".7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include4"
+                app:layout_constraintVertical_bias="0.0"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_filter_tab" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/btn_apply"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1.3"
+                app:layout_constraintStart_toEndOf="@+id/rvfilter_list"
+                app:layout_constraintTop_toBottomOf="@+id/include4"
+                app:layout_constraintVertical_bias="0.0">
+
+            </FrameLayout>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/progress_bar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rvfilter_list"
+               />
+
+
+            <Button
+                android:id="@+id/btn_apply"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="@dimen/small_margin"
+                android:text="@string/apply"
+                app:background="@{color.primaryColor}"
+                app:butonstroke="@{color.primaryColor}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rvfilter_list"
+                app:textcolor="@{color.appBackground}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

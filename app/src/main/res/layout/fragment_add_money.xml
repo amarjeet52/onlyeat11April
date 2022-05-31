@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.cart.CartViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/value_64"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/value_16"
+                    android:src="@drawable/ic_back_black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/add_payment"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16" />
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_24">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/value_24"
+                android:layout_marginEnd="@dimen/value_24"
+                android:paddingStart="@dimen/margin_16"
+                android:paddingEnd="@dimen/margin_16"
+                android:background="@drawable/background_grey_f9">
+
+
+                <TextView
+                    android:id="@+id/tvEnterAmountTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_24"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/entre_amount_you_want_add"
+                    android:textColor="@color/grey_8f"
+                    android:textSize="@dimen/text_size_14" />
+
+                <EditText
+                    android:layout_below="@+id/tvEnterAmountTag"
+                    android:id="@+id/etAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_16"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:hint="@string/enter_amount"
+                    android:inputType="numberDecimal"
+                    android:textColorHint="@color/text_color_light"
+                    android:textSize="@dimen/text_size_16" />
+
+                <View
+                    android:id="@+id/dividerTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/value_1"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:alpha="0.12"
+                    android:background="@color/black"
+                    android:layout_below="@id/etAmount" />
+
+
+                <TextView
+                    android:id="@+id/tvSelectPaymentMethodTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_24"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/select_payment_method"
+                    android:textColor="@color/grey_8f"
+                    android:textSize="@dimen/text_size_14"
+                  android:layout_below="@+id/dividerTop"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@+id/tvSelectPaymentMethodTag"
+                    android:id="@+id/rvPaymentMethods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_16"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tvContinue"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    textcolor="@{color.appBackground}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_24"
+                    android:layout_marginBottom="@dimen/value_24"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:paddingTop="@dimen/value_16"
+                    android:paddingBottom="@dimen/value_16"
+                    android:text="@string/continue_to_add_amount"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    app:background="@{color.primaryColor}"
+                    app:cornerRadius="@dimen/dp_04"
+                   android:layout_below="@+id/rvPaymentMethods"/>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.isLoading  ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+    </RelativeLayout>
+</layout>

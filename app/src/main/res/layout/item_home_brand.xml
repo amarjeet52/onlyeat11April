@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_04"
+        app:cardCornerRadius="@dimen/dp_04"
+        app:cardElevation="@dimen/dp_04">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemLayout"
+            android:layout_width="128dp"
+            android:layout_height="104dp"
+            android:layout_marginEnd="@dimen/value_2"
+            android:padding="@dimen/value_2"
+            app:background="@{color.listItemBackground}">
+
+
+            <ImageView
+                android:id="@+id/iv_product"
+                android:layout_width="@dimen/value_56"
+                android:layout_height="@dimen/value_56"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/small_margin"
+                android:scaleType="fitCenter"
+                app:layout_constraintDimensionRatio="H,4:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_brand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_product"
+                app:textcolor="@{color.textSubhead}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

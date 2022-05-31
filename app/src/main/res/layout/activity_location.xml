@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.location.LocationActivity">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/location_access_bg">
+
+        <TextView
+            android:id="@+id/tvExplore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="@string/food_exploration"
+
+            android:textSize="@dimen/text_size_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.468"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.dark_grey1}" />
+
+        <ImageView
+            android:id="@+id/ivOtherLocation"
+            android:layout_width="114dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/value_48"
+            android:src="@drawable/loc"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvExplore" />
+
+        <TextView
+            android:id="@+id/tvExploreDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/xlarge_margin"
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="@string/help_us_display_your_ideal"
+            android:textColor="#7B838D"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivOtherLocation"
+            app:textcolor="@{color.dark_grey}" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_manual_loc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_20"
+            android:layout_marginTop="@dimen/value_74"
+            android:layout_marginEnd="@dimen/value_20"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/activate_location"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_16sp"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvExploreDesc"
+            app:layout_constraintVertical_bias="0.49"
+            app:rippleColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tvNotNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="center"
+            android:text="@string/not_now"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_manual_loc"
+            app:textcolor="@{color.dark_grey}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

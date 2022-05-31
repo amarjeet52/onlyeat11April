@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="productItem"
+            type="com.codebrew.clikat.modal.other.ProductDataBean" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="singleVndorType"
+            type="Boolean" />
+
+        <variable
+            name="isRatingVisible"
+            type="Boolean" />
+
+        <variable
+            name="isWeightVisible"
+            type="Boolean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isHungerApp"
+            type="Boolean" />
+
+        <variable
+            name="supplierData"
+            type="com.codebrew.clikat.modal.other.SupplierDataBean" />
+
+        <variable
+            name="settingData"
+            type="com.codebrew.clikat.modal.other.SettingModel.DataBean.SettingData" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:paddingStart="@dimen/small_margin"
+        android:paddingEnd="@dimen/small_margin">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/sdvImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/small_margin"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iv_placeholder"
+            app:customSrc="@{supplierData.logo}"
+            app:layout_constraintDimensionRatio="1:0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner"
+            tools:ignore="ContentDescription" />
+
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_12"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="start"
+            android:singleLine="true"
+            android:text="@{supplierData.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_16"
+            app:categoryType="list_head"
+            app:layout_constraintEnd_toStartOf="@+id/ivStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sdvImage"
+            tools:text="@string/fb_login_protocol_scheme" />
+
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_12"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/value_4"
+            android:minEms="4"
+            android:drawableStart="@drawable/ic_star"
+            android:drawableTint="@color/white"
+            android:drawablePadding="@dimen/value_4"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/dp_04"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/dp_04"
+            android:text="@{(supplierData.rating>0)? String.valueOf(supplierData.rating) : `0.0`}"
+            android:textSize="@dimen/text_small"
+            android:includeFontPadding="false"
+            tools:text="New"
+            app:layout_constraintTop_toBottomOf="@+id/sdvImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:ratecolor="@{supplierData.rating}"
+            app:textcolor="@{color.appBackground}"/>
+
+
+        <TextView
+            android:id="@+id/tv_supplier_inf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:layout_marginTop="@dimen/value_12"
+            android:singleLine="true"
+            android:textColor="@color/greyD7"
+            android:textSize="@dimen/text_size_12"
+            android:text="@{@string/min_max_time_(supplierData.delivery_min_time,supplierData.delivery_max_time)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rating"
+            tools:text="hjcJCHjkzchk" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tvSupplierloc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_12"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:paddingBottom="@dimen/value_8"
+            android:fontFamily="@font/proximanovaregular"
+            android:visibility="@{settingData.is_carveQatar_home_theme().equals(`1`) ? View.VISIBLE :(settingData.hide_supplier_address!=null &amp; settingData.hide_supplier_address.equals(`1`) ? View.GONE : View.VISIBLE)}"
+            android:text="@{settingData.is_carveQatar_home_theme().equals(`1`) ? supplierData.category.get(0).category_name : supplierData.address}"
+            android:textColor="@color/greyD7"
+            android:textSize="@dimen/text_size_14"
+            app:categoryType="text_body"
+            app:layout_constraintEnd_toStartOf="@+id/tv_supplier_inf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="@string/action_send" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

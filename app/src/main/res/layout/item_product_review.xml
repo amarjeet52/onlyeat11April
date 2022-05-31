@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cnst_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:background="@{color.listItemBackground}">
+
+        <RatingBar
+            android:id="@+id/rb_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:isIndicator="true"
+            android:focusable="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_rate_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:text="@string/awesome_product"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rb_rating"
+            app:textcolor="@{color.textAppTitle}" />
+
+        <TextView
+            android:id="@+id/tv_rate_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:text="18 Jan,2019"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/tv_rate_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rate_title"
+            app:textcolor="@{color.textSubhead}" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatImageView
+            android:id="@+id/iv_rate_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rate_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_rate_title"
+            app:srcCompat="@drawable/ic_more_options" />
+
+        <TextView
+            android:id="@+id/tv_rate_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:text="There are many variations of passages of Lorem Ipsum available, but the majority."
+            android:textAlignment="viewStart"
+            app:layout_constraintBottom_toTopOf="@+id/iv_userImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rate_date"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_userImage"
+            android:layout_width="@dimen/xlarge_margin"
+            android:layout_height="@dimen/xlarge_margin"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:src="@drawable/placeholder_user"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rate_desc" />
+
+        <TextView
+            android:id="@+id/tv_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:text="Steven James"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_userImage"
+            app:layout_constraintStart_toEndOf="@+id/iv_userImage"
+            app:layout_constraintTop_toTopOf="@+id/iv_userImage"
+            app:textcolor="@{color.textAppTitle}" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp_05"
+            android:layout_marginBottom="@dimen/dp_05"
+            android:background="?android:attr/listDivider"
+            app:background="@{color.divider}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_userImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

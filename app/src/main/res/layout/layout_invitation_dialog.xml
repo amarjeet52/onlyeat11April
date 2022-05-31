@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/value_8">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:text="You are invited for following table"
+        android:textSize="@dimen/text_16sp"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tvBranchName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tvTableName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBranchName"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+
+    <TextView
+        android:id="@+id/tvTableNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTableName"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tvSeatingCapacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTableNumber"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSeatingCapacity"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+
+    <TextView
+        android:id="@+id/tvBookingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tvBookingStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:padding="@dimen/value_8"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBookingDate"
+        app:rippleColor="@color/colorPrimary"
+        tools:text="2" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingTop="@dimen/dp_04"
+        android:paddingEnd="@dimen/medium_margin"
+        android:paddingBottom="@dimen/dp_04"
+        android:text="Accept"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/medium_margin"
+        app:elevation="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvBookingStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvBookingStatus" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingTop="@dimen/dp_04"
+        android:paddingEnd="@dimen/medium_margin"
+        android:paddingBottom="@dimen/dp_04"
+        android:text="Reject"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/value_8"
+        app:elevation="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvBookingStatus"
+        app:layout_constraintEnd_toStartOf="@+id/btnAccept"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvBookingStatus" />
+</androidx.constraintlayout.widget.ConstraintLayout>

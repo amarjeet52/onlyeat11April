@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:background="@{color.appBackground}">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemLayout"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_04"
+            android:background="@drawable/background_grey_stroke"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_userImage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/value_56"
+                android:layout_marginTop="@dimen/dp_06"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/round_corner"
+                app:srcCompat="@mipmap/ic_launcher_new" />
+
+            <TextView
+                android:id="@+id/category_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:ellipsize="end"
+                android:paddingTop="@dimen/value_4"
+                android:paddingBottom="@dimen/dp_06"
+                android:fontFamily="@font/proximanovasemibold"
+                android:maxLength="13"
+                android:singleLine="true"
+                android:text="Wax"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_userImage"
+                app:textcolor="@{color.textAppTitle}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

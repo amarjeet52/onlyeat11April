@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.cart.schedule_order.ScheduleOrder">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:background="@{color.appBackground}">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            app:background="@{color.app_light_bg}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="#363636"
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="scrollable" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_xlarge"
+                    android:visibility="visible"
+                    android:text="Scheduled Time"
+                    android:padding="@dimen/small_margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:textcolor="@{color.toolbarText}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_timeslot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:background="@{color.appBackground}"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_schedule_slot"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+                <include
+                    android:id="@+id/noData"
+                    layout="@layout/nothing_found"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:color="@{color}"
+                    app:drawables="@{drawables}"
+                    app:strings="@{strings}" />
+
+            </LinearLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:gravity="center"
+            android:padding="@dimen/medium_margin"
+            android:text="@string/cancel"
+            android:textAllCaps="true"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnConfirm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@color/brown" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:gravity="center"
+            android:padding="@dimen/medium_margin"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            app:background="@{color.primaryColor}"
+            app:textcolor="@{color.appBackground}"
+            style="@style/Widget.MaterialComponents.Button"
+            app:rippleColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnCancel" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

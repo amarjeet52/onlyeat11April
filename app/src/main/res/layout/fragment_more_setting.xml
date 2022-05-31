@@ -1,0 +1,354 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.more_setting.MoreSettingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--  app:background="@{color.toolbarColor}"-->
+        <!-- android:theme="?attr/actionBarTheme"-->
+        <!--  android:background="?attr/colorPrimaryDark"-->
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentInsetStart="@dimen/medium_margin"
+            android:contentInsetEnd="@dimen/medium_margin"
+            android:elevation="@dimen/small_margin"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:background="@{color.toolbarColor}"
+            app:contentInsetEnd="@dimen/medium_margin"
+            app:contentInsetStart="@dimen/medium_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/tb_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/value_8"
+                    android:src="@drawable/ic_back"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@{color.toolbarText}"
+                    tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/ivNavigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/value_16"
+                    android:src="@drawable/ic_men"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tb_title"
+                    textcolor="@{color.appBackground}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_xlarge"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/tb_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/value_8"
+                    android:src="@drawable/ic_back"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_corner_radius="@dimen/round_corner"
+                    tools:ignore="ContentDescription" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/value_8"
+            android:background="@drawable/back_rec_stroke_theme_color"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:padding="@dimen/margin_16"
+            android:text="@string/register"
+            android:textSize="@dimen/text_large"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvLogin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:textcolor="@{color.primaryColor}" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_8"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:background="@drawable/back_rec_theme_color_solid"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:padding="@dimen/margin_16"
+            android:text="@string/sign_in"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvRegister"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:textcolor="@{color.appBackground}" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpRegisterLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tvRegister,tvLogin" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lyt_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:background="@{color.appBackground}"
+            app:layout_constraintTop_toBottomOf="@+id/tvRegister">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/value_2"
+                android:fontFamily="@font/proximanovasemibold"
+                android:gravity="center|start"
+                android:text="@string/login_sinup_text"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_email"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_profile"
+                app:layout_constraintVertical_bias="0.49"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:textcolor="@{color.textListHead}" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/value_2"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/login_sinup_text"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                app:textcolor="@{color.textListHead}" />
+
+            <ImageView
+                android:id="@+id/ic_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:src="@drawable/ic_next"
+                app:layout_constraintBottom_toBottomOf="@+id/login_signup_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/login_signup_text" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="@dimen/value_64"
+                android:layout_height="@dimen/value_64"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:background="@drawable/circle_placeholder"
+                android:elevation="@dimen/dp_04"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="lollipop" />
+
+
+            <TextView
+                android:id="@+id/login_signup_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:drawablePadding="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:gravity="center|start"
+                android:text="@string/login_sinup_text"
+                android:textSize="@dimen/text_large"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                app:drawableStartCompat="@drawable/menu_profile"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.blue_color}" />
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/md_divider_height"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/value_2"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:layout_marginBottom="@dimen/value_2"
+                app:background="@{color.divider}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="iv_profile,tv_name,tv_email" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_profile"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed"
+            app:tabSelectedText="@{color.primaryColor}"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabTextColr="@{color.textAppTitle}" />
+
+
+        <View
+            android:id="@+id/more_lineView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/value_4"
+            android:alpha="0.5"
+            android:background="@color/text_color_light"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayoutProfile" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_more_tag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:background="@{color.white}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/tv_app_version"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/more_lineView"
+            tools:listitem="@layout/item_more_tag" />
+
+
+        <TextView
+            android:id="@+id/tv_app_version"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="@dimen/small_margin"
+            android:text="@string/login_sinup_text"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_more_tag"
+            app:textcolor="@{color.textListHead}"
+            tools:visibility="visible" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.more_setting.MoreSettingViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+</layout>

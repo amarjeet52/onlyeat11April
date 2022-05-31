@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginTop="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:id="@+id/clMain"
+            android:background="@drawable/drawable_color_primary_light_round"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="@dimen/icon_small"
+                android:layout_height="@dimen/icon_small"
+                android:layout_marginStart="@dimen/value_24"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_24"
+                android:paddingEnd="@dimen/value_16"
+                android:paddingBottom="@dimen/value_24"
+                android:text="@string/account"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivImageEnd"
+                app:layout_constraintStart_toEndOf="@+id/ivImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivImageEnd"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/value_16"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_user"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

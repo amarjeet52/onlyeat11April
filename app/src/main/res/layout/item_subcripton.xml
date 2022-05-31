@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="currency"
+            type="String" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="show_time"
+            type="Boolean" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.module.subscription.adapter.SubscripListener" />
+
+        <variable
+            name="subcripBean"
+            type="com.codebrew.clikat.data.model.api.SubcripModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@{subcripBean.benefitStatus ? @drawable/shape_subp_selected: @drawable/shape_subp_unselected}"
+        android:onClick="@{(view) -> listener.subscripListener(subcripBean,position)}">
+
+        <TextView
+            android:id="@+id/tv_subp_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_12"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{subcripBean.title}"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_xlarge"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_subp_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}"
+            tools:text="Gold" />
+
+
+        <TextView
+            android:id="@+id/tv_subp_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{@string/currency_tag(currency,subcripBean.price), default=`QAR 0.0`}"
+            android:textSize="@dimen/text_xlarge"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_subp_plan"
+            app:layout_constraintEnd_toStartOf="@+id/tvSubscriptionTime"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_subp_name"
+            app:textcolor="@{color.primaryColor}"
+            tools:text="$500.00" />
+
+        <TextView
+            android:id="@+id/tvSubscriptionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{subcripBean.subscription_plan_short}"
+            android:textSize="@dimen/text_medium"
+            android:visibility="@{show_time ? View.VISIBLE :View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_subp_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_subp_price"
+            app:textcolor="@{color.textSubhead}"
+            tools:text="/year" />
+
+        <TextView
+            android:id="@+id/tv_subp_plan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/value_12"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{subcripBean.subscription_plan}"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_subp_price"
+            app:textcolor="@{color.textSubhead}"
+            tools:text="one year access" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

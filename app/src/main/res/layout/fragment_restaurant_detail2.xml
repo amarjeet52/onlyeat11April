@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/mainmenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/splash_bg"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ScrollView
+                android:id="@+id/supplier_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/llContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_view_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp_04"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shimmer_duration="1200"
+                        tools:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/shimmer_restuarant_detail" />
+
+                            <include layout="@layout/shimmer_restuarant_detail" />
+
+                            <include layout="@layout/shimmer_restuarant_detail" />
+
+                            <include layout="@layout/shimmer_restuarant_detail" />
+
+                            <include layout="@layout/shimmer_restuarant_detail" />
+
+                        </LinearLayout>
+
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/button_bg_splash_color"
+                        android:visibility="@{viewModel.isLoading &amp; viewModel.showWhiteScreen ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <View
+                            android:id="@+id/divider"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            app:background="@{color.divider}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvUnServiceAble"
+                            android:layout_width="2dp"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginEnd="@dimen/large_margin"
+                            android:textColor="@color/red"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="@id/start_gudline"
+                            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_menu_custom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:paddingStart="@dimen/medium_margin"
+                            android:paddingTop="@dimen/dp_04"
+                            android:paddingEnd="@dimen/medium_margin"
+                            android:paddingBottom="@dimen/dp_04"
+                            android:text="@{strings.catalogue}"
+                            android:visibility="gone"
+                            app:cornerRadius="@dimen/medium_margin"
+                            app:layout_constraintStart_toStartOf="@id/start_gudline"
+                            app:layout_constraintTop_toBottomOf="@+id/tvUnServiceAble"
+                            app:strokeColor="@color/white"
+                            app:strokeWidth="@dimen/line_height"
+                            tools:text="@string/menu"
+                            tools:visibility="visible" />
+
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/iv_search_prod_custom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:hint="@string/what_are_you_looking_for"
+                            android:iconifiedByDefault="true"
+                            android:maxLines="1"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/btn_menu_custom"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/btn_menu_custom"
+                            app:layout_constraintTop_toTopOf="@+id/btn_menu_custom"
+                            tools:ignore="ContentDescription" />
+
+
+                        <View
+                            android:id="@+id/divider_2"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/small_margin"
+                            app:background="@{color.divider}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_menu_custom" />
+
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/grp_yummy_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="divider,tvUnServiceAble,iv_search_prod_custom,divider_2"
+                            tools:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/ivBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/value_4"
+                            android:padding="@dimen/value_8"
+                            android:src="@drawable/ic_back"
+                            app:layout_constraintBottom_toTopOf="@+id/ivUploadPresc"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+
+                        <EditText
+                            android:id="@+id/iv_search_prod"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/value_48"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:background="@drawable/button_bg_white"
+                            android:drawableStart="@drawable/ic_search_grey"
+                            android:drawablePadding="@dimen/value_4"
+                            android:elevation="@dimen/value_8"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:hint="@string/search_for_a_specific_item"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:padding="@dimen/value_8"
+                            android:textColorHint="@color/grey"
+                            android:textCursorDrawable="@null"
+                            android:textSize="@dimen/text_size_16"
+                            app:layout_constraintBottom_toTopOf="@+id/ivUploadPresc"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintStart_toEndOf="@+id/ivBack"
+                            app:layout_constraintStart_toStartOf="@+id/ivBack"
+                            app:layout_constraintTop_toBottomOf="@+id/divider_2"
+                            tools:ignore="ContentDescription" />
+
+                        <ImageView
+                            android:id="@+id/ivUploadPresc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp_04"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:src="@drawable/ic_pres_upload"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="@id/start_gudline"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_search_prod"
+                            app:tint="@{color.primaryColor}" />
+
+
+                        <TextView
+                            android:id="@+id/presc_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/medium_margin"
+                            android:fontFamily="@font/proximanovasemibold"
+                            android:text="@string/upload_presc"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_large"
+                            app:layout_constraintBottom_toTopOf="@+id/presc_image"
+                            app:layout_constraintStart_toEndOf="@+id/ivUploadPresc"
+                            app:layout_constraintTop_toTopOf="@+id/ivUploadPresc"
+                            tools:text="Upload Prescription" />
+
+                        <TextView
+                            android:id="@+id/presc_image"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/medium_margin"
+                            android:layout_marginEnd="@dimen/small_margin"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:maxLines="2"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_medium"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/ivUploadPresc"
+                            app:layout_constraintEnd_toStartOf="@+id/iv_cross_pres"
+                            app:layout_constraintStart_toEndOf="@+id/ivUploadPresc"
+                            app:layout_constraintTop_toBottomOf="@+id/presc_text"
+                            tools:text="Upload Prescription" />
+
+
+                        <ImageView
+                            android:id="@+id/iv_cross_pres"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_04"
+                            android:layout_marginEnd="@dimen/small_margin"
+                            android:src="@drawable/ic_cancel"
+                            app:layout_constraintBottom_toBottomOf="@+id/ivUploadPresc"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintTop_toTopOf="@+id/ivUploadPresc"
+                            app:tint="@{color.primaryColor}" />
+
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/group_presc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="presc_image,iv_cross_pres"
+                            tools:visibility="gone" />
+
+                        <View
+                            android:id="@+id/divider2"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:alpha="0.12"
+                            android:background="@color/grey"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintStart_toStartOf="@id/start_gudline"
+                            app:layout_constraintTop_toBottomOf="@+id/ivUploadPresc" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/group_presc_doc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="ivUploadPresc,presc_text,divider2"
+                            tools:visibility="gone" />
+
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/end_gudline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/start_gudline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnBookTable"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_margin"
+                            android:paddingTop="@dimen/dp_04"
+                            android:paddingEnd="@dimen/medium_margin"
+                            android:paddingBottom="@dimen/dp_04"
+                            android:text="@string/text_book_dining"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            app:cornerRadius="@dimen/medium_margin"
+                            app:layout_constraintBottom_toTopOf="@+id/tab_layout"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintStart_toStartOf="@id/start_gudline"
+                            app:layout_constraintTop_toBottomOf="@+id/divider2"
+                            app:strokeColor="@color/white"
+                            app:strokeWidth="@dimen/line_height" />
+
+
+                        <ImageView
+                            android:id="@+id/ivMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_menu_icon"
+                            app:layout_constraintBottom_toBottomOf="@+id/tab_layout"
+                            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                            app:layout_constraintTop_toTopOf="@+id/tab_layout"
+                            app:tint="@color/progressBarColor" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tab_layout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/value_8"
+                            android:layout_marginTop="@dimen/value_20"
+                            android:background="@color/splash_bg"
+                            app:layout_constraintBottom_toTopOf="@+id/nested_scrollview"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivMenu"
+                            app:layout_constraintTop_toBottomOf="@+id/btnBookTable"
+                            app:tabGravity="fill"
+                            app:tabIndicatorColor="#357EB6"
+                            app:tabIndicatorHeight="4dp"
+                            app:tabMode="scrollable"
+                            app:tabTextColor="@color/black"
+                            app:tabSelectedTextColor="@color/black" />
+
+
+                        <androidx.core.widget.NestedScrollView
+                            android:id="@+id/nested_scrollview"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="@dimen/value_10"
+                            android:fillViewport="true"
+                            app:layout_constraintBottom_toTopOf="@+id/space"
+                            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@id/start_gudline"
+                            app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:listitem="@layout/item_timeslot_view">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <androidx.viewpager.widget.ViewPager
+                                    android:id="@+id/ivSupplierBanner1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="118dp"
+                                    android:foreground="@drawable/gradiantbackground"
+                                    app:layout_constraintDimensionRatio="H,4:2"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="UnusedAttribute" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvproductList"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="@dimen/value_12"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                                <include
+                                    android:id="@+id/noData"
+                                    layout="@layout/nothing_found"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone"
+                                    app:color="@{color}"
+                                    app:strings="@{strings}"
+                                    tools:visibility="visible" />
+
+
+                            </LinearLayout>
+
+
+                        </androidx.core.widget.NestedScrollView>
+
+
+                        <Space
+                            android:id="@+id/space"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/nested_scrollview" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </ScrollView>
+
+        </LinearLayout>
+
+
+        <include
+            android:id="@+id/bottom_cart"
+            layout="@layout/layout_bottom_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:color="@{color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strings="@{strings}" />
+
+        <include
+            android:id="@+id/bottom_cartNew"
+            android:layout_alignParentBottom="true"
+            layout="@layout/layout_bottom_cart_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isContentProgressBarLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+    </RelativeLayout>
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.restaurant_detail.RestDetailViewModel" />
+
+        <variable
+            name="supplierModel"
+            type="com.codebrew.clikat.modal.other.SupplierDetailBean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isSupplierRating"
+            type="Boolean" />
+
+        <variable
+            name="settingData"
+            type="com.codebrew.clikat.modal.other.SettingModel.DataBean.SettingData" />
+    </data>
+</layout>

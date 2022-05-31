@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_14"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/near_you"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_xlarge"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvViewAll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+
+        <TextView
+            android:id="@+id/tvViewAll"
+            textcolor="@{color.appBackground}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/value_16"
+            android:background="@drawable/back_rec_theme_color_light_4"
+            android:fontFamily="@font/proximanovaregular"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_4"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_4"
+            android:text="@string/see_all"
+            android:textSize="@dimen/text_small_medium"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_title" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginTop="@dimen/value_16"
+            android:id="@+id/rvMap"
+            app:riv_corner_radius="@dimen/value_4"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="@dimen/value_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:0.45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

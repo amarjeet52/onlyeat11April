@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemSponsorContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/clMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_04"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/dp_04"
+                app:cardElevation="@dimen/value_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/itemLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:background="@{color.listItemBackground}">
+
+
+                    <ImageView
+                        android:id="@+id/iv_supplier"
+                        android:layout_width="115dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="@dimen/small_margin"
+                        android:layout_marginBottom="@dimen/value_2"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_sponsor_name"
+                        app:layout_constraintDimensionRatio="H,4:3.5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_new" />
+
+
+                    <TextView
+                        android:id="@+id/tv_sponsor_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:fontFamily="@font/proximanovasemibold"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/value_8"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_small"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_sponsor_adrs"
+                        app:layout_constraintEnd_toStartOf="@+id/ic_call"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:textcolor="@{color.textHead}" />
+
+
+                    <ImageView
+                        android:id="@+id/ic_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_sponsor_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_sponsor_name"
+                        app:srcCompat="@drawable/ic_call"
+                        tools:visibility="invisible" />
+
+
+                    <TextView
+                        android:id="@+id/tv_sponsor_adrs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginTop="@dimen/dp_04"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:maxLines="1"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_small"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_sponsor_name"
+                        app:textcolor="@{color.textSubhead}" />
+
+
+                    <RatingBar
+                        android:id="@+id/rb_rating"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginTop="@dimen/value_2"
+                        android:layout_marginBottom="@dimen/dp_04"
+                        android:visibility="visible"
+                        android:isIndicator="true"
+                        android:focusable="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_sponsor_adrs" />
+
+                    <TextView
+                        android:id="@+id/tv_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_04"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:maxLines="1"
+                        android:text="0 Reviews"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/text_very_small"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/rb_rating"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/rb_rating"
+                        app:layout_constraintTop_toTopOf="@+id/rb_rating"
+                        app:textcolor="@{color.textBody}" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/gp_suplr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:constraint_referenced_ids="rb_rating,tv_rating,tv_sponsor_adrs" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/ivSupplierCustom"
+                android:layout_width="172dp"
+                android:layout_height="172dp"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/value_2"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:layout_constraintDimensionRatio="H,5:4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/value_24" />
+
+            <TextView
+                android:id="@+id/tvBottomSpsrName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:paddingBottom="@dimen/value_8"
+                android:fontFamily="@font/proximanovasemibold"
+                android:maxLines="1"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_16sp"
+                android:gravity="start"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivSupplierCustom" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/back_rec_theme_color_solid"
+                android:drawableStart="@drawable/star_grey"
+                android:drawablePadding="@dimen/value_4"
+                android:layout_marginTop="@dimen/value_8"
+                android:drawableTint="@color/white"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center"
+                android:minEms="4"
+                android:paddingStart="@dimen/small_margin"
+                android:paddingTop="@dimen/dp_04"
+                android:paddingEnd="@dimen/small_margin"
+                android:paddingBottom="@dimen/dp_04"
+                android:textSize="@dimen/text_small"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBottomSpsrName"
+                app:textcolor="@{color.appBackground}" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookTable"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/value_36"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:gravity="center"
+                android:text="@string/book_now"
+                android:textSize="@dimen/text_8sp"
+                android:visibility="gone"
+                app:cornerRadius="@dimen/dp_04"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBottomSpsrName"
+                app:strokeColor="@color/white"
+                app:strokeWidth="@dimen/line_height" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupClikat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="tvBottomSpsrName,ivSupplierCustom,tvRating" />
+
+            <CheckBox
+                android:id="@+id/iv_wishlist"
+                android:layout_width="@dimen/value_28"
+                android:layout_height="@dimen/value_28"
+                android:layout_margin="@dimen/dp_04"
+                android:button="@drawable/sl_favourite_24dp"
+                android:visibility="visible"
+                app:buttonTint="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

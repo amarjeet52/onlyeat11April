@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.payment_gateway.dialog_card.CardViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txt_error_msg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textAlignment="center"
+                android:textColor="@color/toastError"
+                android:textSize="@dimen/text_small"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/sdvAds"
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                android:layout_margin="@dimen/small_margin"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_card_front"
+                app:layout_constraintBottom_toTopOf="@+id/payable_text"
+                app:layout_constraintDimensionRatio="H,1:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_error_msg"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/payable_text"
+                textcolor="@{color.textSubhead}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/total_payable_amount"
+                android:textSize="@dimen/text_xlarge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sdvAds" />
+
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:hint="@string/name_on_card"
+                android:imeOptions="actionNext"
+                android:focusable="true"
+                android:focusedByDefault="true"
+                android:inputType="text"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/payable_text"
+                tools:targetApi="o"
+                android:importantForAutofill="no" />
+
+<!--            <com.stripe.android.view.CardMultilineWidget-->
+<!--                android:id="@+id/card_input_widget"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/small_margin"-->
+<!--                android:layout_marginEnd="@dimen/small_margin"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/make_payment"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/etName" />-->
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/make_payment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                android:textStyle="bold"
+                android:text="@string/make_payment"
+                app:background="@{color.primaryColor}"
+                app:rippleColor="@color/white"
+                app:textcolor="@{color.appBackground}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

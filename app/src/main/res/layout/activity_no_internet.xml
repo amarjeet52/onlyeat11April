@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        app:background="@{color.appBackground}"
+        tools:ignore="Overdraw">
+
+        <com.codebrew.clikat.utils.customviews.ClikatImageView
+            android:id="@+id/ivNet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_network"
+            app:src="@{drawables.ic_network}"
+            tools:ignore="ContentDescription" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tvNoInternet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivNet"
+            android:gravity="center"
+            android:padding="@dimen/value_16"
+            android:text="@string/no_internet_connection_found"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/text_size_16"
+            app:categoryType="text_button"
+            app:text="@{strings.no_internet_connection_found}" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/bRetry"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNoInternet"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/back_rec_white"
+            android:gravity="center"
+            android:paddingLeft="@dimen/value_20"
+            android:paddingRight="@dimen/value_20"
+            android:text="@string/retry"
+            android:textColor="@color/brown"
+            app:categoryType="no_internet"
+            app:text="@{strings.retry}" />
+    </RelativeLayout>
+</layout>

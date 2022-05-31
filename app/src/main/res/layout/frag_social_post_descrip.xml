@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.social_post.SocialPostViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="socialPost"
+            type="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/toolbar_subscription"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+        <TextView
+            android:id="@+id/txt_post_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="Post Heading"
+            android:textAllCaps="true"
+            app:textcolor="@{color.textSubhead}"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar" />
+
+        <EditText
+            android:id="@+id/etHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:hint="Enter Heading"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:text="@{socialPost.post_head ,default=``}"
+            app:hintcolor="@{color.textSubhead}"
+            app:textcolor="@{color.textHead}"
+            android:background="@drawable/shape_supplier_search"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_post_heading" />
+
+
+        <TextView
+            android:id="@+id/txt_post_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="Post Description"
+            android:textAllCaps="true"
+            app:textcolor="@{color.textSubhead}"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/etHeading" />
+
+
+        <EditText
+            android:id="@+id/etDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="150dp"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:hint="Enter Description"
+            android:imeOptions="actionNext"
+            android:inputType="textImeMultiLine"
+            android:scrollbars="vertical"
+            android:gravity="start"
+            app:hintcolor="@{color.textSubhead}"
+            app:textcolor="@{color.textHead}"
+            android:text="@{socialPost.post_desc ,default=``}"
+            android:background="@drawable/shape_supplier_search"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_post_desc" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPost"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_24"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:onClick="@{() -> viewModel.validateSocialPostDesc(context,etHeading,etDesc,socialPost)}"
+            android:paddingTop="@dimen/value_4"
+            android:paddingBottom="@dimen/value_4"
+            android:text="@string/continueText"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"
+            app:background="@{color.primaryColor}"
+            app:cornerRadius="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/etDesc"
+            app:layout_constraintVertical_bias="0.0"
+            app:rippleColor="@color/white"
+            app:textcolor="@{color.appBackground}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

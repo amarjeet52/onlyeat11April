@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.filter.BottomSheetFragment">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:contentInsetStart="@dimen/dp_05"
+        android:contentInsetLeft="@dimen/dp_05"
+        android:elevation="@dimen/dp_04"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:contentInsetEnd="@dimen/dp_05"
+        app:contentInsetLeft="@dimen/dp_05"
+        app:contentInsetRight="@dimen/dp_05"
+        app:contentInsetStart="@dimen/dp_05"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:targetApi="lollipop">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            app:background="@{color.toolbarColor}">
+
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_cross"
+                android:tint="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@{color.toolbarText}" />
+
+
+            <TextView
+                android:id="@+id/toolbar_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/small_margin"
+                android:text="@string/sort_amp_filter"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.toolbarText}" />
+
+
+            <TextView
+                android:id="@+id/tv_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_margin"
+                android:text="@string/reset"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.toolbarText}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+</layout>

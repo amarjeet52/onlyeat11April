@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.subscription.subscrip_detail.SubscripDetailFrag">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.recording.RecordingViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/toolbar_subscription"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/rlWidget"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/value_40">
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/sound"
+            android:id="@+id/ivSound"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+          />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tap_listen"
+            android:id="@+id/tvListening"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/ivSound"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/value_30"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/record_order"
+            android:id="@+id/tvROrder"
+            android:visibility="visible"
+           app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/value_40"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:visibility="visible"
+            android:text="00:00"
+            android:id="@+id/tvTimings"
+            app:layout_constraintTop_toBottomOf="@+id/tvROrder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/value_30"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="@color/black"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/ivRecord"
+            android:src="@drawable/voice"
+            app:layout_constraintTop_toBottomOf="@+id/rlWidget"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_55sdp"
+             />
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/ivStop"
+            android:src="@drawable/stop"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/rlWidget"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_55sdp"
+            android:layout_marginTop="@dimen/_55sdp"
+            />
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/ivSendOrder"
+            android:src="@drawable/checked"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/rlWidget"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_55sdp"
+            android:layout_marginTop="@dimen/_55sdp"
+            />
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/ivReset"
+            android:src="@drawable/reset"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/rlWidget"
+            app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_55sdp"
+            android:layout_marginTop="@dimen/_55sdp"
+            />
+        <ImageView
+            android:id="@+id/imageLoader"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

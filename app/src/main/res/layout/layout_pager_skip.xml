@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivInstructions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/instruction"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius_bottom_left="@dimen/value_74"
+            app:riv_corner_radius_bottom_right="@dimen/value_74"
+            android:src="@drawable/img_1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/value_64"
+           />
+        <TextView
+            android:id="@+id/tvTitle"
+            textcolor="@{color.primaryColor}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:layout_marginStart="@dimen/value_24"
+            android:layout_marginEnd="@dimen/value_24"
+            tools:text="dkjkaj"
+            android:layout_marginTop="@dimen/value_32"
+            android:textAlignment="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_constraintTop_toBottomOf="@+id/ivInstructions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            textcolor="@{color.primaryColor}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:layout_marginTop="@dimen/value_8"
+            android:layout_marginStart="@dimen/value_24"
+            android:layout_marginEnd="@dimen/value_24"
+            tools:text="kjdakjldhvfl"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/icon_medium"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/icon_medium"
+            android:paddingBottom="@dimen/value_12"
+            android:text="@string/get_started"
+            app:cornerRadius="@dimen/value_8"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

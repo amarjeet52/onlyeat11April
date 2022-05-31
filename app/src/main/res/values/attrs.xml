@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="pstsTabSwitch" format="boolean" />
+        <attr name="pstsActivateTextColor" format="color" />
+        <attr name="pstsDeactivateTextColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="ViewPagerIndicator">
+        <!-- Style of the circle indicator. -->
+        <attr name="vpiCirclePageIndicatorStyle" format="reference" />
+        <!-- Style of the icon indicator's views. -->
+        <attr name="vpiIconPageIndicatorStyle" format="reference" />
+        <!-- Style of the line indicator. -->
+        <attr name="vpiLinePageIndicatorStyle" format="reference" />
+        <!-- Style of the title indicator. -->
+        <attr name="vpiTitlePageIndicatorStyle" format="reference" />
+        <!-- Style of the tab indicator's tabs. -->
+        <attr name="vpiTabPageIndicatorStyle" format="reference" />
+        <!-- Style of the underline indicator. -->
+        <attr name="vpiUnderlinePageIndicatorStyle" format="reference" />
+    </declare-styleable>
+    <attr name="centered" format="boolean" />
+    <attr name="selectedColor" format="color" />
+    <attr name="strokeWidth" format="dimension" />
+    <attr name="unselectedColor" format="color" />
+
+    <declare-styleable name="CirclePageIndicator">
+        <!-- Whether or not the indicators should be centered. -->
+        <attr name="centered" />
+        <!-- Color of the filled circle that represents the current page. -->
+        <attr name="fillColor" format="color" />
+        <!-- Color of the filled circles that represents pages. -->
+        <attr name="pageColor" format="color" />
+        <!-- Orientation of the indicator. -->
+        <attr name="android:orientation" />
+        <!-- Radius of the circles. This is also the spacing between circles. -->
+        <attr name="radius" format="dimension" />
+        <!-- Whether or not the selected indicator snaps to the circles. -->
+        <attr name="snap" format="boolean" />
+        <!-- Color of the open circles. -->
+        <attr name="strokeColor" format="color" />
+        <!-- Width of the stroke used to draw the circles. -->
+        <attr name="strokeWidth" />
+        <!-- View background -->
+        <attr name="android:background" />
+    </declare-styleable>
+    â€‚â€‚
+    <declare-styleable name="RangeSeekBar">
+        â€‚â€‚â€‚â€‚â€‚â€‚â€‚â€‚
+        <attr name="absoluteMinValue" format="integer|float" />
+        â€‚â€‚â€‚â€‚â€‚â€‚â€‚â€‚
+        <attr name="absoluteMaxValue" format="integer|float" />
+        â€‚â€‚â€‚â€‚â€‚â€‚â€‚â€‚
+        <attr name="singleThumb" format="boolean" />
+        â€‚â€‚â€‚â€‚
+    </declare-styleable>
+    <declare-styleable name="PxBlurringView">
+        <attr name="blurRadius" format="integer" />
+        <attr name="downsampleFactor" format="integer" />
+        <attr name="overlayColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="BlurView">
+        <attr name="blurradius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="JazzyViewPager">
+        <attr name="style">
+            <enum name="standard" value="0" />
+            <enum name="tablet" value="1" />
+            <enum name="cubein" value="2" />
+            <enum name="cubeout" value="3" />
+            <enum name="flipvertical" value="4" />
+            <enum name="fliphorizontal" value="5" />
+            <enum name="stack" value="6" />
+            <enum name="zoomin" value="7" />
+            <enum name="zoomout" value="8" />
+            <enum name="rotateup" value="9" />
+            <enum name="rotatedown" value="10" />
+            <enum name="accordion" value="11" />
+        </attr>
+        <attr name="fadeEnabled" format="boolean" />
+        <attr name="outlineEnabled" format="boolean" />
+        <attr name="outlineColor" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ClikatImageView">
+        <attr name="imageType">
+            <enum name="nav_icon" value="0"/>
+            <enum name="nav_social_icon" value="1"/>
+            <enum name="toolbar_icon" value="2"/>
+            <enum name="product_image" value="3"/>
+            <enum name="normal_icon" value="4"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ClikatTextView">
+        <attr name="categoryType">
+            <enum name="app_title" value="0" />
+            <enum name="text_field" value="1" />
+            <enum name="text_field_hint" value="2" />
+            <enum name="text_head" value="3" />
+            <enum name="text_subhead" value="4" />
+            <enum name="text_body" value="5" />
+            <enum name="list_head" value="6" />
+            <enum name="list_subhead" value="7" />
+            <enum name="list_body" value="8" />
+            <enum name="nav_head" value="9" />
+            <enum name="nav_subhead" value="10" />
+            <enum name="nav_person_name" value="11" />
+            <enum name="home_product_title" value="12" />
+            <enum name="button" value="13" />
+            <enum name="text_button" value="14" />
+            <enum name="custom_badge" value="15" />
+            <enum name="no_internet" value="16" />
+            <enum name="stroke" value="17" />
+            <enum name="location_stroke" value="18"/>
+            <enum name="text_profile" value="19"/>
+            <enum name="load_more" value="20"/>
+
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ClikatEditText">
+        <attr name="type">
+            <enum name="search" value="0" />
+            <enum name="normal" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+
+</resources>

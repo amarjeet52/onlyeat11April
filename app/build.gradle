@@ -1,0 +1,434 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'realm-android'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'org.jetbrains.dokka'
+
+
+configurations {
+    all {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude module: 'httpclient'
+        exclude group: 'commons-codec', module: 'commons-codec'
+        exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+}
+
+// keystore.properties file.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion 31
+    //ecommerce
+    def versionMajor = 1
+    def versionMinor = 0
+    def versionPatch = 0
+    def versionBuild = 1
+
+    defaultConfig {
+        applicationId "com.onlyeat.user"
+        minSdkVersion 23
+        //noinspection OldTargetApi
+        targetSdkVersion 31
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        resConfigs "en", "ar", "es", "ml", "fr"
+    }
+
+    dokka {
+        outputFormat = 'html' // use 'javadoc' to get standard java docs
+        outputDirectory = "$buildDir/javadoc"
+
+        configuration {
+            includeNonPublic = false
+            skipEmptyPackages = true
+            skipDeprecated = true
+            reportUndocumented = true
+            jdkVersion = 8
+        }
+    }
+
+
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    //def app_clientCode = "clikat_0355"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            splits {
+                abi {
+                    println("split settings for release.")
+                    enable false
+                }
+            }
+        }
+    }
+
+    ndkVersion '22.0.7026061'
+
+    flavorDimensions "client", "server"
+    productFlavors {
+        craveqatar {
+            //faindy_0224
+            dimension "client"
+            applicationId "com.onlyeat.user"
+            resValue "string", "app_name", "Only Eat"
+            buildConfigField 'String', 'CLIENT_CODE', '"craveqatar123_0896"'
+        }
+
+        production {
+            dimension "server"
+        }
+    }
+
+    lintOptions {
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+        warningsAsErrors true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+/*    viewBinding {
+        enabled = true
+    }*/
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+
+    applicationVariants.all { variant ->
+        def name = variant.getName()
+        // Default values
+        variant.buildConfigField 'String', 'IMAGE_URL', '"https://api.eatsonly.doortodine.com/"'
+        variant.buildConfigField 'String', 'DISTANCE_URL', '"https://maps.googleapis.com/maps/api/"'
+        // Specific values
+
+        variant.buildConfigField 'String', 'BASE_URL', '"https://api.eatsonly.doortodine.com/"'
+        variant.buildConfigField 'String', 'ONBOARD_URL', '"https://api.eatsonly.doortodine.com/"'
+        variant.buildConfigField 'String', 'ONBOARD_AGENT_URL', '"https://api.eatsonly.doortodine.com/"'
+
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+    }
+}
+
+allprojects {
+    repositories {
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+        flatDir {
+            dirs 'libs'
+            maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.exifinterface:exifinterface:1.3.3'
+    implementation 'androidx.wear:wear:1.2.0'
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'com.google.android.material:material:1.5.0-alpha04'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.30"
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.webkit:webkit:1.4.0'
+    implementation 'androidx.emoji:emoji:1.1.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+
+    //ssp and sdp library for text and layouts
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+//claver tap
+    implementation 'com.clevertap.android:clevertap-android-sdk:4.0.1'
+
+    implementation 'androidx.core:core:1.6.0'
+    //Mandatory for CleverTap Android SDK v3.6.4 and above add the following -
+    implementation 'com.android.installreferrer:installreferrer:2.2'
+
+    //segment analytics
+    implementation 'com.segment.analytics.android:analytics:4.8.2'
+
+    //  implementation 'org.apmem.tools:layouts:1.9@aar'
+    // implementation 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
+    //implementation 'com.mikepenz:actionitembadge:4.0.0@aar'
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    // implementation 'me.henrytao:smooth-app-bar-layout:25.3.1.0'
+    // If you want to use the GPU Filters
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    // If you want to use the GPU Filters
+    implementation 'androidx.browser:browser:1.3.0'
+
+    /*   implementation('io.branch.sdk.android:library:4.2.0') {
+        exclude module: 'answers-shim'
+    }
+*/
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    //toast
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+    //range seekbar
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.3'
+
+    //google services
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-analytics:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    //circular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+    //dynamic link
+    implementation 'com.google.firebase:firebase-analytics:19.0.2'
+    implementation 'com.google.firebase:firebase-dynamic-links:20.1.1'
+    //permission
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    //recylerview animation
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
+
+    //Realm Adapter
+    implementation 'io.realm:android-adapters:2.0.0'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+
+    //circle viewpager indicator
+    implementation 'me.relex:circleindicator:2.1.4'
+
+    //socket
+    implementation('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    // Rx
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.20'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //facebook shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'
+
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //lottie animation
+    implementation 'com.airbnb.android:lottie:3.4.4'
+
+    // dependency injection
+    //noinspection OutdatedLibrary
+    implementation "com.google.dagger:dagger-android:2.38.1"
+    compileOnly 'com.google.android.wearable:wearable:2.8.1'
+    kapt "com.google.dagger:dagger-compiler:2.38.1"
+    kapt "com.google.dagger:dagger-android-processor:2.38.1"
+    implementation "com.google.dagger:dagger-android-support:2.38.1"
+
+    //retrofit 2
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+
+    //viewmodel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.3.1'
+
+
+    //multidex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //country code picker
+    implementation 'com.hbb20:ccp:2.4.2'
+//picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //dialog flow
+    //implementation 'ai.api:libai:1.6.12'
+    //implementation 'ai.api:sdk:2.0.7@aar'
+//chips layout
+    implementation 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
+    // api project(path: ':SingleRowCalendar')
+    // api.ai SDK dependencies
+    //  implementation 'com.google.code.gson:gson:2.8.6'
+    // implementation 'commons-io:commons-io:20030203.000550'
+
+    //timer text
+    implementation 'com.hanks:htextview-base:0.1.6'
+    implementation 'com.hanks:htextview-scale:0.1.6'
+
+    //navigation component
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+
+    //authorise.net
+    implementation 'net.authorize:accept-sdk-android:1.0.2'
+
+    //stripe
+//    implementation 'com.stripe:stripe-android:16.3.0'
+
+    //braintree
+    implementation 'com.braintreepayments.api:drop-in:5.0.0'
+    implementation 'com.google.android.gms:play-services-wallet:18.1.3'
+
+    //stripe card slider
+    implementation 'com.ramotion.cardslider:card-slider:0.3.1'
+
+    //timeline
+    implementation 'com.github.vipulasri:timelineview:1.1.2'
+
+
+    //conekta payment gateway
+    implementation 'io.conekta:conektasdk:2.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //razer pay
+//    implementation 'com.razorpay:checkout:1.6.4'
+
+    // logger
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    //tooltip
+    implementation 'com.github.douglasjunior:android-simple-tooltip:0.2.3'
+
+
+    //app validation
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
+
+    //card view
+    implementation 'com.github.sharish:CreditCardView:v1.0.4'
+
+    //square payment
+    implementation "com.squareup.sdk.in-app-payments:card-entry:1.3.0"
+
+    //paystack
+    implementation 'co.paystack.android.design.widget:pinpad:1.0.4'
+    implementation 'co.paystack.android:paystack:3.0.17'
+
+    //zendesk chat
+    implementation group: 'com.zendesk', name: 'support', version: '4.0.0'
+
+
+    // implementation "org.jetbrains.kotlin:kotlin-reflect:1.3.60-eap-25"
+    implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
+
+    //payhere payment gateway
+    implementation 'lk.payhere:androidsdk:2.0.31'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //preference
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    //google login
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    //dialog flow
+    implementation 'com.google.cloud:google-cloud-dialogflow:2.0.0'
+    // for Remote Procedure Call to avoid "No functional channel service provider found" error while creating SessionsClient
+    implementation 'io.grpc:grpc-okhttp:1.29.0'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    implementation project(':paytabs_sdk-v4.0.1')
+
+    implementation project(':dtapl-3.5.3')
+
+    //ur way payment integration
+    implementation project(':paymentlib')
+
+    //map util
+    implementation 'com.google.maps.android:android-maps-utils:2.0.3'
+
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.2.2'
+
+    implementation 'com.github.zcweng:switch-button:0.0.3@aar'
+
+    //enable
+    implementation "androidx.biometric:biometric:1.2.0-alpha03"
+
+    //image badges
+    implementation 'com.github.nikartm:image-support:1.0.5'
+
+    //push down
+    implementation('com.github.thekhaeng:pushdown-anim-click:1.1.1') {
+        exclude group: 'com.android.support'
+    }
+
+    implementation "com.newrelic.agent.android:android-agent:5.27.1"
+
+    implementation("com.github.bumptech.glide:recyclerview-integration:4.11.0") {
+        // Excludes the support library because it's already included by Glide.
+        transitive = false
+    }
+
+    //expanable recylerview
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+}
+
+apply plugin: 'com.google.gms.google-services'

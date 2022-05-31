@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/shape_white">
+
+            <TextView
+                android:id="@+id/menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/small_margin"
+                android:text="@string/menu"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.primaryColor}"
+                android:textColor="@color/colorPrimary"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvmenu_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:background="@{color.listBackground}"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_popup"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/spacing"
+            app:layout_constraintEnd_toEndOf="@id/dialog"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="@id/dialog"
+            app:layout_constraintTop_toBottomOf="@+id/dialog" />
+
+        <Space
+            android:id="@+id/spacing"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_04"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

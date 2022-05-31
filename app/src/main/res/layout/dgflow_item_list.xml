@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_dgflow_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/value_40"
+        android:background="@drawable/shape_white"
+        tools:listitem="@layout/dgflow_item_product"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</layout>

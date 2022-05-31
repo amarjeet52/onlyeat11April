@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/place_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:background="@{color.listItemBackground}">
+
+        <TextView
+            android:id="@+id/place_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="TextView"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textListHead}" />
+
+        <TextView
+            android:id="@+id/place_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/place_area"
+            app:layout_constraintTop_toBottomOf="@+id/place_area"
+            app:textcolor="@{color.textListSubhead}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/signin"
+    app:startDestination="@id/createAccFragment">
+
+    <fragment
+        android:id="@+id/createAccFragment"
+        android:name="com.codebrew.clikat.module.new_signup.create_account.CreateAccFragment"
+        android:label="CreateAccFragment">
+        <action
+            android:id="@+id/action_createAccFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_createAccFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_createAccFragment_to_enterPhoneFrag"
+            app:destination="@id/enterPhoneFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.codebrew.clikat.module.new_signup.signup.RegisterFragment"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registerFragment_to_otpVerifyFragment"
+            app:destination="@id/otpVerifyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.codebrew.clikat.module.new_signup.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_otpVerifyFragment"
+            app:destination="@id/otpVerifyFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_enterPhoneFrag"
+            app:destination="@id/enterPhoneFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpVerifyFragment"
+        android:name="com.codebrew.clikat.module.new_signup.otp_verify.OtpVerifyFragment"
+        android:label="OtpVerifyFragment">
+        <argument
+            android:name="accessToken"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_otpVerifyFragment_to_updateNameFrag"
+            app:destination="@id/updateNameFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enterPhoneFrag"
+        android:name="com.codebrew.clikat.module.new_signup.enter_phone.EnterPhoneFrag"
+        android:label="EnterPhoneFrag">
+        <argument
+            android:name="accessToken"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_enterPhoneFrag_to_otpVerifyFragment"
+            app:destination="@id/otpVerifyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateNameFrag"
+        android:name="com.codebrew.clikat.module.new_signup.name.EnterNameFragment"
+        android:label="EnterPhoneFrag">
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragmentV2"
+        android:name="com.codebrew.clikat.module.new_signup.login.v2.LoginFragmentV2"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragmentV2_to_registerFragmentV2"
+            app:destination="@id/registerFragmentV2"
+            app:popUpTo="@id/registerFragmentV2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragmentV2_to_otpVerifyFragment"
+            app:destination="@id/otpVerifyFragment" />
+        <action
+            android:id="@+id/action_loginFragmentV2_to_enterPhoneFragV2"
+            app:destination="@id/enterPhoneFragV2" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/registerFragmentV2"
+        android:name="com.codebrew.clikat.module.new_signup.signup.v2.RegisterFragmentV2"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/action_registerFragmentV2_to_loginFragmentV2"
+            app:destination="@id/loginFragmentV2"
+            app:popUpTo="@id/loginFragmentV2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registerFragmentV2_to_enterPhoneFragV2"
+            app:destination="@id/enterPhoneFragV2" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/enterPhoneFragV2"
+        android:name="com.codebrew.clikat.module.new_signup.enter_phone.v2.EnterPhoneFragV2"
+        android:label="EnterPhoneFrag">
+        <argument
+            android:name="accessToken"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_enterPhoneFrag2_to_otpVerifyFragmentV2"
+            app:destination="@id/otpVerifyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpVerifyFragmentV2"
+        android:name="com.codebrew.clikat.module.new_signup.otp_verify.v2.OtpVerifyFragmentV2"
+        android:label="OtpVerifyFragmentV2">
+        <argument
+            android:name="accessToken"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/ivAdd"
+        android:layout_width="124dp"
+        android:layout_height="104dp"
+        app:riv_corner_radius="@dimen/value_4"
+        android:layout_marginEnd="@dimen/value_16"
+        android:layout_marginTop="@dimen/medium_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivDocument"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/add" />
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/ivDocument"
+        android:layout_width="124dp"
+        android:layout_height="104dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="@dimen/value_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivAdd"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/medium_margin"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivCross"
+        android:padding="@dimen/value_4"
+        app:layout_constraintEnd_toEndOf="@+id/ivDocument"
+        app:layout_constraintTop_toTopOf="@+id/ivDocument"
+        android:src="@drawable/ic_cross"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

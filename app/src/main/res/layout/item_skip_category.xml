@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp_04"
+        android:layout_marginStart="@dimen/value_8"
+        android:layout_marginTop="@dimen/value_16"
+        android:layout_marginEnd="@dimen/value_4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_04">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_userImage"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner"
+            app:srcCompat="@mipmap/ic_launcher_new" />
+
+        <TextView
+            android:id="@+id/category_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:layout_marginStart="@dimen/value_2"
+            android:layout_marginEnd="@dimen/value_2"
+            android:ellipsize="end"
+            android:fontFamily="@font/proximanovaregular"
+            android:singleLine="true"
+            tools:text="@string/long_desc"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_userImage"
+            app:textcolor="@{color.primaryColor}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

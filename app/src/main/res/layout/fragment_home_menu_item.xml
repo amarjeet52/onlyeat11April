@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<ScrollView
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@color/splash_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            app:cardUseCompatPadding="true"
+            app:cardElevation="@dimen/dp_05"
+            app:cardBackgroundColor="@color/splash_bg"
+            app:cardCornerRadius="@dimen/margin_40"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_marginTop="20dp"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:layout_width="100dp"
+                    android:layout_height="702dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/ivDel"
+                    app:riv_oval="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="110dp"
+
+                    android:layout_width="125dp"
+                    android:layout_height="136dp" />
+                <TextView
+                    android:layout_below="@+id/ivDel"
+                    android:layout_marginStart="70dp"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@string/delivery_underline"
+                    android:textStyle="bold"
+                    android:textColor="#99000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/ivBookMyTable"
+                    app:riv_oval="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="110dp"
+                    android:layout_alignTop="@+id/ivDel"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="125dp"
+                    android:layout_height="136dp" />
+                <TextView
+                    android:layout_below="@+id/ivBookMyTable"
+                    android:layout_alignStart="@+id/ivBookMyTable"
+                    android:gravity="center_horizontal"
+                    android:layout_marginEnd="@dimen/value_30"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@string/book_me_a_table"
+                    android:textStyle="bold"
+                    android:textColor="#99000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_marginStart="20dp"
+                    app:riv_oval="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="110dp"
+                    android:layout_alignTop="@+id/ivBookMyTable"
+                    android:layout_below="@+id/ivBookMyTable"
+                    android:id="@+id/ivGrabNGo"
+
+                    android:layout_width="125dp"
+                    android:layout_height="136dp" />
+                <TextView
+                    android:layout_below="@+id/ivGrabNGo"
+                    android:layout_marginStart="30dp"
+                    android:layout_alignStart="@+id/ivGrabNGo"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@string/grab_n_go"
+                    android:textStyle="bold"
+                    android:textColor="#99000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/ivCraveSignature"
+                    android:layout_below="@+id/ivGrabNGo"
+                    android:layout_alignTop="@+id/ivGrabNGo"
+                    android:layout_marginTop="120dp"
+                    app:riv_oval="true"
+
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="125dp"
+                    android:layout_height="136dp" />
+                <TextView
+                    android:layout_below="@+id/ivCraveSignature"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@string/crave_signature"
+                    android:textStyle="bold"
+                    android:textColor="#99000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/value_90"
+                    android:layout_alignTop="@+id/ivCraveSignature"
+                    app:riv_oval="true"
+                    android:id="@+id/ivCraveMania"
+                    android:scaleType="centerCrop"
+
+                    android:adjustViewBounds="true"
+                    android:layout_width="125dp"
+                    android:layout_height="136dp" />
+
+                <TextView
+                    android:layout_below="@+id/ivCraveMania"
+                    android:layout_marginStart="40dp"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@string/crave_mania"
+                    android:textStyle="bold"
+                    android:textColor="#99000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</ScrollView>
+
+</layout>

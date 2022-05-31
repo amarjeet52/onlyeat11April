@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet"
+        style="@style/Widget.MaterialComponents.BottomSheet.Modal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_white_top_radius"
+        android:paddingTop="@dimen/value_24"
+        app:behavior_hideable="false"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnst_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/value_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cross" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_12"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/select_location"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textAppTitle}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnst_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/et_radius_back_ground"
+            android:paddingTop="@dimen/value_8"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            app:layout_constraintStart_toStartOf="@id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/cnst_toolbar"
+            app:viewstroke="@{color.search_background}">
+
+            <EditText
+                android:id="@+id/ed_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/proximanovaregular"
+                android:hint="@string/search_for_your_location"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:padding="@dimen/dp_04"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ic_search"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ic_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/ed_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ed_search"
+                app:srcCompat="@drawable/ic_search" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/small_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/small_margin" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_addressList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            app:layout_constraintStart_toStartOf="@id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/cnst_search"
+            tools:listitem="@layout/list_search_item" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.dialog_adress.AddressViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+</layout>
+

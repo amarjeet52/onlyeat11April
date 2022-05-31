@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="currency"
+            type="String" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.dialog_flow.adapter.DialogChatAdapter.ChatListener" />
+
+        <variable
+            name="dialogItem"
+            type="com.codebrew.clikat.data.model.others.PopUpItem" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/value_12"
+        android:paddingTop="@dimen/value_8"
+        android:paddingEnd="@dimen/value_12"
+        android:paddingBottom="@dimen/value_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dialog_lyt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_dialog_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/proximanovasemibold"
+                android:maxLines="2"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                android:padding="@dimen/small_margin"
+                android:text="@{dialogItem.msg}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textHead}"
+                tools:text="@string/awesome_product" />
+
+            <TextView
+                android:id="@+id/tv_total_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovaregular"
+                android:maxLines="1"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dialog_name"
+                app:textcolor="@{color.textSubhead}"
+                tools:text="@string/awesome_product" />
+
+
+            <TextView
+                android:id="@+id/tv_total_tax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:fontFamily="@font/proximanovaregular"
+                android:maxLines="1"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_price"
+                app:textcolor="@{color.textSubhead}"
+                tools:text="@string/awesome_product" />
+
+
+            <TextView
+                android:id="@+id/tv_total_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovaregular"
+                android:maxLines="1"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_tax"
+                app:textcolor="@{color.textSubhead}"
+                tools:text="@string/awesome_product" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{dialogItem.billingAmt ? View.VISIBLE : View.GONE}"
+                tools:visibility="gone"
+                app:constraint_referenced_ids="tv_total_price,tv_total_tax,tv_total_delivery" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_yes"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:gravity="center"
+            android:onClick="@{(view) -> listener.onPopClick(`yes`,``,dialogItem.type,dialogItem.acceptMsg)}"
+            android:text="@{dialogItem.acceptMsg}"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_no"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_lyt"
+            app:rippleColor="@color/colorPrimary"
+            app:background="@{color.appBackground}"
+            app:textcolor="@{color.primaryColor}" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_no"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:gravity="center"
+            android:text="@{dialogItem.rejectMsg}"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_medium"
+            android:onClick="@{(view) -> listener.onPopClick(``,`no`,dialogItem.type,dialogItem.rejectMsg)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_yes"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_lyt"
+            app:rippleColor="@color/colorPrimary"
+            app:background="@{color.appBackground}"
+            app:textcolor="@{color.primaryColor}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

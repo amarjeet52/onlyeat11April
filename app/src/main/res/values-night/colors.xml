@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#FF6203</color>
+    <color name="colorPrimary_30">#4DFF6203</color>
+    <color name="colorPrimaryDark">#6C2E09</color>
+    <color name="colorPrimary_10">#1AFF6203</color>
+    <color name="colorPrimary_05">#05FF6203</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+    <color name="bgListing">@color/colorPrimary</color>
+    <color name="brown">@color/colorPrimary</color>
+    <color name="black_10">#41000000</color>
+    <color name="theme_color">#FF64584E</color>
+
+    <color name="toastError">#FF4081</color>
+    <color name="medium_grey">#DDDDDD</color>
+
+    <color name="theme_color_with_aplha_navigation">#b564584e</color>
+    <color name="white">#000000</color>
+    <color name="light_green">#45cf8f</color>
+    <color name="yellow">#FFF7C018</color>
+    <color name="facebook_color">#FF435898</color>
+    <color name="divider">#dfdfdf</color>
+    <color name="light_text_color">#f9f9f9</color>
+    <color name="bg_order">#eff2f4</color>
+    <color name="grey_40">#33808080</color>
+    <color name="shadow">#1E808080</color>
+    <color name="black_80">#99000000</color>
+    <color name="grey">#ff878787</color>
+    <color name="red">#ffc2041b</color>
+    <color name="light_white">#fff5f5f5</color>
+    <color name="text_color_normal">#a1a1a1</color>
+    <color name="text_color_light">#FF595959</color>
+    <color name="black">#F2000000</color>
+    <color name="transparent">#12000000</color>
+    <color name="light_blue">#b0bcc2</color>
+    <color name="light_grey">#FFCACACA</color>
+    <color name="light_black">#FF979797</color>
+    <color name="username4">#6db518</color>
+    <color name="sponser_color">#FBFADD</color>
+    <color name="test">#272727</color>
+
+    <color name="grey_8f">#8F8F8F</color>
+    <color name="whiteF9">#f9f9f9</color>
+    <color name="light_dark_white">#F4F4F4</color>
+    <color name="greyD7">#80000000</color>
+    <color name="textColorLight">#888B9B</color>
+    <color name="text_dark">#394956</color>
+    <color name="color_main">#390086</color>
+    <color name="grey_3c">#3C4464</color>
+    <color name="clikat_background">#f5f5f5</color>
+    <color name="greyE8">#e8e9eb</color>
+    <color name="color_light_grey">#F1F0F3</color>
+    <color name="grey_f1">#f1f4f5</color>
+    <color name="edit_text_tint">#c2c5c7</color>
+    <color name="greyE9">#e9e9e9</color>
+    <color name="black_3b">#3B3B3B</color>
+    <color name="black_94">#949494</color>
+    <color name="blackF7">#F7F7F7</color>
+    <color name="greyED">#08000000</color>-->
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="market_ripple.json"
+            app:lottie_loop="true" />
+
+        <ImageView
+            android:id="@+id/iv_instruction"
+            android:layout_width="232dp"
+            android:layout_height="232dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/instruction"
+            app:layout_constraintBottom_toBottomOf="@+id/animation_view"
+            app:layout_constraintEnd_toEndOf="@+id/animation_view"
+            app:layout_constraintStart_toStartOf="@+id/animation_view"
+            app:layout_constraintTop_toTopOf="@+id/animation_view"
+            app:srcCompat="@drawable/instruction_ecommerce_1" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="2"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_body"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animation_view"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tv_body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/poppins_light"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:textcolor="@{color.textBody}" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xlarge_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingEnd="@dimen/medium_margin"
+            android:text="@string/get_started"
+            app:background="@{color.primaryColor}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_body"
+            app:textcolor="@{color.appBackground}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

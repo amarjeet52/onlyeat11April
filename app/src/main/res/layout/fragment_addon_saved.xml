@@ -1,0 +1,105 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/parentLyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:background="@{color.appBackground}"
+        tools:context=".module.addon_quant.AddonQuant">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/small_margin"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/small_margin">
+
+
+            <TextView
+                android:id="@+id/tv_prod_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintEnd_toStartOf="@id/iv_cross"
+                app:layout_constraintStart_toStartOf="@id/gdline_start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textHead}" />
+
+            <ImageView
+                android:id="@+id/iv_cross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_04"
+                android:src="@drawable/ic_cross"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_prod_name"
+                app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_prod_name"
+                app:tint="@{color.primaryColor}" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:background="@{color.divider}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_saved_addon"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/tv_add_customize"
+            app:layout_constraintEnd_toEndOf="@+id/gdline_end"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/tv_prod_name"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_saved_addon" />
+
+
+        <TextView
+            android:id="@+id/tv_add_customize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:padding="@dimen/dp_04"
+            android:text="@{@string/add_customization(textConfig.customisable), default=`QAR 0.0`}"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            app:layout_constraintStart_toStartOf="@id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/rv_saved_addon" />
+
+
+    </LinearLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="textConfig"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+</layout>

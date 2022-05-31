@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_view"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/crave_mania_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="Buy One Get One"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toEndOf="@+id/iv_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_viewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center"
+        android:text="View all"
+        android:textColor="@color/blue"
+
+        android:textSize="@dimen/_13ssp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_below="@+id/iv_view"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:riv_corner_radius="@dimen/_5sdp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_homeItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:layout_below="@+id/iv_view"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_supplier_crave_new_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

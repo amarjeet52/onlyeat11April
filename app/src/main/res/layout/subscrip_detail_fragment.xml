@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.subscription.subscrip_detail.SubscripDetailFrag">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.cart.CartViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="subcripModel"
+            type="com.codebrew.clikat.data.model.api.SubcripModel" />
+
+        <variable
+            name="currency"
+            type="String" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/toolbar_subscription"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+        <ImageView
+            android:id="@+id/ivParent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toTopOf="@+id/tv_valid_from"
+            app:layout_constraintDimensionRatio="H,5:2"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar"
+            app:srcCompat="@drawable/ic_subscription"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+        <TextView
+            android:id="@+id/tv_valid_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_40"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{subcripModel.updated_start_date}"
+            android:textSize="@dimen/text_xxxlarge"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toStartOf="@+id/tv_valid_to"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/ivParent"
+            app:textcolor="@{color.textHead}"
+            tools:text="03-08-2019" />
+
+        <TextView
+            android:id="@+id/tv_valid_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{subcripModel.update_end_date}"
+            android:textSize="@dimen/text_xxxlarge"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_valid_from"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_valid_from"
+            app:textcolor="@{color.textHead}"
+            tools:text="03-08-2019" />
+
+        <TextView
+            android:id="@+id/text_valid_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/valid_from"
+            app:layout_constraintBottom_toTopOf="@+id/tv_valid_from"
+            app:layout_constraintEnd_toEndOf="@+id/tv_valid_from"
+            app:layout_constraintStart_toStartOf="@+id/tv_valid_from"
+            app:textcolor="@{color.textSubhead}" />
+
+        <TextView
+            android:id="@+id/text_valid_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/valid_to"
+            app:layout_constraintBottom_toTopOf="@+id/tv_valid_to"
+            app:layout_constraintEnd_toEndOf="@+id/tv_valid_to"
+            app:layout_constraintStart_toStartOf="@+id/tv_valid_to"
+            app:textcolor="@{color.textSubhead}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            app:background="@{color.supplier_bg}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_renew_subcrip"
+            app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_valid_from"
+            app:viewstroke="@{color.supplier_bg}">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_gdline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_gdline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+            <TextView
+                android:id="@+id/tv_subscrip_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@{subcripModel.title}"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toTopOf="@+id/tv_subscrip_duration"
+                app:layout_constraintStart_toStartOf="@+id/start_gdline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textHead}"
+                tools:text="Gold" />
+
+            <TextView
+                android:id="@+id/tv_subscrip_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@{subcripModel.subscription_plan}"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
+                app:layout_constraintStart_toStartOf="@+id/start_gdline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_subscrip_name"
+                app:textcolor="@{color.textSubhead}"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/tv_subscrip_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@{@string/currency_tag(currency,subcripModel.price), default=`QAR 0.0`}"
+                android:textSize="@dimen/text_xxxlarge"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_subscrip_duration"
+                app:layout_constraintEnd_toEndOf="@+id/end_gdline"
+                app:layout_constraintTop_toTopOf="@+id/tv_subscrip_name"
+                app:textcolor="@{color.primaryColor}"
+                tools:text="$50.00" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/small_margin"
+                app:background="@{color.divider}"
+                app:layout_constraintEnd_toEndOf="@id/end_gdline"
+                app:layout_constraintStart_toStartOf="@id/start_gdline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_subscrip_duration" />
+            <TextView
+                android:id="@+id/tvPlanSubTag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/plan_description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintEnd_toStartOf="@+id/end_gdline"
+                app:layout_constraintStart_toStartOf="@id/start_gdline"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <TextView
+                android:id="@+id/tvPlanSub"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovaregular"
+                app:textcolor="@{color.textSubhead}"
+                android:textSize="@dimen/text_size_14"
+                android:text="@{subcripModel.description}"
+                app:layout_constraintEnd_toStartOf="@+id/end_gdline"
+                app:layout_constraintStart_toStartOf="@id/start_gdline"
+                app:layout_constraintTop_toBottomOf="@+id/tvPlanSubTag" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_benefit_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                android:layout_marginBottom="@dimen/dp_04"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/end_gdline"
+                app:layout_constraintStart_toStartOf="@+id/start_gdline"
+                app:layout_constraintTop_toBottomOf="@+id/tvPlanSub"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_benefit_subcription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_renew_subcrip"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:text="@{subcripModel.is_subscribed()==1  || subcripModel.subscription_id !=null  ? @string/renew_subscription : @string/buy_subcrip, default=`Default`}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"
+            app:background="@{color.primaryColor}"
+            app:cornerRadius="@dimen/small_margin"
+            app:layout_constraintBottom_toTopOf="@+id/btn_cancel_subcrip"
+            app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:rippleColor="@color/white"
+            app:textcolor="@{color.appBackground}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_subcrip"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:gravity="center"
+            android:onClick="@{(view) -> viewModel.cancelSubcription(subcripModel)}"
+            android:text="@string/cancel_subscription"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_medium"
+            android:visibility="@{subcripModel.is_subscribed()==1  || subcripModel.subscription_id !=null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:rippleColor="@color/colorPrimary"
+            app:textcolor="@{color.primaryColor}" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tv_valid_from,tv_valid_to,text_valid_from,text_valid_to" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/value_4"
+        android:foreground="?attr/selectableItemBackground"
+        app:background="@{color.listItemBackground}"
+        app:cardElevation="2dp">
+
+        <LinearLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/value_16"
+            app:background="@{color.listItemBackground}">
+
+            <TextView
+                android:id="@+id/tvHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_15ssp"
+                android:layout_gravity="end"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivered"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <TextView
+                    android:id="@+id/tv_total_prod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brown"
+                    android:textSize="@dimen/text_size_12"
+                    app:textcolor="@{color.primaryColor}"
+                    tools:text="total" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/value_12">
+
+                <TextView
+                    android:id="@+id/tvPlaced"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textSize="@dimen/text_size_14"
+                    app:textcolor="@{color.textSubhead}"
+                    tools:text="Placed" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <TextView
+                    android:id="@+id/tvOrderNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    tools:text="Order Number"
+                    android:textSize="@dimen/text_size_14"
+                    app:textcolor="@{color.textSubhead}" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:background="@color/divider"
+                app:background="@{color.divider}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="rest"
+    android:textSize="@dimen/_13ssp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:id="@+id/tv_restaurant"
+    android:fontFamily="@font/poppins_semibold"
+    android:textColor="@color/text_dark"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/small_margin"
+                android:paddingBottom="@dimen/small_margin">
+
+                <TextView
+                    android:id="@+id/tvDeliveryDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/value_8"
+                    android:layout_toStartOf="@+id/tvOrder"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Date of delivery"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tvOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/green_rec"
+                    android:gravity="center"
+                    android:padding="@dimen/value_12"
+                    android:text="@string/reorder"
+                    android:textAllCaps="true"
+                    tools:text="Order"
+                    android:textColor="@color/light_green"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="gone"
+                    app:background="@{color.primaryColor}"
+                    app:textcolor="@{color.appBackground}" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:text="@string/rate_order"
+                android:gravity="left|center"
+                android:id="@+id/tv_rate_order"
+                android:textColor="@color/yellow"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/_15ssp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

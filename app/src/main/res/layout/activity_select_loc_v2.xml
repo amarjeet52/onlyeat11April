@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mapLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fb_current_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/map"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_location" />
+
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/gdline_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.63" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_BottomBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addressLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_white_top_radius"
+            android:paddingTop="@dimen/value_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gdline_BottomBar"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/small_margin"
+                android:text="@string/add_address"
+                android:textSize="@dimen/text_16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textAppTitle}" />
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:shimmer_duration="1200">
+
+                <include layout="@layout/shimmer_select_loc" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loc_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                android:layout_marginBottom="@dimen/value_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:layout_constraintVertical_bias="1.0">
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/small_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/small_margin" />
+
+                <TextView
+                    android:id="@+id/text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/your_location"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textcolor="@{color.textHead}" />
+
+                <TextView
+                    android:id="@+id/tv_location_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:background="@drawable/et_radius_back_ground"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:maxLines="2"
+                    android:padding="@dimen/value_16"
+                    android:text="@string/current_adrs"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintEnd_toEndOf="@+id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_1"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/value_16"
+                    android:layout_marginBottom="@dimen/value_16"
+                    app:background="@{color.divider}"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_name" />
+
+
+                <TextView
+                    android:id="@+id/complete_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/complete_address"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <EditText
+                    android:id="@+id/ed_extra_adrs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:background="@drawable/et_radius_back_ground"
+                    android:ems="10"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/house_building_tag"
+                    android:inputType="text"
+                    android:padding="@dimen/value_16"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/complete_address"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save_adrs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:text="@string/btn_add_address"
+                    app:background="@{color.primaryColor}"
+                    app:cornerRadius="@dimen/value_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/ed_extra_adrs" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:layout_constraintStart_toStartOf="@+id/map"
+            app:layout_constraintTop_toTopOf="@+id/map"
+            app:srcCompat="@drawable/ic_back" />
+
+        <ImageView
+            android:id="@+id/iv_loc_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            app:layout_constraintBottom_toTopOf="@+id/addressLayout"
+            app:layout_constraintEnd_toEndOf="@+id/map"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/map"
+            app:srcCompat="@drawable/ic_pickup_location_mrkr" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

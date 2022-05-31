@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.referral_list.ReferralListViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.codebrew.clikat.module.refer_user.ReferralUser">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gudline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/xlarge_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gudline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/xlarge_margin" />
+
+
+        <ImageView
+            android:id="@+id/referralImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/img_referral"
+            app:layout_constraintBottom_toTopOf="@+id/referral_text"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="@id/gudline_end"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/gudline_start"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/referral_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/invite_your_friend_and_earn_money"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@+id/tv_referral_code"
+            app:layout_constraintEnd_toEndOf="@id/gudline_end"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/gudline_start"
+            app:layout_constraintTop_toBottomOf="@+id/referralImage" />
+
+        <TextView
+            android:id="@+id/tv_referral_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="@drawable/dotted_referral"
+            android:padding="@dimen/small_margin"
+            android:text="TextView"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toStartOf="@+id/btn_referral_copy"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/gudline_start"
+            app:layout_constraintTop_toBottomOf="@+id/referral_text" />
+
+        <Button
+            android:id="@+id/btn_referral_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tap_to_copy"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_referral_code"
+            app:layout_constraintEnd_toEndOf="@id/gudline_end"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_referral_code"
+            app:layout_constraintTop_toTopOf="@+id/tv_referral_code" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@+id/btn_share_referral"
+            app:layout_constraintEnd_toStartOf="@+id/gudline_end"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/gudline_start"
+            app:layout_constraintTop_toBottomOf="@+id/tv_referral_code" />
+
+        <Button
+            android:id="@+id/btn_share_referral"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/refer_now"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gudline_end"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/gudline_start"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

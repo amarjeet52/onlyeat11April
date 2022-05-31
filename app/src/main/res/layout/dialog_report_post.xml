@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.social_post.SocialPostViewModel" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivCross"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tvPhone"
+            android:fontFamily="@font/proximanovasemibold"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:layout_marginTop="@dimen/value_24"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_size_20"
+            android:text="Report Post"
+            android:layout_height="wrap_content"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cross"
+            android:padding="@dimen/value_12"
+            android:id="@+id/ivCross"
+            app:layout_constraintTop_toTopOf="@+id/tvPhone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPhone"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+        <TextView
+            android:id="@+id/txt_ques_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="Report Heading"
+            android:textAllCaps="true"
+            app:textcolor="@{color.textSubhead}"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+        <EditText
+            android:id="@+id/etQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:hint="Enter Heading"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            app:hintcolor="@{color.textSubhead}"
+            app:textcolor="@{color.textHead}"
+            android:background="@drawable/shape_supplier_search"
+            android:paddingTop="@dimen/small_margin"
+            android:paddingBottom="@dimen/small_margin"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ques_title" />
+
+
+        <TextView
+            android:id="@+id/txt_post_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="Description"
+            android:textAllCaps="true"
+            app:textcolor="@{color.textSubhead}"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/etQuestion" />
+
+
+        <EditText
+            android:id="@+id/etDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="75dp"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:hint="Report Description"
+            android:imeOptions="actionNext"
+            android:inputType="textImeMultiLine"
+            android:scrollbars="vertical"
+            android:gravity="start"
+            app:hintcolor="@{color.textSubhead}"
+            app:textcolor="@{color.textHead}"
+            android:background="@drawable/shape_supplier_search"
+            android:paddingTop="@dimen/small_margin"
+            android:paddingBottom="@dimen/small_margin"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/txt_post_desc" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPost"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_24"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:paddingTop="@dimen/value_4"
+            android:paddingBottom="@dimen/value_4"
+            android:text="@string/continueText"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"
+            android:onClick="@{() -> viewModel.validateReportPost(context,etQuestion,etDesc)}"
+            android:enabled="@{viewModel.isLoading ?false:true}"
+            app:background="@{viewModel.isLoading ?color.textSubhead:color.primaryColor}"
+            app:cornerRadius="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/etDesc"
+            app:layout_constraintVertical_bias="0.0"
+            app:rippleColor="@color/white"
+            app:textcolor="@{color.appBackground}" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

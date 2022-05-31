@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.home_screen.HomeViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_category_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/value_16"
+                    android:layout_marginEnd="@dimen/value_16"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{viewModel.isLoading ? View.GONE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:targetApi="lollipop" />
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swiprRefresh"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_category_list"
+                    tools:visibility="visible">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_homeItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_supplier_product" />
+
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.questions.main.QuestionsViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+        <TextView
+            android:id="@+id/tv_page_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textAppTitle}"
+            tools:text="@string/basket_message" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_page_no"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/small_margin"
+            android:text="@string/back"
+            app:cornerRadius="@dimen/small_margin"
+            android:visibility="invisible"
+            app:background="@{color.appBackground}"
+            app:icon="@drawable/ic_back"
+            app:iconGravity="start"
+            app:iconTint="@color/white"
+            app:textcolor="@{color.toolbarText}"
+            android:layout_marginBottom="@dimen/medium_margin"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="@dimen/small_margin"
+            android:text="@string/next"
+            android:visibility="invisible"
+            app:cornerRadius="@dimen/small_margin"
+            app:background="@{color.appBackground}"
+            app:icon="@drawable/ic_next"
+            app:iconGravity="end"
+            app:iconTint="@color/white"
+            app:textcolor="@{color.toolbarText}"
+            android:layout_marginBottom="@dimen/medium_margin"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

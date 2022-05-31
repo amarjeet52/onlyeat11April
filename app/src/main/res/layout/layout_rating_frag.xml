@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.order_detail.rate_product.RateViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+    <RelativeLayout   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:id="@+id/rl_toolbar"
+    android:layout_height="@dimen/_90sdp">
+<ImageView
+    android:layout_width="@dimen/_80sdp"
+    android:layout_height="@dimen/_80sdp"
+    android:id="@+id/iv_cup"
+
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_18sdp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/rl_skip"
+        android:layout_toRightOf="@+id/iv_cup"
+>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cafe name"
+        android:id="@+id/tv_cafe_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_medium"
+     />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asian"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            android:layout_below="@+id/tv_cafe_name"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_light"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+
+        android:id="@+id/rl_skip">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/blue"/>
+    </RelativeLayout>
+
+</RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@+id/rl_toolbar"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_how"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/black"
+            android:text="@string/how_to"
+            android:fontFamily="@font/poppins_medium"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rest"
+            android:textSize="@dimen/_10ssp"
+android:layout_below="@+id/tv_how"
+            android:text="@string/rate"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_rate_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_240sdp"
+
+            android:layout_below="@+id/tv_rest"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_18sdp"
+            android:background="@drawable/red_rate_gradient">
+
+            <TextView
+                android:id="@+id/tv_status1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/awful_text"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/yellow_1"
+                android:textSize="@dimen/_36sdp" />
+
+            <ImageView
+                android:id="@+id/iv_smiley"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_34sdp"
+                android:background="@drawable/awful_emoji" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_smiley"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+
+                >
+
+                <SeekBar
+                    android:id="@+id/rv_rating"
+                    android:layout_width="@dimen/_262sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:max="100"
+                    android:paddingRight="@dimen/_4sdp"
+                    android:progressDrawable="@drawable/seekbar_base"
+
+                    android:thumb="@drawable/white_circle" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/red_round_button">
+
+                <TextView
+                    android:id="@+id/tv_feel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:text="@string/feel"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_toRightOf="@+id/tv_feel"
+                    android:gravity="center"
+                    android:text="Bad"
+                    android:textColor="@color/brown_dark"
+                    android:textSize="@dimen/_13ssp" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_below="@+id/rl_rate_card"
+            android:id="@+id/rl_type_here"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/white_greyback">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_8sdp"
+                android:hint="Type Here...."
+                android:textColorHint="@color/lightGrey"
+                android:textColor="@color/black"
+                android:id="@+id/et_text"
+                android:textSize="@dimen/_13ssp"
+                android:gravity="top|left"
+                android:background="#00000000"
+                android:fontFamily="@font/poppins_light"/>
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/yellow_background"
+            android:text="@string/submit"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_below="@+id/rl_type_here"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:id="@+id/tv_submit"/>
+    </RelativeLayout>
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/progressBar"
+                android:visibility="gone"
+                    android:layout_centerInParent="true"
+                app:progessBackground="@{color.primaryColor}" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+</layout>

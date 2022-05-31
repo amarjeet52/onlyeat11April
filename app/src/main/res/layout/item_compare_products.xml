@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:background="@color/blackF7"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivProduct"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:0.6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/greyE8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivProduct" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="0dp"
+            android:background="@color/divider"
+            app:layout_constraintBottom_toBottomOf="@+id/btnViewDetail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:lines="2"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProduct"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Product Name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+
+        <TextView
+            android:id="@+id/tvBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Brand" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBrand" />
+
+        <TextView
+            android:id="@+id/tvDiscountPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBrand"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Price" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDiscountPrice"
+            app:layout_constraintTop_toBottomOf="@+id/tvBrand"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Price" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDiscountPrice" />
+
+        <TextView
+            android:id="@+id/tvSoldBy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDiscountPrice"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Sold by" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSoldBy" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSoldBy"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Category" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
+        <TextView
+            android:id="@+id/tvSpecifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:lines="3"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/value_12"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/value_12"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory"
+            app:textcolor="@{color.textListHead}"
+            tools:text="Specifications" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpecifications" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnViewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_12"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/view_detail"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpecifications" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            android:id="@+id/viewBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/value_12"
+            app:layout_constraintTop_toBottomOf="@+id/btnViewDetail" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tvIntroTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Be safe" />
+
+
+        <ImageView
+            android:id="@+id/ivIntro"
+            android:layout_width="@dimen/icon_150"
+            android:layout_height="@dimen/icon_150"
+            android:layout_marginTop="32dp"
+            android:src="@mipmap/ic_launcher_new"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIntroTitle"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvTitleV2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="48dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivIntro"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/tvIntoDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="@dimen/value_16"
+            android:layout_marginEnd="48dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black_3b"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleV2"
+            tools:text="TextView" />
+
+
+        <TextView
+            android:id="@+id/tvIntroDescShort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="@dimen/value_16"
+            android:layout_marginEnd="48dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black_94"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIntoDescription"
+            tools:text="TextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

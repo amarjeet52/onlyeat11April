@@ -1,0 +1,108 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.manage_order.ManageOrderFrag">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/clMain"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_app"
+                android:visibility="gone"
+                app:color="@{color}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strings="@{strings}" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/value_16"
+                android:src="@drawable/ic_back_black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivNavigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/value_16"
+                android:src="@drawable/ic_men"
+                app:tint="@color/black"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/orders"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupSkip"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tvTitle,ivBack" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:background="@{color.toolbarColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTop"
+            app:tabIndicateColr="@{color.blue_color}"
+            app:tabSelectedText="@{color.blue_color}"
+            app:tabTextColr="@{color.textHead}" />
+
+        <com.codebrew.clikat.app_utils.CustomViewPager
+            android:id="@+id/order_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout_order">
+
+        </com.codebrew.clikat.app_utils.CustomViewPager>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

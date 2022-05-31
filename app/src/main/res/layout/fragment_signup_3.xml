@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.codebrew.clikat.utils.customviews.ClikatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:padding="@dimen/dp_04"
+            android:src="@drawable/ic_back"
+            app:imageType="normal_icon"
+            app:src="@{drawables.ic_back}"
+            tools:ignore="ContentDescription" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_gudline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_gudline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+                <TextView
+                    android:id="@+id/otp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xlarge_margin"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@{strings.otp}"
+                    android:textSize="@dimen/text_xtralarge"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_sender_phone"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:textcolor="@{color.textHead}" />
+
+                <com.codebrew.clikat.utils.customviews.ClikatTextView
+                    android:id="@+id/tv_sender_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="Enter the OTP sent to +976 9876543210"
+                    android:textSize="@dimen/text_mediumLarge"
+                    app:layout_constraintBottom_toTopOf="@+id/inputLayout"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/otp_text" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    app:endIconMode="clear_text"
+                    app:boxStroke="@{color.primaryColor}"
+                    app:textColor="@{color.primaryColor}"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubmit"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_sender_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOtp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@{@string/enter_otp(strings.otp)}"
+                        android:textCursorDrawable="@null"
+                        android:inputType="number"
+                        android:imeOptions="actionDone"
+                        android:padding="@dimen/value_16"
+                        android:textSize="@dimen/text_size_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/tvSubmit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:padding="@dimen/medium_margin"
+                    android:text="@string/submit"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    app:background="@{color.primaryColor}"
+                    app:textcolor="@{color.appBackground}"
+                    style="@style/Widget.MaterialComponents.Button"
+                    app:rippleColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/timer_text"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/inputLayout" />
+
+                <com.hanks.htextview.scale.ScaleTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timer_text"
+                    android:visibility="invisible"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/small_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubmit"
+                    app:layout_constraintBottom_toTopOf="@+id/tvText"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline" />
+
+
+                <TextView
+                    android:id="@+id/tvText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/recieve_otp"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintBottom_toTopOf="@+id/tvContactUsTag"
+                    app:layout_constraintEnd_toStartOf="@+id/tvResend"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/timer_text"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <TextView
+                    android:id="@+id/tvResend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:enabled="false"
+                    android:padding="@dimen/value_2"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@{@string/resend_otp(strings.otp)}"
+                    app:textcolor="@{color.primaryColor}"
+                    android:textSize="@dimen/text_size_12"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvText"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tvText" />
+
+                <TextView
+                    android:id="@+id/tvContactUsTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/otp_receiveing_issue"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintBottom_toTopOf="@+id/tvContactUs"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/tvText"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <TextView
+                    android:id="@+id/tvContactUs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:padding="@dimen/value_4"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/contact_us"
+                    app:textcolor="@{color.primaryColor}"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContactUsTag"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"/>
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:id="@+id/groupContact"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="tvContactUs,tvContactUsTag"
+                    android:layout_height="wrap_content"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</layout>

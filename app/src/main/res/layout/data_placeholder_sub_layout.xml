@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:background="@color/light_grey"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/iv_thumbnail_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_thumbnail_2"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="@color/light_grey"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner" />
+
+        <TextView
+            android:id="@+id/tv_placeholder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/light_grey"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/small_margin"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="@+id/iv_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/iv_thumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/iv_thumbnail" />
+
+
+        <TextView
+            android:id="@+id/tv_placeholder_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/light_grey"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/small_margin"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="@+id/iv_thumbnail_2"
+            app:layout_constraintStart_toStartOf="@+id/iv_thumbnail_2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_thumbnail_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

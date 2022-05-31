@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_05">
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tv_search_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_history"
+            android:drawablePadding="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/text_medium"
+            app:background="@{color.listItemBackground}"
+            app:categoryType="list_head" />
+
+    </LinearLayout>
+
+</layout>

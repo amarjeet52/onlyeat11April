@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="10dp"
+        android:text="aasaasas"
+        android:textAlignment="textStart"
+        app:textcolor="@{color.textSubhead}" />
+</layout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="type"
+            type="String" />
+
+        <variable
+            name="imageData"
+            type="com.codebrew.clikat.data.model.others.ImageListModel" />
+
+        <variable
+            name="clickListener"
+            type="com.codebrew.clikat.module.cart.adapter.ImageListAdapter.UserChatListener" />
+
+        <variable
+            name="isSocial"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:scaleType="fitXY"
+            android:onClick="@{(view) -> clickListener.onImageSelect(imageData,pos)}"
+            android:src="@drawable/iv_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="10dip" />
+
+        <ImageView
+            android:id="@+id/fb_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{(view) -> clickListener.onDeleteClick(pos)}"
+            android:visibility="@{type==`cart` ? View.VISIBLE : View.GONE}"
+            app:fabCustomSize="@dimen/large_margin"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:srcCompat="@drawable/ic_cross"
+            app:tint="@{color.primaryColor}" />
+
+        <ImageView
+            android:id="@+id/ic_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_social_tick"
+            android:padding="@dimen/small_margin"
+            android:visibility="@{imageData.isSelected() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

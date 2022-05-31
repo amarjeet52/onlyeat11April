@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:background="@{color.appBackground}">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <EditText
+            android:id="@+id/uniSearchEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_12"
+            android:layout_marginEnd="@dimen/value_8"
+            android:layout_marginBottom="@dimen/value_12"
+            android:background="@drawable/shape_search_border"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center_vertical"
+            android:hint="@string/what_are_you_looking_for"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="@dimen/value_16"
+            android:singleLine="true"
+            android:visibility="gone"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:padding="@dimen/value_8"
+            android:visibility="gone"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@+id/uniSearchEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/uniSearchEditText"
+            app:tint="@{color.textAppTitle}" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uniSearchEditText">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvRestaurant"
+                    textcolor="@{color.textHead}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:background="@color/whiteF9"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:padding="@dimen/value_12"
+                    android:text="@string/restaurant"
+                    android:textSize="@dimen/text_size_22"
+                    android:visibility="@{viewModel.supplierCount==0? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewRest"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    app:background="@{color.listBackground}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRestaurant" />
+                <TextView
+                    android:id="@+id/tvViewMoreSupplier"
+                    textcolor="@{color.textHead}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:padding="@dimen/value_12"
+                    android:text="@string/view_all"
+                    android:textSize="@dimen/text_16sp"
+                    android:visibility="@{viewModel.supplierCount>5? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerViewRest" />
+                <TextView
+                    android:id="@+id/tvProducts"
+                    textcolor="@{color.textHead}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/whiteF9"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:padding="@dimen/value_12"
+                    android:text="@string/product"
+                    android:textSize="@dimen/text_size_22"
+                    android:visibility="@{viewModel.productCount==0? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvViewMoreSupplier" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewProd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    app:background="@{color.listBackground}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProducts" />
+
+                <TextView
+                    android:id="@+id/tvViewMoreProducts"
+                    textcolor="@{color.textHead}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:padding="@dimen/value_12"
+                    android:text="@string/view_all"
+                    android:textSize="@dimen/text_16sp"
+                    android:visibility="@{viewModel.productCount>5? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerViewProd" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/groupProducts"
+                    app:constraint_referenced_ids="tvViewMoreProducts,tvViewMoreSupplier,tvRestaurant,tvProducts"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/noData"
+            layout="@layout/nothing_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.supplierCount==0 &amp; viewModel.productCount==0? View.VISIBLE : View.GONE}"
+            app:color="@{color}"
+            app:drawables="@{drawables}"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uniSearchEditText"
+            app:strings="@{strings}" />
+
+        <include
+            android:id="@+id/bottom_cart"
+            layout="@layout/layout_bottom_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            app:strings="@{strings}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uniSearchEditText"
+            app:progessBackground="@{color.primaryColor}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.searchProduct.SearchViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+</layout>
+

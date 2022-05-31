@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/agent_selection"
+    app:startDestination="@id/agentListFragment2">
+
+    <fragment
+        android:id="@+id/timeSlotFragment"
+        android:name="com.codebrew.clikat.module.agent_time_slot.AgentTimeSlotFragment"
+        android:label="frgament_time_slot"
+        tools:layout="@layout/fragment_agent_time_slot">
+        <action
+            android:id="@+id/action_timeSlotFragment_to_agentListFragment2"
+            app:destination="@id/agentListFragment2" />
+
+        <argument
+            android:name="duration"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="screenType"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <argument
+            android:name="selectedDate"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+
+        <argument
+            android:name="selectedTime"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <argument
+            android:name="productIds"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="serviceData"
+            app:argType="com.codebrew.clikat.modal.other.ProductDataBean"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/agentListFragment2"
+        android:name="com.codebrew.clikat.module.agent_listing.AgentListFragment"
+        android:label="AgentListFragment" >
+
+        <argument
+            android:name="duration"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="screenType"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="productIds"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+        <argument
+            android:name="selectedDate"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <argument
+            android:name="selectedTime"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="serviceData"
+            app:argType="com.codebrew.clikat.modal.other.ProductDataBean"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_agentListFragment2_to_selectAgent2"
+            app:destination="@id/selectAgent2" />
+        <action
+            android:id="@+id/action_agentListFragment2_to_timeSlotFragment"
+            app:destination="@id/timeSlotFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/agentListFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/selectAgent2"
+        android:name="com.codebrew.clikat.module.selectAgent.SelectAgent"
+        android:label="SelectAgent">
+
+        <argument
+            android:name="duration"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+
+        <argument
+            android:name="selectedDate"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <argument
+            android:name="selectedTime"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="agentData"
+            app:argType="com.codebrew.clikat.modal.agent.CblUserBean"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+
+        <argument
+            android:name="serviceData"
+            app:argType="com.codebrew.clikat.modal.other.ProductDataBean"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+    </fragment>
+
+
+</navigation>

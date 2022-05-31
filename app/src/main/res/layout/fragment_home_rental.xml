@@ -1,0 +1,280 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.rental.HomeRental">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:background="@{color.appBackground}">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_bg_rental"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delivery"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5" />
+
+
+        <ImageView
+            android:id="@+id/app_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xlarge_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_rental_logo" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pickup">
+
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="With Driver" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="Without Driver" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_pickup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:background="@drawable/shape_rental_time"
+            android:drawableEnd="@drawable/ic_rental_clock"
+            android:drawablePadding="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:text="10:00 PM"
+            app:layout_constraintEnd_toStartOf="@+id/tv_dropup"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/pickup_text"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/tv_dropup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_rental_time"
+            android:drawableEnd="@drawable/ic_rental_clock"
+            android:drawablePadding="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:text="05:00 PM"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_pickup"
+            app:layout_constraintTop_toBottomOf="@+id/dropup_text"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/pickup_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xlarge_margin"
+            android:text="Pick-up Time"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="@+id/tv_pickup"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+        <TextView
+            android:id="@+id/dropup_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xlarge_margin"
+            android:text="dROP-OFF tIME"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="@+id/tv_dropup"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_avail_date" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onValidateData()}"
+            android:text="Search"
+            app:cornerRadius="@dimen/dp_04"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintVertical_bias="0.51" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/small_margin"
+            app:cardElevation="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="@id/end_gudline"
+            app:layout_constraintStart_toStartOf="@id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/app_header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPickup"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPickup"
+                    app:layout_constraintTop_toTopOf="@+id/tvPickup" />
+
+                <TextView
+                    android:id="@+id/tvPickup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_rental_location"
+                    android:drawablePadding="@dimen/small_margin"
+                    android:paddingStart="@dimen/small_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/value_20"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:singleLine="true"
+                    android:text="Choose your Pick-up location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/drop_cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/small_margin"
+            app:cardElevation="@dimen/small_margin"
+            app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/pbDropup"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDropup"
+                    app:layout_constraintEnd_toEndOf="@+id/tvDropup"
+                    app:layout_constraintTop_toTopOf="@+id/tvDropup" />
+
+                <TextView
+                    android:id="@+id/tvDropup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_rental_location"
+                    android:drawablePadding="@dimen/small_margin"
+                    android:padding="@dimen/small_margin"
+                    android:text="Choose your Drop-off location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.rental.HomeRentalViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+</layout>

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+      android:background="@color/white">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:visibility="@{viewModel.isLoading()? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+            <RelativeLayout
+                android:id="@+id/search_lyt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:background="@color/white"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/searchContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/uniSearchEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:layout_marginEnd="@dimen/value_8"
+                        android:layout_marginBottom="@dimen/dp_04"
+                        android:background="@drawable/shape_search_border"
+                        android:drawableStart="@drawable/ic_search_grey"
+                        android:drawablePadding="@dimen/value_8"
+                        android:fontFamily="@font/proximanovasemibold"
+                        android:gravity="center_vertical"
+                        android:hint="@string/what_are_you_looking_for"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="@dimen/small_margin"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_medium"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/searchView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/medium_padding"
+                        android:layout_marginTop="@dimen/value_20"
+                        android:layout_marginEnd="@dimen/medium_padding"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/dp_04"
+                        android:background="@drawable/button_bg_white"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:hint="@string/what_are_you_looking_for"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:textColorHint="@color/blueColor"
+                        android:textColor="@color/blueColor"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/small_margin"
+                        android:paddingEnd="@dimen/small_margin"
+                        android:paddingTop="@dimen/small_margin"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/dividerView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:paddingStart="@dimen/value_8"
+                        android:paddingEnd="@dimen/value_8"
+                        android:src="@drawable/ic_search"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/searchView"
+                        app:tint="@{color.textAppTitle}" />
+
+                    <View
+                        android:id="@+id/dividerView"
+                        android:visibility="gone"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="@dimen/dp_04"
+                        app:background="@{color.divider}"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                        app:layout_constraintEnd_toStartOf="@+id/spinner_view"
+                        app:layout_constraintTop_toTopOf="@+id/searchView" />
+
+
+                    <LinearLayout
+                        android:id="@+id/spinner_view"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gradient_spinner"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_search"
+                        app:layout_constraintTop_toTopOf="@+id/searchView"
+                        tools:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/spinner_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/app_search"
+                            android:padding="0dp"
+
+                            android:prompt="@string/select_language"
+                            android:spinnerMode="dropdown"
+                            android:theme="@style/spinnerTheme" />
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/gp_unify_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="iv_search,spinner_view"
+                        tools:visibility="gone" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_grid_view"
+                android:layout_width="19dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:padding="@dimen/dp_04"
+                app:layout_constraintEnd_toStartOf="@+id/iv_list_view"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_view_product"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                app:srcCompat="@drawable/ic_grid_view" />
+
+
+            <ImageView
+                android:id="@+id/iv_list_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:gravity="center"
+                android:padding="@dimen/dp_04"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                app:srcCompat="@drawable/ic_list_view" />
+
+
+            <TextView
+                android:id="@+id/tv_view_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@{@string/view_products_as(strings.product)}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_grid_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_grid_view"
+                app:textcolor="@{color.textSubhead}"
+                tools:text="@string/view_products_as" />
+
+
+            <TextView
+                android:id="@+id/tv_search_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:background="@color/splash_bg"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/value_2"
+                android:text="@{@string/result_tag(viewModel.isList())}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/tv_filter"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_lyt"
+                app:textcolor="@{color.textAppTitle}"
+                tools:text="100 Result" />
+
+            <TextView
+                android:id="@+id/tv_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_10"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:background="@color/splash_bg"
+                android:drawableEnd="@drawable/ic_next"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="0dp"
+                android:text="@string/filter"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toBottomOf="@+id/search_lyt"
+                app:textcolor="@{color.primaryColor}" />
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="#D8D8D8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_search_count" />
+
+
+            <View
+                android:id="@+id/divider_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/value_2"
+                app:background="@{color.divider}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_grid_view" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:visibility="@{viewModel.isList()==0 ? View.GONE : View.VISIBLE}"
+
+                  app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_1" />
+
+
+            <include
+                android:id="@+id/noData"
+                layout="@layout/nothing_found"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                 app:color="@{color}"
+                android:visibility="@{viewModel.isList()==0 ? View.VISIBLE : View.GONE}"
+                app:drawables="@{drawables}"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_1"
+                app:layout_constraintVertical_bias="0.0"
+                app:strings="@{strings}" />
+
+            <include
+                android:id="@+id/bottom_cart"
+                layout="@layout/layout_bottom_cart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:color="@{color}"
+                android:layout_margin="@dimen/_25sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:strings="@{strings}" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_product_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv_view_product,iv_list_view,iv_grid_view,divider_1"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imageLoader"/>
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:progessBackground="@{color.primaryColor}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.searchProduct.SearchViewModel" />
+
+        <variable
+            name="search_history"
+            type="Boolean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+</layout>
+

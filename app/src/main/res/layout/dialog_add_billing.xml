@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/ivCross"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_margin"
+        android:src="@drawable/ic_cross"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/tvSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCross">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/value_24" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/value_24" />
+
+            <TextView
+                android:id="@+id/tvBillingAddressTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/value_16"
+                android:text="@string/billing_address"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputAddressDetail"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/tvBillingAddressTag">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/address_detail"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputCity"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/inputAddressDetail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/city"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputStateDetail"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/inputCity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etStateDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/state"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlCCp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/inputStateDetail">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/tvTitile"
+                    android:text="@string/country_code"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:layout_height="wrap_content" />
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccp_showFlag="false"
+                    app:ccpDialog_backgroundColor="@color/white"
+                    app:ccp_textSize="@dimen/text_size_14"
+                    android:layout_below="@+id/tvTitile"
+                    app:ccp_showPhoneCode="false" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/black"
+                    android:layout_below="@+id/ccp"
+                    android:alpha="0.2"/>
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputPincodeDetail"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/rlCCp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPinCodeDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/pincode"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlShippingDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputPincodeDetail">
+
+
+                <TextView
+                    android:id="@+id/tvShippingAddressTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/value_24"
+                    android:layout_toStartOf="@+id/checkBox"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/shipping_address"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/value_24"
+                    android:buttonTint="@color/white"
+                    android:paddingStart="@dimen/value_8"
+                    android:text="@string/same_as_billing"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputShippingAddressDetail"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/rlShippingDetail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etShippingAddressDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/address_detail"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputShippingCity"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/inputShippingAddressDetail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etShippingCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/city"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputShippingStateDetail"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/inputShippingCity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etShippingStateDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/state"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlShippingCCp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/inputShippingStateDetail">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/tvTitleShipping"
+                    android:text="@string/country_code"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:layout_height="wrap_content" />
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/shippingCcp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccp_showFlag="false"
+                    app:ccpDialog_backgroundColor="@color/white"
+                    app:ccp_textSize="@dimen/text_size_14"
+                    android:layout_below="@+id/tvTitleShipping"
+                    app:ccp_showPhoneCode="false" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/black"
+                    android:layout_below="@+id/shippingCcp"
+                    android:alpha="0.2"/>
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputShippingPincodeDetail"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/rlShippingCCp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etShippingPinCodeDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColorLight"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/pincode"
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="@dimen/value_20"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorLight"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpShippingAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:constraint_referenced_ids="inputShippingAddressDetail,inputShippingCity,rlShippingCCp,inputShippingPincodeDetail,inputShippingStateDetail" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tvSubmit"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="@dimen/value_16"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="@dimen/value_8"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_medium"
+        app:cornerRadius="@dimen/small_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

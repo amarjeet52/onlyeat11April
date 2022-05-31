@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="dataItem"
+            type="com.codebrew.clikat.data.model.api.PostItem" />
+
+        <variable
+            name="isUserLoggedIn"
+            type="boolean" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/value_8"
+        app:cardCornerRadius="@dimen/dp_04"
+        app:cardElevation="@dimen/value_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/value_16">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/postUserImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/placeholder_user"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintEnd_toStartOf="@+id/ivPostOptions"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/postUserImage"
+                app:layout_constraintTop_toTopOf="@+id/postUserImage"
+                app:text="@{dataItem.userName}"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/tvPostDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textSize="@dimen/text_size_12"
+                app:text="@{dataItem.formattedDate}"
+                app:layout_constraintEnd_toEndOf="@+id/tvUserName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/postUserImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                tools:text="Date time" />
+
+            <ImageView
+                android:id="@+id/ivPostOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvUserName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_more"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvHeading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postUserImage"
+                app:layout_constraintVertical_bias="0.0"
+                app:text="@{dataItem.heading}"
+                tools:text="Heading" />
+
+            <TextView
+                android:id="@+id/tvPostDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:fontFamily="@font/proximanovaregular"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeading"
+                app:layout_constraintVertical_bias="0.0"
+                app:text="@{dataItem.description}"
+                tools:text="DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription" />
+
+            <TextView
+                android:id="@+id/tvSupplierName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPostDescription"
+                app:layout_constraintVertical_bias="0.0"
+                app:text="@{@string/supplier_tag(dataItem.supplierName)}"
+                app:textcolor="@{color.primaryColor}"
+                tools:text="by me" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/OrderNow"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="@dimen/value_8"
+                android:text="@string/order_now"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                app:background="@{color.appBackground}"
+                app:cornerRadius="@dimen/value_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSupplierName"
+                app:layout_constraintVertical_bias="0.0"
+                app:textcolor="@{color.primaryColor}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/imagesRecyclerVIew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="@{dataItem.postImages.empty ? View.GONE : View.VISIBLE}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OrderNow"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/favImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="30dp"
+                android:src="@{dataItem.alreadyLike!=null &amp; dataItem.alreadyLike == 1 ? @drawable/ic_favourite :@drawable/ic_unfavorite,default=`@drawable/ic_unfavorite`}"
+                app:layout_constraintEnd_toStartOf="@+id/ivComments"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagesRecyclerVIew"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@+id/favImage"
+                app:layout_constraintStart_toStartOf="@+id/favImage"
+                app:layout_constraintTop_toBottomOf="@+id/favImage"
+                app:layout_constraintVertical_bias="0.0"
+                app:text="@{dataItem.totalLikes.toString()}"
+                tools:text="3" />
+
+            <ImageView
+                android:id="@+id/ivComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_30"
+                app:layout_constraintBottom_toTopOf="@+id/tvLikes"
+                app:layout_constraintStart_toEndOf="@+id/favImage"
+                app:layout_constraintTop_toTopOf="@+id/favImage"
+                app:srcCompat="@drawable/ic_comment"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@+id/ivComments"
+                app:layout_constraintStart_toStartOf="@+id/ivComments"
+                app:layout_constraintTop_toBottomOf="@+id/ivComments"
+                app:layout_constraintVertical_bias="0.0"
+                app:text="@{dataItem.totalComments.toString()}"
+                tools:text="3" />
+
+
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/value_8"
+                app:layout_constraintBottom_toTopOf="@+id/tvComments"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/ivComments"
+                app:layout_constraintTop_toTopOf="@+id/ivComments"
+                app:srcCompat="@drawable/ic_forward"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvSharePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/com_facebook_share_button_text"
+                app:layout_constraintEnd_toEndOf="@+id/ivShare"
+                app:layout_constraintStart_toStartOf="@+id/ivShare"
+                app:layout_constraintTop_toBottomOf="@+id/ivShare"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/currentUSerImage"
+                android:layout_width="@dimen/value_40"
+                android:layout_height="@dimen/value_40"
+                android:layout_marginTop="@dimen/small_margin"
+                android:src="@drawable/placeholder_user"
+                android:visibility="@{isUserLoggedIn? View.VISIBLE: View.GONE}"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLikes"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <LinearLayout
+                android:id="@+id/commentContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:background="@drawable/et_radius_back_ground"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_06"
+                android:visibility="@{isUserLoggedIn? View.VISIBLE: View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/currentUSerImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/currentUSerImage"
+                app:layout_constraintTop_toTopOf="@+id/currentUSerImage">
+
+
+                <EditText
+                    android:id="@+id/ed_add_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/enter_your_comment"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:padding="@dimen/dp_05"
+                    android:textSize="@dimen/text_size_14" />
+
+                <ImageView
+                    android:id="@+id/post_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dp_05"
+                    android:src="@drawable/ic_send_black"
+                    tools:ignore="ContentDescription" />
+
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{dataItem.productId!=null? View.VISIBLE: View.GONE}"
+                app:constraint_referenced_ids="imagesRecyclerVIew,tvSupplierName,OrderNow"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp"
+                tools:visibility="visible" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

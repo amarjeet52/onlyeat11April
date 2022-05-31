@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_first_lang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:padding="@dimen/dp_04"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textSubhead}" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/medium_margin"
+            app:background="@{color.divider}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_second_lang"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_first_lang" />
+
+        <TextView
+            android:id="@+id/tv_second_lang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:padding="@dimen/dp_04"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_constraintBottom_toTopOf="@+id/divider_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:textcolor="@{color.textSubhead}" />
+
+        <View
+            android:id="@+id/divider_2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/medium_margin"
+            app:background="@{color.divider}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_second_lang" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:padding="@dimen/small_margin"
+            android:text="@string/cancel"
+            android:textSize="@dimen/text_large"
+            app:background="@{color.primaryColor}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gp_langauage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="divider,tv_second_lang" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

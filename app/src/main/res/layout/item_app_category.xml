@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:background="@{color.listItemBackground}">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cnst_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:layout_marginBottom="@dimen/dp_04"
+            app:cardCornerRadius="@dimen/dp_04"
+            app:cardElevation="@dimen/dp_04"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cnst_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_catgry_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_search_black"
+                android:drawablePadding="@dimen/dp_04"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingTop="@dimen/small_margin"
+                android:paddingEnd="@dimen/dp_04"
+                android:paddingBottom="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textSize="@dimen/text_very_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_catgry_1"
+                app:textcolor="@{color.textSubhead}" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cnst_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_04"
+            app:cardCornerRadius="@dimen/dp_04"
+            app:cardElevation="@dimen/dp_04"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cnst_3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/cnst_1"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_catgry_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_search_black"
+                android:drawablePadding="@dimen/dp_04"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingTop="@dimen/small_margin"
+                android:paddingEnd="@dimen/dp_04"
+                android:paddingBottom="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textSize="@dimen/text_very_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_catgry_1"
+                app:textcolor="@{color.textSubhead}" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cnst_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            app:cardCornerRadius="@dimen/dp_04"
+            app:cardElevation="@dimen/dp_04"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/cnst_2"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_catgry_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_search_black"
+                android:drawablePadding="@dimen/dp_04"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingEnd="@dimen/dp_04"
+                android:paddingBottom="@dimen/small_margin"
+                android:textSize="@dimen/text_very_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_catgry_1"
+                app:textcolor="@{color.textSubhead}" />
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

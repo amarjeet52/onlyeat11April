@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/white"
+        tools:context=".module.cart.schedule_order.CraveScheduleActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_above="@+id/tv_book"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".module.cart.SelectSlots">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:padding="@dimen/value_16"
+                android:src="@drawable/ic_back_black"
+                app:tint="@color/grey_8f" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/choose_date_time"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large" />
+
+        </RelativeLayout>
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/edit_text_tint"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSlots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/border"
+        tools:listitem="@layout/item_crave_slot" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_book"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+           android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_39sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/button_bg_yellow"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="@string/select_time_slot"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+
+    </RelativeLayout>
+</layout>

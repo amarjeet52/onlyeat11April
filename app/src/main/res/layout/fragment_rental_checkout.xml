@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.codebrew.clikat.module.rental.rental_checkout.RentalCheckoutFrag">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_place_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="Place Order"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/payment_option_tv"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total"
+            app:textcolor="@{color.appBackground}" />
+
+        <EditText
+            android:id="@+id/ed_addition_remark"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:background="@color/bgListing"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/type_here"
+            android:inputType="textMultiLine"
+            android:lines="7"
+            android:padding="@dimen/value_4"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addition_remark" />
+
+        <TextView
+            android:id="@+id/addition_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/additional_remarks"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cnst_toolbar"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/grand_totl_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:text="Grand Total"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_addition_remark"
+            app:textcolor="@{color.textSubhead}" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:text="QAR 500"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_addition_remark"
+            app:textcolor="@{color.textSubhead}" />
+
+        <TextView
+            android:id="@+id/payment_option_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="Payment"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/tv_pay_option"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_place_order"
+            app:textcolor="@{color.textBody}" />
+
+        <TextView
+            android:id="@+id/tv_pay_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:drawableStart="@drawable/ic_payment_cash"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="COD"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_place_order"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment_option_tv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnst_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/small_margin"
+            app:background="@{color.primaryColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/pickup_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="PickUp Detail"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.appBackground}" />
+
+            <TextView
+                android:id="@+id/tv_pickup_adrs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pickup_text"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_text"
+                app:textcolor="@{color.appBackground}" />
+
+            <TextView
+                android:id="@+id/tv_pickup_date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginBottom="@dimen/dp_04"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_pickup_adrs"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pickup_adrs"
+                app:textcolor="@{color.appBackground}"
+                tools:text="October 14, 2017 - 12:00 pm" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.rental.rental_checkout.CheckoutViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+</layout>

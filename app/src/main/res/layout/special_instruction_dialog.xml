@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@color/white"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/value_4"
+        app:cardElevation="@dimen/value_4"
+        app:strokeColor="@color/grey_8f">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingEnd="@dimen/medium_margin"
+            android:paddingBottom="@dimen/medium_margin">
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/add_instructions_"
+                android:textSize="@dimen/text_xxxlarge"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.textHead}" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSave"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginStart="@dimen/xlarge_margin"
+                android:layout_marginEnd="@dimen/xlarge_margin"
+                app:layout_constraintTop_toBottomOf="@+id/cvData"
+                android:text="@string/save"/>
+
+            <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                app:cardBackgroundColor="@color/search_view"
+                app:cardCornerRadius="@dimen/value_4"
+                android:id="@+id/cvData"
+                app:cardElevation="@dimen/value_4"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeader"
+                app:strokeColor="@color/grey_8f">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etInstruction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="start"
+                        android:hint="@string/add_instructions_"
+                        android:inputType="text"
+                        android:maxLength="500"
+                        android:maxLines="10"
+                        android:minHeight="@dimen/value_100"
+                        android:padding="@dimen/value_12"
+                        android:textAlignment="textStart"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/text_size_16"
+                        app:hintcolr="@{color.textSubhead}"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRemainingLength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp_05"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/text_small"
+                        app:textcolor="@{color.textHead}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etInstruction"
+                        tools:text="500" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

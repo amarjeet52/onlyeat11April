@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.supplier_all.SupplierListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/greyED">
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/value_16"
+            android:src="@drawable/ic_back_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_marginTop="@dimen/value_8"
+            app:cardCornerRadius="@dimen/value_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBack">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/ivImage"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="@dimen/value_8"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_pickup_banner_1"
+                        app:layout_constraintDimensionRatio="1:0.5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:riv_corner_radius="@dimen/value_4" />
+
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:alpha="0.6"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+                        app:layout_constraintEnd_toEndOf="@+id/ivImage"
+                        app:layout_constraintStart_toStartOf="@+id/ivImage"
+                        app:layout_constraintTop_toTopOf="@+id/ivImage" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/value_16"
+                        android:fontFamily="@font/proximanovasemibold"
+                        tools:text="Le Hamburg"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvDistance"
+                        app:layout_constraintEnd_toStartOf="@+id/tvRating"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvRating"
+                        textcolor="@{color.appBackground}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/value_8"
+                        android:layout_marginEnd="@dimen/value_16"
+                        android:drawableStart="@drawable/star_grey"
+                        android:drawablePadding="@dimen/value_4"
+                        android:fontFamily="@font/proximanovasemibold"
+                        android:text="4.7"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12"
+                        app:drawableTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvName"
+                        app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvDistance"
+                        textcolor="@{color.appBackground}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/value_8"
+                        android:layout_marginEnd="@dimen/value_16"
+                        android:drawableStart="@drawable/ic_address"
+                        android:drawablePadding="@dimen/value_4"
+                        android:fontFamily="@font/proximanovasemibold"
+                        android:text="2 Km"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12"
+                        app:drawableTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTime"
+                        textcolor="@{color.appBackground}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_clock"
+                        android:drawablePadding="@dimen/value_4"
+                        android:fontFamily="@font/proximanovasemibold"
+                        android:text="15 min"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12"
+                        app:drawableTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvDistance"
+                        app:layout_constraintEnd_toEndOf="@+id/tvRating"
+                        app:layout_constraintTop_toTopOf="@+id/tvDistance" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    textcolor="@{color.primaryColor}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/choose_fav_branch"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_xlarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clImage" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:paddingBottom="@dimen/value_8"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_supplier_branch" />
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                    app:progessBackground="@{color.primaryColor}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

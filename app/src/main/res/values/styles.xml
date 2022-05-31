@@ -1,0 +1,223 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogThem</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="actionMenuTextColor">@color/brown</item>
+        <item name="actionMenuTextAppearance">?attr/itemTextAppearance</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+
+        <item name="android:windowContentTransitions" tools:targetApi="m">true</item>
+        <item name="android:windowEnterTransition" tools:targetApi="lollipop">
+            @android:transition/fade
+        </item>
+
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/dark_blue</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/dark_blue</item>
+        <item name="android:windowExitTransition" tools:ignore="NewApi">@android:transition/fade
+        </item>
+
+    </style>
+
+    <style name="AppBottomSheetDialogThem" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyl" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/button_bg_splash_color</item>
+    </style>
+
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
+        <item name="actionMenuTextAppearance">@style/MyActionBar.MenuTextStyle</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TransparentProgressDialog" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="theme">@style/AppTheme</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog
+        </item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="background">@android:color/transparent</item>
+    </style>
+
+    <style name="MyActionBar.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#F0F</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="MyActionBar.MenuTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#F0F</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <declare-styleable name="CustomFontTxtView">
+        <attr name="customFont" format="string" />
+    </declare-styleable>
+
+
+    <style name="margin16" parent="android:style/TextAppearance">
+        <item name="android:layout_marginLeft">@dimen/value_16</item>
+        <item name="android:layout_marginEnd">@dimen/value_16</item>
+        <item name="android:layout_marginRight">@dimen/value_16</item>
+        <item name="android:layout_marginStart">@dimen/value_16</item>
+    </style>
+
+    <style name="margin8" parent="android:style/TextAppearance">
+        <item name="android:layout_marginLeft">@dimen/value_8</item>
+        <item name="android:layout_marginEnd">@dimen/value_8</item>
+        <item name="android:layout_marginRight">@dimen/value_8</item>
+        <item name="android:layout_marginStart">@dimen/value_8</item>
+    </style>
+
+
+    <style name="TransparentDilaog" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@style/MyAnimation.Window
+        </item>
+
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="background">@android:color/transparent</item>
+    </style>
+
+    <style name="MyAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/bounce_in</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_top</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/grey</item>
+        <!-- Used for the background -->
+        <item name="background">@android:color/white</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <item name="android:windowBackground">@color/colorAccent</item>
+
+    </style>
+
+    <style name="Animation">
+        <item name="android:windowEnterAnimation">@anim/zoomin</item>
+        <item name="android:windowExitAnimation">@anim/zoomout</item>
+    </style>
+
+
+    <style name="MyTabLayoutSmallCase" parent="Base.Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyTabTextAppearanceSmallCaps</item>
+    </style>
+
+    <style name="MyTabTextAppearanceSmallCaps" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+
+    <style name="MyBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/MYBottomSheetStyle</item>
+    </style>
+
+    <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="ProgressBarChatMessage" parent="AppTheme">
+        <item name="colorAccent">@color/white</item>
+        <item name="android:background">@drawable/background_chat_message_progress_bar</item>
+    </style>
+
+    <style name="ratingBarSmall" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar_small</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/button_bg_splash_color</item>
+    </style>
+
+    <!--<style name="MaterialButtonStyle.Bordered" parent="Widget.AppCompat.Button.Borderless" >
+        <item name="strokeWidth">@dimen/material_button_stroke_bordered</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+        <item name="cornerRadius">@dimen/material_button_corner_radius</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/material_button_text_size</item>
+        <item name="android:textAllCaps">false</item>
+    </style>-->
+
+    <style name="spinnerTheme">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_color_light</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="AppButton" parent="Widget.AppCompat.Button">
+        <item name="cornerRadius">@dimen/large_margin</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/value_2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:background">@drawable/gradient_blue_button</item>
+        <item name="android:gradientRadius">@dimen/medium_margin</item>
+    </style>
+
+
+</resources>

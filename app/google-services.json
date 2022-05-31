@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "570396584612",
+    "project_id": "crave-e3a47",
+    "storage_bucket": "crave-e3a47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570396584612:android:481f824972e0e82b1bd431",
+        "android_client_info": {
+          "package_name": "com.crave.agent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570396584612-ss99kdvm5fn9rre806mhm54r0r63446r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwpZqcAHFZ7x5c-EBOLRiy9eMsmM-S300"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570396584612-ss99kdvm5fn9rre806mhm54r0r63446r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "570396584612-l0nt48u4au74jl7dkp7nrgq8e4s96jam.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "crave.agent.humrobo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570396584612:android:6e53c9e734a646621bd431",
+        "android_client_info": {
+          "package_name": "com.crave.restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570396584612-ss99kdvm5fn9rre806mhm54r0r63446r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwpZqcAHFZ7x5c-EBOLRiy9eMsmM-S300"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570396584612-ss99kdvm5fn9rre806mhm54r0r63446r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "570396584612-l0nt48u4au74jl7dkp7nrgq8e4s96jam.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "crave.agent.humrobo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570396584612:android:70819c0dc937099f1bd431",
+        "android_client_info": {
+          "package_name": "com.onlyeat.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570396584612-o6qlpa6r5q1eqhssgjdbivs7iv3rduh8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onlyeat.user",
+            "certificate_hash": "95569ee34b1776ceac7da3045f4687017aeb1b76"
+          }
+        },
+        {
+          "client_id": "570396584612-ss99kdvm5fn9rre806mhm54r0r63446r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwpZqcAHFZ7x5c-EBOLRiy9eMsmM-S300"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570396584612-ss99kdvm5fn9rre806mhm54r0r63446r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "570396584612-l0nt48u4au74jl7dkp7nrgq8e4s96jam.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "crave.agent.humrobo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

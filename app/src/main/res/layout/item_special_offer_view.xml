@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_04"
+        android:layout_marginBottom="@dimen/dp_04"
+        android:padding="@dimen/small_margin"
+        app:background="@{color.navHeadBackground}">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/value_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/special_offers"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_xlarge"
+            app:textcolor="@{color.textHead}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/tv_car_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/awesome_deals"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_spl_offer_supplier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:background="@{color.listItemBackground}"
+            app:layout_constraintBottom_toTopOf="@+id/divider2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_car_desc" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/value_2"
+            android:layout_marginBottom="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_viewmore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/view_more"
+            android:textSize="@dimen/text_small"
+            android:textStyle="normal"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+        <ImageView
+            android:id="@+id/ivFwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/value_14"
+            android:paddingEnd="@dimen/value_14"
+            android:rotation="180"
+            android:src="@drawable/ic_back_black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_category" />
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gp_viewmore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tv_car_desc,tv_viewmore" />
+
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gp_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="divider,divider2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

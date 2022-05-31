@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/small_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/small_margin" />
+
+
+        <TextView
+            android:id="@+id/text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:background="@color/light_grey"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="Your location"
+            android:textAllCaps="true"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:background="@color/light_grey"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="Your location"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/text_1" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/text_2" />
+
+
+        <TextView
+            android:id="@+id/text_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/light_grey"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="Complete address"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:background="@color/light_grey"
+            android:ems="10"
+            android:fontFamily="@font/proximanovaregular"
+            android:inputType="text"
+            android:padding="@dimen/dp_04"
+            android:text="House no./ Flat no. / Floor / Building"
+            android:textColor="@color/light_grey"
+            app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/text_3" />
+
+
+        <View
+            android:id="@+id/divider_2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_grey"
+            android:text="Button"
+            android:textColor="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

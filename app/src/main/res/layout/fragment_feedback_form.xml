@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.feedback.FeedbackViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:contentInsetStart="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/write_to_us"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_xlarge" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/value_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/value_16" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/value_16"
+            android:fillViewport="true"
+            android:visibility="@{viewModel.isLoading &amp; !viewModel.showMainScreen? View.GONE :View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guideEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvSuggestionsTag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_grey_top_4dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingStart="@dimen/value_16"
+                    android:paddingTop="@dimen/value_12"
+                    android:paddingEnd="@dimen/value_16"
+                    android:paddingBottom="@dimen/value_12"
+                    android:text="@string/select_suggestions"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintBottom_toTopOf="@+id/clSelectSuggestion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.06999999"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSelectSuggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/clikat_background"
+                    app:layout_constraintBottom_toTopOf="@+id/tvWriteSuggestionTag"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSuggestionsTag">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupSuggestions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/value_16"
+                        android:layout_marginBottom="@dimen/value_16"
+                        android:paddingStart="@dimen/value_16"
+                        android:paddingEnd="@dimen/value_16"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/tvWriteSuggestionTag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xlarge_margin"
+                    android:background="@drawable/background_grey_top_4dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingStart="@dimen/value_16"
+                    android:paddingTop="@dimen/value_12"
+                    android:paddingEnd="@dimen/value_16"
+                    android:paddingBottom="@dimen/value_12"
+                    android:text="@string/write_suggestions"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintBottom_toTopOf="@+id/clWriteSuggestion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clSelectSuggestion" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clWriteSuggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/clikat_background"
+                    app:layout_constraintBottom_toTopOf="@+id/tvDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWriteSuggestionTag">
+
+
+                    <EditText
+                        android:id="@+id/etTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/value_16"
+                        android:background="@color/white"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:hint="@string/title"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences"
+                        android:paddingStart="@dimen/value_12"
+                        android:paddingTop="@dimen/value_8"
+                        android:paddingEnd="@dimen/value_12"
+                        android:paddingBottom="@dimen/value_8"
+                        android:singleLine="true"
+                        android:textColorHint="@color/text_color_normal"
+                        android:textSize="@dimen/text_size_14"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/value_16"
+                        android:background="@color/white"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="top"
+                        android:hint="@string/description"
+                        android:inputType="textCapSentences"
+                        android:lines="5"
+                        android:paddingStart="@dimen/value_12"
+                        android:paddingTop="@dimen/value_8"
+                        android:paddingEnd="@dimen/value_12"
+                        android:paddingBottom="@dimen/value_8"
+                        android:textColorHint="@color/text_color_normal"
+                        android:textSize="@dimen/text_size_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/tvDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xlarge_margin"
+                    android:background="@drawable/background_grey_top_4dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingStart="@dimen/value_16"
+                    android:paddingTop="@dimen/value_12"
+                    android:paddingEnd="@dimen/value_16"
+                    android:paddingBottom="@dimen/value_12"
+                    android:text="@string/optional"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintBottom_toTopOf="@+id/clDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clWriteSuggestion" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/clikat_background"
+                    app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetails">
+
+
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/value_16"
+                        android:background="@color/white"
+                        android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyY "
+                        android:fontFamily="@font/proximanovaregular"
+                        android:hint="@string/name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:paddingStart="@dimen/value_12"
+                        android:paddingTop="@dimen/value_8"
+                        android:paddingEnd="@dimen/value_12"
+                        android:paddingBottom="@dimen/value_8"
+                        android:singleLine="true"
+                        android:textColorHint="@color/text_color_normal"
+                        android:textSize="@dimen/text_size_14"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/value_16"
+                        android:background="@color/white"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="top"
+                        android:hint="@string/email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="@dimen/value_12"
+                        android:paddingTop="@dimen/value_8"
+                        android:paddingEnd="@dimen/value_12"
+                        android:paddingBottom="@dimen/value_8"
+                        android:singleLine="true"
+                        android:textColorHint="@color/text_color_normal"
+                        android:textSize="@dimen/text_size_14"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+                    <EditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/value_16"
+                        android:background="@color/white"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:gravity="top"
+                        android:hint="@string/phone_number"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/value_12"
+                        android:paddingTop="@dimen/value_8"
+                        android:paddingEnd="@dimen/value_12"
+                        android:paddingBottom="@dimen/value_8"
+                        android:singleLine="true"
+                        android:textColorHint="@color/text_color_normal"
+                        android:textSize="@dimen/text_size_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+                        tools:text="1234567890123" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xlarge_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/submit"
+                    android:textSize="@dimen/text_small"
+                    app:background="@{color.primaryColor}"
+                    app:cornerRadius="@dimen/dp_04"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clDetails"
+                    app:rippleColor="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

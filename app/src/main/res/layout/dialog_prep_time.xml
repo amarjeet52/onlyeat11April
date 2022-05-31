@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/value_8"
+        android:paddingEnd="@dimen/value_8"
+        app:cardBackgroundColor="@color/white">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/value_16"
+            android:paddingBottom="@dimen/margin_16">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/filter"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/tvTitle"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_cross"
+                android:padding="@dimen/value_12"
+                android:id="@+id/ivCross"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                android:text="@string/prepration_time"
+                android:fontFamily="@font/proximanovaregular"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_medium"
+                android:layout_marginStart="@dimen/value_16"
+                app:layout_constraintTop_toTopOf="@+id/cbPrepTime"
+                app:layout_constraintBottom_toBottomOf="@+id/cbPrepTime"
+                app:layout_constraintEnd_toStartOf="@+id/cbPrepTime"
+                android:layout_height="wrap_content"/>
+
+            <CheckBox
+                android:id="@+id/cbPrepTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                android:id="@+id/rangeSeekbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_24"
+                android:layout_marginEnd="@dimen/value_16"
+                app:corner_radius="5"
+                app:data_type="_integer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbPrepTime"
+                app:max_value="59"
+                app:min_value="1" />
+
+            <TextView
+                android:id="@+id/tvMinValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintStart_toStartOf="@id/rangeSeekbar"
+                app:layout_constraintTop_toBottomOf="@+id/rangeSeekbar"
+                tools:text="0" />
+
+            <TextView
+                android:id="@+id/tvMaxValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintEnd_toEndOf="@id/rangeSeekbar"
+                app:layout_constraintTop_toBottomOf="@+id/rangeSeekbar"
+                tools:text="100" />
+
+            <androidx.constraintlayout.widget.Group
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/groupPrepTime"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tvMaxValue,tvMinValue,rangeSeekbar" />
+
+            <TextView
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                android:text="@string/sort_by_free_delivery"
+                android:fontFamily="@font/proximanovaregular"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_medium"
+                android:layout_marginStart="@dimen/value_16"
+                app:layout_constraintTop_toTopOf="@+id/cbFreeDelivery"
+                app:layout_constraintBottom_toBottomOf="@+id/cbFreeDelivery"
+                app:layout_constraintEnd_toStartOf="@+id/cbFreeDelivery"
+                android:layout_height="wrap_content"/>
+
+            <CheckBox
+                android:id="@+id/cbFreeDelivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvMinValue" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/done"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbFreeDelivery" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainmenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+
+        <ImageView
+            android:id="@+id/ivSigntureTheme"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/rec_shadow"
+            android:foreground="@drawable/gradiantbackground"
+            app:layout_constraintDimensionRatio="H,5:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btm_bg_signature"
+            app:layout_constraintBottom_toBottomOf="@+id/ivSigntureTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivSigntureTheme">
+
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_48sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/action_send" />
+
+            <TextView
+                android:id="@+id/tvDescCrave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/value_4"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="Loresum"
+                android:textColor="@color/greyD7"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivSupplierIcon"
+            android:layout_width="@dimen/_84sdp"
+            android:layout_height="@dimen/_84sdp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:src="@drawable/ic_user_placeholder"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
+            app:layout_constraintTop_toTopOf="@+id/layoutImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layoutImage" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toBottomOf="@+id/layoutImage"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:background="@drawable/rec_signature_home"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tvChief"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            tools:listitem="@layout/item_signature"
+             app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentLoadingProgressBar3"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.signature.SignatureViewModel" />
+
+        <variable
+            name="supplierModel"
+            type="com.codebrew.clikat.modal.other.SupplierDetailBean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isSupplierRating"
+            type="Boolean" />
+
+        <variable
+            name="settingData"
+            type="com.codebrew.clikat.modal.other.SettingModel.DataBean.SettingData" />
+    </data>
+</layout>

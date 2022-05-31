@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggle_button_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_minus"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{(view) -> listener.minusItem(itemData)}"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium"
+            app:strokeColor="@color/colorPrimary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tv_count"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+
+            android:textSize="@dimen/text_medium"
+            app:strokeColor="@color/black" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_plus"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{(view) -> listener.addItem(itemData)}"
+            android:text="+"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium"
+            app:strokeColor="@color/colorPrimary" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.module.addon_quant.adpater.ItemListener" />
+
+        <variable
+            name="itemData"
+            type="com.codebrew.clikat.modal.CartInfo" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+</layout>

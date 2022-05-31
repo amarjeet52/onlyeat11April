@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="settingData"
+            type="com.codebrew.clikat.modal.other.SettingModel.DataBean.SettingData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:background="@{color.appBackgroundCardView}"
+        tools:context="com.codebrew.clikat.module.new_signup.create_account.CreateAccFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:background="?attr/colorPrimaryDark"
+            android:contentInsetStart="@dimen/dp_05"
+            android:contentInsetLeft="@dimen/dp_05"
+            android:elevation="@dimen/small_margin"
+            android:padding="0dp"
+            android:theme="?attr/actionBarTheme"
+            app:background="@{color.appBackground}"
+            app:contentInsetEnd="@dimen/dp_05"
+            app:contentInsetRight="@dimen/dp_05"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibility="@{settingData.is_craveQatar_login_theme().equals(`1`) ? View.GONE : View.VISIBLE}"
+            tools:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/dp_04"
+                    android:src="@drawable/ic_back"
+                    app:tint="@{color.primaryColor}" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:src="@mipmap/ic_launcher_new" />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/ivLogoCrave2"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="-230dp"
+            android:adjustViewBounds="true"
+            android:paddingStart="-90dp"
+            android:paddingEnd="-90dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/oval" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/top" />
+
+        <ImageView
+            android:id="@+id/ivLogoCrave1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/top"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/ivLogoCrave"
+            android:layout_width="277dp"
+            android:layout_height="85dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/fast_food" />
+
+        <ScrollView
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ivLogoCrave2"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/layoutCraveLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="@dimen/value_32"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSignWithEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_05"
+                    android:layout_marginEnd="@dimen/dp_05"
+                    android:layout_marginBottom="13dp"
+                    android:background="@drawable/back_dark_white_gradient2"
+                    android:elevation="@dimen/dp_05"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_16"
+                    android:text="@string/signup_with_email"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blueColor"
+                    android:textSize="@dimen/text_medium" />
+
+                <RelativeLayout
+                    android:id="@+id/lytFacebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_05"
+                    android:layout_marginEnd="@dimen/dp_05"
+                    android:layout_marginBottom="13dp"
+                    android:background="@drawable/back_dark_blue_gradient"
+                    android:elevation="@dimen/dp_05">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/btnFacebookCrave"
+                        android:src="@drawable/ic_fb" />
+
+                    <TextView
+                        android:id="@+id/btnFacebookCrave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/value_16"
+                        android:text="@string/continue_with_facebook"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium"
+                        app:backgroundTint="@color/facebook_color"
+                        app:cornerRadius="@dimen/large_margin"
+                        app:iconTintMode="multiply"
+                        app:textcolor="@{color.white}" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_05"
+                    android:layout_marginEnd="@dimen/dp_05"
+                    android:layout_marginBottom="13dp"
+                    android:background="@drawable/back_dark_white_gradient"
+                    android:id="@+id/lytGoogle"
+                    android:elevation="@dimen/dp_05">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/btnGoogleCrave"
+                        android:src="@drawable/ic_google" />
+
+                    <TextView
+                        android:id="@+id/btnGoogleCrave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/splash_bg"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/value_16"
+                        android:text="@string/continue_with_google"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_medium"
+                        app:cornerRadius="@dimen/large_margin"
+                        app:iconGravity="textStart"
+                        app:iconTintMode="multiply"
+                        app:strokeColor="@color/dark_blue"
+                        app:strokeWidth="@dimen/value_1"
+                        app:textcolor="@{color.textAppTitle}" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvTitleGuest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/value_20"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="@string/continue_as_guest"
+                    android:textColor="@color/blue_color"
+                    android:textSize="@dimen/text_large" />
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/already_have_an_account_login_col"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvcontact"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:textcolor="@{color.dark_grey}" />
+                <TextView
+                    android:id="@+id/tvcontact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/if_any"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15ssp"
+
+                    app:layout_constraintBottom_toTopOf="@+id/tvLoginPolicy"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:textcolor="@{color.dark_grey}" />
+
+                <TextView
+                    android:id="@+id/tvLoginPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="@dimen/value_32"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/small_margin"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:gravity="center"
+                    android:text="@string/login_policy_crave"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/value_11"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.50"
+                    app:textcolor="@{color.dark_grey}" />
+
+            </LinearLayout>
+
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>

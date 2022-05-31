@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bt_very_light_gray"
+        android:padding="@dimen/value_8">
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:padding="@dimen/dp_04"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rating_count"
+            app:riv_corner_radius="30dip"
+            app:srcCompat="@drawable/ic_delete_icon"
+            app:tint="@{color.primaryColor}" />
+
+        <ImageView
+            android:id="@+id/ivMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:padding="@dimen/value_2"
+            android:src="@drawable/ic_minus"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/divider2"
+            app:layout_constraintEnd_toStartOf="@+id/tvCounts"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/rv_varient_list"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_goneMarginBottom="@dimen/dp_04"
+            app:tint="@{color.primaryColor}"
+            tools:ignore="ContentDescription" />
+
+
+        <ImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/value_2"
+            android:src="@drawable/ic_plus"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMinus"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/ivMinus"
+            app:layout_constraintVertical_bias="0.0"
+            app:tint="@{color.primaryColor}"
+            tools:ignore="ContentDescription" />
+
+
+        <RatingBar
+            android:id="@+id/rb_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_2"
+            android:isIndicator="true"
+            android:focusable="false"
+            app:layout_constraintBottom_toTopOf="@+id/tv_addon_name"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_food_rating" />
+
+        <TextView
+            android:id="@+id/tv_addon_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/addon_name_tag"
+            android:textSize="@dimen/text_small"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/rv_varient_list"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/rb_rating"
+            app:textcolor="@{color.textListSubhead}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_varient_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/ivMinus"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_addon_name"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_varient_cart"
+            tools:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="1"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@+id/tv_desc_product"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:textcolor="@{color.textListHead}"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_desc_product"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_2"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:ellipsize="end"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="1"
+            android:textSize="@dimen/text_medium"
+            android:visibility="@{singleVndorType ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_supplier_name"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:textcolor="@{color.textListSubhead}"
+            tools:text="Product desc" />
+
+
+        <TextView
+            android:id="@+id/tv_supplier_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_2"
+            android:fontFamily="@font/proximanovasemibold"
+            android:textSize="@dimen/text_medium"
+            android:visibility="@{singleVndorType ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/tvWeight"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc_product"
+            app:textcolor="@{color.textListSubhead}"
+            tools:text="by Shrilalmahal" />
+
+
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_2"
+            android:fontFamily="@font/proximanovasemibold"
+            android:textSize="@dimen/text_medium"
+            android:text="@{@string/weight_tag(cartItem.duration), default=`Weight`}"
+            android:visibility="@{cartItem.duration>0 &amp; isWeightVisible ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_food_rating"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_supplier_name"
+            app:textcolor="@{color.textListSubhead}"
+            tools:text="Weight Name" />
+
+
+        <TextView
+            android:id="@+id/tv_food_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_2"
+            android:drawableStart="@drawable/ic_rate"
+            android:drawablePadding="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_medium"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/rb_rating"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeight"
+            app:textcolor="@{color.food_rate_color}"
+            tools:text="5" />
+
+
+        <TextView
+            android:id="@+id/tv_rating_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_rating"
+            app:layout_constraintStart_toEndOf="@+id/rb_rating"
+            app:layout_constraintTop_toTopOf="@+id/rb_rating"
+            app:textcolor="@{color.textListBody}"
+            tools:text="0 Reviews" />
+
+
+        <TextView
+            android:id="@+id/tv_total_prod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="1"
+            android:text="sdbsdfbsfdbsdfb"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toStartOf="@+id/ivMinus"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@+id/rv_varient_list"
+            app:textcolor="@{color.textListSubhead}" />
+
+
+        <EditText
+            android:id="@+id/tvCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:paddingStart="@dimen/value_4"
+            android:paddingEnd="@dimen/value_4"
+            android:textSize="@dimen/text_medium"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMinus"
+            app:layout_constraintEnd_toStartOf="@+id/ivPlus"
+            app:layout_constraintTop_toTopOf="@+id/ivMinus"
+            app:textcolor="@{color.textListSubhead}"
+            tools:text="0" />
+
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="iv_delete" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/cart_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="ivMinus,tvCounts,ivPlus" />
+
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="rb_rating,tv_rating_count" />
+
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tv_agentType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:paddingStart="@dimen/dp_05"
+            android:paddingEnd="@dimen/dp_05"
+            android:text="@{@string/agent_available(strings.agent)}"
+            android:textSize="@dimen/text_size_14"
+            app:categoryType="text_button"
+            app:layout_constraintBottom_toTopOf="@+id/divider2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPlus"
+            tools:visibility="visible" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/sdvImage"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/divider2"
+            app:layout_constraintDimensionRatio="H,4:3"
+            app:layout_constraintEnd_toStartOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="2dip"
+            app:riv_corner_radius="10dip" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="singleVndorType"
+            type="Boolean" />
+
+        <variable
+            name="isWeightVisible"
+            type="Boolean" />
+
+        <variable
+            name="cartItem"
+            type="com.codebrew.clikat.modal.CartInfo" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+</layout>

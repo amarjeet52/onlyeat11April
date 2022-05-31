@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="productItem"
+            type="com.codebrew.clikat.modal.other.ProductDataBean" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="singleVndorType"
+            type="Boolean" />
+
+        <variable
+            name="isRatingVisible"
+            type="Boolean" />
+
+        <variable
+            name="isWeightVisible"
+            type="Boolean" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="isHungerApp"
+            type="Boolean" />
+
+        <variable
+            name="supplierData"
+            type="com.codebrew.clikat.modal.other.SupplierDataBean" />
+
+        <variable
+            name="settingData"
+            type="com.codebrew.clikat.modal.other.SettingModel.DataBean.SettingData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_05"
+        android:layout_marginEnd="@dimen/dp_05">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewLayout"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="@dimen/dp_05"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/sdvImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="188dp"
+                        android:layout_gravity="center_vertical"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/iv_placeholder"
+                        tools:ignore="ContentDescription" />
+
+                    <com.codebrew.clikat.utils.customviews.ClikatTextView
+                        android:id="@+id/tvName"
+                        android:layout_width="@dimen/_170sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sdvImage"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="start"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_grey1"
+                        android:textSize="@dimen/_13ssp"
+                        tools:text="@string/fb_login_protocol_scheme" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="@style/ratingBarSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/value_12"
+
+                        android:layout_below="@+id/sdvImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/value_4"
+                        android:layout_marginTop="@dimen/value_12"
+                        android:layout_marginEnd="16dp"
+                        android:focusable="false"
+                        android:isIndicator="true"
+
+                        android:numStars="5"
+                        android:visibility="gone" />
+
+
+                    <TextView
+                        android:id="@+id/tv_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sdvImage"
+                        android:layout_marginStart="@dimen/value_4"
+                        android:layout_marginTop="9dp"
+                        android:layout_toStartOf="@+id/ratingBar"
+                        android:fontFamily="@font/poppins_light"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/dark_grey1"
+                        android:textSize="@dimen/text_small" />
+
+                    <com.codebrew.clikat.utils.customviews.ClikatTextView
+                        android:id="@+id/tvSupplierloc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvName"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:layout_marginBottom="@dimen/value_16"
+                        android:fontFamily="@font/poppins_light"
+                        android:textColor="@color/dark_grey1"
+                        android:textSize="@dimen/_10ssp"
+                        tools:text="@string/action_send" />
+                    <!--                    android:text="@{settingData.is_carveQatar_home_theme().equals(`1`) ? supplierData.category.get(0).category_name : supplierData.address}"-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rl_time"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ratingBar"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="end">
+
+
+                        <TextView
+                            android:id="@+id/tv_supplier_inf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_light"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/_4sdp"
+                            android:paddingEnd="@dimen/_4sdp"
+                            android:singleLine="true"
+                            android:text="15 -20 min"
+                            android:textColor="@color/dark_grey1"
+                            android:textSize="@dimen/_13ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_percentage"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:src="@drawable/percent_age"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toStartOf="@+id/iv_car"
+
+                            app:layout_constraintTop_toBottomOf="@+id/tv_supplier_inf" />
+
+                        <TextView
+                            android:id="@+id/iv_car"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@drawable/yellow_background"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:text="@string/free_delivery"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9ssp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_supplier_inf" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_close"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_alignParentLeft="true"
+                        android:rotation="270"
+                        tools:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/iv_close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/close_ar" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_close_e"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_alignParentRight="true"
+                        android:rotation="90"
+                        tools:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:background="@drawable/closed" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_pre_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_time"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp_04"
+                        android:layout_marginEnd="@dimen/medium_margin"
+                        android:layout_marginBottom="@dimen/dp_04"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/pre_order"
+                        android:textColor="@color/blueColor"
+                        android:textSize="@dimen/text_medium"
+                        android:visibility="@{supplierData.is_scheduled()==1 &amp; supplierData.is_open_close()==0 ? View.VISIBLE : View.GONE}" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupDeliveryTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/tvBookNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/value_4"
+                android:background="@drawable/back_rec_theme_color_solid"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center"
+                android:paddingStart="@dimen/value_12"
+                android:paddingTop="@dimen/value_4"
+                android:paddingEnd="@dimen/value_12"
+                android:paddingBottom="@dimen/value_4"
+                android:text="@string/book_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_small"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tv_live_track"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_4"
+                android:layout_marginBottom="@dimen/value_8"
+                android:drawableStart="@drawable/ic_tracker"
+                android:drawablePadding="@dimen/dp_04"
+                android:fontFamily="@font/proximanovaregular"
+                android:singleLine="true"
+                android:text="@string/live_tracking"
+                android:textColor="@color/greyD7"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="gone"
+                app:categoryType="list_head"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/ivStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:drawableStart="@drawable/ic_status_online"
+                android:drawablePadding="@dimen/value_4"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center"
+                android:textColor="@color/green_color"
+                android:textSize="@dimen/text_16sp"
+                android:visibility="gone"
+                app:isHunger="@{isHungerApp}"
+                app:isOpenStatus="@{true}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_live_track"
+                app:layout_constraintEnd_toStartOf="@+id/iv_wishlist" />
+
+
+            <ImageView
+                android:id="@+id/iv_wishlist"
+                android:layout_width="@dimen/icon_small"
+                android:layout_height="@dimen/icon_small"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/ivStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivStatus"
+                app:srcCompat="@drawable/ic_favourite" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{settingData.is_carveQatar_home_theme().equals(`1`) ? View.GONE: View.VISIBLE}"
+                tools:visibility="gone" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+
+</layout>

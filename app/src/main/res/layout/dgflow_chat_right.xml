@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="msg"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:orientation="vertical">
+
+        <androidx.emoji.widget.EmojiTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_40"
+            android:layout_marginTop="@dimen/dp_05"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:paddingStart="12dp"
+            android:paddingTop="@dimen/small_margin"
+            android:paddingEnd="12dp"
+            android:paddingBottom="@dimen/small_margin"
+            android:text="@{msg,default=UserName}"
+            android:textAlignment="textEnd"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_small"
+            android:background="@drawable/shape_white"
+            app:textcolor="@{color.textSubhead}"
+            android:layout_marginBottom="@dimen/dp_05"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_userImage"
+            app:layout_constraintEnd_toStartOf="@+id/iv_userImage"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_userImage"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="saliashloasasnlkaals " />
+
+
+
+
+    </LinearLayout>
+
+</layout>

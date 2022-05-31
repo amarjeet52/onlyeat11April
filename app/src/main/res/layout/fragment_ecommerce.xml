@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".module.home_screen.HomeFragment">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnst_home_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
+
+            <TextView
+                android:id="@+id/tvTitleCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/select_country"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_4"
+                android:drawableEnd="@drawable/ic_dropdown"
+                android:drawablePadding="@dimen/value_8"
+                android:fontFamily="@font/proximanovasemibold"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleCountry"
+                tools:text="America" />
+
+            <Spinner
+                android:id="@+id/spinnerCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/value_16"
+                android:paddingEnd="@dimen/value_16"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="tvCountry,tvTitleCountry" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvWallet"
+                background="@{color.appBackground}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/value_16"
+                android:layout_marginEnd="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                app:cardCornerRadius="@dimen/dp_04"
+                app:cardElevation="@dimen/value_2"
+                app:layout_constraintBottom_toTopOf="@+id/clSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCountry">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cnst_wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvWalletTag"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_wallet_g"
+                        android:drawablePadding="@dimen/value_12"
+                        android:fontFamily="@font/proximanovasemibold"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/medium_margin"
+                        android:text="@string/wallet"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvWalletAmt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvWalletAmt"
+                        textcolor="@{color.primaryColor}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/medium_margin"
+                        android:fontFamily="@font/proximanovasemibold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="$200.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_16"
+                android:layout_marginEnd="@dimen/value_16"
+                android:background="@drawable/shape_supplier_search"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvWallet"
+                tools:visibility="visible">
+
+                <EditText
+                    android:id="@+id/etText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_search_grey"
+                    android:drawablePadding="@dimen/value_8"
+                    android:enabled="false"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/dishes_restaurant_cuisines"
+                    android:imeOptions="actionSearch"
+                    android:padding="@dimen/value_12"
+                    android:singleLine="true"
+                    android:textColorHint="@color/text_color_light"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintEnd_toStartOf="@+id/ivFilter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/value_12"
+                    android:src="@drawable/ic_filter_new"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/viewSearch"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/value_24"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clSearch" />
+
+            <RadioGroup
+                android:id="@+id/group_deliver_option"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewSearch">
+
+                <RadioButton
+                    android:id="@+id/rb_delivery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/dp_04"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/delivery_tag"
+                    android:textColor="@color/text_color_light"
+                    android:textColorHighlight="@color/colorPrimary"
+                    android:textSize="@dimen/text_medium" />
+
+                <RadioButton
+                    android:id="@+id/rb_pickup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_04"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorPrimary"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/pick_up_tag"
+                    android:textColor="@color/text_color_light"
+                    android:textColorHighlight="@color/colorPrimary"
+                    android:textSize="@dimen/text_medium" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btn_show_branches"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/value_12"
+                android:gravity="center"
+                android:text="@string/show_branch"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:background="@{color.primaryColor}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/group_deliver_option"
+                app:rippleColor="@color/white"
+                app:textcolor="@{color.appBackground}"
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/lyt_search"
+                layout="@layout/item_search_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_12"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_12"
+                android:layout_marginBottom="@dimen/dp_04"
+                app:color="@{color}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_show_branches"
+                app:strings="@{strings}" />
+
+            <ImageView
+                android:id="@+id/imageLoader"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:visibility="@{(viewModel.isLoading &amp; !viewModel.showCircleLoader)? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_04"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lyt_search"
+                app:shimmer_duration="1200"
+                tools:visibility="gone">
+
+                <include layout="@layout/shimmer_home_layout" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+          <include
+              android:id="@+id/homeRefreshLyt"
+              layout="@layout/layout_home_updated"
+              android:layout_height="0dp"
+              android:layout_width="0dp"
+              app:strings="@{strings}"
+              app:drawables="@{drawables}"
+              app:color="@{color}"
+              app:viewModel="@{viewModel}"
+              android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+              app:layout_constraintBottom_toTopOf="@+id/iv_no_store"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/lyt_search"
+              app:layout_constraintVertical_bias="0.0"
+              tools:visibility="gone"/>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_menu"
+                style="@style/Widget.MaterialComponents.FloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/dp_04"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingTop="@dimen/dp_04"
+                android:paddingEnd="@dimen/medium_margin"
+                android:paddingBottom="@dimen/small_margin"
+                app:background="@{color.primaryColor}"
+                app:backgroundTint="@color/colorPrimary"
+                app:elevation="@dimen/dp_04"
+                app:hideMotionSpec="@anim/bounce_in"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/white"
+                app:showMotionSpec="@anim/bottom_from_up"
+                app:srcCompat="@drawable/restaurant_menu"
+                app:textcolor="@{color.appBackground}"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/iv_no_store"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/chat_image_height"
+                android:layout_marginBottom="@dimen/medium_margin"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/space"
+                app:layout_constraintDimensionRatio="4:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeRefreshLyt"
+                app:srcCompat="@drawable/ic_no_stores"
+                tools:visibility="visible" />
+
+
+            <Space
+                android:id="@+id/space"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/large_margin"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_no_store"
+                tools:visibility="visible" />
+
+
+            <include
+                android:id="@+id/bottom_cart"
+                layout="@layout/layout_bottom_cart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:visibility="gone"
+                app:color="@{color}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:strings="@{strings}"
+                tools:visibility="visible" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/contentLoadingProgressBar2"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{(!viewModel.isLoading &amp; viewModel.showCircleLoader) ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:progessBackground="@{color.primaryColor}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.home_screen.HomeViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+</layout>

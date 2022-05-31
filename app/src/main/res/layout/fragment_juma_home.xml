@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/ivSplashLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_homeserv"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            android:alpha="0.5"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/ivMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_24"
+            android:padding="@dimen/value_16"
+            android:src="@drawable/ic_men"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/value_24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/value_24" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_xtralarge"
+            android:layout_marginTop="@dimen/icon_medium"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/juma_title"
+            android:id="@+id/tvTitle"
+            textcolor="@{color.appBackground}"
+            android:lineSpacingMultiplier="1.3"
+            app:layout_constraintEnd_toEndOf="@+id/guideEnd"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/ivMenu" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_16sp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/schedule"
+            android:id="@+id/tvScheduleText"
+            textcolor="@{color.appBackground}"
+            android:textAllCaps="true"
+            android:lineSpacingMultiplier="1.3"
+            app:layout_constraintEnd_toEndOf="@+id/guideEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMenu"
+            app:layout_constraintTop_toTopOf="@+id/ivMenu" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_18"
+            android:layout_marginTop="@dimen/value_16"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/juma_subtitle"
+            textcolor="@{color.appBackground}"
+            android:id="@+id/tvSubTitle"
+            android:lineSpacingMultiplier="1.3"
+            app:layout_constraintEnd_toEndOf="@+id/guideEnd"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            textcolor="@{color.appBackground}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:layout_marginBottom="@dimen/value_16"
+            android:background="@drawable/back_rec_theme_color_light_4"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:id="@+id/tvSchedule"
+            android:paddingTop="@dimen/value_16"
+            android:paddingBottom="@dimen/value_16"
+            android:text="@string/schedule_pickup"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toTopOf="@+id/ivWhatsApp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivWhatsApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/value_24"
+            android:layout_marginBottom="@dimen/value_24"
+            android:src="@drawable/ic_wa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivCall"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_24"
+            android:src="@drawable/ic_call_big"
+            app:layout_constraintBottom_toBottomOf="@+id/ivWhatsApp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivWhatsApp"
+            app:layout_constraintTop_toTopOf="@+id/ivWhatsApp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

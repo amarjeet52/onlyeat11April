@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        app:background="@{color.listItemBackground}">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="196dp"
+            android:layout_height="192dp"
+            android:contentDescription="@string/banner"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner"
+            app:srcCompat="@drawable/img_nothing_found" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tv_bannerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/text_large"
+            android:visibility="gone"
+            app:categoryType="text_button"
+            app:layout_constraintStart_toStartOf="@+id/iv_banner"
+            app:layout_constraintTop_toTopOf="@+id/iv_banner" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

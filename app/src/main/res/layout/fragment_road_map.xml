@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data >
+    <variable
+        name="viewModel"
+        type="com.codebrew.clikat.module.searchProduct.SearchViewModel" />
+</data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_screen_bg"
+            tools:context=".module.roadmap.RoadMapFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gdline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/xlarge_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gdline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/xlarge_margin" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_delivery"
+                android:background="@drawable/gradient_text_shape"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/delivery_"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivDelivery"
+                app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/ivDelivery"
+                app:layout_constraintVertical_bias="0.48" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_crave_mania"
+                android:background="@drawable/gradient_text_shape"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/crave_mania"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivCraveMania"
+                app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/ivCraveMania"
+                app:layout_constraintVertical_bias="0.422" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_pickup"
+                android:background="@drawable/gradient_text_shape"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/grab_n_go_"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPickUp"
+                app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/ivPickUp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_BookTable"
+                android:background="@drawable/gradient_text_shape"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/crave_mania_"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBookTable"
+                app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/ivBookTable"
+                app:layout_constraintVertical_bias="0.461" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_signature"
+                android:background="@drawable/gradient_text_shape"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/crave_mania_"
+
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivSignature"
+                app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/ivSignature" />
+
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/fast_food"
+                app:layout_constraintBottom_toTopOf="@+id/ivDelivery"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.39"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <ImageView
+                android:id="@+id/ivDelivery"
+                android:layout_width="@dimen/value_100"
+                android:layout_height="@dimen/value_100"
+                android:src="@drawable/one"
+                app:layout_constraintBottom_toTopOf="@+id/ivPickUp"
+                app:layout_constraintStart_toStartOf="@id/gdline_start"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+            <ImageView
+                android:id="@+id/ivBookTable"
+                android:layout_width="@dimen/value_100"
+                android:layout_height="@dimen/value_100"
+                android:layout_marginTop="@dimen/small_margin"
+                android:src="@drawable/three"
+                app:layout_constraintBottom_toTopOf="@+id/ivSignature"
+                app:layout_constraintStart_toStartOf="@id/gdline_start"
+                app:layout_constraintTop_toBottomOf="@+id/ivCraveMania" />
+
+            <ImageView
+                android:id="@+id/ivPickUp"
+                android:layout_width="@dimen/value_100"
+                android:layout_height="@dimen/value_100"
+                android:layout_marginTop="@dimen/small_margin"
+                android:src="@drawable/two"
+                app:layout_constraintBottom_toTopOf="@+id/ivBookTable"
+                app:layout_constraintStart_toStartOf="@id/gdline_start"
+                app:layout_constraintTop_toBottomOf="@+id/ivDelivery" />
+
+            <ImageView
+                android:id="@+id/ivSignature"
+                android:layout_width="@dimen/value_100"
+                android:layout_height="@dimen/value_100"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:src="@drawable/five"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gdline_start"
+                app:layout_constraintTop_toBottomOf="@+id/ivCraveMania" />
+
+            <ImageView
+                android:id="@+id/ivCraveMania"
+                android:layout_width="@dimen/value_100"
+                android:layout_height="@dimen/value_100"
+                android:layout_marginTop="@dimen/small_margin"
+                android:src="@drawable/four"
+                app:layout_constraintBottom_toTopOf="@+id/ivBookTable"
+                app:layout_constraintStart_toStartOf="@id/gdline_start"
+                app:layout_constraintTop_toBottomOf="@+id/ivPickUp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <View
+                android:id="@+id/group_delivery"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivDelivery"
+                app:layout_constraintEnd_toEndOf="@+id/tv_delivery"
+                app:layout_constraintStart_toStartOf="@+id/ivDelivery"
+                app:layout_constraintTop_toTopOf="@+id/ivDelivery" />
+
+            <View
+                android:id="@+id/group_pickup"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/ivPickUp"
+                app:layout_constraintTop_toTopOf="@+id/ivPickUp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPickUp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_pickup" />
+
+            <View
+                android:id="@+id/group_book_table"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/ivBookTable"
+                app:layout_constraintTop_toTopOf="@+id/ivBookTable"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBookTable"
+                app:layout_constraintEnd_toEndOf="@+id/tv_BookTable" />
+
+            <View
+                android:id="@+id/group_crave"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/ivCraveMania"
+                app:layout_constraintTop_toTopOf="@+id/ivCraveMania"
+                app:layout_constraintBottom_toBottomOf="@+id/ivCraveMania"
+                app:layout_constraintEnd_toEndOf="@+id/tv_crave_mania" />
+
+            <View
+                android:id="@+id/group_sign"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/ivSignature"
+                app:layout_constraintTop_toTopOf="@+id/ivSignature"
+                app:layout_constraintBottom_toBottomOf="@+id/ivSignature"
+                app:layout_constraintEnd_toEndOf="@+id/tv_signature" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

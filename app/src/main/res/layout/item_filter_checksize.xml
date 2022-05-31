@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/value_2"
+        android:gravity="center"
+        android:minWidth="0dp"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:fontFamily="@font/proximanovasemibold"
+        app:rippleColor="@color/colorPrimary"
+        android:text="2"
+        style="?attr/materialButtonOutlinedStyle"
+        android:textAllCaps="true"
+        android:textSize="@dimen/text_small"
+        app:cornerRadius="@dimen/small_margin" />
+
+</layout>

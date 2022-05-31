@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="chatData"
+            type="com.codebrew.clikat.data.model.api.ChatMessageListing" />
+
+        <variable
+            name="clickListener"
+            type="com.codebrew.clikat.user_chat.adapter.ChatListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:orientation="vertical">
+
+        <androidx.emoji.widget.EmojiTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_40"
+            android:paddingStart="12dp"
+            android:paddingTop="@dimen/small_margin"
+            android:paddingEnd="12dp"
+            android:paddingBottom="@dimen/small_margin"
+            android:text="@{chatData.text,default=UserName}"
+            android:textAlignment="textEnd"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_error"
+            app:layout_constraintEnd_toStartOf="@+id/ic_error"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ic_error"
+            tools:text="saliashloasasnlkaals " />
+
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{chatData.sent_at,default=Sent_At}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ic_error"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessage"
+            tools:text="Today · 8:20 pm" />
+
+        <ImageView
+            android:id="@+id/ic_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:visibility="gone"
+            android:visibility="@{chatData.isFailed ? View.VISIBLE : View.GONE }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_msg_error" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

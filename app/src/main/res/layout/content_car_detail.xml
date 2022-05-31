@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CarDetailFrag"
+    tools:showIn="@layout/fragment_car_detail">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.rental.carDetail.CarDetailViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="productdata"
+            type="com.codebrew.clikat.modal.other.ProductDataBean" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/tv_prod_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@{productdata.name ,default=`Abc`}"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_prod_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:text="$ 94.00"
+                android:textColor="#01AFFF"
+                app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_prod_name" />
+
+            <TextView
+                android:id="@+id/tv_prod_taxes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:text="+ Booking fee"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_prod_price"
+                app:layout_constraintStart_toEndOf="@+id/tv_prod_price"
+                app:layout_constraintTop_toTopOf="@+id/tv_prod_price" />
+
+            <TextView
+                android:id="@+id/tv_services_added"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insurance included\nAvailable for delivery"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_prod_price"
+                app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+                app:layout_constraintTop_toTopOf="@+id/tv_prod_name" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_features"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:paddingStart="@dimen/small_margin"
+                android:paddingEnd="@dimen/small_margin"
+                android:visibility="gone"
+                app:background="@{color.search_background}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_prod_price"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_supplier_service" />
+
+
+            <TextView
+                android:id="@+id/product_detail_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="Product Details"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/rv_features"
+                app:textcolor="@{color.textHead}" />
+
+
+            <WebView
+                android:id="@+id/webview_prodDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_txt" />
+
+            <TextView
+                android:id="@+id/supplier_detail_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="Supplier Details"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/webview_prodDesc"
+                app:textcolor="@{color.textHead}" />
+
+
+            <ImageView
+                android:id="@+id/iv_supplier"
+                android:layout_width="@dimen/icon_medium"
+                android:layout_height="@dimen/icon_medium"
+                android:layout_marginTop="@dimen/dp_04"
+                app:customSrc="@{productdata.supplier_image}"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/supplier_detail_txt"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+            <TextView
+                android:id="@+id/tv_supplier_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@{productdata.supplier_name}"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/tv_supplier_loc"
+                app:layout_constraintStart_toEndOf="@id/iv_supplier"
+                app:layout_constraintTop_toTopOf="@+id/iv_supplier"
+                app:layout_constraintVertical_bias="0.0"
+                app:textcolor="@{color.textHead}"
+                tools:text="Supplier Name" />
+
+            <TextView
+                android:id="@+id/tv_supplier_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@{productdata.supplier_address}"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_supplier"
+                app:layout_constraintStart_toEndOf="@id/iv_supplier"
+                app:layout_constraintTop_toBottomOf="@+id/tv_supplier_name"
+                app:textcolor="@{color.textSubhead}"
+                tools:text="Supplier Location" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/iv_supplier">
+
+
+                <TextView
+                    android:id="@+id/rental_plicy_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:drawableEnd="@drawable/quantum_ic_arrow_back_grey600_24"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="center|start"
+                    android:text="Rental Policy"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@id/gdline_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/ofc_hour_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Office Hours (Monday)"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/opening_hour_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Opening Hour"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintStart_toStartOf="@id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/ofc_hour_text"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/closing_hour_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:layout_marginBottom="@dimen/dp_04"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="Closing Hour"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/opening_hour_txt"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/tv_open_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11:00 AM"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/opening_hour_txt"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/opening_hour_txt" />
+
+                <TextView
+                    android:id="@+id/tv_close_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09:00 PM"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/closing_hour_txt"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/closing_hour_txt" />
+
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/line_height"
+                    android:layout_marginTop="@dimen/dp_04"
+                    app:background="@{color.divider}"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/rental_plicy_txt" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/small_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/small_margin" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btn_continue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Continue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+                app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                app:layout_constraintVertical_bias="0.95" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/address_looking_up"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:progessBackground="@{color.primaryColor}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

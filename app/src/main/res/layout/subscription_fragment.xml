@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.subscription.SubscriptionFrag">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.subscription.SubscriptionViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="planActive"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f9f9f9"
+        app:background="@{color.supplier_bg}">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/toolbar_subscription"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_gudline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnsrt_lyt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bottom_corner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_user_subcrip"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/xlarge_margin"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:enabled="@{planActive}"
+                android:fontFamily="@font/proximanovasemibold"
+                android:gravity="center"
+                android:text="@string/my_subscriptions"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                app:background="@{planActive?color.primaryColor:color.textSubhead}"
+                app:cornerRadius="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.515"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/white"
+                app:textcolor="@{color.appBackground}" />
+
+            <TextView
+                android:id="@+id/text_subcrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/my_subscrip_plan_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_user_subcrip"
+                app:textcolor="@{color.textSubhead}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imageLoader"/>
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:layout_constraintBottom_toTopOf="@+id/btn_purchase_subcrip"
+            app:layout_constraintTop_toBottomOf="@+id/cnsrt_lyt">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_subcrip_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_subcripton" />
+
+                <TextView
+                    android:id="@+id/tvPlanSubTag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/value_8"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@string/plan_description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16sp"
+                    android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_subcrip_list" />
+
+                <TextView
+                    android:id="@+id/tvPlanSub"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPlanSubTag"
+                    app:textcolor="@{color.textSubhead}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_benefit_list"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/value_16"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPlanSub"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_benefit_subcription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_purchase_subcrip"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:text="@string/_continue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"
+            android:visibility="invisible"
+            app:background="@{color.primaryColor}"
+            app:cornerRadius="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/end_gudline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/start_gudline"
+            app:rippleColor="@color/white"
+            app:textcolor="@{color.appBackground}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

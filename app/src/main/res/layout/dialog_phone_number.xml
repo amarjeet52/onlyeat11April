@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivCross"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/tvPhone"
+        android:fontFamily="@font/proximanovasemibold"
+        android:layout_marginStart="@dimen/value_16"
+        android:layout_marginEnd="@dimen/value_16"
+        android:layout_marginTop="@dimen/value_24"
+        android:textColor="@color/text_dark"
+        android:textSize="@dimen/text_size_16"
+        android:text="@string/enter_your_mmy_bean_phone"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cross"
+        android:padding="@dimen/value_12"
+        android:id="@+id/ivCross"
+        app:layout_constraintTop_toTopOf="@+id/tvPhone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPhone"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/phone_number"
+        android:background="@drawable/shape_supplier_search"
+        android:fontFamily="@font/proximanovaregular"
+        android:textSize="@dimen/text_medium"
+        android:id="@+id/etPhoneNumber"
+        android:inputType="number"
+        android:maxLength="12"
+        android:imeOptions="actionDone"
+        android:textColorHint="@color/text_color_normal"
+        android:textColor="@color/text_dark"
+        android:padding="@dimen/value_12"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhone"
+        android:layout_margin="@dimen/value_16" />
+
+    <TextView
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber"
+        android:id="@+id/tvSubmit"
+        android:fontFamily="@font/proximanovasemibold"
+        android:layout_marginStart="@dimen/value_16"
+        android:layout_marginEnd="@dimen/value_16"
+        android:paddingTop="@dimen/value_12"
+        android:paddingBottom="@dimen/value_12"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:background="@color/black"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="@dimen/value_24"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/text_size_16"
+        android:text="@string/submit"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

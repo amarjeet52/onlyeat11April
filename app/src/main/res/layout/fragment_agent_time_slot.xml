@@ -1,0 +1,309 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.agent_time_slot.AgentTimeSlotFragment">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.agent_time_slot.AgentViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:background="@{color.appBackground}">
+
+
+        <include
+            layout="@layout/toolbar_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            app:strings="@{strings}" />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:background="@{color.divider}" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+            <RadioGroup
+                android:id="@+id/rgGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/gudline_end"
+                app:layout_constraintStart_toStartOf="@id/gudline_start"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/rbDelivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingStart="@dimen/value_8"
+                    android:paddingEnd="0dp"
+                    android:text="@string/delivery_tag"
+                    android:textSize="@dimen/text_size_14" />
+
+                <RadioButton
+                    android:id="@+id/rbPickup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingStart="@dimen/value_8"
+                    android:paddingEnd="0dp"
+                    android:text="@string/pick_up_tag"
+                    android:textSize="@dimen/text_size_14" />
+
+                <RadioButton
+                    android:id="@+id/rbTableBooking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:paddingStart="@dimen/value_8"
+                    android:paddingEnd="0dp"
+                    android:text="@string/table_booking"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="gone" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/text_head"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/when_would_you_like_your_service"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="@id/gudline_end"
+                app:layout_constraintStart_toStartOf="@id/gudline_start"
+                app:layout_constraintTop_toBottomOf="@+id/rgGroup"
+                app:textcolor="@{color.textHead}" />
+
+            <TextView
+                android:id="@+id/textBookingFee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/table_booking_fee"
+                android:textAlignment="viewStart"
+                android:paddingTop="@dimen/value_12"
+                android:paddingBottom="@dimen/value_12"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintEnd_toStartOf="@id/tvBookingFee"
+                app:layout_constraintStart_toStartOf="@id/gudline_start"
+                app:layout_constraintTop_toBottomOf="@+id/text_head"
+                app:textcolor="@{color.textHead}" />
+
+            <TextView
+                android:id="@+id/tvBookingFee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textBookingFee"
+                app:layout_constraintEnd_toEndOf="@id/gudline_end"
+                app:layout_constraintTop_toTopOf="@+id/textBookingFee"
+                app:textcolor="@{color.textHead}" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupTableFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="textBookingFee,tvBookingFee" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gudline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gudline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/gudline_end"
+                app:layout_constraintStart_toStartOf="@id/gudline_start"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_timeslot"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBookingFee"
+                app:tabGravity="fill"
+                app:tabIndicateColr="@{color.primaryColor}"
+                app:tabIndicatorHeight="4dp"
+                app:tabMode="scrollable"
+                app:tabSelectedText="@{color.primaryColor}"
+                app:tabTextColr="@{color.textHead}" />
+
+            <include
+                android:id="@+id/noData"
+                layout="@layout/nothing_found"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:color="@{color}"
+                app:drawables="@{drawables}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+                app:strings="@{strings}" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:progessBackground="@{color.primaryColor}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_book_agent"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:padding="@dimen/small_margin"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_mediumLarge"
+            app:background="@{color.primaryColor}"
+            app:cornerRadius="@dimen/small_margin"
+            app:textcolor="@{color.appBackground}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clScheduleOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+
+            <Button
+                android:id="@+id/btnCancel"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/cancel"
+                android:textAllCaps="true"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/text_medium"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnConfirm"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rippleColor="@color/brown" />
+
+            <Button
+                android:id="@+id/btnConfirm"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/done"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                app:background="@{color.primaryColor}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCancel"
+                app:rippleColor="@color/white"
+                app:textcolor="@{color.appBackground}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</layout>

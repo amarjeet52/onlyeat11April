@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.home_screen.resturant_home.ResturantHomeFrag">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strings="@{strings}" />
+
+        <ViewFlipper
+            android:id="@+id/vpHome"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/home_background"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_3sdp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_16"
+                android:fontFamily="@font/proximanovasemibold"
+                android:lineSpacingMultiplier="1.3"
+                android:text="@string/discover_fav_restaurant"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_home"
+                style="@style/MyTabLayoutSmallCase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_8"
+                app:background="@{color.appBackground}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:tabGravity="fill"
+                app:tabIndicateColr="@{color.textAppTitle}"
+                app:tabIndicatorHeight="2dp"
+                app:tabInlineLabel="true"
+                app:tabMode="fixed"
+                app:tabPaddingStart="@dimen/small_margin"
+                app:tabSelectedText="@{color.textAppTitle}"
+                app:tabTextColr="@{color.textSubhead}">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_delivery" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_pickup" />
+
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_dine"
+                    android:text="@string/dine_in_tag" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tl_home"
+                app:layout_constraintVertical_bias="0.0">
+
+
+            </androidx.viewpager2.widget.ViewPager2>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_signature_lay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:background="@{color.white}"
+            tools:ignore="Overdraw">
+
+            <TextView
+                android:id="@+id/tvSingature"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/creave_signature"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textcolor="@{color.dark_grey1}"
+                tools:targetApi="m" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/rec_signature_home"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSingature">
+
+                <LinearLayout
+                    android:id="@+id/layChefBoutique"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/value_16"
+                    android:layout_marginEnd="@dimen/value_16"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/rec_shadow"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/laySignaturePlates"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread">
+
+                    <ImageView
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:padding="@dimen/value_16"
+                        android:src="@drawable/chef_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/value_16"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@string/chef_boutique"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark_blue1"
+                        tools:targetApi="m" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/laySignaturePlates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/value_16"
+                    android:layout_marginEnd="@dimen/value_16"
+                    android:background="@drawable/rec_shadow"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/laySignatureCatering"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layChefBoutique">
+
+                    <ImageView
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:padding="@dimen/value_16"
+                        android:src="@drawable/plate" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/value_16"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/_16ssp"
+                        android:textColor="@color/dark_blue1"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@string/signature_plates"
+
+                        tools:targetApi="m" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/laySignatureCatering"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/value_16"
+                    android:layout_marginEnd="@dimen/value_16"
+                    android:background="@drawable/rec_shadow"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/laySignaturePlates">
+
+                    <ImageView
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:padding="@dimen/value_16"
+                        android:src="@drawable/sign_catering" />
+
+                    <TextView
+                        android:id="@+id/tvChefBoutique"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/value_16"
+                         android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@string/signature_catering"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/_16ssp"
+                        android:textColor="@color/dark_blue1"
+                        tools:targetApi="m" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/ivSignatureCatering"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/ic_signature_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSingature" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ViewFlipper>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

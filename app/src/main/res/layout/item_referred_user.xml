@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.codebrew.clikat.data.model.api.ReferalData" />
+
+        <variable
+            name="currency"
+            type="String" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_04"
+        app:background="@{color.supplier_bg}"
+        app:cardCornerRadius="@dimen/dp_04">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_user"
+                android:layout_width="@dimen/value_40"
+                android:layout_height="@dimen/value_40"
+                android:layout_marginStart="@dimen/small_margin"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_sp_loyalty"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@{item.firstname + item.lastname,default=`UserName`}"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_user"
+                app:layout_constraintEnd_toStartOf="@+id/tv_amount"
+                app:layout_constraintStart_toEndOf="@+id/iv_user"
+                app:layout_constraintTop_toTopOf="@+id/iv_user" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@{`+ `+@string/currency_tag(currency,String.valueOf(item.receive_price)), default=`+ QAR 0.0`}"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

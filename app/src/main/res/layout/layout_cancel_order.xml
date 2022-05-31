@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/value_8"
+        android:paddingEnd="@dimen/value_8">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/ivCross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/value_8"
+                android:src="@drawable/ic_cross"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginEnd="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/choose_where_you_want_refund"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18"
+                android:textAlignment="viewStart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivCross" />
+
+            <RadioGroup
+                android:id="@+id/rgGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_16"
+                android:layout_marginBottom="@dimen/value_16"
+                app:layout_constraintBottom_toTopOf="@+id/btnReturnProd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCancel">
+
+                <RadioButton
+                    android:id="@+id/rbWallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="@dimen/value_16"
+                    android:text="@string/wallet"
+                    android:textSize="@dimen/text_16sp" />
+
+                <RadioButton
+                    android:id="@+id/rbOthers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="@dimen/value_16"
+                    android:text="@string/initial_payment_source"
+                    android:textSize="@dimen/text_16sp" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnReturnProd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/value_16"
+                android:text="@string/submit"
+                app:background="@{color.primaryColor}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:textcolor="@{color.appBackground}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

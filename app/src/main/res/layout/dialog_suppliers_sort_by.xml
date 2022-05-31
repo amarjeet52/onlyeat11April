@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary_10"
+        android:paddingStart="@dimen/value_8"
+        android:paddingEnd="@dimen/value_8">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/value_20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/value_20" />
+
+        <TextView
+            android:id="@+id/tvAddInst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/filters_you_search"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCross"
+            app:layout_constraintStart_toStartOf="@+id/startGuideline"
+            app:layout_constraintTop_toTopOf="@+id/ivCross" />
+
+        <ImageView
+            android:id="@+id/ivCross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_12"
+            android:padding="@dimen/value_12"
+            android:src="@drawable/ic_close_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_16"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivCross" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.module.addon_quant.adpater.ItemListener" />
+
+        <variable
+            name="itemData"
+            type="com.codebrew.clikat.modal.CartInfo" />
+
+        <variable
+            name="currency"
+            type="String" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_addon_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{itemData.productName}"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toStartOf="@+id/include3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{@string/currency_tag(currency,String.valueOf(itemData.price)), default=`QAR 0.0`}"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_addon_name"
+            app:textcolor="@{color.textAppTitle}" />
+
+        <TextView
+            android:id="@+id/tv_addon_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include3"
+            app:textcolor="@{color.textAppTitle}" />
+
+        <TextView
+            android:id="@+id/tv_addon_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{@string/addon_name_tag(itemData.add_on_name), default=`Add on`}"
+            android:textSize="@dimen/text_medium"
+            android:visibility="@{itemData.add_ons.size()>0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_addon_price"
+            app:textcolor="@{color.textSubhead}" />
+
+        <include
+            android:id="@+id/include3"
+            layout="@layout/layout_prod_stepper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            app:color="@{color}"
+            app:itemData="@{itemData}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_addon_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_addon_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_addon_name"
+            app:listener="@{listener}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

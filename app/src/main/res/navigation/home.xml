@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.codebrew.clikat.module.home_screen.HomeFragment"
+        android:label="fragment_ecommerce"
+        tools:layout="@layout/fragment_ecommerce">
+        <action
+            android:id="@+id/action_supplierAll"
+            app:destination="@id/supplierAll" />
+        <action
+            android:id="@+id/action_brachList"
+            app:destination="@id/branchListFragment" />
+        <action
+            android:id="@+id/action_branches_fragment"
+            app:destination="@id/newBranchesFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_supplierListFragment"
+            app:destination="@id/suppliersListFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_recordinFragment"
+            app:destination="@id/fragment_recording" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_unify_SearchFragment"
+            app:destination="@id/unifySearchFragment" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_home_to_subscriptionFrag"
+            app:destination="@id/subscriptionFrag" />
+
+        <action
+            android:id="@+id/action_productDetail"
+            app:destination="@id/productDetails" />
+
+        <action
+            android:id="@+id/actionProductDetailV2"
+            app:destination="@id/productDetailsV2" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_viewAllSuppliersFragment"
+            app:destination="@id/viewAllSuppliersFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_unifySearchFragment"
+            app:destination="@id/unifySearchFragment" />
+
+        <action
+            android:id="@+id/action_OfferListing"
+            app:destination="@id/offerProductListingFragment" />
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_restaurantDetail2"
+            app:destination="@id/restaurantDetailFrag2" />
+
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/actionSubCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_homeFragment_to_cart"
+            app:destination="@id/cart" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_cartV2"
+            app:destination="@id/cartV2" />
+        <action
+            android:id="@+id/action_homeFragment_to_questionFrag"
+            app:destination="@id/questionFrag" />
+
+        <action
+            android:id="@+id/action_home_to_notificationFrag"
+            app:destination="@id/notificationFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_mainFragment"
+            app:destination="@id/customHomeFrag"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/customHomeFrag"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_clikathomeFragment_to_mainFragment"
+            app:destination="@id/clikatHomeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/clikatHomeFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_homeFrag_to_other"
+            app:destination="@id/other" />
+
+        <action
+            android:id="@+id/action_homeFrag_to_categories"
+            app:destination="@id/categories" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_walletFragment"
+            app:destination="@id/walletFragment" />
+        <action
+            android:id="@+id/action_frag_to_categoriesListFragment"
+            app:destination="@id/viewAllCategoriesFragment" />
+
+        <action
+            android:id="@+id/action_home_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"/>
+
+
+        <action
+            android:id="@+id/action_home_to_book_table_detail"
+            app:destination="@id/bookTableDetail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signatureHome"
+        android:name="com.codebrew.clikat.module.signature.SignatureHome"
+        android:label="frgment_signature_home"
+        tools:layout="@layout/frgment_signature_home">
+
+        <action
+            android:id="@+id/action_signature_to_signature_detail"
+            app:destination="@id/caveSignatureDetailFrag" />
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/craveMania"
+        android:name="com.codebrew.clikat.modal.crave_mania.CraveManiaFragment"
+        android:label="frgment_crave_mania"
+        tools:layout="@layout/fragment_crave_mania">
+
+        <action
+            android:id="@+id/action_signature_to_signature_detail"
+            app:destination="@id/caveSignatureDetailFrag" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/craveManiaNew"
+        android:name="com.codebrew.clikat.module.crave_mania.FragmentCraveMania"
+        android:label="frgment_crave_mania_new"
+        tools:layout="@layout/frgment_crave_mania">
+        <action
+            android:id="@+id/action_craveManiaFrag_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+
+        <action
+            android:id="@+id/action_craveManiaFrag_to_unify_SearchFragment"
+            app:destination="@id/unifySearchFragment" />
+        <action
+            android:id="@+id/action_mania_to_restaurant_detail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_mania_to_craveViewAll"
+            app:destination="@id/craveManiaAll" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/craveManiaAll"
+        android:name="com.codebrew.clikat.module.crave_mania.FragmentCraveManiaAll1"
+        android:label="frgment_crave_mania_all"
+        tools:layout="@layout/fragment_crave_mania_all">
+        <action
+            android:id="@+id/action_craveManiaAllFrag_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+
+        <action
+            android:id="@+id/action_craveManiaAllFrag_to_unify_SearchFragment"
+            app:destination="@id/unifySearchFragment" />
+        <action
+            android:id="@+id/action_mania_all_to_restaurant_detail"
+            app:destination="@id/restaurantDetailFrag" />
+
+
+    </fragment>
+<fragment
+        android:id="@+id/caveSignatureDetailFrag"
+        android:name="com.codebrew.clikat.module.restaurant_detail.CraveSignatureDetailFrag"
+        android:label="frgment__crave_signature_detail"
+        tools:layout="@layout/fragment_crave_signature_detail">
+
+        <action
+            android:id="@+id/action_signature_to_signature_detail"
+            app:destination="@id/caveSignatureDetailFrag" />
+
+    <action
+        android:id="@+id/action_cravesignature_deatail_to_product_detail"
+        app:destination="@id/productDetails" />
+
+    <action
+        android:id="@+id/action_caveSignatureDetailFrag_to_cart"
+        app:destination="@id/cart"
+        app:popUpTo="@+id/caveSignatureDetailFrag" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookTableDetail"
+        android:name="com.codebrew.clikat.module.pre_delivery.BookTableDetailFragment"
+        android:label="frgment_book_table_detail"
+        tools:layout="@layout/layout_book_table">
+
+        <action
+            android:id="@+id/action_book_table_detail_to_table_slot"
+            app:destination="@id/bookTableSlots" />
+
+        <action
+            android:id="@+id/action_book_table_detail_to_restuarant_details"
+            app:destination="@id/restaurantDetailFrag" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookTableSlots"
+        android:name="com.codebrew.clikat.module.cart.schedule_order.BookTableSlots"
+        android:label="frgment_book_table"
+        tools:layout="@layout/fragment_book_table">
+
+        <action
+            android:id="@+id/action_book_table_to_Table_selection"
+            app:destination="@id/categories" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/jumaHomeFragment"
+        android:name="com.codebrew.clikat.module.jumaHome.JumaHomeLaundryFrag"
+        android:label="fragment_juma_home"
+        tools:layout="@layout/fragment_juma_home">
+
+        <action
+            android:id="@+id/action_frag_to_categories"
+            app:destination="@id/categories" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/jumaProductsFragment"
+        android:name="com.codebrew.clikat.module.jumaHome.JumaProductsFragment"
+        android:label="fragment_juma_products"
+        tools:layout="@layout/fragment_juma_home">
+
+        <action
+            android:id="@+id/action_fragment_to_cart"
+            app:destination="@id/cart" />
+
+        <action
+            android:id="@+id/action_fragment_to_cartV2"
+            app:destination="@id/cartV2" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewAllSuppliersFragment"
+        android:name="com.codebrew.clikat.module.home_screen.viewAll.ViewAllSuppliersFragment"
+        android:label="@string/view_all"
+        tools:layout="fragment_supplier_list">
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/actionSubCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+
+    </fragment>
+
+
+   <fragment
+        android:id="@+id/viewAllCategoriesFragment"
+        android:name="com.codebrew.clikat.module.home_screen.viewAll.ViewAllCategoriesFragment"
+        android:label="@string/view_all_categories"
+        tools:layout="fragment_supplier_list">
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/actionSubCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+
+        <action
+            android:id="@+id/action_frag_to_supplierListFragment"
+            app:destination="@id/suppliersListFragment" />
+
+       <action android:id="@+id/action_supplierAll"
+           app:destination="@+id/supplierAll"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/bannersFragment"
+        android:name="com.codebrew.clikat.module.banners.BannersListingFragment"
+        android:label="fragemnt_banners"
+        tools:layout="@layout/fragment_offers" >
+        <action
+            android:id="@+id/action_supplierAll"
+            app:destination="@id/supplierAll" />
+        <action
+            android:id="@+id/action_home_to_subscriptionFrag"
+            app:destination="@id/subscriptionFrag" />
+        <action
+            android:id="@+id/actionSubCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_bannersFrag_to_supplierListFragment"
+            app:destination="@id/suppliersListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBranchesFragment"
+        android:name="com.codebrew.clikat.module.supplier_all.newBranches.NewBranchesFragment"
+        android:label="fragment_all_branches"
+        tools:layout="@layout/fragment_supplier_branches">
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment" />
+        <action
+            android:id="@+id/action_resturantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_resturantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_subCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_supplierAll_to_supplierDetailFragment"
+            app:destination="@id/supplierDetailFragment" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/resturantHomeFrag" />
+
+        <action
+            android:id="@+id/action_book_table_detail_to_table_slot"
+            app:destination="@id/bookTableSlots" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_cartV2"
+            app:destination="@id/cartV2"
+            app:popUpTo="@+id/resturantHomeFrag" />
+
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_supplierAll_self"
+            app:destination="@id/newBranchesFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchListFragment"
+        android:name="com.codebrew.clikat.module.home_screen.BranchResturant"
+        android:label="fragment_branch"
+        tools:layout="@layout/fragment_all_supplier">
+        <action
+            android:id="@+id/action_branch_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/resturantHomeFrag" />
+    <action
+        android:id="@+id/action_resturantDetailFrag"
+        app:destination="@id/restaurantDetailFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/supplierAll"
+        android:name="com.codebrew.clikat.module.supplier_all.SupplierAll"
+        android:label="fragment_all_supplier"
+        tools:layout="@layout/fragment_all_supplier">
+        <action
+            android:id="@+id/action_brachList"
+            app:destination="@id/branchListFragment" />
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment" />
+        <action
+            android:id="@+id/action_resturantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_resturantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_subCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_supplierAll_to_supplierDetailFragment"
+            app:destination="@id/supplierDetailFragment" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/resturantHomeFrag" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_cartV2"
+            app:destination="@id/cartV2"
+            app:popUpTo="@+id/resturantHomeFrag" />
+
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_supplierAll_self"
+            app:destination="@id/supplierAll" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/supplierDetailFragment"
+        android:name="com.codebrew.clikat.module.supplier_detail.SupplierDetailFragment"
+        android:label="supplier_detail"
+        tools:layout="@layout/supplier_detail">
+        <action
+            android:id="@+id/actionSubCatList"
+            app:destination="@id/subCategory" />
+
+        <action
+            android:id="@+id/action_supplierDetail_to_productTabListing"
+            app:destination="@id/productTabListing" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/supplierDetailFragmentV2"
+        android:name="com.codebrew.clikat.module.supplier_detail.v2.SupplierDetailFragmentV2"
+        android:label="supplier_detail"
+        tools:layout="@layout/supplier_detail_v2">
+        <action
+            android:id="@+id/actionSubCatList"
+            app:destination="@id/subCategory" />
+
+        <action
+            android:id="@+id/action_supplierDetail_to_productTabListing"
+            app:destination="@id/productTabListing" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/subCategory"
+        android:name="com.codebrew.clikat.module.subcategory.SubCategory"
+        android:label="fragment_sub_category"
+        tools:layout="@layout/fragment_sub_category">
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@id/productTabListing" />
+        <action
+            android:id="@+id/action_subCategory_self"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_productDetail"
+            app:destination="@id/productDetails" />
+
+        <action
+            android:id="@+id/actionProductDetailV2"
+            app:destination="@id/productDetailsV2" />
+        <action
+            android:id="@+id/action_supplierAll"
+            app:destination="@id/supplierAll" />
+        <action
+            android:id="@+id/action_subCategory_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/subCategory" />
+
+        <action
+            android:id="@+id/action_subCategory_to_cartV2"
+            app:destination="@id/cartV2"
+            app:popUpTo="@+id/subCategory" />
+        <action
+            android:id="@+id/action_subCategory_to_questionFrag"
+            app:destination="@id/questionFrag" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productTabListing"
+        android:name="com.codebrew.clikat.module.product.product_listing.ProductTabListing"
+        android:label="fragment_subcategory_grocery"
+        tools:layout="@layout/fragment_subcategory_grocery">
+        <action
+            android:id="@+id/actionProductDetail"
+            app:destination="@id/productDetails" />
+
+        <action
+            android:id="@+id/actionProductDetailV2"
+            app:destination="@id/productDetailsV2" />
+
+        <action
+            android:id="@+id/action_productTabListing_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/productTabListing" />
+
+        <action
+            android:id="@+id/action_productTabListing_to_cartV2"
+            app:destination="@id/cartV2"
+            app:popUpTo="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_productTabListing_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetails"
+        android:name="com.codebrew.clikat.module.product_detail.ProductDetails"
+        android:label="fragment_prodct_detail"
+        tools:layout="@layout/fragment_prodct_detail">
+        <action
+            android:id="@+id/action_productDetails_to_cart"
+            app:destination="@id/cart"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/resturantHomeFrag"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_productDetails_to_questionFrag"
+            app:destination="@id/questionFrag" />
+
+        <action
+            android:id="@+id/action_productDetails_self"
+            app:destination="@id/productDetails"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/productDetails"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_productDetails_to_offerProductListingFragment"
+            app:destination="@id/offerProductListingFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/offerProductListingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailsV2"
+        android:name="com.codebrew.clikat.module.product_detail.v2.ProductDetailsV2"
+        android:label="fragment_prodct_detail"
+        tools:layout="@layout/fragment_prodct_detail">
+        <action
+            android:id="@+id/action_productDetailsV2_to_cartV2"
+            app:destination="@id/cartV2"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/resturantHomeFrag"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_productDetailsV2_to_questionFrag"
+            app:destination="@id/questionFrag" />
+        <action
+            android:id="@+id/action_productDetailsV2_self"
+            app:destination="@id/productDetailsV2"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/productDetailsV2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_productDetailsV2_to_offerProductListingFragment"
+            app:destination="@id/offerProductListingFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/offerProductListingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/unifySearchFragment"
+        android:name="com.codebrew.clikat.module.searchProduct.UnifySearchFragment"
+        android:label="fragment_unify_search"
+        tools:layout="@layout/fragment_unify_search">
+        <action
+            android:id="@+id/action_searchFragment_to_productTabListing"
+            app:destination="@id/productTabListing" />
+        <action
+            android:id="@+id/action_searchFragment_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailsV2"
+            app:destination="@id/productDetailsV2" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_cart"
+            app:destination="@id/cart" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_cartV2"
+            app:destination="@id/cartV2" />
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantDetailNewFrag"
+            app:destination="@id/restaurantDetailFragNew" />
+        <action
+            android:id="@+id/action_searchFragment_to_questionFrag"
+            app:destination="@id/questionFrag" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_unify"
+            app:destination="@id/unifySearchFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.codebrew.clikat.module.searchProduct.SearchFragment"
+        android:label="fragment_compare_produtcs"
+        tools:layout="@layout/fragment_compare_produtcs">
+        <action
+            android:id="@+id/action_brachList"
+            app:destination="@id/branchListFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_productTabListing"
+            app:destination="@id/productTabListing" />
+        <action
+            android:id="@+id/action_searchFragment_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailsV2"
+            app:destination="@id/productDetailsV2" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_cart"
+            app:destination="@id/cart" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_cartV2"
+            app:destination="@id/cartV2" />
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantDetailNewFrag"
+            app:destination="@id/restaurantDetailFragNew" />
+        <action
+            android:id="@+id/action_searchFragment_to_questionFrag"
+            app:destination="@id/questionFrag" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offerProductListingFragment"
+        android:name="com.codebrew.clikat.module.all_offers.OfferProductListingFragment"
+        android:label="fragment_packaget_listing"
+        tools:layout="@layout/fragment_packaget_listing">
+        <action
+            android:id="@+id/action_offerProductListingFragment_to_productDetails"
+            app:destination="@+id/productDetails" />
+        <action
+            android:id="@+id/action_offerProductListingFragment_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_offerProductListingFragment_to_cart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/action_offerProductListingFragment_to_questionFrag"
+            app:destination="@id/questionFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFrag"
+        android:name="com.codebrew.clikat.module.restaurant_detail.RestaurantDetailFrag"
+        android:label="fragment_restaurant_detail"
+        tools:layout="@layout/fragment_restaurant_detail">
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_supplierAll"
+            app:destination="@id/supplierAll"
+            app:popUpTo="@+id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"
+            app:popUpTo="@+id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_bookedTables"
+            app:destination="@id/bookedTableListingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantDetailFrag2"
+        android:name="com.codebrew.clikat.module.restaurant_detail.RestaurantDetailFrag2"
+        android:label="fragment_restaurant_detail2"
+        tools:layout="@layout/fragment_restaurant_detail2">
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/restaurantDetailFrag2" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_supplierAll"
+            app:destination="@id/supplierAll"
+            app:popUpTo="@+id/restaurantDetailFrag2" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"
+            app:popUpTo="@+id/restaurantDetailFrag2" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_bookedTables"
+            app:destination="@id/bookedTableListingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantDetailFragNew"
+        android:name="com.codebrew.clikat.module.restaurant_detail.RestaurantDetailNewFragment"
+        android:label="fragment_restaurant_detail_new"
+        tools:layout="@layout/fragment_restaurant_detail_new">
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_cart"
+            app:destination="@id/cart" />
+
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_search"
+            app:destination="@id/restaurantSearchFragment"
+            app:popUpTo="@+id/restaurantSearchFragment" />
+
+        <action
+            android:id="@+id/action_restaurantDetailFragNew_to_supplierAll"
+            app:destination="@id/supplierAll"
+            app:popUpTo="@+id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_restaurantDetailFragNew_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"
+            app:popUpTo="@+id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_restaurantDetailFragNew_to_bookedTables"
+            app:destination="@id/bookedTableListingFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantSearchFragment"
+        android:name="com.codebrew.clikat.module.restaurant_detail.RestaurantSearchDialogFragment"
+        android:label="fragment_restaurant_search_new"
+        tools:layout="@layout/fragment_restaurant_detail_new">
+        <action
+            android:id="@+id/action_search_to_product_details"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_restaurantDetailFrag_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/restaurantSearchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingFragment2"
+        android:name="com.codebrew.clikat.module.setting.SettingFragment"
+        android:label="fragemnt_setting_anim"
+        tools:layout="@layout/fragemnt_setting_anim" />
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.codebrew.clikat.module.webview.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/web_view" />
+    <fragment
+        android:id="@+id/suppliersListFragment"
+        android:name="com.codebrew.clikat.module.home_screen.suppliers.SupplierListingFragment"
+        android:label="fragemnt_supplier_list"
+        tools:layout="@layout/fragment_supplier_list">
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment" />
+        <action
+            android:id="@+id/action_resturantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_resturantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_subCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_supplierAll_to_supplierDetailFragment"
+            app:destination="@id/supplierDetailFragment" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/resturantHomeFrag" />
+
+        <action
+            android:id="@+id/action_supplierAll_to_cartV2"
+            app:destination="@id/cartV2"
+            app:popUpTo="@+id/resturantHomeFrag" />
+
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_supplierAll_self"
+            app:destination="@id/suppliersListFragment" />
+
+
+        <action
+            android:id="@+id/action_branches_fragment"
+            app:destination="@id/newBranchesFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/settingFragment2V2"
+        android:name="com.codebrew.clikat.module.setting.v2.SettingFragmentV2"
+        android:label="fragemnt_setting_anim"
+        tools:layout="@layout/fragemnt_setting_anim" />
+
+    <fragment
+        android:id="@+id/resturantHomeFrag"
+        android:name="com.codebrew.clikat.module.home_screen.resturant_home.ResturantHomeFrag"
+        android:label="fragment_resturant_home"
+        tools:layout="@layout/fragment_resturant_home">
+
+        <action
+            android:id="@+id/action_book_table_detail_to_table_slot"
+            app:destination="@id/bookTableSlots" />
+
+        <action
+            android:id="@+id/action_home_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"/>
+
+
+        <action
+            android:id="@+id/action_home_to_book_table_detail"
+            app:destination="@id/bookTableDetail" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_signatureHome"
+            app:destination="@id/signatureHome" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_crave_mania"
+            app:destination="@id/craveMania" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_crave_mania_new"
+            app:destination="@id/craveManiaNew"
+            app:popUpTo="@+id/resturantHomeFrag"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_pickupResturantFrag"
+            app:destination="@id/pickupResturantFrag" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_skipOther"
+            app:destination="@id/skip_other" />
+
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_recordinFragment"
+            app:destination="@id/fragment_recording" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_unify_SearchFragment"
+            app:destination="@id/unifySearchFragment" />
+        <action
+            android:id="@+id/action_supplierAll"
+            app:destination="@id/supplierAll" />
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_home_to_subscriptionFrag"
+            app:destination="@id/subscriptionFrag" />
+
+        <action
+            android:id="@+id/action_supplierDetail_v2"
+            app:destination="@id/supplierDetailFragmentV2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_productDetail"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_OfferListing"
+            app:destination="@id/offerProductListingFragment" />
+
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/actionSubCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_productListing"
+            app:destination="@+id/productTabListing" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_cart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_customHomeFrag"
+            app:destination="@id/customHomeFrag"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/customHomeFrag"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_clikathomeFragment_to_mainFragment"
+            app:destination="@id/clikatHomeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/clikatHomeFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_home_to_notificationFrag"
+            app:destination="@id/notificationFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_manageReferralFrag"
+            app:destination="@id/fragment_loyalty_points" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_walletFragment"
+            app:destination="@id/walletFragment" />
+
+        <action
+            android:id="@+id/action_branches_fragment"
+            app:destination="@id/newBranchesFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_bannerFragment"
+            app:destination="@id/bannersFragment" />
+
+        <action
+            android:id="@+id/action_resturantHomeFrag_to_supplierListFragment"
+            app:destination="@id/suppliersListFragment" />
+        <action
+            android:id="@+id/action_frag_to_categoriesListFragment"
+            app:destination="@id/viewAllCategoriesFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_home_to_tableSelection"-->
+<!--            app:destination="@id/tableSelectionFragment"/>-->
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/pickupResturantFrag"
+        android:name="com.codebrew.clikat.module.home_screen.resturant_home.pickup.PickupResturantFrag"
+        android:label="fragment_pickup_resturant"
+        tools:layout="@layout/fragment_pickup_resturant">
+        <action
+            android:id="@+id/action_pickupResturantFrag_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_pickupResturantFrag_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_pickupResturantFrag_to_bottomSheetFragment"
+            app:destination="@+id/bottomSheetFragment" />
+        <action
+            android:id="@+id/action_pickupResturantFrag_to_offerProductListingFragment"
+            app:destination="@id/offerProductListingFragment" />
+
+        <action
+            android:id="@+id/action_pickupResturantFrag_to_cart"
+            app:destination="@id/cart"
+            app:popUpTo="@+id/pickupResturantFrag" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.codebrew.clikat.module.main_screen.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_home_to_book_table_detail"
+            app:destination="@id/bookTableDetail" />
+        <action
+            android:id="@+id/action_mainFragment_to_cravemania_new"
+            app:destination="@id/craveManiaNew"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_cravemania"
+            app:destination="@id/craveMania"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_resturantHomeFrag"
+            app:destination="@id/resturantHomeFrag"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_preBookMenuFragment"
+            app:destination="@id/preBookMenuFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_clikatHomeFragment"
+            app:destination="@id/clikatHomeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_roadMap"
+            app:destination="@id/roadMapFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_homeRental"
+            app:destination="@id/homeRental"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_customHomeFrag"
+            app:destination="@id/customHomeFrag"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+
+
+    </fragment>
+    <dialog
+        android:id="@+id/bottomSheetFragment"
+        android:name="com.codebrew.clikat.module.filter.BottomSheetFragment"
+        android:label="fragment_bottom_sheet"
+        tools:layout="@layout/fragment_bottom_sheet" />
+
+
+    <fragment
+        android:id="@+id/orders"
+        android:name="com.codebrew.clikat.module.manage_order.ManageOrderFrag"
+        android:label="fragment_base_order"
+        tools:layout="@layout/fragment_manage_order" />
+
+    <fragment
+        android:id="@+id/fragment_feedback"
+        android:name="com.codebrew.clikat.module.feedback.FeedbackFragment"
+        android:label="fragment_feedback_form"
+        tools:layout="@layout/fragment_feedback_form" />
+
+
+    <fragment
+        android:id="@+id/fragment_feedback_suggestions"
+        android:name="com.codebrew.clikat.module.feedback.feedback_new.FeedbackNewFragment"
+        android:label="fragment_feedback_form_new"
+        tools:layout="@layout/fragment_feedback_suggestions">
+
+        <action
+            android:id="@+id/action_add_feedback_fragment"
+            app:destination="@id/fragment_add_feedback" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragment_add_feedback"
+        android:name="com.codebrew.clikat.module.feedback.feedback_new.SubmitFeedbackNewFragment"
+        android:label="fragment_feedback_form"
+        tools:layout="@layout/fragment_add_feedback" />
+    <fragment
+        android:id="@+id/other"
+        android:name="com.codebrew.clikat.module.more_setting.MoreSettingFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more_setting">
+        <action
+            android:id="@+id/action_other_to_settingFragment2"
+            app:destination="@id/settingFragment2" />
+        <action
+            android:id="@+id/action_other_to_settingFragment2V2"
+            app:destination="@id/settingFragment2V2" />
+
+        <action
+            android:id="@+id/action_other_to_wishListFrag"
+            app:destination="@id/wishListFrag" />
+        <action
+            android:id="@+id/action_other_to_RequestsFrag"
+            app:destination="@id/requestsFragment" />
+        <action
+            android:id="@+id/action_other_to_OrdersFrag"
+            app:destination="@id/orders" />
+
+        <action
+            android:id="@+id/action_other_to_booked_tables"
+            app:destination="@id/bookedTableListingFragment" />
+
+        <action
+            android:id="@+id/action_other_to_manageReferralFrag"
+            app:destination="@id/manageReferralFrag" />
+        <!--        <action-->
+        <!--            android:id="@+id/action_other_to_settingFragment2V2"-->
+        <!--            app:destination="@id/settingFragment2V2" />-->
+
+        <action
+            android:id="@+id/action_other_wallet"
+            app:destination="@id/walletFragment" />
+
+        <action
+            android:id="@+id/action_feedback_fragment"
+            app:destination="@id/fragment_feedback" />
+
+        <action
+            android:id="@+id/action_feedback_fragment_new"
+            app:destination="@id/fragment_feedback_suggestions" />
+
+        <action
+            android:id="@+id/action_other_to_subscriptionFrag"
+            app:destination="@id/subscriptionFrag" />
+
+        <action
+            android:id="@+id/action_other_to_loyalty_Frag"
+            app:destination="@id/fragment_loyalty_points" />
+        <action
+            android:id="@+id/action_other_to_PostsHomeFragment"
+            app:destination="@id/social_post" />
+
+        <action
+            android:id="@+id/action_other_to_Order_details"
+            app:destination="@id/orders" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/skip_other"
+        android:name="com.codebrew.clikat.module.more_setting.SkipMoreSettingFragment"
+        android:label="fragment_skip_more"
+        tools:layout="@layout/fragment_skip_settings">
+
+        <action
+            android:id="@+id/action_other_to_settingFragment2"
+            app:destination="@id/settingFragment2" />
+
+        <action
+            android:id="@+id/action_other_to_cart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/action_other_to_settingFragment2V2"
+            app:destination="@id/settingFragment2V2" />
+
+        <action
+            android:id="@+id/action_other_to_wishListFrag"
+            app:destination="@id/wishListFrag" />
+        <action
+            android:id="@+id/action_other_to_RequestsFrag"
+            app:destination="@id/requestsFragment" />
+        <action
+            android:id="@+id/action_other_to_OrdersFrag"
+            app:destination="@id/orders" />
+
+
+        <action
+            android:id="@+id/action_other_to_self"
+            app:destination="@id/skip_other" />
+
+        <action
+            android:id="@+id/action_other_wallet"
+            app:destination="@id/walletFragment" />
+
+        <action
+            android:id="@+id/action_feedback_fragment"
+            app:destination="@id/fragment_feedback" />
+
+        <action
+            android:id="@+id/action_feedback_fragment_new"
+            app:destination="@id/fragment_feedback_suggestions" />
+
+        <action
+            android:id="@+id/action_other_to_Order_details"
+            app:destination="@id/orders" />
+        <action
+            android:id="@+id/action_other_to_notifications"
+            app:destination="@id/notificationFragment" />
+
+        <action
+            android:id="@+id/action_other_to_banners"
+            app:destination="@id/bannersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.codebrew.clikat.module.wallet.WalletMainFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet_main">
+
+        <action
+            android:id="@+id/action_wallet_send_money"
+            app:destination="@id/sendMoneyWalletFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragment_loyalty_points"
+        android:name="com.codebrew.clikat.module.loyaltyPoints.LoyaltyPointsFragmentNew"
+        android:label="fragment_loyalty_points"
+        tools:layout="@layout/fragment_loyality_points" />
+    <fragment
+        android:id="@+id/fragment_recording"
+        android:name="com.codebrew.clikat.module.recording.RecordingFragment"
+        android:label="fragment_records"
+        tools:layout="@layout/fragment_recording" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/fragment_help"-->
+<!--        android:name="com.codebrew.clikat.module.help.HelpFragment"-->
+<!--        android:label="fragment_help"-->
+<!--        tools:layout="@layout/fragment_help" />-->
+
+    <fragment
+        android:id="@+id/sendMoneyWalletFragment"
+        android:name="com.codebrew.clikat.module.wallet.sendMoney.WalletSendMoneyFragment"
+        android:label="fragment_send_money_wallet"
+        tools:layout="@layout/fragment_send_money">
+
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.codebrew.clikat.module.notification.NotificationListFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification">
+
+        <action
+            android:id="@+id/action_notificationList_to_bookedTables"
+            app:destination="@id/bookedTableListingFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/requestsFragment"
+        android:name="com.codebrew.clikat.module.requestsLists.RequestListFragment"
+        android:label="fragment_requests"
+        tools:layout="@layout/fragment_requests_list" />
+
+
+    <fragment
+        android:id="@+id/cart"
+        android:name="com.codebrew.clikat.module.cart.CartNew"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart_before">
+        <action
+            android:id="@+id/action_cart_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resturantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_cart_to_cartCheckout"
+            app:destination="@id/cart_checkout"
+            app:popUpTo="@id/cart"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_cart_to_loyalityPoints"
+            app:destination="@id/fragment_loyalty_points"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/cart_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"
+            app:popUpTo="@+id/cart" />
+
+        <action
+            android:id="@+id/action_cart_to_subscriptionFrag"
+            app:destination="@id/subscriptionFrag"
+            app:popUpTo="@+id/cart" />
+
+        <action
+            android:id="@+id/action_cart_to_settingFragment2"
+            app:destination="@id/settingFragment2" />
+        <action
+            android:id="@+id/action_cart_to_settingFragment2V2"
+            app:destination="@id/settingFragment2V2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cart_checkout"
+        android:name="com.codebrew.clikat.module.cart.CartCheckout"
+        android:label="fragment_cart_checkout"
+        tools:layout="@layout/fragment_cart_new">
+        <action
+            android:id="@+id/action_cart_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
+
+
+
+        <action
+            android:id="@+id/action_cart_to_loyalityPoints"
+            app:destination="@id/fragment_loyalty_points"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/cart_to_tableSelection"
+            app:destination="@id/tableSelectionFragment"
+            app:popUpTo="@+id/cart" />
+
+        <action
+            android:id="@+id/action_cart_to_subscriptionFrag"
+            app:destination="@id/subscriptionFrag"
+            app:popUpTo="@+id/cart" />
+
+        <action
+            android:id="@+id/action_cart_to_settingFragment2"
+            app:destination="@id/settingFragment2" />
+        <action
+            android:id="@+id/action_cart_to_settingFragment2V2"
+            app:destination="@id/settingFragment2V2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartV2"
+        android:label="fragment_cart_v2"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cartv2_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/homeRental"
+        android:name="com.codebrew.clikat.module.rental.HomeRental"
+        android:label="fragment_home_rental"
+        tools:layout="@layout/fragment_home_rental">
+        <action
+            android:id="@+id/action_homeRental_to_productListFrag"
+            app:destination="@id/productListFrag" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/carDetailFrag"
+        android:name="com.codebrew.clikat.module.rental.carDetail.CarDetailFrag"
+        android:label="fragment_car_detail"
+        tools:layout="@layout/fragment_car_detail">
+        <action
+            android:id="@+id/action_carDetailFrag_to_rentalCheckoutFrag"
+            app:destination="@id/rentalCheckoutFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFrag"
+        android:name="com.codebrew.clikat.module.rental.carList.ProductListFrag"
+        android:label="product_list_fragment"
+        tools:layout="@layout/product_list_fragment">
+        <action
+            android:id="@+id/action_productListFrag_to_carDetailFrag"
+            app:destination="@id/carDetailFrag" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/rentalCheckoutFrag"
+        android:name="com.codebrew.clikat.module.rental.rental_checkout.RentalCheckoutFrag"
+        android:label="rental_checkout_fragment"
+        tools:layout="@layout/fragment_rental_checkout">
+
+
+        <action
+            android:id="@+id/action_rentalCheckoutFrag_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/homeRental"
+            app:popUpToInclusive="false" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/categories"
+        android:name="com.codebrew.clikat.module.all_categories.CategoryFragment"
+        android:label="fragment_all_category"
+        tools:layout="@layout/fragment_all_category">
+
+
+        <action
+            android:id="@+id/action_categories_to_supplierAll"
+            app:destination="@id/supplierAll" />
+
+        <action
+            android:id="@+id/action_categories_to_SubCategory"
+            app:destination="@id/subCategory" />
+
+        <action
+            android:id="@+id/action_categories_to_productListing"
+            app:destination="@+id/productTabListing" />
+        <action
+            android:id="@+id/action_categories_to_jumaCategoies"
+            app:destination="@+id/jumaProductsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/wishListFrag"
+        android:name="com.codebrew.clikat.module.wishlist_prod.WishListMainFragment"
+        android:label="fragment_wish_list"
+        tools:layout="@layout/fragment_wish_list_main">
+        <action
+            android:id="@+id/action_wishListFrag_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_wishListFrag_to_cart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/action_restaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+        <action
+            android:id="@+id/action_restaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_wishListFrag_to_productDetailsV2"
+            app:destination="@id/productDetailsV2" />
+
+        <action
+            android:id="@+id/action_supplierDetail"
+            app:destination="@id/supplierDetailFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/questionFrag"
+        android:name="com.codebrew.clikat.module.questions.main.QuestionsFragment"
+        android:label="fragment_questioneries_layout"
+        tools:layout="@layout/fragment_questioneries_layout">
+        <action
+            android:id="@+id/action_questionFrag_to_productTabListing"
+            app:destination="@id/productTabListing" />
+        <action
+            android:id="@+id/action_questionFrag_to_supplierAll"
+            app:destination="@id/supplierAll" />
+        <action
+            android:id="@+id/action_questionFrag_to_cart"
+            app:destination="@id/cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageReferralFrag"
+        android:name="com.codebrew.clikat.module.manage_referral.ManageReferralFrag"
+        android:label="fragment_manage_referral"
+        tools:layout="@layout/fragment_manage_referral" />
+
+    <fragment
+        android:id="@+id/customHomeFrag"
+        android:name="com.codebrew.clikat.module.custom_home.CustomHomeFrag"
+        android:label="CustomHomeFrag">
+        <action
+            android:id="@+id/action_customHomeFrag_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_cart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_customHomeFrag_to_restaurantDetailNewFrag"
+            app:destination="@id/restaurantDetailFragNew" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_subCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_productTabListing"
+            app:destination="@id/productTabListing" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_supplierAll"
+            app:destination="@id/supplierAll" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/clikatHomeFragment"
+        android:name="com.codebrew.clikat.module.custom_home.ClikatHomeFragment"
+        android:label="ClikatHomeFragment"
+        tools:layout="@layout/clickat_home_fragment">
+        <action
+            android:id="@+id/action_customHomeFrag_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_cart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_customHomeFrag_to_restaurantDetailNewFrag"
+            app:destination="@id/restaurantDetailFragNew" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_subCategory"
+            app:destination="@id/subCategory" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_productTabListing"
+            app:destination="@id/productTabListing" />
+        <action
+            android:id="@+id/action_customHomeFrag_to_productDetails"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_supplierAll"
+            app:destination="@id/supplierAll" />
+        <action
+            android:id="@+id/action_clikat_to_resturantHomeFrag"
+            app:destination="@id/resturantHomeFrag"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/subscriptionFrag"
+        android:name="com.codebrew.clikat.module.subscription.SubscriptionFrag"
+        android:label="subscription_fragment"
+        tools:layout="@layout/subscription_fragment">
+
+        <action
+            android:id="@+id/action_subscriptionFrag_to_subscripDetailFrag"
+            app:destination="@id/subscripDetailFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscripDetailFrag"
+        android:name="com.codebrew.clikat.module.subscription.subscrip_detail.SubscripDetailFrag"
+        android:label="subscrip_detail_fragment"
+        tools:layout="@layout/subscrip_detail_fragment">
+
+        <argument
+            android:name="subscripData"
+            android:defaultValue="@null"
+            app:argType="com.codebrew.clikat.data.model.api.SubcripModel"
+            app:nullable="true" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/tableSelectionFragment"
+        android:name="com.codebrew.clikat.module.cart.tables.TableSelectionFragment"
+        android:label="fragment_tables_listing"
+        tools:layout="@layout/item_timeslot_view" />
+
+    <fragment
+        android:id="@+id/bookedTableListingFragment"
+        android:name="com.codebrew.clikat.module.tables.BookedTablesListFragment"
+        android:label="fragment_booked_tables"
+        tools:layout="@layout/fragment_booked_tables">
+        <action
+            android:id="@+id/action_bookingList_to_RestaurantDetail"
+            app:destination="@id/restaurantDetailFrag" />
+
+        <action
+            android:id="@+id/action_bookingList_to_RestaurantDetailNew"
+            app:destination="@id/restaurantDetailFragNew" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/social_post"
+        android:name="com.codebrew.clikat.module.social_post.home.PostsHomeFragment"
+        android:label="fragment_posts_home"
+        tools:layout="@layout/frag_social_post_home">
+
+
+        <action
+            android:id="@+id/action_social_post_to_socialPostDescFrag"
+            app:destination="@id/socialPostDescFrag" />
+        <action
+            android:id="@+id/action_social_post_to_socialEnterQuesFrag"
+            app:destination="@id/socialEnterQuesFrag" />
+        <action
+            android:id="@+id/action_social_post_to_restaurantDetailFragNew"
+            app:destination="@id/restaurantDetailFragNew" />
+        <action
+            android:id="@+id/action_social_post_to_restaurantDetailFrag"
+            app:destination="@id/restaurantDetailFrag" />
+        <action
+            android:id="@+id/action_social_post_to_cartV2"
+            app:destination="@id/cartV2"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/social_post"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_social_post_to_cart"
+            app:destination="@id/cart"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/social_post"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/socialPostDescFrag"
+        android:name="com.codebrew.clikat.module.social_post.other.SocialPostDescFrag"
+        android:label="SocialPostDescFrag">
+
+        <argument
+            android:name="postDescData"
+            android:defaultValue="@null"
+            app:argType="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_socialPostDescFrag_to_socialSelectSuplierFrag"
+            app:destination="@id/socialSelectSuplierFrag" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/socialSelectSuplierFrag"
+        android:name="com.codebrew.clikat.module.social_post.other.SocialSelectSuplierFrag"
+        android:label="SocialSelectSuplierFrag">
+
+        <argument
+            android:name="postDescData"
+            android:defaultValue="@null"
+            app:argType="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_socialSelectSuplierFrag_to_socialSelectImagesFrag"
+            app:destination="@id/socialSelectImagesFrag" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/socialSelectImagesFrag"
+        android:name="com.codebrew.clikat.module.social_post.other.SocialSelectImagesFrag"
+        android:label="frag_social_select_images"
+        tools:layout="@layout/frag_social_select_images">
+
+        <argument
+            android:name="postDescData"
+            android:defaultValue="@null"
+            app:argType="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_socialSelectImagesFrag_to_socialConfirmPostFrag"
+            app:destination="@id/socialConfirmPostFrag" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/socialConfirmPostFrag"
+        android:name="com.codebrew.clikat.module.social_post.other.SocialConfirmPostFrag"
+        android:label="frag_social_confirm_post"
+        tools:layout="@layout/frag_social_confirm_post">
+
+        <argument
+            android:name="postDescData"
+            android:defaultValue="@null"
+            app:argType="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_socialConfirmPostFrag_to_socialPostDescFrag"
+            app:destination="@id/socialPostDescFrag"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/socialPostDescFrag"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_socialConfirmPostFrag_to_social_post"
+            app:destination="@id/social_post"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/social_post"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/socialEnterQuesFrag"
+        android:name="com.codebrew.clikat.module.social_post.other.SocialEnterQuesFrag"
+        android:label="SocialEnterQuesFrag">
+        <action
+            android:id="@+id/action_socialEnterQuesFrag_to_social_post"
+            app:destination="@id/social_post"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/social_post"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="postDescData"
+            android:defaultValue="@null"
+            app:argType="com.codebrew.clikat.module.social_post.custom_model.SocialPostInput"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/roadMapFragment"
+        android:name="com.codebrew.clikat.module.roadmap.RoadMapFragment"
+        android:label="RoadMapFragment" >
+
+        <action
+            android:id="@+id/action_roadMapFragment_to_mainFragment"
+            app:destination="@id/resturantHomeFrag" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/preBookMenuFragment"
+        android:name="com.codebrew.clikat.module.pre_delivery.PreBookMenuFragment"
+        android:label="PreBookMenuFragment" >
+
+    </fragment>
+
+
+</navigation>

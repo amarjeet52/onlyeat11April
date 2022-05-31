@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="supplierData"
+            type="com.codebrew.clikat.modal.other.SupplierDataBean" />
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+    </data>
+
+
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_marginStart="@dimen/value_16"
+    android:layout_marginEnd="@dimen/value_16"
+    android:background="@android:color/transparent"
+    android:layout_marginTop="@dimen/value_16"
+    app:cardCornerRadius="@dimen/value_4"
+    android:layout_height="wrap_content">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:customSrc="@{supplierData.logo}"
+            app:layout_constraintDimensionRatio="H,0.45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/value_4" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.4"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+            app:layout_constraintEnd_toEndOf="@+id/ivImage"
+            app:layout_constraintStart_toStartOf="@+id/ivImage"
+            app:layout_constraintTop_toTopOf="@+id/ivImage" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_16"
+            android:fontFamily="@font/proximanovasemibold"
+            tools:text="Le Hamburg"
+            android:text="@{supplierData.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@+id/tvViewMore"
+            app:layout_constraintEnd_toStartOf="@+id/tvRating"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvRating"
+            textcolor="@{color.appBackground}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_8"
+            android:layout_marginEnd="@dimen/value_16"
+            android:drawableStart="@drawable/star_grey"
+            android:drawablePadding="@dimen/value_4"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{String.valueOf(supplierData.rating)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_12"
+            app:drawableTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+        <TextView
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="@+id/tvRating"
+            android:text="@string/view_more"
+            android:textSize="@dimen/text_size_12"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:id="@+id/tvViewMore"
+            android:layout_marginTop="@dimen/value_4"
+            textcolor="@{color.appBackground}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/back_rec_theme_color_solid"
+            android:fontFamily="@font/proximanovaregular"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            android:layout_height="28dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDistance"
+            textcolor="@{color.appBackground}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_8"
+            android:drawableStart="@drawable/ic_address"
+            android:drawablePadding="@dimen/value_4"
+            android:fontFamily="@font/proximanovasemibold"
+            tools:text="2 Km"
+            android:text="@{@string/km(supplierData.distance)}"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            app:drawableTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTime"
+            textcolor="@{color.appBackground}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:drawableEnd="@drawable/ic_address"
+            android:drawablePadding="@dimen/value_4"
+            android:fontFamily="@font/proximanovasemibold"
+            tools:text="15 min"
+            android:text="@{@string/deliver_time_min(supplierData.delivery_min_time)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            app:drawableTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_wishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/value_8"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_favourite" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>

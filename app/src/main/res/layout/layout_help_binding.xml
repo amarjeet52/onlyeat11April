@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.feedback.FeedbackViewModel" />
+    </data>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_15sdp"
+    android:id="@+id/tvItem"
+    android:textColor="@color/black"
+    android:textSize="@dimen/_10ssp"
+    android:text="Help User for order"
+    android:layout_toStartOf="@+id/rlArrow"
+    android:layout_alignParentStart="true"
+    android:fontFamily="@font/poppins_regular"/>
+    <RelativeLayout
+        android:id="@+id/rlArrow"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:gravity="center"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_arrow_forward"/>
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

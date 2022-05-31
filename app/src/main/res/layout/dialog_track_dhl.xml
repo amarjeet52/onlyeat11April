@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/value_8"
+        android:paddingEnd="@dimen/value_8"
+
+        app:cardBackgroundColor="@color/white">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/value_16"
+            android:paddingBottom="@dimen/margin_16"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvAddInst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/dhl_status"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_20"
+                app:layout_constraintBottom_toBottomOf="@+id/ivCross"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivCross" />
+
+            <ImageView
+                android:id="@+id/ivCross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/value_16"
+                android:paddingEnd="@dimen/value_16"
+                android:paddingBottom="@dimen/value_16"
+                android:src="@drawable/ic_cross"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvShipmentInfoTag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_24"
+                android:layout_marginEnd="@dimen/value_16"
+                android:layout_marginBottom="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/shipment_info"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddInst" />
+
+            <TextView
+                android:id="@+id/tvReferenceId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_16"
+                android:layout_marginBottom="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/shipment_info"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShipmentInfoTag" />
+
+            <TextView
+                android:id="@+id/tvShipingEvent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_16"
+                android:layout_marginBottom="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/shipment_info"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvReferenceId" />
+
+            <TextView
+                android:id="@+id/tvServiceArea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_16"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="@string/shipment_info"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShipingEvent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gpOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tvServiceArea,tvShipingEvent,tvReferenceId" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

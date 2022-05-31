@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/medium_margin">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:background="@color/light_grey"
+            android:contentDescription="@string/banner"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toStartOf="@+id/iv_banner_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_banner_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:background="@color/light_grey"
+            android:contentDescription="@string/banner"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_banner"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner" />
+
+
+        <TextView
+            android:id="@+id/category_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/shimmer_categories"
+            app:layout_constraintEnd_toStartOf="@+id/divider_1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/iv_banner" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:background="@color/grey_40"
+            app:layout_constraintBottom_toBottomOf="@+id/category_text"
+            app:layout_constraintEnd_toStartOf="@+id/category_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/category_text" />
+
+        <View
+            android:id="@+id/divider_1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:background="@color/grey_40"
+            app:layout_constraintBottom_toBottomOf="@+id/category_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/category_text"
+            app:layout_constraintTop_toTopOf="@+id/category_text" />
+
+
+        <include
+            android:id="@+id/layout_1"
+            layout="@layout/data_placeholder_sub_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_text" />
+
+        <include
+            android:id="@+id/layout_2"
+            layout="@layout/data_placeholder_sub_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_1"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

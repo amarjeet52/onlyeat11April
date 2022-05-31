@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/value_12"
+        android:layout_marginEnd="@dimen/value_12">
+
+
+        <TextView
+            android:id="@+id/tv_resturant_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="500 Restaurants"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/ivSmallView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/categories"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_xlarge"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_resturant_count"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tv_car_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/we_hand_picked_some"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvSortBy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category"
+            app:textcolor="@{color.textSubhead}" />
+
+        <TextView
+            android:id="@+id/tvSortBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:paddingStart="@dimen/value_8"
+            android:paddingTop="@dimen/dp_06"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingBottom="@dimen/dp_06"
+            android:text="@string/sort_by"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_car_desc"
+            app:layout_constraintEnd_toStartOf="@+id/ivFilter"
+            app:layout_constraintTop_toTopOf="@+id/tv_resturant_count" />
+
+        <ImageView
+            android:id="@+id/ivFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter_new"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_car_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_resturant_count" />
+
+        <ImageView
+            android:id="@+id/ivLargeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_grid_activated"
+            android:layout_marginEnd="@dimen/value_12"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:layout_constraintEnd_toStartOf="@+id/ivSmallView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivSmallView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:src="@drawable/ic_list_activated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupViewChangeCrave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:constraint_referenced_ids="ivSmallView,ivLargeView"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gp_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_category" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gp_supplier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_resturant_count" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

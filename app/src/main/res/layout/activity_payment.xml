@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.cart.CartViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/paymentListParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.codebrew.clikat.module.cart.CartViewModel">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:padding="@dimen/small_margin"
+            app:layout_constraintStart_toStartOf="@+id/gdline_start"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_white"
+            app:tint="@{color.primaryColor}" />
+
+        <TextView
+            android:id="@+id/tv_payment_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@string/payment_options"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintStart_toStartOf="@id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/iv_back"
+            app:textcolor="@{color.textHead}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_payment_option"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:visibility="@{viewModel.showWalletLoader? View.GONE:View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gdline_end"
+            app:layout_constraintStart_toStartOf="@id/gdline_start"
+            app:layout_constraintTop_toBottomOf="@+id/tv_payment_option"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_payment_list" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:visibility="@{viewModel.isLoading &amp; !viewModel.showWalletLoader ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_payment_option"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.showWalletLoader ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

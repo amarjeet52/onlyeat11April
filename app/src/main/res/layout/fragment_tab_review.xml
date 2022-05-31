@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="string"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_total_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:drawableEnd="@drawable/ic_star_white"
+            android:drawablePadding="@dimen/small_margin"
+            android:gravity="center"
+            android:padding="@dimen/value_4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.appBackground}"
+            app:viewstroke="@{color.yellowcolor}" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/rate_supplier_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/medium_margin"
+            android:text="@{@string/rate_supplier(string.supplier)}"
+            android:textSize="@dimen/text_medium"
+            app:categoryType="text_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatTextView
+            android:id="@+id/tv_total_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:textStyle="bold"
+            app:categoryType="app_title"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_total_rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_rating"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_rating" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvParent_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:background="@{color.listItemBackground}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_rating"
+            app:layout_constraintVertical_bias="0.0">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <include
+            android:id="@+id/noData"
+            layout="@layout/nothing_found"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/large_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_rating" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

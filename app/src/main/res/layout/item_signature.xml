@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+      android:background="@drawable/home_round_corner_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+               app:riv_oval="false"
+               android:id="@+id/ivUser"
+                app:riv_corner_radius="@dimen/_4sdp"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/iv_placeholder"
+                android:scaleType="fitXY"
+                android:layout_marginStart="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_toEndOf="@+id/ivUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                   app:textcolor="@{color.dark_grey1}"
+                tools:text="@string/restaurant_fastest_delivery" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_below="@+id/tvTitle"
+                android:layout_toEndOf="@+id/ivUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginStart="@dimen/value_16"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/_7ssp"
+                app:layout_constraintStart_toEndOf="@+id/ivUser"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:textcolor="@{color.dark_grey1}"
+                tools:text="@string/restaurant_fastest_delivery" />
+
+
+            <TextView
+                android:layout_below="@+id/tvDesc"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/tvPriceOnSel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:padding="@dimen/_6sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textSize="@dimen/_6ssp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                  android:background="@drawable/gradient_blue_button"
+                 app:textcolor="@{color.white}"
+                tools:text="@string/restaurant_fastest_delivery" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+</layout>

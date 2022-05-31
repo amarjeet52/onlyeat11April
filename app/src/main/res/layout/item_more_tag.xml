@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:paddingTop="@dimen/small_margin"
+        android:paddingBottom="@dimen/small_margin">
+
+        <ImageView
+            android:id="@+id/iv_more"
+            android:layout_width="@dimen/value_24"
+            android:layout_height="@dimen/value_24"
+            android:layout_marginStart="@dimen/small_margin"
+            android:src="@drawable/ic_more_favourite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#4A7DB2" />
+
+        <TextView
+            android:id="@+id/tv_more_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="center|start"
+            android:text="@string/login_sinup_text"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_more"
+            app:layout_constraintEnd_toStartOf="@+id/iv_forward"
+            app:layout_constraintStart_toEndOf="@+id/iv_more"
+            app:layout_constraintTop_toTopOf="@+id/iv_more"
+            app:textcolor="@{color.textListHead}" />
+
+        <ImageView
+            android:id="@+id/iv_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_forward"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

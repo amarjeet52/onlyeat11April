@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            android:background="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/value_16"
+            android:id="@+id/btnCancel"
+            android:src="@drawable/ic_close_black"
+            app:tint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_first_lang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_rec_theme_color_solid_8"
+            android:fontFamily="@font/proximanovasemibold"
+            android:paddingStart="@dimen/value_56"
+            android:paddingTop="@dimen/value_16"
+            android:paddingEnd="@dimen/value_56"
+            android:paddingBottom="@dimen/value_16"
+            android:text="@string/english"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_constraintBottom_toTopOf="@+id/tv_second_lang"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <TextView
+            android:id="@+id/tv_second_lang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_24"
+            android:background="@drawable/background_white_8dp_corners"
+            android:fontFamily="@font/proximanovasemibold"
+            android:paddingStart="@dimen/value_56"
+            android:paddingTop="@dimen/value_16"
+            android:paddingEnd="@dimen/value_56"
+            android:paddingBottom="@dimen/value_16"
+            android:text="@string/english"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_first_lang"
+            app:textcolor="@{color.primaryColor}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

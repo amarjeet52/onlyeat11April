@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="clickListener"
+            type="com.codebrew.clikat.module.cart.adapter.ImageListAdapter.UserChatListener" />
+
+
+        <variable
+            name="imageModel"
+            type="com.codebrew.clikat.data.model.others.ImageListModel" />
+
+        <variable
+            name="isSocial"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:onClick="@{(view) -> clickListener.onClick(imageModel)}"
+            android:scaleType="fitCenter"
+            android:layout_margin="@dimen/value_4"
+            android:src="@drawable/ic_add_to_photos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="10dip" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

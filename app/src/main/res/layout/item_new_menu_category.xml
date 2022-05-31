@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:paddingTop="@dimen/value_16"
+            android:paddingBottom="@dimen/value_16"
+            android:text="aasaasas"
+            android:paddingStart="@dimen/margin_16"
+            android:paddingEnd="@dimen/margin_16"
+            android:textSize="@dimen/text_size_16"
+            android:fontFamily="@font/proximanovasemibold"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toStartOf="@+id/tvCount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="16dp"
+            android:text="5"
+            android:fontFamily="@font/proximanovaregular"
+            android:textSize="@dimen/text_size_16"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_name"
+            app:textcolor="@{color.textHead}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/divider"
+            android:id="@+id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

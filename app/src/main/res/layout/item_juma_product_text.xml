@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/subitem_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovaregular"
+            android:paddingTop="@dimen/value_12"
+            android:text="@string/categories"
+            android:layout_marginStart="@dimen/value_16"
+            textcolor="@{color.appBackground}"
+            android:paddingBottom="@dimen/value_12"
+            app:layout_constraintEnd_toStartOf="@+id/ivSelect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivSelect"
+            android:layout_width="@dimen/value_24"
+            android:layout_height="@dimen/value_24"
+            android:layout_marginEnd="@dimen/value_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_selected_checkbox"
+            app:layout_constraintTop_toTopOf="@+id/tvProductName"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProductName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

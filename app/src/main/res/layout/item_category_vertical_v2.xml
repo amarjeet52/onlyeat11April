@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/value_16">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_userImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:gradient="@{color.appBackground}"
+            app:layout_constraintBottom_toTopOf="@+id/category_text"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner"
+            tools:src="@tools:sample/avatars" />
+
+
+        <TextView
+            android:id="@+id/category_center_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:maxLines="1"
+            android:minEms="3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_userImage"
+            app:layout_constraintEnd_toEndOf="@+id/iv_userImage"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/iv_userImage"
+            app:layout_constraintTop_toTopOf="@+id/iv_userImage" />
+
+
+        <TextView
+            android:id="@+id/category_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_12"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.33"
+            android:maxLines="1"
+            android:minEms="3"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_userImage" />
+
+        <com.codebrew.clikat.utils.customviews.ClikatImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:visibility="gone"
+            app:imageType="nav_icon"
+            tools:visibility="visible"
+            app:srcCompat="@drawable/ic_next"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/value_4"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/value_4"
+            android:ellipsize="end"
+            android:fontFamily="@font/proximanovaregular"
+            android:maxLines="1"
+            android:text="Wax | Facial | Hair | Pack…"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/text_small"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

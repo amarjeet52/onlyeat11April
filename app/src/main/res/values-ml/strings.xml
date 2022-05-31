@@ -1,0 +1,959 @@
+<resources>
+
+
+    <string name="default_notification_channel_id">clickat_notification</string>
+
+    <string name="packages">പാക്കേജ് </string>
+    <string name="welcome">സ്വാഗതം </string><!--General app strings-->
+    <string name="recomended">ശുഭാർഷകൾ </string>
+    <string name="offers">ഓഫറുകൾ </string>
+
+
+    <string name="home">ഹോം </string>
+    <string name="live_support">ഓൺലൈൻ സഹായം </string>
+    <string name="cart">കാട്ട് </string>
+    <string name="promotions">പ്രൊമോഷനുകൾ </string>
+    <string name="notifications">നോട്ടിഫിക്കേഷനുകൾ </string>
+    <string name="my_account">എന്റെ അക്കൗണ്ട് </string>
+    <string name="my_favorites">എന്റെ ഇഷ്ടങ്ങൾ </string>
+
+
+    <string name="done">ചെയ്തു </string>
+    <string name="choose_from_gallery">ഗാലറി </string>
+    <string name="choose_image_selection">ചിത്രംതിരഞ്ഞടുക്കുക </string>
+    <string name="choose_from_camera">ക്യാമറ </string>
+
+    <string name="order_history">%s ചരിത്രം </string>
+    <string name="track_my_order">ഓർഡർ ട്രാക്ക് ചെയ്യുക  %s</string>
+    <string name="rate_my_order">ഓർഡർ റേറ്റ് ചെയ്യുക  %s</string>
+    <string name="upcoming_order">നിലവിൽ ഉള്ള ഓർഡർ %s</string>
+    <string name="loyality_points">Loyalty Points</string>
+
+    <string name="settings">സെറ്റിംഗ്സ് </string><!--App Strings-->
+    <string name="login">ലോഗിൻ </string>
+    <string name="forgot_password">പാസ്സ്വേർഡ് മറന്നു ??</string>
+    <string name="_continue">തുടരുക </string>
+    <string name="sign_up">സൈൻ അപ്പ് </string>
+    <string name="signup_otp_msg">നിങ്ങളുടെ മൊബൈൽ %s അയക്കുന്നതാണ് .ഫോൺ നമ്പർ കൃത്യമായി ടൈപ്പ് ചെയ്തതിനു ശേഷം താഴെ കാണുന്നബട്ടൺ അമർതുക ..</string>
+    <string name="send_otp">ഓ.ടി.പി  %s </string>
+    <string name="recieve_otp">ഓ.ടി പി  ഇത് വരെ ലഭിച്ചില്ല ?</string>
+    <string name="resend_otp">%s അയക്കുക </string>
+    <string name="submit">സമർപ്പിക്കുക</string>
+    <string name="tap_to_add_profile_pic">പ്രൊഫൈൽ ചിത്രം ചേർക്കാൻ ടാപ്പുചെയ്യുക</string>
+    <string name="finish">അവസാനിപ്പിക്കുക </string>
+    <string name="oreder_scheduler">%s ഓർഡർ ക്രമീകരിക്കുക </string>
+    <string name="order_details">%s വിവരങ്ങൾ </string>
+    <string name="schedule_your_order">Schedule Your %s</string>
+    <string name="delivered">കൈ  മാറിയത് </string>
+    <string name="reorder">പുനർ  ക്രമീകരിക്കുക</string>
+    <string name="cancel_order">റദ്ദാക്കുക%s</string>
+    <string name="track">ട്രാക്ക് ചെയ്യുക </string>
+    <string name="hint_email">ഇമെയിൽ </string>
+    <string name="hint_password">പാസ്സ്വേർഡ് </string>
+    <string name="hint_digit_phone_number">ഫോൺ നമ്പർ </string>
+    <string name="enter_otp"> %s  രേഖപെടുത്തുക</string>
+    <string name="hint_full_name">പൂർണമായ പേര് </string>
+    <string name="action_okay">ശരി </string>
+    <!--Validation String-->
+    <string name="empty_email">ദയവായി ഇമെയിൽ ഐഡി നൽകുക </string>
+    <string name="empty_email_phone">ദയവായി ഇമെയിൽ അല്ലെങ്കിൽ ഫോൺ നമ്പർ നൽകുക</string>
+    <string name="invalid_email">ദയവായിസാധുവായ മെയിൽ ഐഡി നൽകുക </string>
+    <string name="empty_pwd">ദയവായി പാസ്സ്വേർഡ് നൽകുക </string>
+    <string name="empty_phone_number">ദയവായി ഫോൺ നമ്പർ നൽകുക </string>
+    <string name="empty_otp">ദയവായി ഓ .ടി .പി %s </string>
+    <string name="empty_fn">ദയവായി പൂർണമായ പേരും nalkuka</string>
+    <string name="payment_method">പണംകൊടുക്കൽരീതി</string>
+    <string name="set_schedule">Set Schedule</string>
+    <string name="select_category">വിഭാഗം തിരഞ്ഞെടുക്കൂ</string>
+    <string name="select_dates">തീയതി തിരഞ്ഞെടുക്കുക </string>
+    <string name="internet_connection">ദയവായി ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കണം </string>
+    <string name="login_expired">ക്ഷെമിക്കണം നിങ്ങളുടെ അക്കൗണ്ട്  മറ്റ് ഉപകരണത്തിൽ ലോഗിൻ ചെയ്തു! തുടരുന്നതിന് ദയവായി വീണ്ടും ലോഗിൻ ചെയ്യുക.</string>
+    <string name="ok">ശരി </string>
+    <string name="guest">അതിഥി </string>
+    <string name="edit">എഡിറ്റുചെയ്യുക</string>
+    <string name="qunatity">അളവ് </string>
+    <string name="net_total">ആകെ മൊത്തം </string>
+    <string name="delivery">%s to</string>
+    <string name="delivery_speed">ഡെലിവറി വേഗത</string>
+    <string name="delivery_charges">ഡെലിവറി നിരക്കുകൾ</string>
+    <string name="handling_charges">കൈകാര്യം ചെയ്യൽ ചാർജ്ജ്</string>
+    <string name="empty">ഫീൽഡ് ശൂന്യമായിരിക്കരുത്</string>
+    <string name="txtOrderDone">%s ഇതുവരെ ചെയ്തത് </string>
+    <string name="txtPaymentOptions">പണമടക്കാനുള്ള മാർഗങ്ങൾ</string>
+    <string name="txtInbusiness">വ്യാപാരത്തിൽ എന്ന് മുതൽ ?</string>
+    <string name="reviews">അവലോകനങ്ങൾ</string>
+    <string name="go">പോകുക </string>
+    <string name="multi_serach">ഒന്നിലധികം തിരയൽ</string>
+    <string name="what_are_you_looking_for">എന്താണ് നിങ്ങൾ തിരയുന്നത്?</string>
+    <string name="max_limit_reached">പരമാവധി പരിധി എത്തി</string>
+    <string name="multisercah">ഒന്നിലധികം തിരയൽ </string>
+    <string name="NoCart">ഇനങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="favorites">പ്രിയപ്പെട്ടവ</string>
+    <string name="share_sub">%sഉപയോക്തൃ മൊബൈൽ അപ്ലിക്കേഷൻ</string>
+    <string name="share_body">https://play.google.com/store/apps/details?id=%s</string>
+    <string name="save">സേവ് ചെയ്യുക </string>
+    <string name="cashOnDeli">ക്യാഷ് ഓൺ ഡെലിവറി</string>
+    <string name="debitCreditCard">ഡെബിറ്റ് /ക്രെഡിറ്റ് കാർഡ് </string>
+    <string name="choosePaymentOption">പേയ്മെന്റ് ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക</string>
+    <string name="selectAdress">ദയവായി അഡ്രെസ്സ് ചേർക്കുക .</string>
+    <string name="order_summary">%s സംഗ്രഹം</string>
+    <string name="pickkup">Pickup</string>
+    <string name="items">ഇനങ്ങൾ </string>
+    <string name="net_payable">ആകെനൽകേണ്ട തുക </string>
+    <string name="additional_remarks">അധിക പരാമർശം</string>
+    <string name="place_order">സ്ഥലം %s</string>
+    <string name="successFavourite">പ്രിയങ്കരത്തിലേക്ക് വിജയകരമായി ചേർത്തു.</string>
+    <string name="successUnFavourite">പ്രിയങ്കരത്തിൽ നിന്ന് വിജയകരമായി നീക്കംചെയ്തു.</string>
+
+    <string name="success_wishlist">%s ആഗ്രഹം ഉള്ളവയിലേക്ക്  %s വിജയകരമായി ചേർത്തു.</string>
+
+    <string name="update">അപ്ഡേറ്റ് ചെയ്യുക!</string>
+    <string name="cancel">റദ്ദാക്കുക</string>
+    <string name="pointsEarnedSoFar">ഇതുവരെ നേടിയ പോയിന്റുകൾ</string>
+    <string name="change_password">പാസ്സ്വേർഡ് മാറ്റുക </string>
+    <string name="notification_lang">അറിയിപ്പ് ഭാഷ</string>
+    <string name="enterReview">നിങ്ങളുടെ അവലോകനം എഴുതുക</string>
+    <string name="open">ഇപ്പോൾ തുറക്കുക</string>
+    <string name="filter">അരിക്കുക </string>
+    <string name="old_password">പഴയ പാസ്സ്വേർഡ് </string>
+    <string name="new_password">പുതിയ പാസ്സ്വേർഡ് </string>
+    <string name="confirm_password">പാസ്സ്വേർഡ്ഉറപ്പിക്കാം  </string>
+    <string name="password_match_error">പാസ്സ്വേർഡ് ചേരുന്നില്ല </string>
+    <string name="clearCart">നിങ്ങൾ വ്യത്യസ്തമായത് തിരഞ്ഞെടുക്കുകയാണെങ്കിൽ നിങ്ങളുടെ കാർ %1$s വ്യക്തമാകും. തുടരണമെന്ന് നിങ്ങൾക്ക് %2$s?</string>
+    <string name="Ok">ശരി </string>
+    <string name="apply">പ്രയോഗിക്കുക</string>
+    <string name="clear">ക്ലിയർ ചെയ്യുക </string>
+    <string name="close">അടയ്കുക </string>
+    <string name="cash">പണം </string>
+    <string name="busy">തിരക്ക് </string>
+    <string name="logout">ലോഗ് ഔട്ട് </string>
+    <string name="please_login">ദയവായി ലോഗിൻ ചെയ്യുക </string>
+    <string name="order_no">%s ഓർഡർ ക്രമം .</string>
+    <string name="placed_on">ഓർഡർ നടത്തിയത് </string>
+    <string name="delivered_on">കൈ മാറ്റം നടത്തിയത് </string>
+    <string name="expected_delivered_on">പ്രതീക്ഷിക്കുന്നത് %s</string>
+    <string name="points">പോയിന്റുകൾ</string>
+    <string name="no_internet_connection_found">ഇന്റർനെറ്റ് കണക്ഷനൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="retry">വീണ്ടും ശ്രെമിക്കു</string>
+    <string name="pending">തീർപ്പുകൽപ്പിച്ചിട്ടില്ല</string>
+    <string name="confirmed">ഉറപ്പിക്കാം </string>
+    <string name="reject">നിഷേധിക്കാം </string>
+    <string name="reached">എത്തിയിരിക്കുന്നു </string>
+    <string name="doYouCancel">ഇത് റദ്ദാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?%s?</string>
+    <string name="date_time_msg">പിക്കപ്പ് തീയതിയും സമയവും തിരഞ്ഞെടുക്കുക</string>
+    <string name="rate_">വില </string>
+    <string name="add_to_cart">കാർട്ടിലേക്ക്ചേർക്കുക </string>
+    <string name="nothing_found">ഒന്നും കണ്ടെത്തിയിട്ട് ഇല്ല </string>
+    <string name="results_for">ഫലങ്ങൾ</string>
+    <string name="skip">ഒഴിവാക്കുക</string>
+    <string name="success">വിജയകരം </string>
+    <string name="succesfully_scheduled">നിങ്ങളുടെ ഓർഡർ വിജയകരമായി ഷെഡ്യൂൾ ചെയ്തു</string>
+    <string name="succesfully_order">നിങ്ങളുടെ %s വിജയകരമായി സ്ഥാപിച്ചു</string>
+    <string name="no_order_found">ഓർഡറൊന്നും കണ്ടെത്തിയില്ല!</string>
+    <string name="no_fav_found">പ്രിയങ്കരങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="success_logout">നിങ്ങൾ വിജയകരമായി ലോഗൗട്ട് ചെയ്തു.</string>
+    <string name="status">നിലവാരം </string>
+    <string name="payment">പണം കൊടുക്കല്</string>
+    <string name="total_amount">ആകെ തുക </string>
+    <string name="placed">സ്ഥാപിച്ചു</string>
+    <string name="near_you">നിങ്ങളുടെ അടുത്ത് ഉള്ളവ</string>
+    <string name="minimum_order">കുറഞ്ഞത് %s</string>
+    <string name="delivery_time">വിതരണ സമയം</string>
+    <string name="payment_options">പണമടക്കാനുള്ള വഴികൾ, </string>
+    <string name="desc">കുറിച്ച്  %s</string><!--new-->
+    <string name="review">അവലോകനങ്ങൾ</string>
+    <string name="about">അതുല്യത</string>
+    <string name="total">ആകെ </string>
+    <string name="sub_total">ആകെ മൊത്തം </string>
+    <string name="type_here">ഇവിടെ ടൈപ്പ് ചെയ്യുക </string>
+    <string name="new_tag">പുതിയത് </string>
+    <!--<new Messages>-->
+    <string name="action_send">അയക്കുക </string>
+    <string name="others">മറ്റുള്ളവ</string>
+    <string name="just_now">ഇപ്പോൾ </string><!---->
+    <string name="a_min_ago">ഒരു മിനിറ്റ് മുമ്പ്</string>
+    <string name="min_ago"> മിനിറ്റുകൾക്ക് മുമ്പ്</string>
+    <string name="a_hour_ago">ഒരു മണിക്കൂർ മുൻപ് </string>
+    <string name="hour_ago">മണിക്കൂറുകൾക്കു മുൻപ് </string>
+    <string name="yest">ഇന്നലെ </string>
+    <string name="days_afo">ദിവസങ്ങൾക്ക് മുൻപ് </string>
+    <string name="days">അനേക ദിവസങ്ങൾ </string>
+    <string name="forgot_password1">പാസ്സ്വേർഡ് മറന്നു ??</string>
+    <string name="log_out_msg">നിങ്ങൾക്ക് ലോഗ് ഔട്ട് ചെയ്യണമെന്ന് ഉറപ്പാണോ?</string>
+    <string name="view_all">എല്ലാം കാണുക</string>
+    <string name="select_country">രാജ്യം തിരഞ്ഞെടുക്കുക</string>
+    <string name="pick_uptime">സമയവും തീയതിയും തിരഞ്ഞെടുക്കുക</string>
+    <string name="supplier_name">%s:</string>
+
+    <string name="isMonthlyErrorMsg">ദയവായി പ്രതിമാസ തീയതികൾ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="min_order_time">കുറഞ്ഞ വിതരണ സമയം</string>
+    <string name="hour">ഒരു മണിക്കൂർ </string>
+    <string name="hours">മണിക്കൂറുകൾ </string>
+    <string name="min">മിനിറ്റുകൾ </string>
+    <string name="day">ദിവസം </string>
+    <string name="compareProduct">താരതമ്യം ചെയ്യുക%s</string>
+    <string name="results">ഫലങ്ങൾ </string>
+    <string name="supplierClosed">നിലവിൽ അടച്ചിരിക്കുന്നു, അടുത്ത വിതരണക്കാരന്റെ പ്രവൃത്തി സമയങ്ങളിൽ / ദിവസത്തിൽ നിങ്ങളുടെ ഓർഡർ സ്ഥിരീകരിക്കും.</string>
+
+
+    <!-- <string name= ഇന്നത്തെ ഓർഡറുകൾക്കായി നിലവിൽ തിരക്കിലാണ്. നിങ്ങളുടെ ഓർഡർ വൈകിയേക്കാം.</string>-->
+
+    <string name="wrong_date_selection">ദയവായിതീയതിയും സമയവും ഭാവിയിലെക്ക് മാറ്റിവെക്കുക </string>
+
+    <string name="per_hour">മണിക്കൂറിൽ</string>
+    <string name="Alert">ജാഗ്രത !</string>
+    clearCart_lang
+    <!--need translate-->
+
+    <string name="clearCart_lang">നിങ്ങൾ വ്യത്യസ്ത ഭാഷ തിരഞ്ഞെടുക്കുകയാണെങ്കിൽ നിങ്ങളുടെ കാർട്ട് ശൂന്യമാകും. തുടരണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
+    <string name="sort_by">അടുക്കുക</string>
+    <string name="clear_cart_back">.ഈ സ്ക്രീനിൽ നിന്ന് തിരികെ പോയാൽ നിങ്ങളുടെ കാർട്ട് ശൂന്യമാകും </string>
+    <string name="add">ചേർക്കുക </string>
+    <string name="alert">ജാഗ്രത !</string>
+    <string name="scheduled_order">Scheduled %s</string>
+    <string name="expected_delivery_on">പ്രതീക്ഷിക്കുന്നവിതരണസമയം </string>
+    <string name="yes">ശരി </string>
+    <string name="text_single">ഒന്ന് </string>
+    <string name="text_multiple">ഒരുപാട് </string>
+    <string name="loyality_products">വിശ്വസ്ത ഉൽപ്പന്നങ്ങൾ</string>
+    <string name="loyality_orders">വിശ്വസ്തത%s</string>
+    <string name="track_noti">പ്രതീക്ഷിച്ച ഡെലിവറി സമയത്തിന് ശേഷം മാത്രമേ നിങ്ങൾക്ക് ഓർഡർ ട്രാക്കുചെയ്യാൻ കഴിയൂ</string>
+    <string name="no_notification">അറിയിപ്പുകളൊന്നും കണ്ടെത്തിയില്ല.</string>
+    <string name="share_supplier">സിബിഡി വഴി anki  ഉപയോഗിച്ച് ശുപാർശ ചെയ്യാൻ ഞാൻ ആഗ്രഹിക്കുന്നു</string>
+
+    <string name="sup">പങ്കിടുക %s!</string>
+    <string name="basket_message">നിങ്ങളുടെ അവസാന ഷോപ്പിംഗ് കാർട്ട് പൂർത്തിയാക്കുന്നത് നിങ്ങൾ മറന്നോ?</string>
+
+    <string name="order_pending">%sനിലവിലുള്ളത്</string>
+    <string name="no_date_selected">തീയതി തിരഞ്ഞെടുത്തിട്ടില്ല</string>
+    <string name="ankiy">ankiy</string>
+
+    <string name="cancel_msg">നിങ്ങളുടെ %s വിജയകരമായി റദ്ദാക്കി.</string>
+
+    <string name="search">തിരയുക  %s</string>
+    <string name="discount">കിഴിവ്</string>
+
+    <!--pending-->
+    <string name="reddem">വീണ്ടെടുക്കുക</string>
+
+    <string name="location">സ്ഥാനം</string>
+
+    <string name="banner">ബാനർ</string>
+    <string name="reviews_text"> %.2f അവലോകനങ്ങൾ</string>
+    <string name="reviews_text_"> %.2f അവലോകനങ്ങൾ</string>
+    <string name="hour_tag">%d മണിക്കൂർ </string>
+
+
+    <string name="day_tag">%d ദിവസം </string>
+
+    <string name="minute_tag">%d മിനിറ്റ് </string>
+
+    <string name="currency_tag">%1$s %2$s</string>
+
+    <string name="min_max_time">%1$d - %2$d min</string>
+
+    <string name="discountprice_tag">%1$s %2$s</string>
+
+    <string name="percentage_tag">Upto %s%% off</string>
+
+    <string name="supplier_tag">by %s</string>
+
+    <string name="discountprice_search_multiple">%1$s %2$s/%3$s</string>
+
+    <string name="filter_price_tag">%1$s %2$d - %1$s %3$d</string>
+
+    <string name="result_tag">%d ഫലങ്ങൾ </string>
+
+    <string name="resturant_count_tag">%1$d %2$s</string>
+
+    <string name="clearCart_multiprod_quant">നിങ്ങൾ ഒന്നിലധികം ഉൽപ്പന്ന അളവ് തിരഞ്ഞെടുക്കുകയാണെങ്കിൽ നിങ്ങളുടെ കാർട്ട് ശൂന്യമാകും. തുടരണമെന്ന് നിങ്ങൾക്ക് %s?</string>
+
+    <string name="clearCart_product">നിങ്ങൾ ഒന്നിലധികം ഉൽപ്പന്ന അളവ് തിരഞ്ഞെടുക്കുകയാണെങ്കിൽ നിങ്ങളുടെ കാർട്ട് ശൂന്യമാകും. തുടരണമെന്ന് നിങ്ങൾക്ക് %s?</string>
+    <string name="title_activity_filter_screen">സ്ക്രീൻ പ്രവർത്തനം ഫിൽട്ടർ ചെയ്യുക</string>
+    <string name="search_hint">എന്താണ് നിങ്ങൾ തിരയുന്നത്?</string>
+    <string name="no">തെറ്റ് </string>
+
+    <string name="valid_email">ദയവായി ഇമെയിൽ രേഖപെടുത്തുക </string>
+    <string name="cart_added">കാർട്ടിലേക്ക് ചേർത്തു</string>
+
+    <string name="title_for_your_review">നിങ്ങളുടെ അവലോകനത്തിനുള്ള ശീർഷകം</string>
+    <string name="write_review_here">അവലോകനം ഇവിടെ എഴുതുക…</string>
+    <string name="rating_review">റേറ്റിംഗ്&amp; അവലോകനം </string>
+    <string name="rate_product">റേറ്റു ചെയ്യുക %s</string>
+    <string name="rate_supplier">റേറ്റ്  ചെയ്യുക  %s</string>
+    <string name="product_description">%s വിവരണങ്ങൾ </string>
+    <string name="select_agent">തിരഞ്ഞെടുക്കുക  %s</string>
+    <string name="select_supplier">തിരഞ്ഞെടുക്കുക %s</string>
+    <string name="book_an_appointment">ഒരു കൂടിക്കാഴ്ച ബുക്ക് ചെയ്യുക</string>
+    <string name="agent_available">%s ലഭ്യമാണ്</string>
+    <string name="agent_not_available">%s ലഭ്യമല്ല </string>
+    <string name="experience_tag">%d പ്രവൃത്തി പരിചയം </string>
+
+    <string name="agent_detail">%s വിവരങ്ങൾ </string>
+    <string name="view_menu">മെനു കാണുക</string>
+    <string name="change">മാറ്റം വരുത്തുക </string>
+    <string name="schedule_delivery">വിതരണം ഷെഡ്യൂൾ ചെയ്യുക</string>
+    <string name="qty">Qty</string>
+    <string name="view_products_as">കാണുക</string>
+    <string name="total_item_tag">%s ഇനങ്ങൾ </string>
+
+
+    <string name="restaurant_order_type">നിങ്ങളുടെ വീട്ടിൽ സേവനങ്ങൾ ആസ്വദിക്കാൻ %1$s ൽ നിന്ന് %2$s തിരഞ്ഞെടുക്കുക</string>
+    <string name="supplier_lookup_tag">%s നായി തിരയുകയാണോ?</string>
+
+    <string name="order_tag">%1$s #%2$d</string>
+
+
+    <string name="long_desc">A long description is a way to provide long alternative text for non-text elements, such as images. Generally, alternative text exceeding 250 characters, which cannot be made more concise without making it less descriptive or meaningful, should have a long description. Examples of suitable use of long description are charts, graphs, maps, infographics, and other complex images.
+
+Like alternative text, long description should be descriptive and meaningful. It should also include all text that is incorporated into the image. A long description should provide visually-impaired users with as much information as sighted users would understand from the image.</string>
+
+
+    <string name="book_slot">ഉറപ്പിക്കുക </string>
+    <string name="phone_tag">%2$s -ഇൽ %1$s  ഓ.ടി.പിരേഖപെടുതുക </string>
+    <string name="in_kitchen">അടുക്കളയിൽ </string>
+
+    <string name="instruction">നിർദ്ദേശങ്ങൾ</string>
+    <string name="explanation_multiple_request">അപ്ലിക്കേഷന്റെ പ്രവർത്തനം നിർവ്വഹിക്കുന്നതിന് അത്യാവശ്യമായതിനാൽ ഞങ്ങൾ അനുമതി അഭ്യർത്ഥിക്കുന്നു. വീണ്ടും ശ്രമിക്കുന്നതിന് ഗ്രാന്റ് അനുമതി, പുറത്തുകടക്കാൻ റദ്ദാക്കുക എന്നിവ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="when_would_you_like_your_service">എപ്പോഴാണ് ഞങ്ങളുടെ സേവനം നിങ്ങൾ ആഗ്രഹിക്കുന്നത്?</string>
+
+    <string name="disc_yes_text">അതേ/n %s കിഴിവിൽ കാണിക്കുക</string>
+    <string name="disc_no_text">വേണ്ട/n %s കിഴിവിൽ കാണിക്കരുത്</string>
+
+    <string name="avail_yes_text">അതേ \nസ്റ്റോക്കിൽ ലഭ്യമായ %s കാണിക്കുക</string>
+    <string name="avail_no_text">വേണ്ട /n സ്റ്റോക്കിൽ ലഭ്യമല്ലാത്ത %s കാണിക്കരുത്</string>
+
+    <string name="price_low_to_high">വില: താഴ്ന്നത് മുതൽ ഉയർന്നത് വരെ</string>
+    <string name="price_high_to_low">വില: ഉയർന്നത് മുതൽ താഴ്ന്നത് വരെ</string>
+    <string name="popularity">ജനപ്രീതി</string>
+    <string name="price_range">വില പരിധി</string>
+    <string name="availability">ലഭ്യത</string>
+    <string name="remove_cart">നീക്കം ചെയ്യുക </string>
+    <string name="add_cart_tag">ചേർക്കുക </string>
+    <string name="login_using_facebook">ഫേസ്ബുക് ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക </string>
+    <string name="login_signup_text">അക്കൗണ്ട് ഇല്ല , സൈൻ അപ്പ്  ചെയ്യുക </string>
+
+    <string name="proceed">തുടരുക</string>
+    <string name="reset">പുനർ സജ്ജമാക്കുക</string>
+    <string name="brands">ബ്രാൻഡുകൾ</string>
+    <string name="next">അടുത്തത് </string>
+    <string name="view_more">കൂടുതൽ കാണുക </string>
+    <string name="view_detail">വിശദാംശങ്ങൾ കാണുക</string>
+    <string name="get_started">തുടങ്ങുക </string>
+    <string name="track_order">Track %s</string>
+    <string name="shop_by_type">തരം അനുസരിച്ച് ഷോപ്പുചെയ്യുക</string>
+    <string name="special_offers">പ്രത്യേക ഇളവുകൾ </string><!--    <string name="special_offers">പ്രമോഷനുകൾ</string>-->
+    <!-- <string name="special_offers">പ്രത്യേകഇളവുകൾ </string>-->
+    <string name="awesome_deals">ആകർഷണീയമായ ഡീലുകൾ എല്ലാ ദിവസവും അൺലോക്കുചെയൂ </string>
+    <string name="awesome_product">ആകർഷണീയമായ ഉൽപ്പന്നം</string>
+    <string name="recent_orders">സമീപകാല ഓർഡറുകൾ</string>
+    <string name="we_hand_picked_some">ഞങ്ങൾ നിങ്ങൾക്കായി ചില മികച്ച%s തിരഞ്ഞെടുത്തു.</string>
+    <string name="categories">വിഭാഗങ്ങൾ </string>
+    <string name="product_price">ഉൽപ്പന്ന വില:</string>
+    <string name="view_slot">സ്ലോട്ട് കാണുക</string>
+    <string name="book_now">ഇപ്പോൾ ബുക്ക് ചെയ്യുക </string>
+    <string name="occupation_here">തൊഴിൽ ഇവിടെ</string>
+    <string name="order_recieved">%sലഭിച്ചു</string>
+    <string name="otp_verification">ഓ.ടി.പി പരിശോധന</string>
+    <string name="enter_mobile">മൊബൈൽ നമ്പർ നൽകുക</string>
+    <string name="signup">സൈൻ അപ്പ് </string>
+    <string name="signup_using_facebook">ഫേസ്ബുക്ക് ഉപയോഗിച്ച് സൈൻ അപ്പ്  ചെയ്യുക </string>
+    <string name="don_t_have_an_account_login">ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ടോ? ലോഗിൻ ചെയ്യുക </string>
+    <string name="menu">മെനു </string>
+    <string name="buy_now">ഇപ്പോൾ വാങ്ങുക</string>
+    <string name="delivery_location">വിലാസ സ്ഥാനം</string>
+    <string name="rating_amp_reviews">റേറ്റിംഗ് &amp; അവലോകനങ്ങൾ</string>
+    <string name="no_rating_found">റേറ്റിംഗൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="no_promocode_cart">കാർട്ടിനെക്കുറിച്ച് പ്രൊമോകോഡൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="enter_valid_number">സാധുവായ ഫോൺ നമ്പർ നൽകുക</string>
+    <string name="artist_not_available">%sപ്രത്യേക തീയതിക്ക് ലഭ്യമല്ല &amp; സമയം</string>
+    <string name="selected_time_alert">തിരഞ്ഞെടുത്ത സമയം നിലവിലെ തീയതി/സമയത്തേക്കാൾ കുറവായിരിക്കരുത്</string>
+    <string name="select_maximum_price_alert">പരമാവധി വില തിരഞ്ഞെടുക്കുക</string>
+    <string name="select_category_alert">വിഭാഗം തിരഞ്ഞെടുക്കുക</string>
+    <string name="title_activity_home">ഹോം പ്രവർത്തനങ്ങൾ </string>
+    <string name="title_home">ഹോം </string>
+
+    <string name="complete_address">പൂർണ വിലാസം </string>
+    <string name="your_location">നിങ്ങളുടെ സ്ഥലം </string>
+    <string name="add_address">വിലാസം ചേർക്കുക </string>
+    <string name="delete">നീക്കം ചെയ്യുക </string>
+    <string name="pending_orders">ശേഷിക്കുന്നവാ  %s</string>
+    <string name="completed_orders">പൂർത്തിയായവാ %s</string>
+    <string name="customer_code">ഉപഭോക്തൃ കോഡ്</string>
+    <string name="enter_customer_code">ഉപഭോക്തൃ കോഡ്രേഖപെടുതുക </string>
+
+    <string name="login_sinup_text">ലോഗിൻ അല്ലെങ്കിൽ സൈൻ അപ്പ് </string>
+
+    <string name="addon_tag">തിരഞ്ഞെടുക്കൽ%s</string>
+
+    <string name="addon_selction">ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക %s</string>
+
+    <string name="addon_name_tag">കൂട്ടി ചേർക്കലുകൾ : %s</string>
+    <string name="orders_">ഓർഡറുകൾ </string>
+    <string name="orders">ഓർഡറുകൾ </string>
+    <string name="view_category">വിഭാഗങ്ങൾ കാണുക
+</string>
+    <string name="tax">നികുതി </string>
+    <string name="pickup_from">എവിടെ നിന്ന് ശേഖരിക്കും ??</string>
+    <string name="delivery_to">എവിടെ നിന്ന് വിതരണംതുടങ്ങണം?</string>
+    <string name="approved">അംഗീകരിച്ചു </string>
+    <string name="on_the_way">പകുതി വഴിയിൽ </string>
+    <string name="started">ആരംഭിച്ചു </string>
+    <string name="ended">അവസാനിച്ചു </string>
+    <string name="rating_given">റേറ്റിംഗ് നൽകി</string>
+    <string name="customer_cancelled">ഉപഭോക്താവ് റദ്ദാക്കി</string>
+    <string name="shipped">അയച്ചു</string>
+    <string name="packed">പായ്ക്ക് ചെയ്തു</string>
+
+    <string name="returned_from_app_settings_to_activity">"അനുമതി നൽകുക : ക്യാമറ:%s     "</string>
+    <string name="ready_to_pick">തിരഞ്ഞെടുക്കാൻ തയ്യാറാണ്</string>
+
+    <string name="share_app">അപ്ലിക്കേഷൻ പങ്കിടുക</string>
+
+    <string name="about_us">ഞങ്ങളേക്കുറിച്ച്</string>
+    <string name="change_language">ഭാഷ മാറ്റുക </string>
+    <string name="terms">നിബന്ധനകൾ &amp; വ്യവസ്ഥകൾ</string>
+    <string name="my_wishlist">എന്റെ ആഗ്രഹപട്ടിക</string>
+    <string name="popular_tag">ജനപ്രിയമായത് %s</string>
+
+    <!--<string name="self_pickup">സ്വയം പിക്കപ്പ്
+    </string>-->
+    <string name="self_pickup">CurbsidePickup</string>
+
+    <string name="delivery_txt">വിതരണം ചെയ്യുക </string>
+
+    <string name="current_adrs">നിലവിലെ വിലാസം </string>
+    <string name="maximum_limit_cart">പരമാവധി പരിധി എത്തി</string>
+    <string name="search_food_hint">ഭക്ഷണ ഇനത്തിനായി തിരയുക</string>
+    <string name="special_offer">പ്രത്യേക ഇളവുകൾ</string>
+    <string name="discount_product">ഡിസ്കൗണ്ട് %s</string>
+    <string name="popular_brand">ജനപ്രിയ ബ്രാൻഡുകൾ</string>
+    <string name="royo_recommend">%s ഉപയോക്താവ് ശുപാർശ ചെയ്യുന്നു</string>
+    <string name="order_now">ഇപ്പോൾ ഓർഡർ ചെയ്യുക </string>
+    <string name="picked_up">Picked Up</string>
+    <string name="both_delivery_msg_option">ഈ% സാധനങ്ങൾക്ക്  പിക്കപ്പും ഡെലിവറിയും നൽകുന്നു.നിങ്ങൾക്ക് ഏതു വേണം ?</string>
+    <string name="status_on">%s on</string>
+    <string name="out_delivery">വിതരണതിന്നു പുറത്തു </string>
+
+    <string name="privacy_policy">സ്വകാര്യതാനയം</string>
+    <string name="place_booking">ബുക്ക് ചെയുക </string>
+    <string name="razor_pay">Razor Pay</string>
+    <string name="conekta">ConeKta</string>
+    <string name="zelle">Zelle</string>
+    <string name="cashapp">Cash App</string>
+    <string name="cash_on">Cash on delivery</string>
+    <string name="make_payment">പണം അടയ്ക്കുക </string>
+    <string name="name_on_card">കാർഡിൽ ഉള്ള പേര് </string>
+    <string name="total_payable_amount">നൽകേണ്ട ആകെ തുക%1$s %2$s</string>
+    <string name="no_chat_found">ചാറ്റ് കണ്ടെത്തിയില്ല</string>
+    <string name="write_a_message">ഒരു സന്ദേശം എഴുതുക </string>
+
+    <string name="no_quetion_found">ചോദ്യങ്ങൾ ഒന്നും കണ്ടെത്തിയിട്ട് ഇല്ല </string>
+    <string name="select_answer">പട്ടികയിൽ നിന്നും കുറഞ്ഞത് ഒരു ഉത്തരം എങ്കിലും തിരഞ്ഞെടുക്കുക </string>
+    <string name="back">പിന്നോട്ട് </string>
+
+    <string name="set_your_location_manually">നിങ്ങളുടെ സ്ഥാനം സ്വമേധയാ സജ്ജമാക്കുക</string>
+    <string name="btn_add_address">വിലാസം ചേർക്കുക </string>
+
+
+    <string name="add_a_tip_to_rider">"നിങ്ങളുടെ ഡ്രൈവറിലേക്ക് ഒരു ടിപ്പ് ചേർക്കുക"</string>
+    <string name="tip_charges">ടിപ്പ് നിരക്കുകൾ</string>
+    <string name="eta">ETA</string>
+
+    <string-array name="more_array">
+        <item>അപ്ലിക്കേഷൻ പങ്കിടുക</item>
+        <item>നിബന്ധനകൾ &amp; വ്യവസ്ഥകൾ</item>
+        <item>ഞങ്ങളേക്കുറിച്ച്</item>
+        <item>സ്വകാര്യതാനയം</item>
+    </string-array>
+
+    <string-array name="app_language">
+        <item>ഇംഗ്ലീഷ് </item>>
+        <item>സ്പാനിഷ് sh</item>>
+        <item>അറബിക് </item>>
+    </string-array>
+
+    <string-array name="food_instruct_header">
+        <item>തിരയുക</item>
+        <item>ഓൺലൈൻഓർഡർ</item>
+        <item>കൈമാറ്റം</item>
+
+    </string-array><!--    <string-array name="food_instruct_header">
+    <item>തിരയുക</item>
+    <item>ഓൺലൈൻഓർഡർ</item>
+    <item>കൈമാറ്റം</item>
+    <item>ഭൂപടം </item>
+    </string-array>-->
+
+    <string-array name="food_instruct_title">
+        <item>ലോകത്തിലെ മികച്ച റെസ്റ്റോറന്റുകൾ,ഭക്ഷണം പര്യവേക്ഷണം ചെയ്യുക &amp;</item>
+        <item>പണം അടയ്ക്കാൻ  അഭികാമ്യമായ ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക</item>
+        <item>മികച്ച വിലയ്ക്ക് ഉയർന്ന നിലവാരമുള്ള ഭക്ഷണം നേടുക </item>
+    </string-array>
+
+    <!--    <string-array name="food_instruct_title">
+    <item>ലോകത്തിലെമികച്ചറെസ്റ്റോറന്റുകൾ,ഭക്ഷണംപര്യവേക്ഷണംചെയ്യുക&amp;</item>
+    <item>പണംഅടയ്ക്കാൻഅഭികാമ്യമായഓപ്ഷൻതിരഞ്ഞെടുക്കുക</item>
+    <item>മികച്ചവിലയ്ക്ക്ഉയർന്നനിലവാരമുള്ളഭക്ഷണംനേടുക</item>
+    </string-array>
+    <item>ഭൂപടം </item>
+    </string-array>-->
+
+    <string-array name="ecom_instruct_header">
+        <item>തിരയുക </item>
+        <item>തിരഞ്ഞെടുക്കുക</item>
+        <item>ആസ്വദിക്കൂ</item>
+    </string-array>
+
+    <string-array name="ecom_instruct_header_v2">
+        <item>കണ്ടെത്തുക</item>
+        <item>പണം അടക്കുക </item>
+        <item>നിങ്ങളുടെ ഷോപ്പിംഗ് ആസ്വദിക്കുക</item>
+    </string-array>
+
+
+    <string-array name="ecom_instruct_title">
+        <item>ലോകത്തെ മികച്ച സേവനങ്ങൾ പര്യവേക്ഷണം ചെയ്യുക</item>
+        <item>സേവനത്തിനായി അഭികാമ്യമായ ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക</item>
+        <item>മികച്ച വിലയ്ക്ക് ഉയർന്ന നിലവാരമുള്ള സേവനം നേടുക</item>
+    </string-array>
+
+    <string-array name="ecom_instruct_title_v2">
+        <item>ലോകത്തിലെ മികച്ച ബ്രാൻഡുകളും വിതരണകാരെയും  പര്യവേക്ഷണം ചെയ്യുക.</item>
+        <item>പണം അടയ്ക്കാൻ അഭികാമ്യമായ ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക \ n.</item>
+        <item>.മികച്ച വിലയ്ക്ക് ഉയർന്ന നിലവാരമുള്ള ഉൽപ്പന്നങ്ങൾ നേടുക</item>
+    </string-array>
+
+    <string-array name="app_search">
+        <item>ഉത്പന്നം </item>
+        <item>ഭോജനശാല</item>
+    </string-array>
+
+    <string-array name="filter_array">
+        <item>വിഭാഗം</item>
+        <item>അടുക്കുക</item>
+        <item>വില പരിധി</item>
+        <item>കിഴിവ്</item>
+        <item>ലഭ്യത</item>
+    </string-array>
+
+    <string name="select_language">ഭാഷ തിരഞ്ഞെടുക്കുക </string>
+
+    <string name="share_referral">% 2 $ s റഫറൽ ബോണസായി ലഭിക്കുന്നതിന്% 1 $ s കോഡ് ഉപയോഗിക്കുക: %3$s</string>
+    <string name="referral_text_tag">ഒരു സുഹൃത്തിനെ റഫർ ചെയ്ത് %1$s നേടുക, നിങ്ങളുടെ ആദ്യ ഓർഡർ വിജയകരമായി പൂർത്തിയാക്കിയതിന് ശേഷം നിങ്ങളുടെ സുഹൃത്തിന് %2$s ലഭിക്കും.</string>
+
+    <string name="referral">ശുപാർശ ചെയ്യുക</string>
+    <string name="refer_a_friend">ഒരു സുഹൃത്തിനെ ശുപാർശ ചെയ്യുക </string>
+    <string name="my_referal">എന്റെ ശുപാർശകൾ </string>
+    <string name="invite_your_friend_and_earn_money">നിങ്ങളുടെ സുഹൃത്തിനെ ക്ഷണിച്ച് പണം സമ്പാദിക്കുക</string>
+    <string name="hint_referral_code">ശുപാർശ കോഡ് </string>
+    <string name="referral_code">ശുപാർശ തുക </string>
+    <string name="pay_using">പണമടയ്ക്കൽ മാർഗ്ഗം </string>
+    <string name="choose_payment">പണം അടയ്ക്കൽ മാർഗ്ഗം amതിരഞ്ഞെടുക്കുക</string>
+    <string name="add_customization">+ഇഷ്ടാനുസൃതമാക്കൽ %s</string>
+    <string name="morning">രാവിലെ</string>
+    <string name="aftenoon">ഉച്ചകഴിഞ്ഞ്</string>
+    <string name="evening">വൈകുന്നേരം</string>
+    <string name="night">രാത്രി</string>
+    <string name="out_of_stock">ശേഖരം തീർന്നു പോയി</string>
+    <string name="customizable">ഇഷ്ടാനുസൃതമാക്കാം</string>
+    <string name="remove">നീക്കം  ചെയ്യുക </string>
+    <string name="promo_remove">പ്രൊമോ നീക്കംചെയ്തു</string>
+    <string name="service_at">സേവനംഎവിടെ </string>
+    <string name="cod">COD</string>
+    <string name="please_select_slot">ബുക്കിംഗ് സമയ-സ്ലോട്ട് തിരഞ്ഞെടുക്കുക</string>
+
+    <string name="sorry_cart_value">ക്ഷമിക്കണം! കുറഞ്ഞ കാർട്ട് മൂല്യം %s ആയിരിക്കണം</string>
+
+    <string name="referral_amt_tag">ലഭ്യമായ റഫറൽ പോയിന്റുകൾ %s</string>
+    <string name="price_detail">വില വിശദാംശം</string>
+    <string name="promo_applied">പ്രമോ പ്രയോഗിച്ചു</string>
+    <string name="service_date">സേവന തീയതി :-</string>
+    <string name="service_time">സേവന സമയം  :-</string>
+    <string name="agent_to_be_book">ഏജന്റുമായി ബുക്ക്  ചെയ്യുക :-</string>
+    <string name="change_date_amp_time">തീയതിയും സമയവും മാറ്റുക </string>
+    <string name="choose_booking_time_slot">ബുക്കിംഗ് സമയ സ്ലോട്ട് തിരഞ്ഞെടുക്കുക</string>
+    <string name="wait">കാത്തിരിക്കുക !</string>
+    <string name="pickup">സ്വയം പിക്കപ്പ്</string>
+    <string name="delivery_tag">വിതരണം </string>
+    <string name="select_location">സ്ഥലം തിരഞ്ഞെടുക്കുക</string>
+    <string name="search_for_your_location">നിങ്ങളുടെ സ്ഥലം തിരയുക  …</string>
+    <string name="edit_address">വിലാസം  തിരുത്തുക </string>
+    <string name="update_address">വിലാസം അപ്ഡേറ്റുചെയ്യുക</string>
+    <string name="please_complete_address">ദയവായി പൂർണ്ണ വിലാസം രേഖപെടുത്തു</string>
+    <string name="house_building_tag">വീട് നമ്പർ ./ ഫ്ലാറ്റ് നമ്പർ . / നില / കെട്ടിടം </string>
+    <string name="enter_complete_address">പൂർണ്ണ വിലാസം രേഖപെടുത്തുക </string>
+    <string name="search_for_resturant">ഭോജന സ്ഥലം തിരയുക….</string>
+    <string name="start_time">ആരംഭസമയം </string>
+    <string name="pick_up">എവിടെ നിന്ന് ശേഖരിക്കും ?</string>
+    <string name="address_detail">വിലാസവിവരങ്ങൾ </string>
+    <string name="pickup_on">ശേഖരണം എപ്പോൾ?</string>
+    <string name="provide_prod_rating">ഉൽപ്പന്ന റേറ്റിംഗ് നൽകുക</string>
+    <string name="provide_rate_title">റേറ്റിംഗിന്ശീർഷകം നൽകുക</string>
+    <string name="provide_rate_comment">റേറ്റിംഗിന് അഭിപ്രായം നൽകുക</string>
+    <string name="enter_name">ദയവായി പേര് രേഖപെടുത്തുക </string>
+    <string name="enter_valid_card">സാധുവായ കാർഡ് നൽകുക</string>
+    <string name="enter_valid_cvc">സാധുവായ സിവിസി നൽകുക</string>
+    <string name="enter_valid_expiry_month">സാധുവായ കാലഹരണപ്പെടൽ മാസം നൽകുക</string>
+    <string name="enter_valid_date">സാധുവായ കാലഹരണ തീയതി നൽകുക</string>
+    <string name="no_detail_found">വിശദാംശങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="product_detail">%s വിവരങ്ങൾ </string>
+    <string name="duration">Duration</string>
+
+    <string name="pick_up_tag">ശേഖരണം </string>
+
+    <string name="offline_supplier_tag">%s ഓൺലൈൻ ഓർഡർ സ്വീകരിക്കുന്നില്ല</string>
+    <string name="enter_email">ഇമെയിൽ രേഖപെടുത്തുക </string>
+    <string name="enter_supplier_code">വിതരണ കോഡ് നൽകുക</string>
+    <string name="payment_card">കാർഡ് </string>
+    <string name="payment_cash">വിതരണസമയത്തു പണം അടക്കുക </string>
+    <string name="payment_both">കാർഡ് /വിതരണസമയത്തുപണംഅടക്കുക</string>
+    <string name="today">ഇന്ന് </string>
+    <string name="yesterday">ഇന്നലെ </string>
+    <string name="live_tracking">തത്സമയ ട്രാക്കിംഗ്</string>
+    <string name="use_current_location">നിലവിലെ സ്ഥാനം ഉപയോഗിക്കുക</string>
+    <string name="subtotal">ആകെത്തുക</string>
+    <string name="referral_amount">റഫറൽ തുക</string>
+    <string name="promo_code">പ്രൊമോ കോഡ്</string>
+    <string name="tap_to_copy">പകർത്താൻ ടാപ്പുചെയ്യുക</string>
+    <string name="refer_now">ഇപ്പോൾ റഫർ ചെയ്യുക</string>
+    <string name="sort_amp_filter">അടുക്കുക &amp; ഫിൽട്ടർ ചെയ്യുക</string>
+    <string name="choose_payment_receipt_to_upload">അപ്ലോഡുചെയ്യുന്നതിന് പണം അടച്ച  രസീത് തിരഞ്ഞെടുക്കുക</string>
+    <string name="payment_details">പണം അടച്ചതിന്റെ വിശദാംശങ്ങൾ</string>
+    <string name="email_tag">ഇമെയിൽ : %s</string>
+    <string name="phoneno_tag">ഫോൺ ne നമ്പർ r: %s</string>
+    <string name="online_payment">ഡെബിറ്റ് കാർഡ്</string>
+    <string name="payment_receipt_uploaded">പണം അടച്ച രസീത് അപ്ലോഡ് ചെയ്തു </string>
+    <string name="enter_instruction">നിർദ്ദേശങ്ങൾ ഇവിടെ നൽകുക</string>
+
+    <string name="select_preciption">അപ്ലോഡുചെയ്യാൻ കുറിപ്പടി തിരഞ്ഞെടുക്കുക</string>
+    <string name="uploaded_pescription">അപ്ലോഡുചെയ്ത കുറിപ്പടി , പ്രമാണങ്ങൾ</string>
+    <string name="please_select_precription">കുറിപ്പടി ചിത്രം തിരഞ്ഞെടുക്കുക</string>
+    <string name="english">ഇംഗ്ലീഷ് </string>
+    <string name="supplier_service_charge">%s സേവന നിരക്ക്</string>
+    <string name="support_email">ഇമെയിലിനെ പിന്തുണയ്ക്കുക</string>
+
+    <string name="support_email_text">ഓർഡർ ഐഡി ഉപയോഗിച്ച് അന്വേഷണം നടത്തുന്നു :%s</string>
+    <string name="service">സേവനങ്ങൾ </string>
+    <string name="selected_question">തിരഞെടുത്ത ചോദ്യങ്ങൾ </string>
+    <string name="addon_charges">അധിക നിരക്കുകൾ</string>
+    <string name="featured">തിരഞ്ഞെടുത്തത് %s</string>
+    <string name="top_deals">മികച്ച ഡീലുകൾ %s</string>
+    <string name="feature_provider">തിരഞ്ഞെടുത്ത സേവന ദാതാക്കൾ</string>
+    <string name="create_your_account">നിങ്ങളുടെ അക്കൗണ്ട് സൃഷ്ടിക്കുക t</string>
+    <string name="create_new_account">പുതിയ അക്കൗണ്ട് സൃഷ്ടിക്കുക </string>
+    <string name="continue_with_google">ഗൂഗിൾ ഉപയോഗിച്ച് തുടരുക</string>
+    <string name="provacy_policy_text">തുടരുന്നതിലൂടെ, നിങ്ങൾ CARE ന്റെ നിബന്ധനകളും വ്യവസ്ഥകളും അംഗീകരിക്കുകയും നിങ്ങൾ CARE ന്റെ സ്വകാര്യതാ നയം വായിച്ചതായി സ്ഥിരീകരിക്കുകയും ചെയ്യുന്നു.</string>
+    <string name="already_have_an_account_login">ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ടോ? ലോഗിൻ</string>
+    <string name="sign_up_new">സൈൻ അപ്പ് </string>
+    <string name="hint_first_name">ആദ്യ പേര് *</string>
+    <string name="hint_last_name">അവസാനപേര്  *</string>
+    <string name="hint_phone_no">ഫോൺ നമ്പർ *</string>
+    <string name="hint_email_new">ഇമെയിൽ *</string>
+    <string name="hint_password_new">പാസ്സ്വേർഡ്  *</string>
+    <string name="hint_confirm_password">പാസ്സ്വേർഡ് ഉറപ്പിക്കാം  *</string>
+    <string name="signup_screen_text">ഒരു അക്കൗണ്ട് ഇല്ലേ? സൈൻ അപ്പ് ചെയ്യുക</string>
+    <string name="otp_msg_text">നിങ്ങളുടെ രജിസ്റ്റർ ചെയ്ത ഇമെയിലിലേക്കും ഫോൺ നമ്പറിലേക്കും അയച്ച %s നൽകുക</string>
+    <string name="hint_enter_otp"> %s രേഖപെടുത്തുക </string>
+    <string name="verify">പരിശോധിക്കുക</string>
+    <string name="plese_accept_terms_and_conditions">നിബന്ധനകളും വ്യവസ്ഥകളും അംഗീകരിക്കുക</string>
+    <string name="continue_with_facebook">ഫേസ്ബുക്ക് ഉപയോഗിച്ച് തുടരുക</string>
+    <string name="recommed_supplier">ശുപാർശ ചെയ്ത %s</string>
+    <string name="more">കൂടുതൽ </string>
+
+    <string name="save_card">കാർഡ് സേവ് ചെയ്യുക </string>
+    <string name="saved_cards">സേവ് ചെയ്യപ്പെട്ട കാർഡുകൾ </string>
+    <string name="card_no_xxxxxxxxxxxx">കാർഡ് നമ്പർ  :XXXXXXXXXXXX</string>
+    <string name="expiry_month">കാലഹരണപ്പെടുന്ന മാസം </string>
+    <string name="expiry_year">കാലഹരണപ്പെടുന്ന വർഷം </string>
+    <string name="add_card_d">കാർഡ് ചേർക്കുക </string>
+    <string name="no_card_found">കാർഡ് ഒന്നും കണ്ടെത്തിയിട്ടില്ല </string>
+    <string name="un_service_able">സേവനയോഗ്യമല്ലാത്തത്</string>
+
+    <string name="card_tag">XXXXXXXXXXXX%s</string>
+    <string name="card_add_login_error">കാർഡ് ചേർക്കാൻ ദയവായി ലോഗിൻ ചെയ്യുക</string>
+    <string name="square_pay">ചതുര വേതനം</string>
+    <string name="select_time_slot">സമയകാലാവധി  തിരഞ്ഞെടുക്കുക</string>
+
+    <string name="area_to_focus_on">ശ്രദ്ധ കേന്ദ്രീകരിക്കേണ്ട മേഖല </string>
+    <string name="areas_to_focus">ശ്രദ്ധ കേന്ദ്രീകരിക്കേണ്ട മേഖലകൾ </string>
+    <string name="have_pets">വളർത്തുമൃഗങ്ങൾ ഉണ്ടായിരിക്കുക</string>
+    <string name="parking_instructions">പാർക്കിംഗ് നിർദ്ദേശങ്ങൾ </string>
+    <string name="enter_parking_instruction">പാർക്കിംഗ് നിർദ്ദേശങ്ങൾ നൽകുക</string>
+    <string name="will_someone_be_there_to_let_the_cleaner_in">ക്ലീനറെ അകത്തേക്ക് കടത്തി വിടാൻ ആരെങ്കിലും ഉണ്ടോ?</string>
+
+    <string name="shimmer_categories">വിഭാഗങ്ങൾ</string>
+
+    <string name="things_to_remember">ഓർമ്മിക്കേണ്ട കാര്യങ്ങൾ</string>
+
+
+    <string name="faq">പതിവുചോദ്യങ്ങൾ</string>
+
+
+    <string name="become_care_giver">ഒരു രോഗിയോ പരിചാരകനോ ആകുക</string>
+    <string name="enter_instructionc">നിങ്ങളുടെ എംസി ഐഡി നൽകുക#</string>
+    <string name="rating">റേറ്റിംഗ് </string>
+    <string name="delivery_in">വിതരണം എവിടെ </string>
+    <string name="for_delivery">വിതരണതിന്നു വേണ്ടി </string>
+    <string name="open_">തുറക്കുക </string>
+    <string name="mins">കുറഞ്ഞ </string>
+    <string name="nationality">ദേശിയത:</string>
+    <string name="brand">Brand:</string>
+    <string name="speciality">പ്രത്യേകത</string>
+    <string name="search_">തിരയുക </string>
+    <string name="shipping_status">കയറ്റുമതി നില </string>
+    <string name="receipe">പാചകക്കുറിപ്പ് </string>
+    <string name="return_product">ഉൽപ്പന്നം മടക്കുക</string>
+    <string name="awaiting_payment">കയറ്റുമതിക്കായി കാത്തിരിക്കുന്നു</string>
+    <string name="cancelled"> റദ്ദാക്കി </string>
+    <string name="onhold">തടഞ്ഞുവച്ചിരിക്കുന്നു</string>
+    <string name="reason_to_return">മടകി നൽകാൻ കാരണം </string>
+    <string name="enter_reason_to_return_product">ഉൽപ്പന്നം മടക്കിനൽകാനുള്ള കാരണം നൽകുക</string>
+    <string name="return_requested">മടക്കി നൽകാൻ  അഭ്യർത്ഥിച്ചു</string>
+    <string name="returned">മടക്കി നൽകി ഇരിക്കുന്നു </string>
+    <string name="product_picked_up">ഉൽപ്പന്നം തിരഞ്ഞെടുത്തു</string>
+    <string name="agent_is_on_the_way">പ്രതിനിദി പകുതി  വഴിയിലാണ്</string>
+    <string name="write_reason_here"> കാരണം ഇവിടെ എഴുതുക…</string>
+    <string name="login_first">ദയവായി ആദ്യം ലോഗിൻ ചെയ്യുക</string>
+    <string name="requests">%s അഭ്യർത്ഥനകൾ</string>
+    <string name="supplierName">വിതരണക്കാരന്റെ പേര്</string>
+    <string name="upload_presc">കുറിപ്പടി അപ്ലോഡുചെയ്യുക</string>
+
+    <string name="are_you_sure_cancel_request">ഈ അഭ്യർത്ഥന റദ്ദാക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
+    <string name="net_total_greater_than">ആകെത്തുക വലുതായിരിക്കണം%1$s %2$s</string>
+    <string name="request_id">ഐഡി അഭ്യർത്ഥിക്കുക:</string>
+    <string name="requested_on">അഭ്യർത്ഥിച്ചത്:</string>
+    <string name="pay_now">ഇപ്പോള് പണമടയ്ക്കൂ %1$s %2$s</string>
+    <string name="remaining_amount">അവശേഷിക്കുന്ന തുക</string>
+
+    <string name="maximum_limit_addon">പരമാവധി ആഡോൺ പരിധി എത്തി%d</string>
+    <string name="refund_amount">റീഫണ്ട് തുക</string>
+    <string name="token_expire">ക്ഷമിക്കണം, നിങ്ങളുടെ അക്കൗണ്ട് മറ്റ് ഉപകരണത്തിൽ ലോഗിൻ ചെയ്തു! തുടരുന്നതിന് ദയവായി വീണ്ടും ലോഗിൻ ചെയ്യുക.</string>
+    <string name="service_detail">സേവന വിശദാംശം</string>
+    <string name="paypal">Paypal</string>
+    <string name="donate_to_someone">മറ്റൊരാൾക്ക് സംഭാവന ചെയ്യുക</string>
+    <string name="adrs_donate_subtext">നിങ്ങൾ സംഭാവന ചെയ്യാൻ ആഗ്രഹിക്കുന്ന വിലാസം ചുവടെ ചേർക്കുക</string>
+    <string name="delivery_address">വിതരണവിലാസം </string>
+    <string name="return_request_msg">നിങ്ങളുടെ മടക്ക അഭ്യർത്ഥന വിജയകരമായി ചെയ്തു.</string>
+
+    <string name="product_removed_wishlist">ആഗ്രഹപട്ടികയിൽ നിന്ന് ഉൽപ്പന്നം നീക്കംചെയ്തു</string>
+    <string name="removed_wishlist">%s നിന്ന് നീക്കംചെയ്തു %s</string>
+    <string name="more_details">കൂടുതൽ വിവരങ്ങൾ </string>
+    <string name="rate_food_item">വിലയിരുത്തൽ %s</string>
+    <string name="rate_product_msg">വിലയിരുത്തൽ %sവിജയകരം </string>
+
+    <string name="rate_user_tag">വിലയിരുത്തൽ %s</string>
+    <string name="paystack">PayStack</string>
+    <string name="online_pay_tag">ഓൺലൈൻ (%s)</string>
+    <string name="saded">Sadded</string>
+    <string name="myFatoora">Credit/ Debit card(My Fatoorah)</string>
+    <string name="suppliers">വിതരണക്കാർ </string>
+    <string name="products">ഉത്പന്നങ്ങൾ </string>
+    <string name="wishlist">ആഗ്രഹപട്ടിക </string>
+    <string name="supplier">വിതരണക്കാർ </string>
+    <string name="product">ഉത്പന്നം </string>
+    <string name="payment_unsuccessful">പണം ഇടപാട് പരാജയപ്പെട്ടു</string>
+    <string name="payment_done_successful">പണം ഇടപാട് വിജയകരമായി ചെയ്തു</string>
+    <string name="payment_failed">പണം ഇടപാട് പരാജയപ്പെട്ടു</string>
+    <string name="mumybene">Mumybene</string>
+    <string name="enter_your_mmy_bean_phone">Enter you %s phone number</string>
+    <string name="phone_number">ഫോൺ നമ്പർ </string>
+    <string name="enter_phone">ഫോൺ നമ്പർ രേഖപെടുത്തുക </string>
+    <string name="sort_by_new">പുതിയത്</string>
+    <string name="sort_by_distance">ദൂരം</string>
+    <string name="sort_by_rating">റേറ്റിംഗ്</string>
+    <string name="windcave">Windcaveഉപയോഗിച്ച് പണം അടക്കുക </string>
+
+    <string name="stripe_pay">Stripe Pay</string>
+    <string name="max">കൂടിയ </string>
+    <string name="minm">കുറഞ്ഞ </string>
+    <string name="pls_select_atleast">കുറഞ്ഞത് തിരഞ്ഞെടുക്കുക</string>
+    <string name="items_in">ഇനങ്ങൾ</string>
+    <string name="description">വിവരണം</string>
+    <string name="customer_support">ഉപഭോക്തൃ പിന്തുണ</string>
+    <string name="expected_delivered_time">പ്രതീക്ഷിക്കുന്ന വിതരണ സമയം</string>
+    <string name="min_tag">കുറഞ്ഞ </string>
+    <string name="view_branches"> ശാഖകൾ കാണുക</string>
+    <string name="tap">ടാപ്പുചെയ്യുക</string>
+    <string name="elavon">Elavon</string>
+    <string name="food_item_detail">ഭക്ഷണ ഇനത്തിന്റെ വിശദാംശങ്ങൾ</string>
+    <string name="brand_name">ബ്രാൻഡിന്റെ പേര് :\t</string>
+    <string name="mpaisa">എം പൈസ </string>
+    <string name="schedule_order">ഓർഡർ ക്രമീകരിക്കുക </string>
+    <string name="edit_schedule_order">ഓർഡർ ക്രമീകരണംഎഡിറ്റ് ചെയ്യുക </string>
+    <string name="confirm">ഉറപ്പിക്കുക </string>
+    <string name="choose_date_time">സമയം &amp;തീയതി എന്നിവ ഉറപ്പിക്കുക </string>
+    <string name="pay_pal">പേ പാൽ </string>
+
+    <string name="facebook">ഫേസ്ബുക് </string>
+    <string name="twitter">ട്വിറ്റെർ </string>
+    <string name="linkein">ലിങ്കിട് ഇൻ </string>
+    <string name="google_plus">ഗൂഗിൾ+</string>
+    <string name="hint_email_phone">ഇമെയിൽ  / ഫോൺ നമ്പർ </string>
+
+    <string name="restaurant">ഭോജനശാല</string>
+    <string name="restaurants">ഭോജനശാലകൾ </string>
+    <string name="payhere">ഇവിടെ പണമടയ്ക്കുക</string>
+    <string name="type_building_suite">കെട്ടിട ഇനം /സ്യൂട്ട്നമ്പർ .</string>
+    <string name="please_add">ദയവായി ചേർക്കുക </string>
+    <string name="previous_cart_items_removed">നിങ്ങൾ വ്യത്യസ്ത സേവന ദാതാവിനെ തിരഞ്ഞെടുക്കുകയാണെങ്കിൽ നിങ്ങളുടെ കാർട്ട് വ്യക്തമാകും.നിങ്ങൾ തുടരണമെന്ന് %s?</string>
+    <string name="request_cancelled">അഭ്യർത്ഥന റദ്ദാക്കി</string>
+    <string name="wallet">ഭാണ്ഡം</string>
+    <string name="current_balance"> നിലവിലെ ബാലൻസ്</string>
+    <string name="add_amount">തുക ചേർക്കുക </string>
+    <string name="send_money_to_someone">മറ്റൊരാൾക്ക് പണം അയയ്ക്കുക</string>
+    <string name="histroy">ചരിത്രം </string>
+    <string name="send_money">പണം അയക്കുക </string>
+    <string name="entre_amount_you_want_send">നിങ്ങൾ അയയ്ക്കാൻ ആഗ്രഹിക്കുന്ന തുക നൽകുക</string>
+    <string name="entre_amount_you_want_add">നിങ്ങൾ ചേർക്കാൻ ആഗ്രഹിക്കുന്ന തുക നൽകുക</string>
+    <string name="send_by">അയയ്ക്കുക</string>
+    <string name="email_address">ഇമെയിൽ വിലാസം l</string>
+    <string name="enter_phone_number">ഫോൺ നമ്പർ രേഖപെടുത്തുക </string>
+    <string name="add_payment">പേയ്മെന്റ് ചേർക്കുക</string>
+    <string name="continue_to_add_amount">തുക ചേർക്കുന്നത് തുടരുക</string>
+    <string name="enter_amount">തുക നൽകുക</string>
+    <string name="money_sent_success">പണം വിജയകരമായി അയച്ചു</string>
+    <string name="amount_added">ചേർത്ത തുക%s</string>
+    <string name="amount_deducted">കുറച്ച തുക %s</string>
+    <string name="amount_added_success">തുക വിജയകരമായി ചേർത്തു</string>
+    <string name="amount_received">ലഭിച്ച തുക %s</string>
+    <string name="amount_sent">അയച്ച തുക %s</string>
+    <string name="refund_added">റീഫണ്ട് ചേർത്തു %s</string>
+    <string name="order_placed">ഓർഡർ നൽകി %s</string>
+    <string name="pay_by_wallet">വാലറ്റ് വഴി പണമടയ്ക്കുക, നിങ്ങൾക്ക് %s \ %% കിഴിവ് ലഭിക്കും!</string>
+    <string name="wallet_with_amt">വാലറ്റ് ( %1$s %2$s )</string>
+    <string name="insufficient_balance">അപര്യാപ്തമായ ബാലൻസ് </string>
+    <string name="add_money">പണം ചേർക്കുക</string>
+    <string name="wallet_discount">വാലറ്റ് കിഴിവ്</string>
+    <string name="initial_payment_source">പ്രാരംഭ പണം അടയ്ക്കൽ ഉറവിടം</string>
+    <string name="enter_amount_you_want_to_add">നിങ്ങൾ ചേർക്കാൻ ആഗ്രഹിക്കുന്ന തുക നൽകുക</string>
+    <string name="select_payment_method">പണം അടയ്ക്കൽ രീതി തിരഞ്ഞെടുക്കുക</string>
+    <string name="choose_where_you_want_refund">നിങ്ങൾക്ക് റീഫണ്ട് ആവശ്യമുള്ള സ്ഥലം തിരഞ്ഞെടുക്കുക</string>
+    <string name="comment">അഭിപ്രായം</string>
+    <string name="enter_comment">അഭിപ്രായം നൽകുക</string>
+    <string name="edit_order">ഓർഡർ എഡിറ്റുചെയ്യുക</string>
+    <string name="add_items">ഇനങ്ങൾ ചേർക്കുക</string>
+    <string name="select_atleast_one">കുറഞ്ഞത് ഒരു ഉൽപ്പന്നമെങ്കിലും തിരഞ്ഞെടുക്കുക</string>
+    <string name="order_edited_success">ഓർഡർ വിജയകരമായി എഡിറ്റുചെയ്തു</string>
+    <string name="save_items">ചെയ്തു</string>
+    <string name="new_added_items">%s പുതിയ ഇനങ്ങൾ ചേർത്തു</string>
+    <string name="please_choose_atlease_one_service">ഒരു സേവനമെങ്കിലും തിരഞ്ഞെടുക്കുക</string>
+    <string name="pay_tabs">"Paytabs"</string>
+    <string name="billing_address">ബില്ലിംഗ് വിലാസം</string>
+    <string name="city">പട്ടണം </string>
+    <string name="state">സംസ്ഥാനം</string>
+    <string name="country">രാജ്യം </string>
+    <string name="pincode">പിൻകോഡ് </string>
+    <string name="shipping_address">ഷിപ്പിംഗ് വിലാസം</string>
+    <string name="same_as_billing">ബില്ലിംഗ് വിലാസത്തിന് സമാനമാണ്</string>
+    <string name="enter_address">വിലാസം രേഖപെടുത്തുക </string>
+    <string name="enter_city">പട്ടണം രേഖപെടുത്തുക </string>
+    <string name="enter_state">സംസ്ഥാനംരേഖപെടുത്തുക </string>
+    <string name="enter_country">രാജ്യം രേഖപെടുത്തുക </string>
+    <string name="enter_pincode">പിൻകോഡ് രേഖപെടുത്തുക </string>
+    <string name="enter_shipping_address">ഷിപ്പിംഗ് വിലാസം രേഖപെടുത്തുക</string>
+    <string name="enter_shipping_city">ഷിപ്പിംഗ് പട്ടണം രേഖപെടുത്തുക</string>
+    <string name="enter_shipping_country">ഷിപ്പിംഗ് രാജ്യം രേഖപെടുത്തുക</string>
+    <string name="enter_shipping_state">ഷിപ്പിംഗ് സംസ്ഥാനം രേഖപെടുത്തുക</string>
+    <string name="enter_shipping_pincode">ഷിപ്പിംഗ്പിൻകോഡ്രേഖപെടുത്തുക</string>
+    <string name="country_code">രാജ്യ കോഡ് </string>
+    <string name="defaultPaymentMethod">സ്ഥിരമായ പണം അടയ്ക്കൽ രീതി </string>
+    <string name="email">ഇമെയിൽ </string>
+    <string name="full_name">മുഴുവൻ പേര് </string>
+    <string name="card_number">കാർഡ് നമ്പർ *</string>
+    <string name="personaldetails">വ്യക്തി പരമായ വിവരങ്ങൾ </string>
+    <string name="expires">കാലഹരണപ്പെടുന്നു</string>
+    <string name="addDebCreCard">ക്രെഡിറ്റ് / ഡെബിറ്റ് കാർഡ് ചേർക്കുക</string>
+    <string name="youWillText">നിങ്ങൾ ഒരു വാങ്ങൽ നടത്തുന്നതുവരെ നിങ്ങളിൽ നിന്ന് നിരക്ക് ഈടാക്കില്ല</string>
+    <string name="add_new_card">പുതിയ കാർഡ്ചേർക്കുക </string>
+    <string name="error_enter_cardNumber">ദയവായി കാർഡ് നമ്പർ രേഖപെടുത്തുക.</string>
+    <string name="error_invalid_card">ദയവായി സാദുവായ കാർഡ് നമ്പർ രേഖപെടുത്തുക</string>
+    <string name="error_empty_cardExpires">ദയവായി സാധുവായ കാർഡ് കാലഹരണ തീയതി രേഖപെടുത്തുക.</string>
+    <string name="error_empty_cvv">ദയവായി സീ.വീ.വീ രേഖപെടുത്തുക</string>
+    <string name="error_empty_firstName">ദയവായി കാർഡിൽ ഉള്ള പോലെ പേര് രേഖപെടുത്തുക.</string>
+    <string name="error_validYear">ദയവായി സാധുവായ വർഷം രേഖപെടുത്തുക.</string>
+    <string name="error_validMonth">ദയവായി സാധുവായ മാസം രേഖപെടുത്തുക.</string>
+    <string name="cvv">സീവീ വീ *</string>
+    <string name="card_cvv_incorrect">.നിങ്ങളുടെ കാർഡ് സിവിവി തെറ്റാണ്</string>
+    <string name="error_valid_cvv">ദയവായി  സാധുവായ ഒരു സിവിവിരേഖപെടുത്തുക.</string>
+    <string name="specialCharactersnot_first">ആദ്യ നാമത്തിൽ പ്രത്യേക പ്രതീകം അടങ്ങിയിരിക്കരുത്.</string>
+    <string name="specialCharactersnot_last">അവസാന നാമത്തിൽ പ്രത്യേക പ്രതീകം അടങ്ങിയിരിക്കരുത്.</string>
+    <string name="edit_order_detail">തിരുത്തൽ വരുത്തുക  %s</string>
+    <string name="edit_booking">ബുക്കിംഗ്തിരുത്തൽവരുത്തുക</string>
+    <string name="peach">Peach</string>
+    <string name="expected_delivery_time">പ്രതീക്ഷിക്കുന്ന വിതരണ സമയം</string>
+    <string name="end_time">അവസാന സമയം</string>
+    <string name="payment_pending">പണമടയ്ക്കൽ ശേഷിക്കുന്നു</string>
+    <string name="text_braintree">BrainTree</string>
+    <string name="category">Category</string>
+    <string name="ecom_my_cart">എന്റെ കാർട്ട് </string>
+    <string name="braintree_token_error">ടോക്കൺ ലഭിച്ചില്ല</string>
+    <string name="admin_block_msg">ക്ഷമിക്കണം, നിങ്ങളെ അഡ്മിൻ തടഞ്ഞു. തടഞ്ഞത് മാറ്റാൻ അഡ്മിനുമായി ബന്ധപ്പെടുക</string>
+    <string name="valid_to">സാധുതഎന്ന് മുതൽ </string>
+    <string name="valid_from">സാധുതഎന്ന് വരെ </string>
+    <string name="renew_subscription">സബ്സ്ക്രിപ്ഷൻ പുതുക്കുക</string>
+    <string name="cancel_subscription">സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കുക</string>
+    <string name="subscriptions">സബ്സ്ക്രിപ്ഷനുകൾ</string>
+    <string name="subcription_plan_tag">%s പ്രവേശനം</string>
+    <string name="yearly">വാർഷികം</string>
+    <string name="monthly">പ്രതിമാസം</string>
+    <string name="weekly">പ്രതിവാര</string>
+    <string name="show_branch">ശാഖ കാണിക്കുക</string>
+    <string name="buy_subcrip">സബ്സ്ക്രിപ്ഷൻ വാങ്ങുക</string>
+    <string name="my_subscrip_plan_text">നിങ്ങളുടെ നിലവിലെ സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ പരിശോധിക്കുക</string>
+    <string name="my_subscriptions">എന്റെ സബ്സ്ക്രിപ്ഷനുകൾ</string>
+    <string name="upload_documents">ഐഡി തെളിവുകൾ അപ്ലോഡുചെയ്യുക</string>
+    <string name="please_upload_id_proof">ഐഡി പ്രൂഫ് അപ്ലോഡുചെയ്യുക</string>
+    <string name="table_booking">ടേബിൾ ബുക്കിംഗ്</string>
+    <string name="schedule_booking_charges">ഓർഡർ നിരക്കുകൾ ഷെഡ്യൂൾ ചെയ്യുക</string>
+    <string name="no_slots_available">സ്ലോട്ടുകളൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="schedule_start_date">ആരംഭ തീയതി ഷെഡ്യൂൾ ചെയ്യുക</string>
+    <string name="schedule_end_date">അവസാന തീയതി ഷെഡ്യൂൾ ചെയ്യുക</string>
+    <string name="scheduling_charges">നിരക്കുകൾ ഷെഡ്യൂൾ ചെയ്യുന്നു</string>
+    <string name="referral_applied">റഫറൽ പ്രയോഗിച്ചു</string>
+    <string name="login_with_google">ഗൂഗിൾഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക</string>
+    <string name="version_tag">Version : %s</string>
+    <string name="live_chat">Live Chat</string>
+    <string name="agent_reviews_tag">[ %.0f Reviews ]</string>
+    <string name="pls_enter_abn_number">please enter abn number</string>
+    <string name="pls_enter_business_name">please enter Business number</string>
+    <string name="saved_address">Saved Address</string>
+    <string name="time_left">Time Left :</string>
+    <string name="order_sucess_msg">"Thank you for the %s  "</string>
+    <string name="phone_verfication_msg">Please enter the Verification Code sent to your phone number.</string>
+    <string name="custom_succesfully_order">Thanks for waiting, we are processing your order</string>
+    <string name="sort_by_close">അടച്ചു</string>
+    <string name="sort_by_open">തുറക്കുക</string>
+    <string name="select_a_pier">Select a pier</string>
+    <string name="completed_on">Completed On</string>
+    <string name="agent_code">Please give code to %s</string>
+    <string name="all_restaurants">All Restaurants</string>
+    <string name="enter_car_number">Enter Car Number</string>
+    <string name="please_enter_car_number">Please enter car number</string>
+    <string name="service_charge">%sService Charge</string>
+    <string name="hint_company_id">Company ID (Unique ID)</string>
+    <string name="hint_assigned_vehicle">Assigned Vehicle</string>
+    <string name="empty_firstName">Please enter first name</string>
+    <string name="empty_last_name">Please enter last name</string>
+    <string name="empty_company_id">Please enter company id</string>
+    <string name="empty_assigned_veh">Please enter assigned vehicle</string>
+    <string name="user_license_agree">User License Agreement</string>
+    <string name="referral_code_copied">Referral Code Copied</string>
+    <string name="explore_local_restaurants">Explore Local\nRestaurants</string>
+    <string name="explore_restaurants_desc">Help us display your local delivery  options by granting location  permissions</string>
+    <string name="not_now">Not now</string>
+    <string name="all">All</string>
+    <string name="login_policy_crave">By tapping Log In, you agree with our Terms of \nService and Privacy Policy</string>
+    <string name="continue_as_guest">Continue as a guest</string>
+    <string name="signup_with_email">Signup with Email</string>
+    <string name="otp_verification_crave">Otp Verification</string>
+    <string name="points_earned_text">Points Earned : %s</string>
+    <string name="loyality_totl_amt">%s Points</string>
+    <string name="driver">Driver</string>
+    <string name="driver_not_assigned">Driver not assigned</string>
+    <string name="pre_order">Pre Order</string>
+    <string name="remove_item">Remove Item</string>
+
+</resources>
+
+

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.bottom_navigation.MainScreenActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.bottom_navigation.MainScreenViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+        <variable
+            name="appType"
+            type="Integer" />
+
+    </data>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    android:layout_width="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:openDrawer="start"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/nav_host_container"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/home" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            app:background="@{(appType>10) ?color.primaryColor: color.appBackground}"
+            app:activatedColor="@{color.colorBlue}"
+            app:deActivatedColor="@{color.colorblack}"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fbChat"
+            android:layout_width="@dimen/value_56"
+            android:layout_height="@dimen/value_56"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:src="@drawable/ic_chat_updated"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/xlarge_margin" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dfChat"
+            android:layout_width="@dimen/value_56"
+            android:layout_height="@dimen/value_56"
+            android:src="@drawable/ic_chatbot"
+            app:borderColor="@{color.primaryColor}"
+            app:civ_border_width="2dp"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/xlarge_margin"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintEnd_toStartOf="@+id/fbChat"
+            app:layout_constraintVertical_bias="0.25"
+            tools:src="@tools:sample/backgrounds/scenic"
+            tools:visibility="visible"/>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dfScanner"
+            android:layout_width="@dimen/icon_medium"
+            android:layout_height="@dimen/icon_medium"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/xlarge_margin"
+            android:src="@drawable/ic_scan_code"
+            app:imageTint="@{color.primaryColor}"
+            app:civ_circle_background_color="@color/white"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintEnd_toStartOf="@+id/fbChat"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        android:visibility="gone"
+        app:menu="@menu/menu_juma_home" />
+</androidx.drawerlayout.widget.DrawerLayout>
+</layout>

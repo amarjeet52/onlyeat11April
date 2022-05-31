@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.setting.SettingViewModel" />
+
+
+        <variable
+            name="colors"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:background="@{colors.appBackground}">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            app:background="@{colors.appBackground}">
+
+
+            <ImageView
+                android:id="@+id/ivParent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="H,4:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar"
+                app:srcCompat="@drawable/ic_sp_loyalty"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
+            <Spinner
+                android:id="@+id/togglelanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:clickable="false"
+                android:entries="@array/app_language"
+                android:spinnerMode="dropdown"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvNotiLang"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toEndOf="@+id/tvNotiLang"
+                app:layout_constraintTop_toTopOf="@+id/tvNotiLang" />
+
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/tvNoti"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovaregular"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:text="@string/notifications"
+                android:textColor="@color/light_text_color"
+                android:textSize="@dimen/text_medium"
+                app:activatedColor="@{colors.appBackground}"
+                app:colorforeground="@{colors.radioSelected}"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tvNotification"
+                app:thumbnormal="@{colors.textSubhead}" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#80909090"
+                android:fontFamily="@font/proximanovasemibold"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toTopOf="@+id/tvPhone"
+                app:layout_constraintEnd_toEndOf="@+id/ivBadge"
+                app:layout_constraintStart_toStartOf="@+id/ivBadge"
+                app:layout_constraintTop_toBottomOf="@+id/ivBadge"
+                app:layout_constraintVertical_bias="0.22000003"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:textcolor="@{colors.appBackground}"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:background="#80909090"
+                android:fontFamily="@font/proximanovaregular"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_large"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/ivParent"
+                app:layout_constraintEnd_toEndOf="@+id/ivBadge"
+                app:layout_constraintStart_toStartOf="@+id/ivBadge"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:layout_constraintVertical_bias="0.461"
+                app:textcolor="@{colors.appBackground}"
+                tools:text="User Phone" />
+
+
+            <TextView
+                android:id="@+id/tvNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/notifications"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/ivParent"
+                app:textcolor="@{colors.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/text_other"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/others"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tvNoti"
+                app:textcolor="@{colors.textAppTitle}" />
+
+
+            <TextView
+                android:id="@+id/tvChangePassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center|start"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:text="@string/change_password"
+                android:textColor="@color/light_text_color"
+                android:textSize="@dimen/text_medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/text_other"
+                app:textcolor="@{colors.textAppTitle}" />
+
+
+            <TextView
+                android:id="@+id/tv_savedAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center|start"
+                android:padding="@dimen/dp_04"
+                android:text="@string/saved_address"
+                android:textColor="@color/light_text_color"
+                android:textSize="@dimen/text_medium"
+                android:visibility="gone"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tvChangePassword"
+                app:textcolor="@{colors.textAppTitle}"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/text_abn_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/abn_number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_savedAddress"
+                app:textcolor="@{colors.textAppTitle}" />
+
+
+            <EditText
+                android:id="@+id/tvAbnNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:enabled="false"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center|start"
+                android:hint="@string/abn_number"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:textColor="@color/light_text_color"
+                android:textColorHint="@color/textColorLight"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toStartOf="@+id/tvEditAbnNumber"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/text_abn_number"
+                app:textcolor="@{colors.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/tvEditAbnNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_04"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/edit"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAbnNumber"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintTop_toTopOf="@+id/tvAbnNumber"
+                app:textcolor="@{colors.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/text_business_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/hint_business_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tvAbnNumber"
+                app:textcolor="@{colors.textAppTitle}" />
+
+
+            <EditText
+                android:id="@+id/tvBusinessName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:enabled="false"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center|start"
+                android:hint="@string/hint_business_name"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:textColor="@color/light_text_color"
+                android:textColorHint="@color/textColorLight"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toStartOf="@id/tvEditName"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/text_business_name"
+                app:textcolor="@{colors.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/tvEditName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_04"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/edit"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBusinessName"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintTop_toTopOf="@+id/tvBusinessName"
+                app:textcolor="@{colors.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/text_id_for_invoice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/id_for_invoice"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tvEditName"
+                app:textcolor="@{colors.textAppTitle}" />
+
+
+            <EditText
+                android:id="@+id/etIdForInvoice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:enabled="false"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center|start"
+                android:hint="@string/id_for_invoice"
+                android:paddingStart="@dimen/dp_04"
+                android:paddingEnd="@dimen/dp_04"
+                android:imeOptions="actionDone"
+                android:textColor="@color/light_text_color"
+                android:textColorHint="@color/textColorLight"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toStartOf="@id/tvEditId"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/text_id_for_invoice"
+                app:textcolor="@{colors.textAppTitle}" />
+
+            <TextView
+                android:id="@+id/tvEditId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_04"
+                android:fontFamily="@font/proximanovasemibold"
+                android:padding="@dimen/dp_04"
+                android:text="@string/edit"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etIdForInvoice"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintTop_toTopOf="@+id/etIdForInvoice"
+                app:textcolor="@{colors.textAppTitle}" />
+            <TextView
+                android:id="@+id/tvNotiLang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:padding="@dimen/dp_04"
+                android:text="@string/notification_lang"
+                android:textColor="@color/light_text_color"
+                android:textSize="@dimen/text_medium"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/togglelanguage"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/etIdForInvoice"
+                app:textcolor="@{colors.textAppTitle}" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="text_other,tvChangePassword" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gpAbnNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="text_abn_number,tvAbnNumber,tvEditAbnNumber" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupInvoiceId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="text_id_for_invoice,etIdForInvoice,tvEditId" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gpBusinessName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="text_business_name,tvBusinessName,tvEditName" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/contentLoadingProgressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isImageUpload ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBadge"
+                app:layout_constraintEnd_toEndOf="@+id/ivBadge"
+                app:layout_constraintStart_toStartOf="@+id/ivBadge"
+                app:layout_constraintTop_toTopOf="@+id/ivBadge"
+                app:progessBackground="@{colors.primaryColor}" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/ivParent"
+                app:progessBackground="@{colors.primaryColor}" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivBadge"
+                android:layout_width="@dimen/large_icons"
+                android:layout_height="@dimen/large_icons"
+                android:src="@drawable/ic_sp_loyalty"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivParent"
+                app:layout_constraintEnd_toEndOf="@+id/ivParent"
+                app:layout_constraintStart_toStartOf="@+id/ivParent"
+                app:layout_constraintTop_toTopOf="@+id/ivParent"
+                app:layout_constraintVertical_bias="0.25"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBadge"
+                app:layout_constraintEnd_toEndOf="@+id/ivBadge"
+                app:layout_constraintStart_toStartOf="@+id/ivBadge"
+                app:layout_constraintTop_toTopOf="@+id/ivBadge"
+                app:progessBackground="@{colors.primaryColor}" />
+
+
+            <include
+                android:id="@+id/lyt_toolbar"
+                layout="@layout/toolbar_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:color="@{colors}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ic_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/ivBadge"
+                app:layout_constraintTop_toTopOf="@+id/ivBadge"
+                app:srcCompat="@drawable/ic_edit_prof" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
+

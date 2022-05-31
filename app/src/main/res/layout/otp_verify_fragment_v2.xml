@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.new_signup.otp_verify.OtpVerifyViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.codebrew.clikat.module.new_signup.otp_verify.OtpVerifyFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="?attr/colorPrimaryDark"
+            android:contentInsetStart="@dimen/dp_05"
+            android:contentInsetLeft="@dimen/dp_05"
+            android:elevation="@dimen/small_margin"
+            android:padding="0dp"
+            android:theme="?attr/actionBarTheme"
+            app:background="@{color.appBackground}"
+            app:contentInsetEnd="@dimen/dp_05"
+            app:contentInsetRight="@dimen/dp_05">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/dp_04"
+                    android:src="@drawable/ic_back"
+                    app:tint="@{color.primaryColor}" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:src="@mipmap/ic_launcher_new" />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_gudline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_gudline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+                <TextView
+                    android:id="@+id/tvOtpVerify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:text="@{strings.otp}"
+                    android:textSize="@dimen/text_xxxlarge"
+                    app:layout_constraintBottom_toTopOf="@+id/tvotp"
+                    app:layout_constraintStart_toStartOf="@+id/start_gudline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.13"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <TextView
+                    android:id="@+id/tvotp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@{@string/otp_msg_text(strings.otp)}"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintBottom_toTopOf="@+id/tlOtp"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/tvOtpVerify"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlOtp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    app:endIconMode="clear_text"
+                    android:background="@drawable/et_radius_back_ground"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:textColor="@{color.primaryColor}"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_verify"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/tvotp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edOtp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/medium_margin"
+                        android:paddingEnd="@dimen/medium_margin"
+                        android:hint="@{@string/hint_enter_otp(strings.otp)}"
+                        android:inputType="number"
+                        android:textColorHint="@color/textColorLight"
+                        android:textSize="@dimen/text_mediumLarge"
+                        app:textcolor="@{color.textHead}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_verify"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovasemibold"
+                    android:gravity="center"
+                    android:padding="@dimen/value_10"
+                    android:text="@string/verify"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium"
+                    app:background="@{color.primaryColor}"
+                    app:cornerRadius="@dimen/small_margin"
+                    app:layout_constraintBottom_toTopOf="@+id/tvResend"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/tlOtp"
+                    app:rippleColor="@color/white"
+                    app:textcolor="@{color.appBackground}" />
+
+                <TextView
+                    android:id="@+id/tvResend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:padding="@dimen/dp_04"
+                    android:text="@{@string/resend_otp(strings.otp)}"
+                    android:textAlignment="center"
+                    android:enabled="false"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/start_gudline"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_verify"
+                    app:textcolor="@{color.primaryColor}" />
+
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.39"
+                    app:progessBackground="@{color.primaryColor}" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

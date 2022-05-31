@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rl_rateing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_05">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sort_by_selector"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:paddingStart="@dimen/_18sdp"
+            android:paddingTop="@dimen/_4sdp"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/_22sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Fast Delivery"
+            android:textColor="@color/sort_by_color_selector"
+            android:textSize="@dimen/text_small" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCross"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            android:layout_toEndOf="@+id/tvName"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:src="@drawable/ic_close_white"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

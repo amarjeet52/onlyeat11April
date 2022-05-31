@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/value_8"
+        android:layout_marginEnd="@dimen/value_8"
+        android:layout_marginBottom="@dimen/dp_04"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:id="@+id/ivImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:visibility="visible"
+          />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:paddingStart="@dimen/dp_04"
+            android:paddingEnd="@dimen/dp_04"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivImage"
+            app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+            app:textcolor="@{color.textHead}"
+            tools:text="@string/disc_yes_text" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tvSelect"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/value_2"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingEnd="@dimen/medium_margin"
+            android:text="Select"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_small"
+            app:cornerRadius="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/colorPrimary" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_sub_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dp_04"
+            android:paddingEnd="@dimen/dp_04"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:textcolor="@{color.textSubhead}"
+            tools:text="@string/disc_yes_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_timeperiod_slot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:nestedScrollingEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sub_title"
+            app:layout_constraintVertical_bias="0.0"
+            tools:targetApi="lollipop" />
+
+
+        <include
+            android:id="@+id/noData"
+            layout="@layout/nothing_found"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:color="@{color}"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sub_title" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="@dimen/dp_05"
+            android:background="@color/colorPrimary_30"
+            android:padding="@dimen/dp_05"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_timeperiod_slot" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

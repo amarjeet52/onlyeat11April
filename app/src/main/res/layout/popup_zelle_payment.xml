@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="textConfig"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:background="@{color.appBackground}">
+
+        <TextView
+            android:id="@+id/payment_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{textConfig.paymentDetails,default=@string/payment_details}"
+            android:textSize="@dimen/text_xlarge"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/email_tag"
+            android:textSize="@dimen/text_medium"
+            android:textAlignment="inherit"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/large_margin"
+            tools:text="@string/restaurant_order_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment_detail"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@string/phoneno_tag"
+            android:textSize="@dimen/text_medium"
+            android:textAlignment="inherit"
+            tools:text="@string/restaurant_order_type"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/large_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email"
+            app:textcolor="@{color.textHead}" />
+
+        <Button
+            android:id="@+id/btn_choose_doc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:text="@{textConfig.choosePaymentReceipt,default=@string/choose_payment_receipt_to_upload}"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_file_upload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:textcolor="@{color.appBackground}" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            app:background="@{color.divider}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_doc" />
+
+        <ImageView
+            android:id="@+id/iv_doc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_04"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="1:0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone"
+            app:srcCompat="@drawable/iv_placeholder" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="string"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_userImage"
+            android:layout_width="@dimen/value_80"
+            android:layout_height="@dimen/value_80"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginStart="@dimen/value_8"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="2dp"
+            app:riv_oval="true"
+            android:layout_marginEnd="@dimen/value_8"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/category_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:textAlignment="center"
+            android:paddingTop="@dimen/value_8"
+            android:paddingBottom="@dimen/value_8"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_userImage"
+            app:textcolor="@{color.textListHead}"
+            tools:text="@string/home" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+

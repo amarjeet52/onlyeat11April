@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="referral_code_copied">Referral Code Copied</string>
+    <string name="explore_local_restaurants">Explore Local\nRestaurants</string>
+    <string name="explore_restaurants_desc">Help us display your local delivery  options by granting location  permissions</string>
+    <string name="not_now">Not now</string>
+    <string name="all">All</string>
+    <string name="login_policy_crave">By tapping Log In, you agree with our Terms of \nService and Privacy Policy</string>
+    <string name="continue_as_guest">Continue as a guest</string>
+    <string name="signup_with_email">Signup with Email</string>
+    <string name="otp_verification_crave">Otp Verification</string>
+    <string name="points_earned_text">Points Earned : %s</string>
+    <string name="loyality_totl_amt">%s Points</string>
+    <string name="driver">Driver</string>
+    <string name="driver_not_assigned">Driver not assigned</string>
+    <string name="pre_order">Pre Order</string>
+    <string name="remove_item">Remove Item</string>
+</resources>

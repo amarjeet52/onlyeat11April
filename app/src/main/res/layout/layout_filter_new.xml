@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/medium_margin"
+            android:paddingBottom="@dimen/medium_margin">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.04136253" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+            <TextView
+                android:id="@+id/sortByHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/sort_by"
+                android:textColor="@color/black_80"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toEndOf="@+id/start_gudline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSortBy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+                app:layout_constraintStart_toEndOf="@+id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/sortByHeader" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/value_1"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="@color/divider"
+                app:layout_constraintTop_toBottomOf="@+id/rvSortBy" />
+
+            <TextView
+                android:id="@+id/typeOfSupplierHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/type_of_restaurants"
+                android:textColor="@color/black_80"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toEndOf="@+id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSelectedItens"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/typeOfSupplierHeader" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_submit"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toStartOf="@+id/end_gudline"
+                app:layout_constraintStart_toEndOf="@+id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/rvSelectedItens" />
+
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:background="@drawable/back_dark_yellow_gradient"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@string/apply"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintTop_toBottomOf="@+id/rv_category" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

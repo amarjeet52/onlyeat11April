@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/value_12"
+        android:paddingTop="@dimen/value_4"
+        android:paddingEnd="@dimen/value_12"
+        android:layout_marginBottom="@dimen/dp_04"
+        app:background="@{color.listItemBackground}">
+
+
+        <EditText
+            android:id="@+id/ed_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_search_prod"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center|start"
+            android:hint="@string/search_food_hint"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:layout_marginBottom="@dimen/value_12"
+            android:maxLines="1"
+            android:padding="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_filter"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_filter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+        <ImageView
+            android:id="@+id/iv_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:background="@color/light_dark_white"
+            android:padding="@dimen/dp_04"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ed_search"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_search"
+            app:viewborder="@{color.homelistBackground}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

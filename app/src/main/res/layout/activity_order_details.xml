@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.order_detail.OrderDetailViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:background="@{color.appBackground}">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/lyt_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:background="@{color.appBackground}">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_18" />
+
+</RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_product_item"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/value_8"
+            app:layout_constraintBottom_toTopOf="@+id/tvNewAddedItems"
+            app:layout_constraintEnd_toStartOf="@+id/btn_next"
+            app:layout_constraintStart_toEndOf="@+id/btn_previous"
+            app:layout_constraintTop_toBottomOf="@+id/lyt_toolbar" />
+
+        <ImageView
+            android:id="@+id/btn_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/ic_back"
+            app:tint="@{color.primaryColor}"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_product_item"
+            app:layout_constraintEnd_toStartOf="@+id/vp_product_item"
+            app:layout_constraintStart_toEndOf="@+id/vp_product_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/vp_product_item" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/ic_arrow_next"
+            app:tint="@{color.primaryColor}"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_product_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/vp_product_item"
+            app:layout_constraintTop_toTopOf="@+id/vp_product_item" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentLoadingProgressBar3"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progessBackground="@{color.primaryColor}" />
+        <TextView
+            android:id="@+id/tvNewAddedItems"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            tools:text="added"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:paddingTop="@dimen/value_8"
+            android:paddingBottom="@dimen/value_8"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toTopOf="@+id/btnChangeUserStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnChangeUserStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:gravity="center"
+            android:padding="@dimen/value_8"
+            android:text="@string/status"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            app:background="@{color.primaryColor}"
+            app:textcolor="@{color.appBackground}"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/lytEditOrder"
+            app:rippleColor="@color/brown" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lytEditOrder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/lyt_action_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnEditOrder"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginEnd="@dimen/value_8"
+                android:gravity="center"
+                android:padding="@dimen/value_12"
+                tools:text="@string/edit_order"
+                android:textAllCaps="true"
+                app:textcolor="@{color.primaryColor}"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnSave"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/brown" />
+
+            <Button
+                android:id="@+id/btnSave"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_16"
+                android:gravity="center"
+                android:padding="@dimen/value_12"
+                android:text="@string/save"
+                android:textAllCaps="true"
+                android:textColor="@color/light_green"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnEditOrder"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/light_green" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lyt_action_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnCancel"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_16"
+                android:layout_marginEnd="@dimen/value_8"
+                android:gravity="center"
+                android:padding="@dimen/value_12"
+                android:text="@string/cancel"
+                android:textAllCaps="true"
+                app:textcolor="@{color.primaryColor}"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnReorder"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/brown" />
+
+            <Button
+                android:id="@+id/btnReorder"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_16"
+                android:gravity="center"
+                android:padding="@dimen/value_12"
+                android:text="@string/reorder"
+                android:textAllCaps="true"
+                android:textColor="@color/light_green"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnPayNow"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCancel"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/light_green" />
+
+
+            <Button
+                android:id="@+id/btnPayNow"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/value_8"
+                android:layout_marginEnd="@dimen/value_8"
+                android:layout_marginBottom="@dimen/value_4"
+                android:gravity="center"
+                android:padding="@dimen/value_12"
+                android:textAllCaps="true"
+                android:textColor="@color/light_green"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnReorder"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/light_green" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

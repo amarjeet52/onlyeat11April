@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_cnstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_xlarge"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_custom_tag"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tvViewAll"
+            textcolor="@{color.appBackground}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/see_all"
+            android:paddingStart="@dimen/value_8"
+            android:paddingEnd="@dimen/value_8"
+            android:paddingTop="@dimen/value_4"
+            android:includeFontPadding="false"
+            android:paddingBottom="@dimen/value_4"
+            android:background="@drawable/back_rec_theme_color_light_4"
+            android:layout_marginEnd="@dimen/value_16"
+            android:textSize="@dimen/text_small_medium"
+            android:fontFamily="@font/proximanovaregular"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_title" />
+        <TextView
+            android:id="@+id/tv_custom_tag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_xxxlarge"
+            android:text="What are you looking for?"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintBottom_toTopOf="@+id/rv_banner_list"
+            app:textcolor="@{color.appBackground}"
+            tools:text="What are you looking \nfor?" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_banner_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rv_home_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_custom_tag"
+            app:layout_constraintVertical_bias="0.0"
+            tools:targetApi="lollipop" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:nestedScrollingEnabled="false"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rv_custom_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_banner_list"
+            app:layout_constraintVertical_bias="0.0"
+            tools:targetApi="lollipop" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_custom_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:nestedScrollingEnabled="false"
+            android:visibility="visible"
+            app:background="@{color.listBackground}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_home_list"
+            app:layout_constraintVertical_bias="0.0"
+            tools:targetApi="lollipop" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

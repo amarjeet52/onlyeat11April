@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".user_chat.UserChatActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.user_chat.UserChatViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/include"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:background="@{color.supplier_bg}"
+            app:contentInsetEnd="@dimen/small_margin"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iconBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/value_8"
+                    android:tint="@color/black"
+                    android:src="@drawable/ic_back" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/ivProfilePic"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_user_placeholder"
+                    android:transitionName="profilePic"
+                    app:riv_corner_radius="@dimen/value_16" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:ellipsize="end"
+                    android:maxLength="25"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:transitionName="nameText"
+                    app:textcolor="@{color.textHead}" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/rlChatInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_user_chat"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="8"
+                tools:listitem="@layout/item_chat_text_right" />
+
+
+            <TextView
+                android:id="@+id/tv_no_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/no_chat_found"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_mediumLarge"
+                android:visibility="@{viewModel.isListCount()==0 &amp; !viewModel.isLoading() ? View.VISIBLE :View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlChatInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/shape_write_msg"
+            android:padding="@dimen/dp_05"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <ImageView
+                android:id="@+id/btnAttachment"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/small_margin"
+                android:src="@drawable/ic_media"
+                android:visibility="visible"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+
+            <androidx.emoji.widget.EmojiEditText
+                android:id="@+id/etMessage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/dp_05"
+                android:background="@null"
+                android:gravity="center|start"
+                android:hint="@string/write_a_message"
+                android:imeOptions="actionSend"
+                android:importantForAutofill="no"
+                android:inputType="text|textCapSentences|textMultiLine"
+                android:maxLines="5"
+                android:padding="@dimen/small_margin"
+                android:textColor="@color/text_color_light"
+                android:textColorHint="@color/text_color_light"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fabSend"
+                app:layout_constraintStart_toEndOf="@+id/btnAttachment"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="o"
+                tools:text="Test message" />
+
+
+            <ImageView
+                android:id="@+id/fabSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_05"
+                android:background="@drawable/shape_round_add_btn"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_send_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

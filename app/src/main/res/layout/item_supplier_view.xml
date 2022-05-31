@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value_14"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/proximanovasemibold"
+            tools:text="djaskHFJ"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_xlarge"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/clView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textcolor="@{color.textHead}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recomd_supplier"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/value_10"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/medium_margin"
+            app:background="@{color.listItemBackground}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_title">
+
+            <TextView
+                android:id="@+id/tvViewAll"
+                textcolor="@{color.appBackground}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all"
+                android:paddingStart="@dimen/value_8"
+                android:paddingEnd="@dimen/value_8"
+                android:paddingTop="@dimen/value_4"
+                android:includeFontPadding="false"
+                android:paddingBottom="@dimen/value_4"
+                android:background="@drawable/back_rec_theme_color_light_4"
+                android:layout_marginEnd="@dimen/value_16"
+                android:textSize="@dimen/text_small_medium"
+                android:fontFamily="@font/proximanovaregular"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivFwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/value_14"
+                android:paddingEnd="@dimen/value_14"
+                android:rotation="180"
+                android:src="@drawable/ic_back_black"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/ivGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/value_14"
+                android:paddingEnd="@dimen/value_14"
+                android:src="@drawable/ic_grid_view"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivList"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/ivList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/value_14"
+                android:paddingEnd="@dimen/value_14"
+                android:src="@drawable/ic_list_view"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:layout_width="wrap_content"
+                android:id="@+id/groupGridList"
+                android:visibility="gone"
+                app:constraint_referenced_ids="ivGrid,ivList"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

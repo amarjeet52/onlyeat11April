@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="drawables"
+            type="com.codebrew.clikat.utils.configurations.DrawablesConfig" />
+
+        <variable
+            name="isSupplierRating"
+            type="Boolean" />
+
+        <variable
+            name="supplierData"
+            type="com.codebrew.clikat.modal.SupplierList" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/margin8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_04"
+        app:background="@{color.appBackground}"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="@dimen/value_8"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="@dimen/value_8"
+                android:layout_marginStart="@dimen/value_8"
+                android:layout_marginBottom="@dimen/value_16"
+                app:layout_constraintDimensionRatio="H,4:3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/tvActualPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:alpha=".7"
+                android:background="@android:color/holo_red_light"
+                android:minHeight="0dp"
+                android:rotation="-20"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
+                app:layout_constraintEnd_toEndOf="@+id/image" />
+
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvStoreName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/proximanovasemibold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18"
+                app:categoryType="list_head"
+                app:layout_constraintEnd_toStartOf="@+id/icCall"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/icCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/ivStatus"
+                app:layout_constraintEnd_toStartOf="@+id/ivStatus"
+                app:layout_constraintStart_toEndOf="@+id/tvStoreName"
+                app:layout_constraintTop_toTopOf="@+id/ivStatus"
+                app:srcCompat="@drawable/ic_call"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/ivStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:drawableStart="@drawable/ic_status_online"
+                android:drawablePadding="@dimen/value_4"
+                android:gravity="center"
+                android:padding="@dimen/value_2"
+                app:categoryType="list_subhead"
+                app:openStatus="@{supplierData.open}"
+                app:isOpenStatus="@{true}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvStoreName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icCall"
+                app:layout_constraintTop_toTopOf="@+id/tvStoreName" />
+
+
+            <TextView
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:drawableTint="@color/colorPrimary"
+                android:drawableStart="@drawable/ic_star_small_yellow"
+                android:drawablePadding="@dimen/value_4"
+                tools:visibility="visible"
+                android:visibility="@{isSupplierRating ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toBottomOf="@+id/tvStoreName" />
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvReviewCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:fontFamily="@font/proximanovaregular"
+                android:textColor="@color/light_text_color"
+                android:textSize="@dimen/text_size_14"
+                tools:visibility="visible"
+                android:visibility="@{isSupplierRating ? View.VISIBLE : View.GONE}"
+                app:categoryType="list_subhead"
+                app:layout_constraintEnd_toStartOf="@+id/ivBadge"
+                app:layout_constraintStart_toEndOf="@+id/ratingBar"
+                app:layout_constraintTop_toBottomOf="@+id/tvStoreName" />
+
+            <com.codebrew.clikat.utils.customviews.ClikatImageView
+                android:id="@+id/ivBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:scaleType="center"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:src="@drawable/ic_badge_mini_gold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvReviewCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvReviewCount"
+                tools:ignore="ContentDescription" />
+
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvMinOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:gravity="start"
+                android:singleLine="true"
+                tools:text="Min Order"
+                android:text="@{@string/minimum_order(strings.order)}"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_head"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+                app:text="@{strings.minimum_order}" />
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvMinOrderValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:gravity="end"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_subhead"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvMinOrder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvMinOrder"
+                tools:text="150" />
+
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvDeliveryTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:singleLine="true"
+                android:text="@string/delivery_time"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_head"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toBottomOf="@+id/tvMinOrder"
+                app:text="@{strings.delivery_time}" />
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvDeliveryTimeValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:gravity="end"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_subhead"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvDeliveryTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvDeliveryTime" />
+
+            <androidx.constraintlayout.widget.Group
+                android:layout_width="wrap_content"
+                android:id="@+id/groupDeliveryTime"
+
+                app:constraint_referenced_ids="tvDeliveryTime,tvDeliveryTimeValue"
+                android:layout_height="wrap_content"/>
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tvPaymentOptions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:layout_marginBottom="@dimen/dp_04"
+                android:singleLine="true"
+                android:text="@string/payment_options"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_head"
+                app:layout_constraintBottom_toTopOf="@+id/tv_total_prod"
+                app:layout_constraintEnd_toStartOf="@+id/ivPaymentCard"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toBottomOf="@+id/tvDeliveryTime"
+                app:text="@{strings.payment_options}" />
+
+
+
+            <com.codebrew.clikat.utils.customviews.ClikatImageView
+                android:id="@+id/ivPaymentCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:src="@drawable/ic_payment_card"
+                app:layout_constraintEnd_toStartOf="@+id/ivPaymentCash"
+                app:layout_constraintTop_toBottomOf="@+id/tvDeliveryTime"
+                app:src="@{drawables.ic_payment_card}"
+                tools:ignore="ContentDescription" />
+
+            <com.codebrew.clikat.utils.customviews.ClikatImageView
+                android:id="@+id/ivPaymentCash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_04"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:src="@drawable/ic_payment_cash"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDeliveryTime"
+                app:src="@{drawables.ic_payment_cash}"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageView
+                android:id="@+id/ivSponser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/image"
+                app:layout_constraintTop_toTopOf="@+id/image"
+                app:srcCompat="@drawable/badge_sponsor"
+                tools:ignore="ContentDescription" />
+
+
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/tv_total_prod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="@dimen/dp_04"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:singleLine="true"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_head"
+                app:layout_constraintBottom_toTopOf="@+id/tvBookNow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:text="@{strings.payment_options}" />
+            <TextView
+                android:id="@+id/tvBookNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_small"
+                android:layout_marginTop="@dimen/value_4"
+                android:text="@string/book_now"
+                android:visibility="gone"
+                android:background="@drawable/back_rec_theme_color_solid"
+                android:paddingStart="@dimen/value_12"
+                android:paddingEnd="@dimen/value_12"
+                android:paddingTop="@dimen/value_4"
+                android:paddingBottom="@dimen/value_4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <com.codebrew.clikat.utils.customviews.ClikatTextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/product_price"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_12"
+                app:categoryType="list_head"
+                app:layout_constraintBottom_toTopOf="@+id/tvBookNow"
+                app:layout_constraintStart_toStartOf="@+id/ratingBar" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gpPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tv_total_prod,textView"
+                tools:visibility="visible" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_min_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tvMinOrderValue,tvMinOrder"
+                tools:visibility="visible" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="addressItem"
+            type="com.codebrew.clikat.data.model.api.AddressBean" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.dialog_flow.adapter.AddressListener" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/small_margin"
+    android:layout_marginTop="@dimen/dp_04"
+    android:layout_marginEnd="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/dp_04"
+    android:background="@drawable/shape_white"
+    android:onClick="@{(view) -> listener.adrslick(addressItem)}"
+    android:paddingStart="@dimen/value_12"
+    android:paddingTop="@dimen/value_8"
+    android:paddingEnd="@dimen/value_12"
+    android:paddingBottom="@dimen/value_8">
+
+    <TextView
+        android:id="@+id/tv_adrs_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_04"
+        android:fontFamily="@font/proximanovasemibold"
+        android:gravity="start"
+        android:maxLines="2"
+        android:text="@{addressItem.customer_address, default=`Head`}"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_adrs_subhead"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:textcolor="@{color.textHead}"
+        tools:text="@string/awesome_product" />
+
+    <TextView
+        android:id="@+id/tv_adrs_subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanovasemibold"
+        android:gravity="start"
+        android:maxLines="2"
+        android:text="@{addressItem.address_line_1, default=`SubHead`}"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_adrs_head"
+        app:textcolor="@{color.textHead}"
+        tools:text="asassassaassasasasasasasassasaassaasasasas" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

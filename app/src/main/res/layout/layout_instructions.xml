@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/labelHavePets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/have_pets"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_medium"/>
+
+    <RadioGroup
+        android:id="@+id/rGroupPets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelHavePets"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rButtonPetYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yes"
+            android:checked="false"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp_04" />
+
+        <RadioButton
+            android:id="@+id/rButtonPetNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:checked="false"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/dp_04"/>
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/labelParkingInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroupPets"
+        android:text="@string/parking_instructions"
+        android:textColor="@color/colorPrimary"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etParkingInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelParkingInstruction"
+        android:layout_marginTop="@dimen/value_4"
+        android:background="@drawable/shape_supplier_search"
+        android:inputType="textMultiLine"
+        android:lines="7"
+        android:hint="@string/enter_parking_instruction"
+        android:fontFamily="@font/proximanovaregular"
+        android:scrollbars="vertical"
+        android:gravity="top"
+        android:layout_marginStart="@dimen/value_4"
+        android:layout_marginEnd="@dimen/value_4"/>
+
+    <TextView
+        android:id="@+id/labelCleanerIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etParkingInstruction"
+        android:text="@string/will_someone_be_there_to_let_the_cleaner_in"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/value_4"/>
+
+    <RadioGroup
+        android:id="@+id/rGroupCleaner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelCleanerIn"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/value_4">
+
+        <RadioButton
+            android:id="@+id/rButtonCleanInYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yes"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp_04" />
+
+        <RadioButton
+            android:id="@+id/rButtonCleanInNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/dp_04"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/labelAreaFocus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroupCleaner"
+        android:text="@string/areas_to_focus"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/value_4"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etAreaFocus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelAreaFocus"
+        android:layout_marginTop="@dimen/value_4"
+        android:background="@drawable/shape_supplier_search"
+        android:inputType="textMultiLine"
+        android:lines="7"
+        android:hint="@string/area_to_focus_on"
+        android:fontFamily="@font/proximanovaregular"
+        android:scrollbars="vertical"
+        android:gravity="top"
+        android:layout_marginStart="@dimen/value_4"
+        android:layout_marginEnd="@dimen/value_4"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

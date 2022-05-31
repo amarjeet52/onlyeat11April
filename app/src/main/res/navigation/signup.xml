@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/signup"
+    app:startDestination="@id/signupFragment1">
+
+    <fragment
+        android:id="@+id/signupFragment1"
+        android:name="com.codebrew.clikat.module.signup.SignupFragment1"
+        android:label="SignupFragment1"
+        app:defaultNavHost="true">
+        <action
+            android:id="@+id/action_signupFragment1_to_signupFragment2"
+            app:destination="@id/signupFragment2" />
+
+        <action
+            android:id="@+id/action_signupFragment1_to_signupFragment3"
+            app:destination="@id/signupFragment3" />
+
+        <action
+            android:id="@+id/action_signupFragment1_to_signupFragment4"
+            app:destination="@id/signupFragment4" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment2"
+        android:name="com.codebrew.clikat.module.signup.SignupFragment2"
+        android:label="SignupFragment2"
+        app:defaultNavHost="true">
+        <action
+            android:id="@+id/action_signupFragment2_to_signupFragment3"
+            app:destination="@id/signupFragment3" />
+        <argument
+            android:name="phone_verified"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='"0"' />
+        <action
+            android:id="@+id/action_signupFragment2_to_signupFragment4"
+            app:destination="@id/signupFragment4" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupFragment3"
+        android:name="com.codebrew.clikat.module.signup.SignupFragment3"
+        android:label="SignupFragment3"
+        app:defaultNavHost="true">
+        <action
+            android:id="@+id/action_signupFragment3_to_signupFragment4"
+            app:destination="@id/signupFragment4" />
+        <argument
+            android:name="otp"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="phone"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="1"/>
+        <argument
+            android:name="phone_verified"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="0"/>
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment4"
+        android:name="com.codebrew.clikat.module.signup.SignupFragment4"
+        android:label="SignupFragment4"
+        app:defaultNavHost="true">
+
+    </fragment>
+
+
+
+</navigation>

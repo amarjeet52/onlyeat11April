@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/greyED">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/help"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_xlarge" />
+        </androidx.appcompat.widget.Toolbar>
+<TextView
+    android:id="@+id/tvHeader"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/help_order"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+    android:padding="@dimen/_10sdp"
+    android:layout_marginStart="@dimen/_10sdp"
+    app:layout_constraintStart_toStartOf="parent"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/white"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeader"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.home_screen.resturant_home.ResturantHomeFrag">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.custom_home.CustomHomeViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+        <variable
+            name="appType"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:background="@{color.appBackground}">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <include
+                android:id="@+id/toolbar_layout"
+                layout="@layout/toolbar_cus_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:color="@{color}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strings="@{strings}" />
+
+            <include
+                android:id="@+id/toolbar_clikat_layout"
+                layout="@layout/toolbar_clikat_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:color="@{color}"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strings="@{strings}" />
+
+
+        </RelativeLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_04"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch"
+            app:shimmer_duration="1200"
+            tools:visibility="gone">
+
+            <include layout="@layout/shimmer_home_layout" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="@dimen/value_8"
+            android:layout_marginStart="@dimen/value_16"
+            android:layout_marginEnd="@dimen/value_16"
+            android:layout_marginTop="@dimen/value_8"
+            android:background="@drawable/shape_search_border"
+            android:id="@+id/etSearch"
+            android:textSize="@dimen/text_size_14"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/dp_04"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:text="@string/search_"
+            app:layout_constraintTop_toBottomOf="@+id/rlToolbar"
+            android:layout_height="wrap_content"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiprRefresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_homeItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:background="@{color.listBackground}"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_supplier_product" />
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <include
+            android:id="@+id/bottom_cart"
+            layout="@layout/layout_bottom_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:color="@{color}"
+            app:strings="@{strings}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

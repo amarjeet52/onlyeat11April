@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".module.cart.VehicleListingActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_app"
+        app:color="@{color}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/view1"
+        android:background="@color/divider"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_addressList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1"
+        tools:listitem="@layout/list_vehicle_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llConatiner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/sdvAds"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,4:3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/sdvAds"
+        app:layout_constraintEnd_toEndOf="@+id/sdvAds"
+        android:src="@drawable/video_camera"
+        android:id="@+id/ivPlay"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/sdvAds"
+        app:layout_constraintTop_toTopOf="@+id/sdvAds" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

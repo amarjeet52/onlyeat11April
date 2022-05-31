@@ -1,0 +1,373 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codebrew.clikat.module.filter.FilterFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.filter.FilterViewModel" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/medium_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_gudline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/medium_margin" />
+
+
+            <TextView
+                android:id="@+id/sort_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/sort_by"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/sort_radioGroup"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:textcolor="@{color.textHead}" />
+
+            <RadioGroup
+                android:id="@+id/sort_radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/price_range_text"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/sort_text">
+
+                <RadioButton
+                    android:id="@+id/rb_lh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/price_low_to_high"
+                    android:textColor="@color/grey_8f" />
+
+                <RadioButton
+                    android:id="@+id/rb_hl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price_high_to_low"
+                    android:textColor="@color/grey_8f" />
+
+                <RadioButton
+                    android:id="@+id/rb_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/popularity"
+                    android:textColor="@color/grey_8f" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/price_range_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/price_range"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/tv_price_range"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/sort_radioGroup"
+                app:textcolor="@{color.textHead}" />
+
+
+            <TextView
+                android:id="@+id/tv_price_range"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="QAR 1000 - QAR 2000"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/rangeSeekbar"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/price_range_text"
+                app:textcolor="@{color.textSubhead}" />
+
+
+            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                android:id="@+id/rangeSeekbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:corner_radius="5"
+                app:data_type="_integer"
+                app:layout_constraintBottom_toTopOf="@+id/disc_text"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price_range"
+                app:max_value="50000"
+                app:min_value="0"
+                app:textcolor="@{color.textHead}"
+                app:thumbcolor="@{color.primaryColor}" />
+
+            <TextView
+                android:id="@+id/disc_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/disc_radioGroup"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/rangeSeekbar"
+                app:textcolor="@{color.textHead}" />
+
+            <RadioGroup
+                android:id="@+id/disc_radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/avail_text"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/disc_text">
+
+                <RadioButton
+                    android:id="@+id/rb_disc_yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yes"
+                    android:textColor="@color/grey_8f" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_disc_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textColor="@color/grey_8f" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/avail_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/availability"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/avail_radioGroup"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/disc_radioGroup"
+                app:textcolor="@{color.textHead}" />
+
+            <RadioGroup
+                android:id="@+id/avail_radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/other_text"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/avail_text">
+
+                <RadioButton
+                    android:id="@+id/rb_avail_yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yes"
+                    android:textColor="@color/grey_8f" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_avail_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textColor="@color/grey_8f" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/other_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/others"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintBottom_toTopOf="@+id/rv_varient_list"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/avail_radioGroup"
+                app:textcolor="@{color.textHead}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_varient_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintBottom_toTopOf="@+id/stub_category"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/other_text"
+                app:layout_constraintVertical_bias="0.0"
+                tools:targetApi="lollipop" />
+
+
+            <FrameLayout
+                android:id="@+id/stub_category"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/end_gudline"
+                app:layout_constraintStart_toStartOf="@id/start_gudline"
+                app:layout_constraintTop_toBottomOf="@+id/rv_varient_list" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:progessBackground="@{color.primaryColor}" />
+
+        <!--    <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_04"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shimmer_duration="1200"
+                tools:visibility="visible">
+
+                <include layout="@layout/shimmer_filter_layout"/>-->
+
+      <!--      </com.facebook.shimmer.ShimmerFrameLayout>-->
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="sort_text,sort_radioGroup"
+                tools:visibility="gone" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids=",price_range_text,tv_price_range,rangeSeekbar"
+                tools:visibility="gone" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_disc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="disc_text,disc_radioGroup"
+                tools:visibility="gone" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_avail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="avail_text,avail_radioGroup"
+                tools:visibility="gone" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="stub_category"
+                tools:visibility="gone" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gp_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="other_text,rv_varient_list"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

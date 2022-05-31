@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+  >
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_app"
+            app:color="@{color}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+   >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet"
+        style="@style/Widget.MaterialComponents.BottomSheet.Modal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnst_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:visibility="gone"
+          app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cn_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:viewstroke="@{color.search_background}">
+
+                <EditText
+                    android:id="@+id/ed_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/search_for_your_location"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:padding="@dimen/dp_04"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_search"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ic_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/ed_search"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ed_search"
+                    app:srcCompat="@drawable/ic_search" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tv_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/choose_delivery"
+            android:textColor="@color/dark_grey1"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_addressList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+android:nestedScrollingEnabled="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_choose"
+            tools:listitem="@layout/list_search_item" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addressLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@drawable/back_dark_white_gradient2"
+            android:orientation="vertical"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_addressList">
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shimmer_duration="1200"
+                tools:visibility="gone">
+
+                <include layout="@layout/shimmer_select_loc" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loc_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/medium_margin"
+                android:padding="@dimen/_10sdp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/text_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/delivery_location1"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textcolor="@{color.textHead}" />
+
+                <ImageView
+                    android:id="@+id/iv_pin"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:background="@drawable/pinyellow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_delivery"
+                    app:tint="@color/blueColor" />
+
+                <TextView
+                    android:id="@+id/text_delivery_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/dark_grey1"
+                    android:textSize="@dimen/_11sdp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@+id/iv_pin"
+                    app:layout_constraintTop_toBottomOf="@+id/text_delivery" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/small_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/small_margin" />
+
+                <TextView
+                    android:id="@+id/text_zone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/zone"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textcolor="@{color.textHead}" />
+
+                <TextView
+                    android:id="@+id/text_zone_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_zone"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toEndOf="@+id/text_zone"
+                    app:layout_constraintTop_toTopOf="@+id/text_zone"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <TextView
+                    android:id="@+id/text_street_adrs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/select_address"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_zone"
+                    app:textcolor="@{color.textHead}" />
+
+                <TextView
+                    android:id="@+id/tv_street_adrs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_street_adrs"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toEndOf="@+id/text_street_adrs"
+                    app:layout_constraintTop_toTopOf="@+id/text_street_adrs"
+                    app:textcolor="@{color.textSubhead}"
+                    tools:text="@string/long_desc" />
+
+
+                <TextView
+                    android:id="@+id/text_street_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/street_number"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_street_adrs"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <EditText
+                    android:id="@+id/ed_extra_adrs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:background="@drawable/back_white"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:inputType="text"
+                    android:padding="@dimen/small_margin"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_street_number"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <TextView
+                    android:id="@+id/text_villa_adrs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/building_villa"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/ed_extra_adrs"
+                    app:textcolor="@{color.textHead}" />
+
+
+                <EditText
+                    android:id="@+id/ed_villa_adrs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_04"
+                    android:background="@drawable/back_white"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:inputType="text"
+                    android:padding="@dimen/small_margin"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_villa_adrs"
+                    app:textcolor="@{color.textSubhead}" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save_adrs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/gradient_blue_button"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/confirm_loc"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_13sdp"
+                    app:backgroundTint="@null"
+                    app:layout_constraintEnd_toStartOf="@+id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@+id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_delivery_location" />
+
+
+                <TextView
+                    android:id="@+id/text_add"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/add_new"
+                    android:background="@drawable/gradient_blue_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+
+              android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="@id/gdline_end"
+                    app:layout_constraintStart_toStartOf="@id/gdline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_save_adrs" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.dialog_adress.AddressViewModel" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+
+    </data>
+
+</layout>
+

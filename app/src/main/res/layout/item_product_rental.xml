@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="model"
+            type="com.codebrew.clikat.modal.other.ProductDataBean" />
+
+        <variable
+            name="prodlistener"
+            type="com.codebrew.clikat.module.rental.carList.adapter.ProdListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> prodlistener.productClick(model)}"
+        android:padding="@dimen/small_margin">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+
+            app:customSrc="@{model.image_path.toString()}"
+            app:layout_constraintDimensionRatio="H,4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/round_corner" />
+
+        <TextView
+            android:id="@+id/tv_model_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovasemibold"
+            android:text="@{model.name}"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_product"
+            app:textcolor="@{color.textHead}" />
+
+        <TextView
+            android:id="@+id/tv_supplier_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{model.supplier_name}"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_model_name"
+            app:textcolor="@{color.textSubhead}" />
+
+        <TextView
+            android:id="@+id/tv_ards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginBottom="@dimen/dp_04"
+            android:fontFamily="@font/proximanovaregular"
+            android:text="@{model.supplier_address}"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_supplier_name"
+            app:textcolor="@{color.textSubhead}" />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/value_1"
+            android:layout_marginStart="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/dp_04"
+            app:background="@{color.divider}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_04"
+            android:layout_marginEnd="@dimen/dp_04"
+            android:padding="@dimen/dp_04"
+            android:text="@{String.valueOf(model.avg_rating)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_product"
+            app:ratecolor="@{model.avg_rating}"
+            app:textcolor="@{color.appBackground}"
+            app:viewstroke="@{color.rating_color}"
+            tools:text="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

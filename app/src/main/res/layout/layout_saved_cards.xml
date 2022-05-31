@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.codebrew.clikat.module.payment_gateway.savedcards.SavedCardsViewModel" />
+
+        <variable
+            name="colors"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="strings"
+            type="com.codebrew.clikat.utils.configurations.TextConfig" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryDark"
+            android:contentInsetStart="@dimen/dp_05"
+            android:contentInsetLeft="@dimen/dp_05"
+            android:elevation="@dimen/small_margin"
+            android:padding="0dp"
+            android:theme="?attr/actionBarTheme"
+            app:background="@{colors.toolbarColor}"
+            app:contentInsetEnd="@dimen/dp_05"
+            app:contentInsetLeft="@dimen/dp_05"
+            app:contentInsetRight="@dimen/dp_05"
+            app:contentInsetStart="@dimen/dp_05"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:padding="@dimen/small_margin"
+                    android:src="@drawable/ic_back_white"
+                    app:tint="@{colors.toolbarText}"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/LabelSavedCards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/proximanovasemibold"
+                    app:textcolor="@{colors.toolbarText}"
+                    android:layout_centerInParent="true"
+                    android:text="@string/saved_cards"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_large" />
+
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSavedCards"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:itemCount="1"
+            android:layout_margin="@dimen/medium_margin"
+            android:visibility="@{viewModel.isCardCount()>0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddCard"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_saved_card" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button"
+            app:rippleColor="@color/white"
+            app:background="@{colors.primaryColor}"
+            app:textcolor="@{colors.appBackground}"
+            android:textColor="@color/white"
+            android:padding="@dimen/medium_margin"
+            android:textSize="@dimen/text_size_14"
+            android:layout_margin="@dimen/medium_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            android:text="@string/add_card_d" />
+
+
+
+
+        <TextView
+            android:id="@+id/tvNoCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanovasemibold"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/no_card_found"
+            android:visibility="@{viewModel.isCardCount()==0 ? View.VISIBLE : View.GONE}"
+            android:textSize="@dimen/text_large" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

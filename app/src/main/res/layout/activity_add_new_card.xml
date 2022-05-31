@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBookingDetails"
+            android:layout_width="match_parent"
+
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_back_auto_mirrored"
+                android:drawablePadding="@dimen/value_8"
+                android:drawableTint="@color/black"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="center_vertical"
+                android:paddingStart="0dp"
+                android:paddingEnd="8dp"
+                android:text="@string/back"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/proximanovasemibold"
+                android:text="@string/add_new_card"
+                android:textColor="@color/text_dark"
+                android:textSize="15sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbarBookingDetails"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15sp">
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvYouWillText"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:maxLines="2"
+                    android:text="@string/youWillText"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvAddDebitCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/addDebCreCard"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/bg_gray_drawable">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCardNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:hint="@string/card_number"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="16"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        tools:targetApi="o" />
+
+                    <ImageView
+                        android:id="@+id/ivCard"
+                        android:layout_width="40dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="15dp"
+                        android:scaleType="fitXY" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etExpires"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gray_drawable"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:hint="@string/expires"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="7"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        tools:targetApi="o" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCvv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gray_drawable"
+                        android:fontFamily="@font/proximanovaregular"
+                        android:hint="@string/cvv"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="numberPassword"
+                        android:longClickable="false"
+                        android:maxLength="4"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        tools:targetApi="o" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvPersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="@string/personaldetails"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/bg_gray_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/name_on_card"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="text|textCapWords"
+                    android:maxLength="40"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:targetApi="o" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/bg_gray_drawable"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:hint="@string/email"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/tvSetAsDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:drawableStart="@drawable/ic_radio_unactive"
+                    android:drawablePadding="12dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:gravity="center_vertical"
+                    android:text="@string/defaultPaymentMethod"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvSaveCard"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/back_rec_theme_color_solid"
+                    android:gravity="center"
+                    android:text="@string/save"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/p_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="count"
+            type="String" />
+
+        <variable
+            name="clickListener"
+            type="com.codebrew.clikat.module.cart.adapter.ImageListAdapter.UserChatListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/proximanovasemibold"
+            android:gravity="center"
+            android:text="@{`+`+count}"
+            android:textSize="@dimen/text_xtralarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="3:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="10dip"
+            app:textcolor="@{color.textSubhead}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

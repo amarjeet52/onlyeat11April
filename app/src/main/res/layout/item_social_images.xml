@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="color"
+            type="com.codebrew.clikat.utils.configurations.ColorConfig" />
+
+        <variable
+            name="listener"
+            type="com.codebrew.clikat.module.social_post.other.adapter.ImageListener" />
+
+        <variable
+            name="dataItem"
+            type="com.codebrew.clikat.data.model.others.ImageListModel" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="deleteBtn"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/value_8"
+        app:cardCornerRadius="@dimen/value_8"
+        app:cardElevation="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/postImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:customSrc="@{dataItem.image}"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,4:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ic_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_social_delete"
+                android:onClick="@{(view) -> listener.onImageSelect(dataItem,position)}"
+                android:visibility="@{dataItem.isDeleteImage()  &amp; deleteBtn ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/postImage"
+                app:layout_constraintTop_toTopOf="@+id/postImage"
+                app:layout_constraintEnd_toEndOf="@+id/postImage"
+                app:layout_constraintStart_toStartOf="@+id/postImage"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
